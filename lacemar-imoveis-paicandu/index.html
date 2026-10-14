@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0B1226">
+<title>Lacemar — imóveis em Paiçandu</title>
+<style>
+  :root{--noite:#1A1426;--noite2:#261D38;--noite3:#33284A;--ambar:#E26D5A;--ambar2:#C25443;--gelo:#EEF0F6;--gelo2:#DDE1EC;--texto:#141A2E;--texto2:#5E6680;--sobre-noite:#AEB6D0}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--gelo);color:var(--texto);font:16px/1.55 "Trebuchet MS","Lucida Grande",Verdana,"DejaVu Sans",sans-serif;accent-color:var(--ambar)}
+  ::selection{background:var(--ambar);color:var(--noite)} :focus-visible{outline:3px solid var(--ambar);outline-offset:2px}
+  a{color:inherit}
+  .geo{font-family:"Century Gothic","URW Gothic","TeX Gyre Adventor","Avant Garde","ITC Avant Garde Gothic",Futura,sans-serif;font-weight:700;margin:0;text-wrap:balance;letter-spacing:-.01em}
+  h2,h3{margin:0}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 16px}
+  /* header */
+  header{position:absolute;top:0;left:0;right:0;z-index:5;color:#fff}
+  header .wrap{display:flex;align-items:center;gap:24px;min-height:84px}
+  .logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff}
+  .logo svg{width:46px;height:46px;flex:none}
+  .logo b{font-size:26px;line-height:1;display:block;letter-spacing:.02em}
+  .logo small{display:block;font:11px/1.2 "Trebuchet MS",Verdana,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--ambar);margin-top:4px}
+  nav{margin-left:auto;display:flex;gap:2px;flex-wrap:wrap;align-items:center}
+  nav a{text-decoration:none;padding:10px 12px;border-radius:999px;font-size:15px;color:var(--sobre-noite)}
+  nav a:hover{color:#fff;background:rgba(255,255,255,.08)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--ambar);color:var(--noite);text-decoration:none;font-weight:700;padding:12px 20px;border-radius:999px;min-height:48px;border:0;cursor:pointer;font-size:16px;transition:background .15s,transform .15s}
+  .btn:hover{background:var(--ambar2)} .btn:active{transform:translateY(1px)} .btn svg{width:22px;height:22px;flex:none}
+  nav a.btn{color:var(--noite);margin-left:8px}
+  .wpp-top{display:none}
+  /* hero: cena ocupa tudo, texto por cima */
+  .hero{position:relative;background:var(--noite);color:#fff;min-height:780px;display:flex;align-items:flex-end;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(11,18,38,.9) 0,rgba(11,18,38,.6) 40%,rgba(11,18,38,0) 70%),linear-gradient(0deg,rgba(11,18,38,.75) 0,rgba(11,18,38,0) 45%)}
+  .hero figure{margin:0;position:absolute;inset:0}
+  .hero figure svg{width:100%;height:100%;display:block}
+  .hero figcaption{position:absolute;right:16px;bottom:16px;z-index:2;font-size:12px;color:#fff;background:rgba(11,18,38,.7);padding:4px 10px;border-radius:999px}
+  .hero .wrap{position:relative;z-index:2;width:100%;padding-top:140px;padding-bottom:56px}
+  .hero h1{font-size:clamp(34px,4vw,52px);line-height:1.1;max-width:18ch;text-shadow:0 2px 24px rgba(11,18,38,.6)}
+  .hero .sub{color:var(--sobre-noite);font-size:18px;max-width:46ch;margin:16px 0 28px;text-shadow:0 1px 12px rgba(11,18,38,.8)}
+  .busca{background:rgba(20,29,56,.86);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(8px);border-radius:16px;padding:16px;display:grid;grid-template-columns:1fr 1fr 1.4fr auto;gap:12px;align-items:end;max-width:960px}
+  .busca label{display:grid;gap:4px;font-size:13px;color:var(--sobre-noite)}
+  .busca select,.busca input{font:inherit;font-size:16px;padding:10px 12px;border:1px solid var(--noite3);border-radius:10px;min-height:48px;background:#fff;color:var(--texto);width:100%;caret-color:var(--ambar)}
+  .busca .btn{min-width:170px}
+  /* vitrine */
+  .vitrine{padding:64px 0 56px}
+  .vitrine .top{display:flex;align-items:end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:24px}
+  .vitrine h2{font-size:34px} .vitrine .top p{margin:0;color:var(--texto2);font-size:15px}
+  .grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+  .ficha{background:#fff;border-radius:16px;overflow:hidden;text-decoration:none;display:flex;flex-direction:column;position:relative;box-shadow:0 8px 24px -12px rgba(20,26,46,.35)}
+  .ficha .img{aspect-ratio:4/3;overflow:hidden;background:var(--gelo2)}
+  .ficha .img svg{width:100%;height:100%;display:block}
+  .ficha .ex{position:absolute;top:12px;left:12px;background:rgba(255,255,255,.9);color:var(--texto2);font-size:12px;padding:4px 10px;border-radius:999px}
+  .ficha .in{padding:16px 18px 20px}
+  .ficha .preco{font-size:26px;font-variant-numeric:tabular-nums;color:var(--noite);display:block}
+  .ficha .preco small{font-size:14px;font-family:"Trebuchet MS",Verdana,sans-serif;font-weight:400;color:var(--texto2);margin-left:6px}
+  .ficha .tipo{margin:4px 0 0} .ficha .tipo span{color:var(--texto2)}
+  .ficha .dados{display:flex;gap:12px;margin-top:12px;font-size:14px;color:var(--texto2);font-variant-numeric:tabular-nums;flex-wrap:wrap}
+  .ficha .dados span{display:inline-flex;gap:6px;align-items:center} .ficha .dados svg{width:18px;height:18px;color:var(--ambar2)}
+  
+  .inq{background:var(--noite);color:#fff;padding:72px 0}
+  .inq .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .inq h2{font-size:34px;margin-bottom:12px} .inq p{color:var(--sobre-noite);max-width:48ch;margin:0}
+  .inq ul{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:10px} .inq li{display:flex;gap:10px;align-items:flex-start} .inq li svg{width:20px;height:20px;color:var(--ambar);flex:none;margin-top:3px}
+  .inq form{background:var(--gelo);color:var(--texto);border-radius:16px;padding:32px;display:grid;gap:12px}
+  .inq form h3{font-size:24px;margin-bottom:4px} .inq form label{font-size:14px;color:var(--texto2)}
+  .inq input{font:inherit;font-size:16px;padding:12px;border-radius:10px;border:1px solid var(--gelo2);min-height:48px;background:#fff;color:var(--texto);caret-color:var(--ambar)}
+  .inq form small{color:var(--texto2);font-size:13px}
+  /* anuncie */
+  .anuncie{padding:64px 0}
+  .anuncie .wrap{display:flex;gap:32px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+  .anuncie h2{font-size:30px} .anuncie p{color:var(--texto2);margin:8px 0 0;max-width:52ch}
+  footer{background:var(--noite2);color:var(--sobre-noite);padding:40px 0;font-size:15px}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:24px 48px;align-items:flex-start} footer b{color:#fff}
+  .selo{margin-left:auto;font-size:12px;border:1px solid var(--noite3);padding:6px 10px;border-radius:999px;align-self:center}
+  .fixo{display:none}
+  @media (max-width:960px){
+    .hero{min-height:0;display:block} .hero figure{position:relative;height:300px} .hero figcaption{bottom:12px;right:12px} .hero::before{display:none} .hero .wrap{padding-top:28px;padding-bottom:40px} .hero h1,.hero .sub{text-shadow:none}
+    .busca{grid-template-columns:1fr 1fr} .busca label:nth-child(3){grid-column:1/-1} .busca .btn{grid-column:1/-1}
+    .grid{grid-template-columns:1fr 1fr} .grid .ficha:first-child{grid-column:1/-1} .grid .ficha:first-child .img{aspect-ratio:16/9}
+    .inq .wrap,.anuncie .wrap{grid-template-columns:1fr}
+    header{position:relative;background:var(--noite)} header .wrap{flex-wrap:wrap;padding:12px 16px;gap:8px 16px} nav{margin-left:0;width:100%;flex-wrap:nowrap;overflow-x:auto;order:3} nav a{padding:10px 8px;font-size:14px;white-space:nowrap} nav .btn{display:none} .wpp-top{display:inline-flex;margin-left:auto;padding:8px 12px;min-height:44px;font-size:13px;gap:5px} .wpp-top svg{width:18px;height:18px} .logo svg{width:38px;height:38px} .logo b{font-size:22px} .logo small{font-size:10px}
+  }
+  @media (max-width:600px){
+    .grid{grid-template-columns:1fr} .ficha .img,.grid .ficha:first-child .img{aspect-ratio:3/2}
+    .vitrine h2,.inq h2{font-size:30px} .hero h1{font-size:32px} .inq form{padding:24px}
+    .busca{grid-template-columns:1fr} .busca label:nth-child(3){grid-column:auto}
+    .hero figure{height:260px} .logo{flex:1;min-width:0} .logo b{font-size:19px} .logo small{font-size:9px;letter-spacing:.06em} .logo svg{width:34px;height:34px}
+    .fixo{display:flex;position:fixed;left:16px;right:16px;bottom:16px;z-index:9;box-shadow:0 8px 24px -8px rgba(0,0,0,.5)} body{padding-bottom:88px}
+  }
+  @media (prefers-reduced-motion:no-preference){
+    .hero figure svg{animation:f 1.2s cubic-bezier(.2,.7,.2,1) both} @keyframes f{from{opacity:0;transform:scale(1.04)}to{opacity:1;transform:none}}
+  }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="wpp" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></symbol></svg>
+<header>
+  <div class="wrap">
+    <a class="logo" href="#" aria-label="Lacemar Corretora de Imóveis">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18.5" fill="none" stroke="#E26D5A" stroke-width="1.6"/><text x="20" y="27" text-anchor="middle" font-family="Charter, Georgia, serif" font-weight="700" font-size="20" fill="#E26D5A">L</text></svg>
+      <span><b class="geo">Lacemar</b><small>Imóveis · Paiçandu</small></span>
+    </a>
+    <a class="btn wpp-top" href="https://wa.me/5544999987685" target="_blank" rel="noopener" aria-label="WhatsApp (44) 99998-7685"><svg><use href="#wpp"/></svg>(44) 99998-7685</a>
+    <nav aria-label="Principal">
+      <a href="#busca">Comprar</a>
+      <a href="#anuncie">Anunciar</a>
+      <a href="#vitrine">Destaques</a>
+      <a class="btn" href="https://wa.me/5544999987685?text=Ol%C3%A1%2C%20vi%20um%20im%C3%B3vel%20no%20site%20da%20Lacemar" target="_blank" rel="noopener"><svg><use href="#wpp"/></svg>(44) 99998-7685</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="busca">
+  <figure>
+    <svg viewBox="0 0 1600 760" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Ilustração de um bairro de Paiçandu à noite, com casas iluminadas e céu estrelado">
+      <defs>
+        <linearGradient id="usky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#070C1C"/><stop offset=".55" stop-color="#101A3A"/><stop offset="1" stop-color="#2A3660"/></linearGradient>
+        <radialGradient id="umoon" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFF6DC" stop-opacity=".5"/><stop offset=".5" stop-color="#FFF6DC" stop-opacity=".12"/><stop offset="1" stop-color="#FFF6DC" stop-opacity="0"/></radialGradient>
+        <linearGradient id="uground" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A3650"/><stop offset="1" stop-color="#151D33"/></linearGradient>
+        <linearGradient id="uroad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2B3042"/><stop offset="1" stop-color="#171B28"/></linearGradient>
+        <linearGradient id="uwall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5B6382"/><stop offset="1" stop-color="#3C4461"/></linearGradient>
+        <linearGradient id="uwall2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6E6A80"/><stop offset="1" stop-color="#4A4860"/></linearGradient>
+        <linearGradient id="ulit" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE9B0"/><stop offset="1" stop-color="#F0B457"/></linearGradient>
+        <radialGradient id="uglow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFD98A" stop-opacity=".55"/><stop offset="1" stop-color="#FFD98A" stop-opacity="0"/></radialGradient>
+        <radialGradient id="utree" cx=".6" cy=".3" r=".75"><stop offset="0" stop-color="#3E5A48"/><stop offset="1" stop-color="#17251F"/></radialGradient>
+        <g id="ucasa">
+          <polygon points="220,-130 290,-154 290,-24 220,0" fill="#2F3652"/>
+          <rect x="0" y="-130" width="220" height="130" fill="url(#uwall)"/>
+          <polygon points="-14,-130 234,-130 198,-188 22,-188" fill="#3B2E3A"/>
+          <polygon points="234,-130 304,-154 266,-208 198,-188" fill="#2B2130"/>
+          <rect x="18" y="-86" width="70" height="86" fill="#3A4260"/>
+          <rect x="120" y="-98" width="48" height="44" fill="url(#ulit)"/>
+          <line x1="144" y1="-98" x2="144" y2="-54" stroke="#4A3A2A" stroke-width="3"/>
+          <rect x="182" y="-88" width="28" height="88" fill="#1E2438"/>
+          <circle cx="196" cy="-96" r="4" fill="#FFE9B0"/>
+          <polygon points="168,-96 212,-96 230,0 150,0" fill="#FFD98A" opacity=".12"/>
+          <rect x="236" y="-110" width="30" height="36" transform="skewY(-19)" fill="#F0B457" opacity=".6"/>
+        </g>
+        <g id="usob">
+          <polygon points="200,-230 260,-252 260,-22 200,0" fill="#3A3C58"/>
+          <rect x="0" y="-230" width="200" height="230" fill="url(#uwall2)"/>
+          <rect x="-10" y="-242" width="220" height="14" fill="#2B2436"/><polygon points="210,-242 270,-264 270,-252 210,-230" fill="#201A2A"/>
+          <rect x="22" y="-206" width="52" height="60" fill="url(#ulit)"/>
+          <rect x="96" y="-206" width="52" height="60" fill="#2A3350"/>
+          <rect x="166" y="-206" width="22" height="60" fill="url(#ulit)"/>
+          <rect x="0" y="-120" width="200" height="6" fill="#E26D5A" opacity=".55"/>
+          <rect x="16" y="-96" width="92" height="96" fill="#3A3E58"/>
+          <rect x="128" y="-100" width="36" height="100" fill="#1E2438"/>
+          <rect x="172" y="-94" width="20" height="54" fill="url(#ulit)"/>
+          <rect x="208" y="-146" width="36" height="44" transform="skewY(-20)" fill="#F0B457" opacity=".5"/>
+        </g>
+        <g id="uarv"><rect x="-7" y="-70" width="14" height="80" fill="#1B1914"/><circle cx="0" cy="-120" r="56" fill="url(#utree)"/><circle cx="-38" cy="-92" r="38" fill="url(#utree)"/><circle cx="40" cy="-96" r="40" fill="url(#utree)"/></g>
+        <g id="uposte"><rect x="-3" y="-150" width="6" height="150" fill="#1E2438"/><path d="M0 -148 Q30 -154 34 -130" stroke="#1E2438" stroke-width="5" fill="none"/><circle cx="36" cy="-126" r="7" fill="#FFE9B0"/><circle cx="36" cy="-126" r="60" fill="url(#uglow)"/><polygon points="6,-124 66,-124 120,0 -50,0" fill="#FFD98A" opacity=".08"/></g>
+      </defs>
+      <rect width="1600" height="760" fill="url(#usky)"/>
+      <!-- estrelas -->
+      <g fill="#fff">
+        <circle cx="120" cy="80" r="1.6"/><circle cx="260" cy="140" r="1.2"/><circle cx="380" cy="60" r="2"/><circle cx="520" cy="190" r="1.3"/><circle cx="640" cy="90" r="1.6"/><circle cx="760" cy="150" r="1.1"/><circle cx="880" cy="40" r="1.8"/><circle cx="1010" cy="120" r="1.4"/><circle cx="1140" cy="70" r="1.2"/><circle cx="1300" cy="160" r="1.7"/><circle cx="1420" cy="50" r="1.3"/><circle cx="1540" cy="130" r="1.9"/>
+        <circle cx="60" cy="220" r="1"/><circle cx="200" cy="260" r="1.3"/><circle cx="440" cy="250" r="1"/><circle cx="700" cy="230" r="1.5"/><circle cx="960" cy="260" r="1"/><circle cx="1200" cy="220" r="1.4"/><circle cx="1480" cy="250" r="1.1"/><circle cx="330" cy="330" r="1"/><circle cx="820" cy="320" r="1.2"/><circle cx="1360" cy="330" r="1"/>
+        <circle cx="580" cy="30" r="1"/><circle cx="1240" cy="30" r="1.2"/><circle cx="160" cy="360" r=".9"/><circle cx="1060" cy="380" r="1"/>
+      </g>
+      <g fill="#fff" opacity=".9"><circle cx="1180" cy="170" r="2.6"/><circle cx="420" cy="120" r="2.4"/></g>
+      <!-- lua -->
+      <circle cx="1280" cy="160" r="150" fill="url(#umoon)"/>
+      <circle cx="1280" cy="160" r="44" fill="#FFF6DC"/>
+      <circle cx="1266" cy="150" r="8" fill="#F0E6C8" opacity=".7"/><circle cx="1292" cy="176" r="6" fill="#F0E6C8" opacity=".7"/><circle cx="1290" cy="146" r="4" fill="#F0E6C8" opacity=".6"/>
+      <!-- silhueta de morro e caixa d'água da cidade -->
+      <path d="M0 470 C 200 430, 420 480, 640 450 S 1060 420, 1300 460 S 1500 440, 1600 455 L1600 520 L0 520Z" fill="#1A2340"/>
+      <g fill="#111829"><rect x="1100" y="380" width="10" height="90"/><rect x="1080" y="356" width="50" height="40" rx="6"/></g>
+      <circle cx="1105" cy="352" r="3" fill="#FF6B5A"/>
+      <!-- chão -->
+      <rect y="500" width="1600" height="260" fill="url(#uground)"/>
+      <!-- casas ao fundo -->
+      <use href="#usob" transform="translate(1180,560) scale(.55)"/>
+      <use href="#ucasa" transform="translate(960,562) scale(.6)"/>
+      <use href="#uarv" transform="translate(1140,566) scale(.55)"/>
+      <use href="#ucasa" transform="translate(180,566) scale(.6)"/>
+      <use href="#usob" transform="translate(380,564) scale(.55)"/>
+      <!-- casas da frente -->
+      <use href="#usob" transform="translate(560,600) scale(.9)"/>
+      <use href="#ucasa" transform="translate(880,600) scale(.95)"/>
+      <use href="#uarv" transform="translate(840,606) scale(.95)"/>
+      <use href="#uarv" transform="translate(500,606) scale(1.1)"/>
+      <use href="#ucasa" transform="translate(1260,604) scale(.95)"/>
+      <use href="#uarv" transform="translate(1560,606) scale(.9)"/>
+      <use href="#usob" transform="translate(40,604) scale(.9)"/>
+      <!-- muros baixos -->
+      <rect x="0" y="588" width="520" height="14" fill="#3C4461"/><rect x="1180" y="588" width="420" height="14" fill="#3C4461"/>
+      <!-- calçada e rua -->
+      <rect y="606" width="1600" height="26" fill="#3A4160"/>
+      <rect y="632" width="1600" height="128" fill="url(#uroad)"/>
+      <g fill="#8C8F9C" opacity=".6"><rect x="60" y="690" width="70" height="4"/><rect x="220" y="690" width="70" height="4"/><rect x="380" y="690" width="70" height="4"/><rect x="540" y="690" width="70" height="4"/><rect x="700" y="690" width="70" height="4"/><rect x="860" y="690" width="70" height="4"/><rect x="1020" y="690" width="70" height="4"/><rect x="1180" y="690" width="70" height="4"/><rect x="1340" y="690" width="70" height="4"/><rect x="1500" y="690" width="70" height="4"/></g>
+      <!-- postes -->
+      <use href="#uposte" transform="translate(760,606)"/>
+      <use href="#uposte" transform="translate(1440,606) scale(.9)"/>
+      <use href="#uposte" transform="translate(300,606) scale(.9)"/>
+      <!-- carro parado com farol -->
+      <g transform="translate(1040,660)">
+        <ellipse cx="90" cy="50" rx="104" ry="10" fill="#000" opacity=".4"/>
+        <path d="M0 42 L6 20 Q10 12 20 12 L44 12 L64 -8 Q68 -12 76 -12 L136 -12 Q144 -12 148 -6 L166 12 L184 16 Q192 18 192 26 L192 42 Z" fill="#3E4A6E"/>
+        <path d="M48 12 L66 -6 L100 -6 L100 12Z" fill="#6C7AA0" opacity=".7"/><path d="M108 -6 L138 -6 L154 12 L108 12Z" fill="#6C7AA0" opacity=".6"/>
+        <circle cx="44" cy="42" r="14" fill="#15171E"/><circle cx="44" cy="42" r="6" fill="#8A8F9C"/><circle cx="150" cy="42" r="14" fill="#15171E"/><circle cx="150" cy="42" r="6" fill="#8A8F9C"/>
+        <rect x="186" y="24" width="8" height="8" fill="#FFF6DC"/><polygon points="194,24 280,10 280,46 194,32" fill="#FFF6DC" opacity=".18"/>
+        <rect x="0" y="24" width="6" height="8" fill="#FF6B5A"/>
+      </g>
+    </svg>
+    <figcaption>Ilustração de exemplo — no site real entra a foto da fachada ou de um imóvel.</figcaption>
+  </figure>
+  <div class="wrap">
+    <h1 class="geo">Casas, apartamentos e terrenos em Paiçandu, com o interessado falando direto com vocês</h1>
+    <p class="sub">Compra e venda de imóveis em Paiçandu e região. Escolheu o imóvel, chama a equipe no WhatsApp na hora.</p>
+    <form class="busca" onsubmit="return false" aria-label="Buscar imóveis">
+      <label>Finalidade <select><option>Comprar</option></select></label>
+      <label>Tipo <select><option>Casa</option><option>Apartamento</option><option>Chácara</option><option>Terreno</option><option>Sala comercial</option></select></label>
+      <label>Bairro <input list="bairros" placeholder="Centro, Parque Bela Vista…"><datalist id="bairros"><option>Centro</option><option>Parque Bela Vista</option><option>Jardim Esplanada</option><option>Jardim Paulista</option><option>Jardim Monte Carlo</option><option>Jardim Montreal</option></datalist></label>
+      <button class="btn" type="button">Buscar imóveis</button>
+    </form>
+  </div>
+</section>
+
+<section class="vitrine" id="vitrine">
+  <div class="wrap">
+    <div class="top">
+      <h2 class="geo">Imóveis em destaque</h2>
+      <p>Fichas e valores ilustrativos. No site real, a vitrine mostra os anúncios ativos da Lacemar.</p>
+    </div>
+    <div class="grid">
+
+      <a class="ficha" href="#">
+        <div class="img">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração de casa térrea com garagem coberta">
+            <defs>
+              <linearGradient id="u1sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6FA0D0"/><stop offset="1" stop-color="#E7EEF2"/></linearGradient>
+              <linearGradient id="u1roof" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3B4463"/><stop offset="1" stop-color="#5E6888"/></linearGradient>
+              <linearGradient id="u1wall" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#E6E3DC"/><stop offset="1" stop-color="#F8F6F1"/></linearGradient>
+              <linearGradient id="u1glass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#DCE8F2"/><stop offset="1" stop-color="#9DB8D0"/></linearGradient>
+              <radialGradient id="u1tree" cx=".65" cy=".3" r=".75"><stop offset="0" stop-color="#9CC364"/><stop offset="1" stop-color="#2F5A2E"/></radialGradient>
+            </defs>
+            <rect width="400" height="300" fill="url(#u1sky)"/>
+            <ellipse cx="90" cy="60" rx="60" ry="14" fill="#fff" opacity=".9"/><ellipse cx="320" cy="44" rx="46" ry="12" fill="#fff" opacity=".8"/>
+            <rect y="196" width="400" height="104" fill="#86A75C"/>
+            <polygon points="70,232 110,232 30,286 -10,286" fill="#2B4A28" opacity=".3"/>
+            <polygon points="262,122 332,100 332,212 262,232" fill="#C9C4B8"/>
+            <polygon points="78,122 262,122 262,232 78,232" fill="url(#u1wall)"/>
+            <polygon points="62,122 278,122 246,70 100,70" fill="url(#u1roof)"/>
+            <polygon points="278,122 348,100 312,54 246,70" fill="#2E354F"/>
+            <rect x="62" y="119" width="216" height="6" fill="#262C42"/>
+            <!-- garagem coberta aberta -->
+            <rect x="88" y="150" width="80" height="82" fill="#3A3E58"/>
+            <g stroke="#E6E3DC" stroke-width="5"><line x1="92" y1="150" x2="92" y2="232"/><line x1="164" y1="150" x2="164" y2="232"/></g>
+            <rect x="82" y="144" width="92" height="8" fill="#E26D5A" opacity=".9"/>
+            <rect x="182" y="150" width="40" height="36" fill="url(#u1glass)" stroke="#3B4463" stroke-width="3"/>
+            <line x1="202" y1="150" x2="202" y2="186" stroke="#3B4463" stroke-width="2"/>
+            <rect x="232" y="160" width="22" height="72" fill="#262C42"/>
+            <rect x="282" y="220" width="26" height="30" transform="skewY(-17)" fill="#DCE8F2" opacity=".9"/>
+            <polygon points="88,232 168,232 190,300 50,300" fill="#C9C2B2"/>
+            <polygon points="0,290 400,276 400,300 0,300" fill="#B5B0A4"/>
+            <rect x="180" y="238" width="190" height="14" fill="#E6E3DC"/><rect x="180" y="234" width="190" height="4" fill="#E26D5A"/>
+            <rect x="358" y="170" width="10" height="66" fill="#5A3E2A"/>
+            <circle cx="362" cy="140" r="34" fill="url(#u1tree)"/><circle cx="340" cy="160" r="24" fill="url(#u1tree)"/><circle cx="386" cy="162" r="26" fill="url(#u1tree)"/>
+            <circle cx="40" cy="236" r="16" fill="url(#u1tree)"/><circle cx="62" cy="240" r="12" fill="url(#u1tree)"/>
+          </svg>
+        </div>
+        <span class="ex">exemplo</span>
+        <div class="in">
+          <b class="geo preco">R$ 289.000</b>
+          <p class="tipo">Casa térrea com garagem coberta <span>· Parque Bela Vista, Paiçandu</span></p>
+          <div class="dados">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 18v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6M3 18h18M5 10V7a2 2 0 0 1 2-2h4v5"/></svg>2 quartos</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16v16H4zM4 12h16M12 4v16"/></svg>90 m²</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 17h14M6 17l1.5-6h9L18 17M7 20h2M15 20h2"/></svg>2 vagas</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="ficha" href="#">
+        <div class="img">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração de chácara com casa e pomar">
+            <defs>
+              <linearGradient id="u2sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6FA0D0"/><stop offset="1" stop-color="#EAF0E6"/></linearGradient>
+              <linearGradient id="u2grass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A3BE6C"/><stop offset="1" stop-color="#6A8A47"/></linearGradient>
+              <linearGradient id="u2roof" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9E4A30"/><stop offset="1" stop-color="#D0765A"/></linearGradient>
+              <radialGradient id="u2tree" cx=".65" cy=".3" r=".75"><stop offset="0" stop-color="#A9CC6B"/><stop offset="1" stop-color="#3F6B36"/></radialGradient>
+              <g id="u2arv"><rect x="-4" y="-30" width="8" height="34" fill="#6B4A32"/><circle cx="0" cy="-44" r="24" fill="url(#u2tree)"/><circle cx="-16" cy="-32" r="16" fill="url(#u2tree)"/><circle cx="16" cy="-34" r="16" fill="url(#u2tree)"/><circle cx="-6" cy="-50" r="3" fill="#E26D5A"/><circle cx="8" cy="-40" r="3" fill="#E26D5A"/><circle cx="-14" cy="-30" r="3" fill="#E26D5A"/></g>
+            </defs>
+            <rect width="400" height="300" fill="url(#u2sky)"/>
+            <circle cx="340" cy="60" r="60" fill="#FFF8DC" opacity=".5"/><circle cx="340" cy="60" r="18" fill="#FFF8DC"/>
+            <g fill="#fff" opacity=".85"><ellipse cx="100" cy="60" rx="56" ry="14"/><ellipse cx="136" cy="50" rx="36" ry="16"/></g>
+            <path d="M0 150 C 100 120, 220 150, 320 130 S 400 120, 400 140 L400 180 L0 180Z" fill="#8CAB74" opacity=".7"/>
+            <rect y="170" width="400" height="130" fill="url(#u2grass)"/>
+            <path d="M0 300 C 80 260, 120 240, 200 226 L230 226 C 160 250, 110 270, 70 300Z" fill="#C9A978" opacity=".9"/>
+            <polygon points="236,120 296,104 296,214 236,230" fill="#C8B79E"/>
+            <rect x="96" y="120" width="140" height="110" fill="#F6EDE0"/>
+            <polygon points="84,120 248,120 220,80 112,80" fill="url(#u2roof)"/>
+            <polygon points="248,120 308,104 280,66 220,80" fill="#86412A"/>
+            <rect x="84" y="117" width="164" height="6" fill="#6E3420"/>
+            <rect x="84" y="176" width="152" height="6" fill="#86412A"/>
+            <g fill="#F6EDE0" stroke="#86412A" stroke-width="2"><rect x="92" y="182" width="6" height="48"/><rect x="140" y="182" width="6" height="48"/><rect x="188" y="182" width="6" height="48"/><rect x="226" y="182" width="6" height="48"/></g>
+            <rect x="96" y="208" width="140" height="22" fill="#D9CDB3"/>
+            <rect x="150" y="186" width="26" height="44" fill="#5A3A2A"/>
+            <rect x="108" y="134" width="30" height="30" fill="#DCE8F2" stroke="#8C5A3E" stroke-width="3"/><rect x="190" y="134" width="30" height="30" fill="#DCE8F2" stroke="#8C5A3E" stroke-width="3"/>
+            <use href="#u2arv" transform="translate(40,240) scale(1.1)"/><use href="#u2arv" transform="translate(300,200) scale(.8)"/><use href="#u2arv" transform="translate(350,190) scale(.7)"/><use href="#u2arv" transform="translate(380,236) scale(1)"/>
+            <g fill="#C9A978"><rect x="250" y="222" width="4" height="20"/><rect x="270" y="222" width="4" height="20"/><rect x="290" y="222" width="4" height="20"/><rect x="246" y="228" width="52" height="3"/><rect x="246" y="236" width="52" height="3"/></g>
+          </svg>
+        </div>
+        <span class="ex">exemplo</span>
+        <div class="in">
+          <b class="geo preco">R$ 540.000</b>
+          <p class="tipo">Chácara com pomar <span>· Estrada Paiçandu–Água Boa</span></p>
+          <div class="dados">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 18v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6M3 18h18M5 10V7a2 2 0 0 1 2-2h4v5"/></svg>3 quartos</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16v16H4zM4 12h16M12 4v16"/></svg>4.000 m² de área</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Poço artesiano</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="ficha" href="#">
+        <div class="img">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração de apartamento em prédio com sacadas">
+            <defs>
+              <linearGradient id="u3sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4C6FA3"/><stop offset=".6" stop-color="#B9A5B5"/><stop offset="1" stop-color="#F3C08A"/></linearGradient>
+              <linearGradient id="u3wall" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#D9CDB3"/><stop offset="1" stop-color="#F3E7CF"/></linearGradient>
+              <linearGradient id="u3glass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE9A8"/><stop offset="1" stop-color="#F3B35A"/></linearGradient>
+              <linearGradient id="u3cold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9FB6CC"/><stop offset="1" stop-color="#6E88A4"/></linearGradient>
+              <radialGradient id="u3tree" cx=".7" cy=".3" r=".75"><stop offset="0" stop-color="#9CC364"/><stop offset="1" stop-color="#2F5A2E"/></radialGradient>
+            </defs>
+            <rect width="400" height="300" fill="url(#u3sky)"/>
+            <circle cx="60" cy="190" r="110" fill="#FFF3CC" opacity=".3"/><circle cx="60" cy="190" r="20" fill="#FFF2C8"/>
+            <rect y="236" width="400" height="64" fill="#7F9B5B"/>
+            <polygon points="0,266 400,258 400,300 0,300" fill="#48464B"/><rect y="260" width="400" height="8" fill="#D2C9B8"/>
+            <polygon points="246,30 300,46 300,262 246,262" fill="#A89C84"/>
+            <rect x="124" y="30" width="122" height="232" fill="url(#u3wall)"/>
+            <rect x="118" y="24" width="134" height="8" fill="#3B4463"/><polygon points="252,24 306,40 306,48 252,32" fill="#262C42"/>
+            <g id="u3andar">
+              <rect x="138" y="48" width="44" height="30" fill="url(#u3glass)"/><rect x="196" y="48" width="38" height="30" fill="url(#u3cold)"/>
+              <rect x="132" y="78" width="56" height="7" fill="#C9B995"/><rect x="132" y="60" width="56" height="18" fill="#B8D4E0" opacity=".55"/>
+              <g stroke="#3B4463" stroke-width="1.5"><line x1="132" y1="60" x2="132" y2="78"/><line x1="146" y1="60" x2="146" y2="78"/><line x1="160" y1="60" x2="160" y2="78"/><line x1="174" y1="60" x2="174" y2="78"/><line x1="188" y1="60" x2="188" y2="78"/><line x1="132" y1="60" x2="188" y2="60"/></g>
+              <rect x="258" y="-31" width="28" height="30" transform="skewY(17)" fill="#E9CF9A" opacity=".6"/>
+            </g>
+            <use href="#u3andar" transform="translate(0,42)"/><use href="#u3andar" transform="translate(0,84)"/><use href="#u3andar" transform="translate(0,126)"/>
+            <rect x="124" y="214" width="122" height="48" fill="#CDBF9F"/><rect x="172" y="222" width="30" height="40" fill="#262C42"/><rect x="166" y="214" width="42" height="8" fill="#E26D5A"/>
+            <rect x="136" y="226" width="22" height="22" fill="url(#u3glass)"/><rect x="216" y="226" width="22" height="22" fill="url(#u3glass)"/>
+            <polygon points="300,262 246,262 360,290 400,290 400,268" fill="#2B4A28" opacity=".3"/>
+            <rect x="52" y="200" width="7" height="60" fill="#5A3E2A"/><circle cx="56" cy="186" r="28" fill="url(#u3tree)"/><circle cx="36" cy="200" r="18" fill="url(#u3tree)"/><circle cx="78" cy="202" r="18" fill="url(#u3tree)"/>
+            <rect x="352" y="196" width="7" height="64" fill="#5A3E2A"/><circle cx="356" cy="182" r="26" fill="url(#u3tree)"/><circle cx="376" cy="200" r="16" fill="url(#u3tree)"/>
+            <rect x="328" y="186" width="4" height="74" fill="#4A4A4A"/><circle cx="330" cy="184" r="5" fill="#FFE39A"/>
+          </svg>
+        </div>
+        <span class="ex">exemplo</span>
+        <div class="in">
+          <b class="geo preco">R$ 235.000</b>
+          <p class="tipo">Apartamento com sacada <span>· Centro, Paiçandu</span></p>
+          <div class="dados">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 18v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6M3 18h18M5 10V7a2 2 0 0 1 2-2h4v5"/></svg>2 quartos</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16v16H4zM4 12h16M12 4v16"/></svg>60 m²</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 17h14M6 17l1.5-6h9L18 17M7 20h2M15 20h2"/></svg>1 vaga</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section class="anuncie" id="anuncie">
+  <div class="wrap">
+    <div><h2 class="geo">Quer vender seu imóvel em Paiçandu?</h2><p>A Lacemar faz a avaliação, as fotos e a divulgação. Mande o endereço pelo WhatsApp e a equipe retorna com o próximo passo.</p></div>
+    <a class="btn" href="https://wa.me/5544999987685?text=Ol%C3%A1%2C%20quero%20anunciar%20um%20im%C3%B3vel%20com%20a%20Lacemar" target="_blank" rel="noopener">Anunciar meu imóvel</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><b>Lacemar Corretora de Imóveis</b><br>Paiçandu/PR</div>
+    <div><b>WhatsApp</b><br><a href="https://wa.me/5544999987685">(44) 99998-7685</a></div>
+    <div><b>E-mail</b><br><a href="mailto:cesar-henrique@hotmail.com">cesar-henrique@hotmail.com</a></div>
+    <div class="selo">Prévia · proposta de site</div>
+  </div>
+</footer>
+<a class="btn fixo" href="https://wa.me/5544999987685" target="_blank" rel="noopener">WhatsApp da Lacemar</a>
+</body>
+</html>
