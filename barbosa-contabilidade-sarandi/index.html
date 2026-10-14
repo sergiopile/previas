@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#2F3237">
+<title>Barbosa Contabilidade — escritório contábil em Sarandi/PR</title>
+<style>
+  :root{--grafite:#2F3237;--grafite2:#3E4248;--osso:#F7F5F0;--osso2:#ECE8DF;--tinta:#1F3A93;--tinta2:#172C72;--carimbo:#C8322B;--texto:#24262B;--texto2:#666A72;--pauta:#C9D3E8}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--osso);color:var(--texto);font:16px/1.6 "Helvetica Neue",Helvetica,"TeX Gyre Heros","Liberation Sans",Arial,sans-serif;accent-color:var(--tinta)}
+  ::selection{background:var(--tinta);color:#fff} :focus-visible{outline:3px solid var(--tinta);outline-offset:2px}
+  a{color:inherit}
+  h1,h2,h3,.serif{font-family:Charter,"Bitstream Charter",Cambria,Caladea,"Iowan Old Style",Georgia,serif;font-weight:700;margin:0;text-wrap:balance;letter-spacing:-.01em}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 16px}
+  /* header */
+  header{background:var(--osso);border-bottom:1px solid var(--osso2)}
+  header .wrap{display:flex;align-items:center;gap:24px;min-height:80px}
+  .logo{display:flex;align-items:center;text-decoration:none;color:var(--texto)}
+  .logo svg{width:170px;height:44px;display:block}
+  nav{margin-left:auto;display:flex;gap:2px;flex-wrap:wrap;align-items:center}
+  nav a{text-decoration:none;padding:10px 12px;border-radius:6px;font-size:15px;color:var(--texto2)}
+  nav a:hover{color:var(--texto);background:var(--osso2)}
+  nav a.cli{color:var(--tinta);border:1px solid var(--tinta);margin:0 6px} nav a.cli:hover{background:var(--tinta);color:#fff}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--tinta);color:#fff;text-decoration:none;font-weight:700;padding:12px 18px;border-radius:6px;min-height:48px;border:0;cursor:pointer;font-size:16px;transition:background .15s,transform .15s}
+  .btn:hover{background:var(--tinta2)} .btn:active{transform:translateY(1px)} .btn svg{width:22px;height:22px;flex:none}
+  .btn.sec{background:transparent;color:var(--texto);border:1px solid #C8C3B8} .btn.sec:hover{background:var(--osso2)}
+  .btn.car{background:var(--carimbo)} .btn.car:hover{background:#A8271F}
+  .wpp-top{display:none} .short{display:none}
+  /* hero tipográfico */
+  .hero{padding:64px 0 48px}
+  .hero .wrap{display:grid;grid-template-columns:7fr 5fr;gap:48px;align-items:end}
+  .hero h1{font-size:clamp(34px,4.2vw,56px);line-height:1.08}
+  .hero p{color:var(--texto2);font-size:18px;max-width:46ch;margin:20px 0 28px}
+  .hero .acoes{display:flex;gap:12px;flex-wrap:wrap}
+  .hero .lado{border-left:3px solid var(--carimbo);padding-left:20px;color:var(--texto2);font-size:15px;line-height:1.7}
+  .hero .lado b{display:block;color:var(--texto);font-size:16px}
+  /* cena em faixa */
+  .cena{position:relative;background:var(--grafite);margin:0}
+  .cena svg{display:block;width:100%;height:auto}
+  .cena figcaption{position:absolute;left:max(16px,calc((100vw - 1200px)/2 + 16px));bottom:16px;font-size:12px;color:#fff;background:rgba(47,50,55,.85);padding:4px 10px;border-radius:6px}
+  /* celular */
+  .cel{padding:64px 0 56px}
+  .cel h2{font-size:34px;margin-bottom:8px} .cel .intro{color:var(--texto2);max-width:60ch;margin:0 0 28px}
+  .tiles{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:20px}
+  .tile{background:#fff;border-radius:10px;overflow:hidden;text-decoration:none;display:flex;flex-direction:column;border:1px solid var(--osso2)}
+  .tile .img{background:var(--osso2);aspect-ratio:3/2;overflow:hidden} .tile .img svg{width:100%;height:100%;display:block}
+  .tiles .tile:first-child .img{aspect-ratio:16/9}
+  .tile .in{padding:16px 18px 20px} .tile h3{font-size:22px} .tile p{margin:6px 0 0;color:var(--texto2);font-size:15px}
+  /* serviços */
+  .serv{background:var(--grafite);color:#fff;padding:72px 0}
+  .serv .wrap{display:grid;grid-template-columns:1fr 2fr;gap:48px}
+  .serv h2{font-size:36px} .serv .reg{margin:16px 0 0;color:#B9BDC4;font-size:15px}
+  .serv ul{list-style:none;padding:0;margin:0;columns:2;column-gap:48px}
+  .serv li{break-inside:avoid;padding:12px 0;border-bottom:1px solid var(--grafite2)} .serv li b{display:block} .serv li span{color:#B9BDC4;font-size:15px}
+  /* docs + 2ª via */
+  .docs{padding:72px 0}
+  .docs .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+  .docs h2{font-size:32px;margin-bottom:12px} .docs p{color:var(--texto2);max-width:50ch;margin:0 0 16px}
+  .docs form{background:#fff;border-radius:10px;padding:24px;display:grid;gap:12px;border:1px solid var(--osso2)}
+  .docs label{font-size:14px;color:var(--texto2)}
+  .docs select,.docs input{font:inherit;font-size:16px;padding:12px;border-radius:6px;border:1px solid #C8C3B8;min-height:48px;width:100%;caret-color:var(--tinta);background:#fff;color:var(--texto)}
+  .drop{border:2px dashed #C8C3B8;border-radius:6px;padding:24px;text-align:center;color:var(--texto2)}
+  .docs .tinta{background:var(--tinta);color:#fff;border:0} .docs .tinta label{color:var(--pauta)} .docs .tinta h3{font-size:24px;margin-bottom:4px} .docs .tinta small{color:var(--pauta);font-size:13px}
+  .docs .tinta .btn{background:#fff;color:var(--tinta)} .docs .tinta .btn:hover{background:var(--osso2)}
+  footer{background:var(--grafite);color:#B9BDC4;padding:40px 0;font-size:15px}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:24px 48px;align-items:flex-start} footer b{color:#fff}
+  .selo{margin-left:auto;font-size:12px;border:1px solid var(--grafite2);padding:6px 10px;border-radius:6px;align-self:center}
+  .fixo{display:none}
+  @media (max-width:960px){
+    .hero{padding:40px 0 32px} .hero .wrap{grid-template-columns:1fr;gap:28px}
+    .tiles{grid-template-columns:1fr 1fr} .tiles .tile:first-child{grid-column:1/-1}
+    .serv .wrap,.docs .wrap{grid-template-columns:1fr;gap:32px}
+    header .wrap{flex-wrap:wrap;padding:12px 16px;gap:8px 10px} nav{margin-left:0;width:100%;flex-wrap:nowrap;overflow-x:auto;order:3} nav a{padding:10px 6px;font-size:13.5px;white-space:nowrap} nav .btn{display:none} nav a.cli{margin:0 0 0 4px} .short{display:inline} .long{display:none}
+    .wpp-top{display:inline-flex;margin-left:auto;padding:8px 9px;min-height:44px;font-size:12.5px;gap:4px} .wpp-top svg{width:18px;height:18px}
+    .logo svg{width:140px;height:36px}
+  }
+  @media (max-width:600px){
+    .tiles{grid-template-columns:1fr} .tile .img,.tiles .tile:first-child .img{aspect-ratio:16/9}
+    .hero h1{font-size:34px} .cel h2,.serv h2,.docs h2{font-size:28px} .serv ul{columns:1}
+    .cena svg{height:280px;object-fit:cover}
+    .fixo{display:flex;position:fixed;left:16px;right:16px;bottom:16px;z-index:9;box-shadow:0 8px 24px -8px rgba(0,0,0,.5)} body{padding-bottom:88px}
+  }
+  @media (prefers-reduced-motion:no-preference){
+    .hero h1,.hero p,.hero .acoes{animation:f .8s cubic-bezier(.2,.7,.2,1) both} .hero p{animation-delay:.08s} .hero .acoes{animation-delay:.16s} @keyframes f{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="wpp" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></symbol></svg>
+<header>
+  <div class="wrap">
+    <a class="logo" href="#" aria-label="Barbosa Contabilidade">
+      <svg viewBox="0 0 170 44" aria-hidden="true">
+        <text x="0" y="24" font-family="Charter,'Bitstream Charter',Cambria,Caladea,Georgia,serif" font-weight="700" font-size="27" letter-spacing="-.3" fill="#24262B">Barbosa</text>
+        <line x1="0" y1="30" x2="106" y2="30" stroke="#1F3A93" stroke-width="2"/>
+        <line x1="0" y1="34" x2="106" y2="34" stroke="#C8322B" stroke-width="1"/>
+        <text x="0" y="43" font-family="'Helvetica Neue',Arial,sans-serif" font-size="8.5" letter-spacing="2.2" fill="#666A72">CONTABILIDADE · SARANDI</text>
+      </svg>
+    </a>
+    <a class="btn wpp-top" href="https://wa.me/5544998481716" target="_blank" rel="noopener" aria-label="WhatsApp (44) 99848-1716"><svg><use href="#wpp"/></svg>(44) 99848-1716</a>
+    <nav aria-label="Principal">
+      <a href="#servicos">Serviços</a>
+      <a href="#documentos"><span class="long">Envie seus documentos</span><span class="short">Documentos</span></a>
+      <a href="#honorarios"><span class="long">2ª via de honorários</span><span class="short">2ª via</span></a>
+      <a class="cli" href="#honorarios">Área do cliente</a>
+      <a class="btn" href="https://wa.me/5544998481716?text=Ol%C3%A1%2C%20quero%20uma%20proposta%20da%20Barbosa%20Contabilidade" target="_blank" rel="noopener"><svg><use href="#wpp"/></svg>(44) 99848-1716</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <h1>Contabilidade em Sarandi com as guias no seu WhatsApp antes do vencimento</h1>
+      <p>Abertura de empresa, impostos, folha e honorários num lugar só, para o comércio e os prestadores de serviço de Sarandi. Escritório na Rua Júlio Dvoranen, 250, no Centro.</p>
+      <div class="acoes">
+        <a class="btn" href="https://wa.me/5544998481716?text=Ol%C3%A1%2C%20quero%20uma%20proposta%20da%20Barbosa%20Contabilidade" target="_blank" rel="noopener"><svg><use href="#wpp"/></svg>Pedir proposta pelo WhatsApp</a>
+        <a class="btn sec" href="#documentos">Enviar documentos</a>
+      </div>
+    </div>
+    <div class="lado">
+      <b>Escritório</b>
+      Rua Júlio Dvoranen, 250 — Centro, Sarandi<br>
+      WhatsApp (44) 99848-1716<br>
+      Fixo (44) 3264-2853
+    </div>
+  </div>
+</section>
+
+<figure class="cena">
+  <svg viewBox="0 0 1600 430" width="1600" height="430" preserveAspectRatio="xMidYMin slice" role="img" aria-label="Ilustração do balcão de atendimento de um escritório contábil, com estante de pastas numeradas, carimbo e documentos">
+    <defs>
+      <linearGradient id="bwall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4A4E55"/><stop offset="1" stop-color="#34373D"/></linearGradient>
+      <linearGradient id="bfloor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A2C31"/><stop offset="1" stop-color="#1C1E22"/></linearGradient>
+      <linearGradient id="bcounter" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E9E4DA"/><stop offset="1" stop-color="#CFC8BA"/></linearGradient>
+      <linearGradient id="bwood" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8B6A4E"/><stop offset="1" stop-color="#A9866A"/></linearGradient>
+      <linearGradient id="bshelf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5C5F66"/><stop offset="1" stop-color="#3E4148"/></linearGradient>
+      <linearGradient id="bpaper" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#EEEAE1"/></linearGradient>
+      <radialGradient id="blight" cx=".5" cy="0" r=".9"><stop offset="0" stop-color="#FFF3D6" stop-opacity=".28"/><stop offset="1" stop-color="#FFF3D6" stop-opacity="0"/></radialGradient>
+      <filter id="bsh" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#000" flood-opacity=".35"/></filter>
+      <filter id="bsh2" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="2" dy="4" stdDeviation="4" flood-color="#000" flood-opacity=".3"/></filter>
+      <pattern id="bbar" x="0" y="0" width="12" height="30" patternUnits="userSpaceOnUse"><rect width="2" height="30" fill="#222"/><rect x="4" width="3" height="30" fill="#222"/><rect x="9" width="1.5" height="30" fill="#222"/></pattern>
+      <!-- pasta AZ (lombada) -->
+      <g id="bpasta"><rect x="0" y="0" width="34" height="120" rx="3" fill="#1F3A93"/><rect x="4" y="18" width="26" height="54" rx="2" fill="#F7F5F0"/><rect x="8" y="28" width="18" height="3" fill="#8A8F99"/><rect x="8" y="36" width="18" height="3" fill="#8A8F99"/><rect x="8" y="44" width="12" height="3" fill="#8A8F99"/><circle cx="17" cy="100" r="5" fill="none" stroke="#C9D3E8" stroke-width="2"/></g>
+      <g id="bpasta2"><rect x="0" y="0" width="34" height="120" rx="3" fill="#2F3237"/><rect x="4" y="18" width="26" height="54" rx="2" fill="#F7F5F0"/><rect x="8" y="28" width="18" height="3" fill="#8A8F99"/><rect x="8" y="36" width="18" height="3" fill="#8A8F99"/><rect x="8" y="44" width="12" height="3" fill="#8A8F99"/><circle cx="17" cy="100" r="5" fill="none" stroke="#9AA0AA" stroke-width="2"/></g>
+      <g id="bpasta3"><rect x="0" y="0" width="34" height="120" rx="3" fill="#C8322B"/><rect x="4" y="18" width="26" height="54" rx="2" fill="#F7F5F0"/><rect x="8" y="28" width="18" height="3" fill="#8A8F99"/><rect x="8" y="36" width="18" height="3" fill="#8A8F99"/><rect x="8" y="44" width="12" height="3" fill="#8A8F99"/><circle cx="17" cy="100" r="5" fill="none" stroke="#F3C7C4" stroke-width="2"/></g>
+    </defs>
+    <rect width="1600" height="520" fill="url(#bwall)"/>
+    <rect width="1600" height="520" fill="url(#blight)"/>
+    <!-- estante de pastas ao fundo -->
+    <rect x="160" y="40" width="1280" height="300" fill="#2A2D33"/>
+    <g fill="url(#bshelf)"><rect x="160" y="172" width="1280" height="12"/><rect x="160" y="304" width="1280" height="12"/></g>
+    <!-- prateleira 1 -->
+    <g transform="translate(180,52)">
+      <use href="#bpasta"/><use href="#bpasta" transform="translate(38)"/><use href="#bpasta" transform="translate(76)"/><use href="#bpasta2" transform="translate(114)"/><use href="#bpasta2" transform="translate(152)"/><use href="#bpasta" transform="translate(190)"/><use href="#bpasta3" transform="translate(228)"/><use href="#bpasta" transform="translate(266)"/><use href="#bpasta" transform="translate(304)"/><use href="#bpasta2" transform="translate(342)"/>
+      <use href="#bpasta" transform="translate(420)"/><use href="#bpasta2" transform="translate(458)"/><use href="#bpasta2" transform="translate(496)"/><use href="#bpasta" transform="translate(534)"/><use href="#bpasta3" transform="translate(572)"/><use href="#bpasta" transform="translate(610)"/><use href="#bpasta" transform="translate(648)"/><use href="#bpasta2" transform="translate(686)"/>
+      <use href="#bpasta" transform="translate(770)"/><use href="#bpasta" transform="translate(808)"/><use href="#bpasta3" transform="translate(846)"/><use href="#bpasta2" transform="translate(884)"/><use href="#bpasta" transform="translate(922)"/><use href="#bpasta" transform="translate(960)"/><use href="#bpasta2" transform="translate(998)"/><use href="#bpasta" transform="translate(1036)"/><use href="#bpasta" transform="translate(1074)"/><use href="#bpasta2" transform="translate(1112)"/><use href="#bpasta" transform="translate(1150)"/><use href="#bpasta3" transform="translate(1188)"/>
+    </g>
+    <!-- prateleira 2 -->
+    <g transform="translate(180,184)">
+      <use href="#bpasta2"/><use href="#bpasta" transform="translate(38)"/><use href="#bpasta" transform="translate(76)"/><use href="#bpasta" transform="translate(114)"/><use href="#bpasta3" transform="translate(152)"/><use href="#bpasta2" transform="translate(190)"/><use href="#bpasta" transform="translate(228)"/><use href="#bpasta" transform="translate(266)"/><use href="#bpasta2" transform="translate(304)"/><use href="#bpasta" transform="translate(342)"/><use href="#bpasta" transform="translate(380)"/>
+      <use href="#bpasta2" transform="translate(460)"/><use href="#bpasta" transform="translate(498)"/><use href="#bpasta3" transform="translate(536)"/><use href="#bpasta" transform="translate(574)"/><use href="#bpasta" transform="translate(612)"/><use href="#bpasta2" transform="translate(650)"/><use href="#bpasta" transform="translate(688)"/>
+      <use href="#bpasta" transform="translate(780)"/><use href="#bpasta2" transform="translate(818)"/><use href="#bpasta" transform="translate(856)"/><use href="#bpasta" transform="translate(894)"/><use href="#bpasta3" transform="translate(932)"/><use href="#bpasta" transform="translate(970)"/><use href="#bpasta2" transform="translate(1008)"/><use href="#bpasta" transform="translate(1046)"/><use href="#bpasta" transform="translate(1084)"/><use href="#bpasta2" transform="translate(1122)"/><use href="#bpasta" transform="translate(1160)"/><use href="#bpasta" transform="translate(1198)"/>
+    </g>
+    <!-- relógio de parede e quadro -->
+    <g transform="translate(80,110)" filter="url(#bsh2)"><circle r="40" fill="#F7F5F0"/><circle r="36" fill="none" stroke="#2F3237" stroke-width="2"/><line x1="0" y1="0" x2="0" y2="-24" stroke="#2F3237" stroke-width="3" stroke-linecap="round"/><line x1="0" y1="0" x2="16" y2="10" stroke="#2F3237" stroke-width="3" stroke-linecap="round"/><circle r="3" fill="#C8322B"/></g>
+    <g transform="translate(1470,70)" filter="url(#bsh2)"><rect width="90" height="110" fill="#F7F5F0"/><rect x="8" y="8" width="74" height="94" fill="#1F3A93" opacity=".12"/><rect x="18" y="30" width="54" height="4" fill="#1F3A93"/><rect x="18" y="42" width="40" height="3" fill="#8A8F99"/><rect x="18" y="50" width="48" height="3" fill="#8A8F99"/><circle cx="45" cy="80" r="10" fill="none" stroke="#C8322B" stroke-width="2"/></g>
+    <!-- chão -->
+    <rect y="340" width="1600" height="180" fill="url(#bfloor)"/>
+    <!-- balcão -->
+    <g filter="url(#bsh)">
+      <rect x="240" y="330" width="1120" height="190" fill="url(#bwood)"/>
+      <rect x="226" y="316" width="1148" height="22" rx="3" fill="url(#bcounter)"/>
+      <rect x="240" y="350" width="1120" height="4" fill="#6E5440"/>
+      <rect x="240" y="430" width="1120" height="3" fill="#6E5440" opacity=".7"/>
+    </g>
+    <!-- objetos sobre o balcão -->
+    <!-- pilha de documentos com guia -->
+    <g transform="translate(300,230)" filter="url(#bsh2)">
+      <rect x="0" y="40" width="190" height="50" fill="#EEEAE1"/><rect x="2" y="30" width="190" height="50" fill="#F4F1EA"/><rect x="4" y="20" width="190" height="50" fill="#FFFFFF"/>
+      <g transform="rotate(-4 100 50)"><rect x="10" y="-30" width="180" height="92" fill="url(#bpaper)"/><rect x="10" y="-30" width="180" height="18" fill="#1F3A93"/><text x="18" y="-17" font-family="'Helvetica Neue',Arial,sans-serif" font-size="9" font-weight="700" fill="#fff" letter-spacing="1">DAS · SIMPLES NACIONAL</text>
+      <g fill="#B7BEC8"><rect x="20" y="-4" width="90" height="4"/><rect x="20" y="6" width="120" height="4"/><rect x="20" y="16" width="70" height="4"/></g>
+      <text x="20" y="40" font-family="'Helvetica Neue',Arial,sans-serif" font-size="9" fill="#666A72">Vencimento</text><text x="90" y="40" font-family="'Helvetica Neue',Arial,sans-serif" font-size="9" font-weight="700" fill="#24262B">20/10/2026</text>
+      <rect x="120" y="26" width="60" height="22" fill="url(#bbar)"/></g>
+    </g>
+    <!-- carimbo e almofada -->
+    <g transform="translate(600,286)" filter="url(#bsh2)">
+      <rect x="-40" y="0" width="80" height="26" rx="4" fill="#2F3237"/><rect x="-34" y="4" width="68" height="16" rx="3" fill="#C8322B"/>
+    </g>
+    <g transform="translate(700,250) rotate(-12)" filter="url(#bsh2)">
+      <rect x="-32" y="40" width="64" height="30" rx="6" fill="#2F3237"/>
+      <rect x="-12" y="-10" width="24" height="52" rx="8" fill="#A9866A"/><ellipse cx="0" cy="-10" rx="14" ry="6" fill="#C9A984"/>
+    </g>
+    <!-- marca do carimbo no papel -->
+    <g transform="translate(830,300) rotate(-8)"><rect x="-56" y="-16" width="112" height="32" fill="none" stroke="#C8322B" stroke-width="3" opacity=".9"/><text x="0" y="6" text-anchor="middle" font-family="Charter,'Bitstream Charter',Georgia,serif" font-weight="700" font-size="16" fill="#C8322B" opacity=".9" letter-spacing="2">RECEBIDO</text></g>
+    <g transform="translate(770,250)" filter="url(#bsh2)"><rect x="0" y="0" width="130" height="72" fill="url(#bpaper)"/><g fill="#B7BEC8"><rect x="10" y="12" width="70" height="4"/><rect x="10" y="22" width="100" height="4"/><rect x="10" y="32" width="60" height="4"/></g><g transform="translate(70,52) rotate(-8)"><rect x="-50" y="-13" width="100" height="26" fill="none" stroke="#C8322B" stroke-width="2.5" opacity=".9"/><text x="0" y="5" text-anchor="middle" font-family="Charter,'Bitstream Charter',Georgia,serif" font-weight="700" font-size="14" fill="#C8322B" opacity=".9" letter-spacing="2">RECEBIDO</text></g></g>
+    <!-- campainha -->
+    <g transform="translate(1000,296)" filter="url(#bsh2)"><ellipse cx="0" cy="18" rx="28" ry="8" fill="#2F3237"/><path d="M-24 18 Q-24 -10 0 -10 Q24 -10 24 18Z" fill="#C9A984"/><rect x="-4" y="-18" width="8" height="10" rx="2" fill="#8B6A4E"/></g>
+    <!-- calculadora -->
+    <g transform="translate(1080,236) rotate(6)" filter="url(#bsh2)">
+      <rect width="84" height="110" rx="8" fill="#3A4452"/><rect x="8" y="10" width="68" height="22" rx="3" fill="#C9D6C2"/><text x="72" y="26" text-anchor="end" font-family="'DejaVu Sans Mono','Courier New',monospace" font-size="12" fill="#1F2730">2.350,00</text>
+      <g fill="#5C6673"><rect x="8" y="42" width="16" height="12" rx="2"/><rect x="30" y="42" width="16" height="12" rx="2"/><rect x="52" y="42" width="16" height="12" rx="2"/><rect x="8" y="60" width="16" height="12" rx="2"/><rect x="30" y="60" width="16" height="12" rx="2"/><rect x="52" y="60" width="16" height="12" rx="2"/><rect x="8" y="78" width="16" height="12" rx="2"/><rect x="30" y="78" width="16" height="12" rx="2"/><rect x="8" y="94" width="38" height="10" rx="2"/></g>
+      <rect x="52" y="78" width="16" height="26" rx="2" fill="#C8322B"/>
+    </g>
+    <!-- planta -->
+    <g transform="translate(1250,250)" filter="url(#bsh2)">
+      <path d="M-26 40 L26 40 L20 80 L-20 80Z" fill="#B9BDC4"/><rect x="-28" y="34" width="56" height="8" fill="#9AA0AA"/>
+      <g fill="#3F6B36"><path d="M0 40 Q-40 10 -36 -30 Q-10 0 0 40Z"/><path d="M0 40 Q40 10 36 -30 Q10 0 0 40Z"/><path d="M0 40 Q-14 -10 2 -50 Q14 -10 0 40Z"/><path d="M0 40 Q-50 30 -60 0 Q-24 8 0 40Z"/><path d="M0 40 Q50 30 60 0 Q24 8 0 40Z"/></g>
+    </g>
+    <!-- caneta -->
+    <g transform="translate(480,312) rotate(-20)" filter="url(#bsh2)"><rect x="0" y="0" width="110" height="8" rx="4" fill="#1F3A93"/><rect x="0" y="0" width="30" height="8" rx="4" fill="#C9A984"/><path d="M110 0 l12 4 l-12 4z" fill="#C9A984"/></g>
+    <!-- placa de mesa -->
+    <g transform="translate(1340,270)" filter="url(#bsh2)"><polygon points="0,50 110,50 110,16 0,36" fill="#2F3237"/><polygon points="0,36 110,16 110,20 0,40" fill="#C8322B"/><text x="12" y="48" font-family="Charter,'Bitstream Charter',Georgia,serif" font-weight="700" font-size="9" fill="#F7F5F0" transform="rotate(-10 12 48)" letter-spacing="1">ATENDIMENTO</text></g>
+  </svg>
+  <figcaption>Ilustração de exemplo — no site real entra a foto do escritório ou da equipe.</figcaption>
+</figure>
+
+<section class="cel" id="area">
+  <div class="wrap">
+    <h2>O dia a dia com o escritório, no seu celular</h2>
+    <p class="intro">Em vez de pedir no WhatsApp e esperar a resposta, o cliente da Barbosa encontra aqui, a qualquer hora:</p>
+    <div class="tiles">
+
+      <a class="tile" href="#documentos">
+        <div class="img">
+          <svg viewBox="0 0 400 225" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração de envelope com notas fiscais e extratos saindo">
+            <defs>
+              <linearGradient id="t1env" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#D9C9A8"/><stop offset="1" stop-color="#BBA67F"/></linearGradient>
+              <linearGradient id="t1papel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#EEEAE1"/></linearGradient>
+              <filter id="t1sh" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="2" dy="5" stdDeviation="5" flood-color="#24262B" flood-opacity=".28"/></filter>
+            </defs>
+            <rect width="400" height="225" fill="#ECE8DF"/>
+            <g transform="translate(200,130)">
+              <!-- envelope (traseira) -->
+              <rect x="-140" y="-40" width="280" height="130" rx="6" fill="url(#t1env)" filter="url(#t1sh)"/>
+              <!-- papéis saindo -->
+              <g filter="url(#t1sh)">
+                <g transform="rotate(-8)"><rect x="-120" y="-110" width="120" height="150" rx="3" fill="url(#t1papel)"/><rect x="-108" y="-96" width="60" height="7" rx="2" fill="#1F3A93"/><g fill="#B7BEC8"><rect x="-108" y="-80" width="96" height="4" rx="2"/><rect x="-108" y="-70" width="80" height="4" rx="2"/><rect x="-108" y="-60" width="90" height="4" rx="2"/><rect x="-108" y="-50" width="60" height="4" rx="2"/></g><text x="-108" y="-28" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="700" fill="#24262B">NF-e 000.512</text></g>
+                <g transform="rotate(6)"><rect x="-10" y="-120" width="120" height="150" rx="3" fill="url(#t1papel)"/><g fill="#B7BEC8"><rect x="2" y="-104" width="60" height="7" rx="2"/><rect x="2" y="-88" width="96" height="4" rx="2"/><rect x="2" y="-78" width="96" height="4" rx="2"/><rect x="2" y="-68" width="96" height="4" rx="2"/><rect x="2" y="-58" width="96" height="4" rx="2"/><rect x="2" y="-48" width="96" height="4" rx="2"/></g><text x="2" y="-30" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10" fill="#666A72">Extrato · set/2026</text></g>
+              </g>
+              <!-- envelope (frente com aba) -->
+              <path d="M-140 -40 L0 50 L140 -40 L140 84 a6 6 0 0 1 -6 6 h-268 a6 6 0 0 1 -6 -6Z" fill="url(#t1env)" filter="url(#t1sh)"/>
+              <path d="M-140 -40 L0 50 L140 -40" fill="none" stroke="#A58F68" stroke-width="2"/>
+              <rect x="-110" y="40" width="90" height="14" rx="2" fill="#1F3A93" opacity=".85"/>
+              <text x="-104" y="51" font-family="'Helvetica Neue',Arial,sans-serif" font-size="9" font-weight="700" fill="#fff" letter-spacing="1">OUTUBRO · 2026</text>
+            </g>
+          </svg>
+        </div>
+        <div class="in">
+          <h3>Envie seus documentos</h3>
+          <p>Notas, extratos e documentos de funcionário vão direto para a pasta da sua empresa, com confirmação de recebimento.</p>
+        </div>
+      </a>
+
+      <a class="tile" href="#honorarios">
+        <div class="img">
+          <svg viewBox="0 0 400 267" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração de folha de calendário com as guias do mês marcadas">
+            <defs>
+              <linearGradient id="t2papel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#EEEAE1"/></linearGradient>
+              <filter id="t2sh" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="2" dy="5" stdDeviation="5" flood-color="#24262B" flood-opacity=".28"/></filter>
+            </defs>
+            <rect width="400" height="267" fill="#ECE8DF"/>
+            <g transform="rotate(-3 200 140)" filter="url(#t2sh)">
+              <rect x="80" y="30" width="240" height="220" rx="4" fill="url(#t2papel)"/>
+              <rect x="80" y="30" width="240" height="40" rx="4" fill="#2F3237"/><rect x="80" y="56" width="240" height="14" fill="#2F3237"/>
+              <text x="200" y="57" text-anchor="middle" font-family="Charter,'Bitstream Charter',Georgia,serif" font-weight="700" font-size="20" fill="#fff">Outubro</text>
+              <g fill="#B9BDC4"><circle cx="110" cy="30" r="5"/><circle cx="140" cy="30" r="5"/><circle cx="170" cy="30" r="5"/><circle cx="200" cy="30" r="5"/><circle cx="230" cy="30" r="5"/><circle cx="260" cy="30" r="5"/><circle cx="290" cy="30" r="5"/></g>
+              <!-- linhas pautadas com obrigações -->
+              <g stroke="#C9D3E8" stroke-width="1"><line x1="92" y1="100" x2="308" y2="100"/><line x1="92" y1="130" x2="308" y2="130"/><line x1="92" y1="160" x2="308" y2="160"/><line x1="92" y1="190" x2="308" y2="190"/><line x1="92" y1="220" x2="308" y2="220"/></g>
+              <line x1="130" y1="76" x2="130" y2="240" stroke="#C8322B" stroke-width="1" opacity=".6"/>
+              <g font-family="'Helvetica Neue',Arial,sans-serif" font-size="12" fill="#24262B">
+                <text x="98" y="94" font-weight="700" fill="#1F3A93">07</text><text x="138" y="94">FGTS da folha</text>
+                <text x="98" y="124" font-weight="700" fill="#1F3A93">10</text><text x="138" y="124">Honorários</text>
+                <text x="98" y="154" font-weight="700" fill="#C8322B">20</text><text x="138" y="154" font-weight="700">DAS · Simples Nacional</text>
+                <text x="98" y="184" font-weight="700" fill="#1F3A93">20</text><text x="138" y="184">INSS · GPS</text>
+                <text x="98" y="214" font-weight="700" fill="#1F3A93">25</text><text x="138" y="214">ISS municipal</text>
+              </g>
+              <circle cx="104" cy="150" r="12" fill="none" stroke="#C8322B" stroke-width="2.5"/>
+              <path d="M280 88 l6 6 l10 -12" fill="none" stroke="#1F3A93" stroke-width="2.5"/><path d="M280 118 l6 6 l10 -12" fill="none" stroke="#1F3A93" stroke-width="2.5"/>
+            </g>
+          </svg>
+        </div>
+        <div class="in">
+          <h3>Guias do mês</h3>
+          <p>DAS, ISS, FGTS e INSS emitidos e avisados no WhatsApp antes de vencer.</p>
+        </div>
+      </a>
+
+      <a class="tile" href="#honorarios">
+        <div class="img">
+          <svg viewBox="0 0 400 267" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração de recibo de honorários com código Pix">
+            <defs>
+              <linearGradient id="t3papel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#EEEAE1"/></linearGradient>
+              <filter id="t3sh" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="2" dy="5" stdDeviation="5" flood-color="#24262B" flood-opacity=".28"/></filter>
+              <pattern id="t3bar" x="0" y="0" width="11" height="26" patternUnits="userSpaceOnUse"><rect width="1.5" height="26" fill="#222"/><rect x="3.5" width="3" height="26" fill="#222"/><rect x="8.5" width="1.5" height="26" fill="#222"/></pattern>
+            </defs>
+            <rect width="400" height="267" fill="#ECE8DF"/>
+            <!-- celular com o boleto na tela -->
+            <g transform="translate(200,140) rotate(-6)" filter="url(#t3sh)">
+              <rect x="-70" y="-120" width="140" height="240" rx="18" fill="#2F3237"/>
+              <rect x="-62" y="-108" width="124" height="216" rx="10" fill="url(#t3papel)"/>
+              <rect x="-62" y="-108" width="124" height="28" rx="10" fill="#1F3A93"/><rect x="-62" y="-92" width="124" height="12" fill="#1F3A93"/>
+              <text x="0" y="-89" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="9" font-weight="700" fill="#fff" letter-spacing="1">HONORÁRIOS · OUT/2026</text>
+              <g fill="#B7BEC8"><rect x="-50" y="-66" width="70" height="5" rx="2"/><rect x="-50" y="-56" width="50" height="5" rx="2"/></g>
+              <text x="-50" y="-32" font-family="'Helvetica Neue',Arial,sans-serif" font-size="9" fill="#666A72">Vencimento</text><text x="50" y="-32" text-anchor="end" font-family="'Helvetica Neue',Arial,sans-serif" font-size="9" font-weight="700" fill="#24262B">10/10</text>
+              <!-- QR -->
+              <g transform="translate(-28,-18)" fill="#24262B"><rect width="56" height="56" fill="#fff"/><rect x="3" y="3" width="15" height="15"/><rect x="6" y="6" width="9" height="9" fill="#fff"/><rect x="38" y="3" width="15" height="15"/><rect x="41" y="6" width="9" height="9" fill="#fff"/><rect x="3" y="38" width="15" height="15"/><rect x="6" y="41" width="9" height="9" fill="#fff"/><rect x="24" y="3" width="4" height="4"/><rect x="30" y="8" width="4" height="4"/><rect x="24" y="14" width="8" height="4"/><rect x="3" y="24" width="4" height="4"/><rect x="11" y="24" width="8" height="4"/><rect x="24" y="24" width="8" height="8"/><rect x="36" y="24" width="4" height="4"/><rect x="44" y="28" width="8" height="4"/><rect x="24" y="36" width="4" height="8"/><rect x="32" y="40" width="8" height="4"/><rect x="44" y="38" width="4" height="4"/><rect x="24" y="48" width="8" height="4"/><rect x="36" y="48" width="4" height="6"/><rect x="44" y="48" width="9" height="4"/></g>
+              <rect x="-50" y="48" width="100" height="22" fill="url(#t3bar)"/>
+              <rect x="-50" y="80" width="100" height="20" rx="5" fill="#1F3A93"/><text x="0" y="94" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="9" font-weight="700" fill="#fff">Copiar código Pix</text>
+            </g>
+            <g transform="translate(310,60) rotate(10)" filter="url(#t3sh)"><rect x="-44" y="-20" width="88" height="40" rx="4" fill="#C8322B"/><text x="0" y="6" text-anchor="middle" font-family="Charter,'Bitstream Charter',Georgia,serif" font-weight="700" font-size="18" fill="#fff" letter-spacing="1">2ª VIA</text></g>
+          </svg>
+        </div>
+        <div class="in">
+          <h3>2ª via de honorários</h3>
+          <p>Boleto do mês e código Pix para copiar, sem precisar pedir no escritório.</p>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section class="serv" id="servicos">
+  <div class="wrap">
+    <div>
+      <h2>O que entra no atendimento mensal</h2>
+      <p class="reg">MEI, Simples Nacional e Lucro Presumido. Comércio, prestadores de serviço, oficinas e transportadoras de Sarandi e região.</p>
+    </div>
+    <ul>
+      <li><b>Escrituração e impostos</b><span>Apuração de DAS, ISS, ICMS, PIS e COFINS e envio das guias.</span></li>
+      <li><b>Folha de pagamento</b><span>Admissão, férias, 13º, rescisão, eSocial e FGTS.</span></li>
+      <li><b>Abertura e alterações</b><span>CNPJ, Junta Comercial, alvará, mudança de sócios ou endereço.</span></li>
+      <li><b>Planejamento tributário</b><span>Comparação de regimes todo fim de ano e revisão do pró-labore.</span></li>
+      <li><b>Declarações anuais</b><span>IRPF dos sócios, DEFIS, ECD, ECF e DIRF.</span></li>
+      <li><b>Assessoria</b><span>Orientação para quem está começando e para quem quer trocar de escritório.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="docs" id="documentos">
+  <div class="wrap">
+    <div>
+      <h2>Envie seus documentos</h2>
+      <p>Em vez de mandar foto no WhatsApp, solte os arquivos do mês aqui. Eles caem na pasta da sua empresa e você recebe a confirmação.</p>
+      <form onsubmit="return false">
+        <label for="tipo">Tipo de documento</label>
+        <select id="tipo"><option>Notas fiscais</option><option>Extratos bancários</option><option>Documentos de funcionário</option><option>Outro</option></select>
+        <label for="mes">Mês de referência</label>
+        <input id="mes" type="month" value="2026-10">
+        <div class="drop">Arraste os arquivos ou toque para escolher<br><small>PDF, XML ou foto do celular</small></div>
+        <button class="btn car" type="button">Enviar para a Barbosa</button>
+      </form>
+    </div>
+    <div id="honorarios">
+      <h2>2ª via de honorários e área do cliente</h2>
+      <p>Informe o CNPJ e baixe o boleto do mês ou copie o código Pix. As guias já emitidas, holerites e documentos enviados ficam na área do cliente.</p>
+      <form class="tinta" onsubmit="return false">
+        <h3>Entrar na área do cliente</h3>
+        <label for="cnpj">CNPJ da empresa</label>
+        <input id="cnpj" inputmode="numeric" placeholder="00.000.000/0001-00">
+        <label for="mail">E-mail cadastrado</label>
+        <input id="mail" type="email" placeholder="voce@suaempresa.com.br">
+        <button class="btn" type="button">Ver boleto e guias</button>
+        <small>Primeiro acesso? Peça o cadastro pelo WhatsApp.</small>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><b>Barbosa Contabilidade</b><br>Rua Júlio Dvoranen, 250 — Centro<br>Sarandi/PR</div>
+    <div><b>WhatsApp</b><br><a href="https://wa.me/5544998481716">(44) 99848-1716</a><br>Fixo: <a href="tel:+554432642853">(44) 3264-2853</a></div>
+    <div><b>E-mail</b><br><a href="mailto:escbarbosa@hotmail.com">escbarbosa@hotmail.com</a></div>
+    <div class="selo">Prévia · proposta de site</div>
+  </div>
+</footer>
+<a class="btn fixo" href="https://wa.me/5544998481716" target="_blank" rel="noopener">Falar no WhatsApp</a>
+</body>
+</html>

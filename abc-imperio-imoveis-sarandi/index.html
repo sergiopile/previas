@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#4A1424">
+<title>ABC Império Imóveis — imóveis para comprar e alugar em Sarandi</title>
+<style>
+  :root{--vinho:#4A1424;--vinho2:#5E1D30;--vinho3:#3A0F1C;--ouro:#C2A14D;--ouro2:#A8873A;--marfim:#F6F0E4;--marfim2:#EBE2D0;--texto:#2A1A1F;--texto2:#6B5A60;--sobre-vinho:#D9BFC6}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--marfim);color:var(--texto);font:16px/1.55 "Helvetica Neue",Helvetica,"TeX Gyre Heros",Arial,sans-serif;accent-color:var(--ouro)}
+  ::selection{background:var(--ouro);color:#fff} :focus-visible{outline:3px solid var(--ouro);outline-offset:2px}
+  a{color:inherit}
+  .serif{font-family:Palatino,"Palatino Linotype","Book Antiqua","TeX Gyre Pagella","URW Palladio L",Georgia,serif;font-weight:700;margin:0;text-wrap:balance;letter-spacing:-.005em}
+  h2,h3{margin:0}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 16px}
+  /* header */
+  header{background:var(--vinho);color:#fff;border-bottom:1px solid var(--ouro)}
+  header .wrap{display:flex;align-items:center;gap:24px;min-height:84px}
+  .logo{display:flex;align-items:center;gap:14px;text-decoration:none;color:#fff}
+  .logo svg{width:56px;height:44px;flex:none}
+  .logo b{font-size:24px;line-height:1;display:block}
+  .logo small{display:block;font:12px/1.2 "Helvetica Neue",Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--ouro);margin-top:4px}
+  nav{margin-left:auto;display:flex;gap:2px;flex-wrap:wrap;align-items:center}
+  nav a{text-decoration:none;padding:10px 12px;border-radius:6px;font-size:15px;color:var(--sobre-vinho)}
+  nav a:hover{color:#fff;background:var(--vinho2)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--ouro);color:var(--vinho3);text-decoration:none;font-weight:700;padding:12px 18px;border-radius:6px;min-height:48px;border:0;cursor:pointer;font-size:16px;transition:background .15s,transform .15s}
+  .btn:hover{background:var(--ouro2);color:#fff} .btn:active{transform:translateY(1px)} .btn svg{width:22px;height:22px;flex:none}
+  nav a.btn{color:var(--vinho3);margin-left:8px} nav a.btn:hover{color:#fff}
+  .wpp-top{display:none}
+  /* hero */
+  .hero{background:var(--vinho);color:#fff;overflow:hidden;position:relative}
+  .hero .wrap{display:grid;grid-template-columns:5fr 6fr;gap:48px;align-items:center;padding-top:48px;padding-bottom:0}
+  .hero h1{font-size:clamp(32px,3.4vw,44px);line-height:1.12}
+  .hero .fio{width:64px;height:3px;background:var(--ouro);margin-bottom:20px}
+  .hero .sub{color:var(--sobre-vinho);font-size:18px;max-width:42ch;margin:16px 0 0}
+  .hero .txt{padding-bottom:48px}
+  .hero figure{margin:0 0 56px;position:relative;align-self:end}
+  .hero figure .arco{border-radius:300px 300px 8px 8px;overflow:hidden;border:3px solid var(--ouro);box-shadow:0 24px 48px -24px rgba(0,0,0,.6)}
+  .hero figure svg{display:block;width:100%;height:auto}
+  .hero figcaption{position:absolute;left:16px;bottom:12px;font-size:12px;color:#fff;background:rgba(58,15,28,.8);padding:4px 10px;border-radius:6px}
+  /* busca em faixa */
+  .faixa{background:var(--ouro)}
+  .faixa .wrap{padding:0}
+  .busca{background:var(--marfim);color:var(--texto);display:grid;grid-template-columns:1fr 1fr 1.4fr auto;gap:12px;padding:20px;align-items:end;transform:translateY(-28px);border-radius:6px;box-shadow:0 16px 32px -20px rgba(42,26,31,.5)}
+  .busca label{display:grid;gap:4px;font-size:13px;color:var(--texto2)}
+  .busca select,.busca input{font:inherit;font-size:16px;padding:10px 12px;border:1px solid #CFC2A8;border-radius:6px;min-height:48px;background:#fff;color:var(--texto);width:100%;caret-color:var(--ouro)}
+  .busca .btn{min-width:180px}
+  /* vitrine */
+  .vitrine{padding:40px 0 64px}
+  .vitrine .top{display:flex;align-items:end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:24px}
+  .vitrine h2{font-size:34px} .vitrine .top p{margin:0;color:var(--texto2);font-size:15px}
+  .grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+  .ficha{background:#fff;border-radius:8px;overflow:hidden;text-decoration:none;display:flex;flex-direction:column;position:relative;box-shadow:0 8px 24px -12px rgba(42,26,31,.35)}
+  .ficha .img{aspect-ratio:4/3;overflow:hidden;background:var(--marfim2)}
+  .ficha .img svg{width:100%;height:100%;display:block}
+  .ficha .ex{position:absolute;top:12px;left:12px;background:rgba(255,255,255,.9);color:var(--texto2);font-size:12px;padding:4px 8px;border-radius:4px}
+  .ficha .in{padding:16px 16px 20px;border-top:3px solid var(--ouro)}
+  .ficha .preco{font-size:26px;font-variant-numeric:tabular-nums;color:var(--vinho);display:block}
+  .ficha .preco small{font-size:14px;font-family:"Helvetica Neue",Arial,sans-serif;font-weight:400;color:var(--texto2);margin-left:6px}
+  .ficha .tipo{margin:4px 0 0} .ficha .tipo span{color:var(--texto2)}
+  .ficha .dados{display:flex;gap:12px;margin-top:12px;font-size:14px;color:var(--texto2);font-variant-numeric:tabular-nums;flex-wrap:wrap}
+  .ficha .dados span{display:inline-flex;gap:6px;align-items:center} .ficha .dados svg{width:18px;height:18px;color:var(--ouro2)}
+  /* área inquilino */
+  .inq{background:var(--marfim2);padding:72px 0;border-top:1px solid #DED3BC}
+  .inq .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .inq h2{font-size:34px;margin-bottom:12px} .inq p{color:var(--texto2);max-width:48ch;margin:0}
+  .inq ul{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:10px} .inq li{display:flex;gap:10px;align-items:flex-start} .inq li svg{width:20px;height:20px;color:var(--ouro2);flex:none;margin-top:3px}
+  .inq form{background:var(--vinho);color:#fff;border-radius:8px;padding:32px;display:grid;gap:12px;border-top:4px solid var(--ouro)}
+  .inq form h3{font-size:24px;margin-bottom:4px} .inq form label{font-size:14px;color:var(--sobre-vinho)}
+  .inq input{font:inherit;font-size:16px;padding:12px;border-radius:6px;border:1px solid var(--vinho2);min-height:48px;background:#fff;color:var(--texto);caret-color:var(--ouro)}
+  .inq form small{color:var(--sobre-vinho);font-size:13px}
+  /* anuncie */
+  .anuncie{padding:64px 0}
+  .anuncie .wrap{display:flex;gap:32px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+  .anuncie h2{font-size:30px} .anuncie p{color:var(--texto2);margin:8px 0 0;max-width:52ch}
+  footer{background:var(--vinho3);color:var(--sobre-vinho);padding:40px 0;font-size:15px}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:24px 48px;align-items:flex-start} footer b{color:#fff}
+  .selo{margin-left:auto;font-size:12px;border:1px solid var(--vinho2);padding:6px 10px;border-radius:6px;align-self:center}
+  .fixo{display:none}
+  @media (max-width:960px){
+    .hero .wrap{grid-template-columns:1fr;gap:24px;padding-top:32px} .hero .txt{padding-bottom:0} .hero figure{margin:0 24px 48px}
+    .busca{grid-template-columns:1fr 1fr} .busca label:nth-child(3){grid-column:1/-1} .busca .btn{grid-column:1/-1}
+    .grid{grid-template-columns:1fr 1fr} .grid .ficha:first-child{grid-column:1/-1} .grid .ficha:first-child .img{aspect-ratio:16/9}
+    .inq .wrap,.anuncie .wrap{grid-template-columns:1fr}
+    header .wrap{flex-wrap:wrap;padding:12px 16px;gap:8px 16px} nav{margin-left:0;width:100%;flex-wrap:nowrap;overflow-x:auto;order:3} nav a{padding:10px 8px;font-size:14px;white-space:nowrap} nav .btn{display:none} .wpp-top{display:inline-flex;margin-left:auto;padding:8px 10px;min-height:44px;font-size:13px;gap:5px} .wpp-top svg{width:18px;height:18px} .logo svg{width:46px;height:36px} .logo b{font-size:20px} .logo small{font-size:10px}
+  }
+  @media (max-width:600px){
+    .grid{grid-template-columns:1fr} .ficha .img,.grid .ficha:first-child .img{aspect-ratio:3/2}
+    .vitrine h2,.inq h2{font-size:30px} .hero h1{font-size:31px} .inq form{padding:24px}
+    .busca{grid-template-columns:1fr;padding:16px} .busca label:nth-child(3){grid-column:auto}
+    .hero figure{margin:0 8px 48px} .hero figure .arco{border-radius:160px 160px 8px 8px} .logo{flex:1;min-width:0} .logo b{font-size:17px} .logo svg{width:40px;height:32px} .logo small{font-size:9px}
+    .fixo{display:flex;position:fixed;left:16px;right:16px;bottom:16px;z-index:9;box-shadow:0 8px 24px -8px rgba(0,0,0,.5)} body{padding-bottom:88px}
+  }
+  @media (prefers-reduced-motion:no-preference){
+    .hero figure{animation:f .8s cubic-bezier(.2,.7,.2,1) both .1s} @keyframes f{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+  }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="wpp" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></symbol></svg>
+<header>
+  <div class="wrap">
+    <a class="logo" href="#" aria-label="ABC Império Imóveis">
+      <svg viewBox="0 0 56 44" aria-hidden="true">
+        <rect x="1" y="1" width="54" height="42" fill="none" stroke="#C2A14D" stroke-width="1.5"/>
+        <rect x="5" y="5" width="46" height="34" fill="none" stroke="#C2A14D" stroke-width=".75" opacity=".7"/>
+        <text x="28" y="30" text-anchor="middle" font-family="Palatino,'Palatino Linotype','Book Antiqua','TeX Gyre Pagella',Georgia,serif" font-weight="700" font-size="20" letter-spacing="1" fill="#C2A14D">ABC</text>
+      </svg>
+      <span><b class="serif">Império Imóveis</b><small>Sarandi · PR</small></span>
+    </a>
+    <a class="btn wpp-top" href="https://wa.me/5544999277960" target="_blank" rel="noopener" aria-label="WhatsApp (44) 99927-7960"><svg><use href="#wpp"/></svg>(44) 99927-7960</a>
+    <nav aria-label="Principal">
+      <a href="#busca">Comprar</a>
+      <a href="#busca">Alugar</a>
+      <a href="#anuncie">Anunciar</a>
+      <a href="#inquilino">Área do inquilino</a>
+      <a class="btn" href="https://wa.me/5544999277960?text=Ol%C3%A1%2C%20vi%20um%20im%C3%B3vel%20no%20site%20da%20ABC%20Imp%C3%A9rio" target="_blank" rel="noopener"><svg><use href="#wpp"/></svg>(44) 99927-7960</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="txt">
+      <div class="fio"></div>
+      <h1 class="serif">Casas, sobrados e apartamentos em Sarandi, com o aluguel resolvido pelo site</h1>
+      <p class="sub">Compra, venda e administração de aluguéis no Jardim Independência, no Centro e nos bairros de Sarandi. Escritório na Av. Dep. Borsari Neto, 517, sala 2.</p>
+    </div>
+    <figure>
+      <div class="arco">
+      <svg viewBox="0 0 900 620" width="900" height="620" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Ilustração da portaria de um condomínio de sobrados no fim da tarde">
+        <defs>
+          <linearGradient id="asky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3A5A"/><stop offset=".4" stop-color="#C0725E"/><stop offset=".75" stop-color="#F0A866"/><stop offset="1" stop-color="#FBD79A"/></linearGradient>
+          <radialGradient id="asun" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFF4D0" stop-opacity=".95"/><stop offset=".4" stop-color="#FFD48A" stop-opacity=".4"/><stop offset="1" stop-color="#FFC77A" stop-opacity="0"/></radialGradient>
+          <linearGradient id="aroad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B6266"/><stop offset="1" stop-color="#3E373B"/></linearGradient>
+          <linearGradient id="awall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F3E7D2"/><stop offset="1" stop-color="#D6C4A6"/></linearGradient>
+          <linearGradient id="aglass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFEBB0"/><stop offset="1" stop-color="#F2B35C"/></linearGradient>
+          <linearGradient id="aroof" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4E2A2E"/><stop offset="1" stop-color="#7B4A4A"/></linearGradient>
+          <radialGradient id="atree" cx=".65" cy=".3" r=".75"><stop offset="0" stop-color="#8DB85C"/><stop offset="1" stop-color="#2F5A2E"/></radialGradient>
+          <linearGradient id="aouro" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E2C575"/><stop offset="1" stop-color="#9C7A2E"/></linearGradient>
+          <g id="asob">
+            <polygon points="180,-200 230,-216 230,-16 180,0" fill="#B9A58E"/>
+            <rect x="0" y="-200" width="180" height="200" fill="url(#awall)"/>
+            <polygon points="-10,-200 192,-200 192,-214 -10,-214" fill="url(#aroof)"/>
+            <polygon points="192,-214 242,-230 242,-216 192,-200" fill="#3E2024"/>
+            <rect x="0" y="-104" width="180" height="6" fill="#C2A14D" opacity=".8"/>
+            <rect x="18" y="-180" width="44" height="52" fill="url(#aglass)" stroke="#5A3A3E" stroke-width="3"/>
+            <rect x="80" y="-180" width="44" height="52" fill="#D9E3EA" stroke="#5A3A3E" stroke-width="3"/>
+            <rect x="140" y="-180" width="26" height="52" fill="url(#aglass)" stroke="#5A3A3E" stroke-width="3"/>
+            <rect x="14" y="-84" width="80" height="84" fill="#C9C2B5"/>
+            <g fill="#B0A898"><rect x="14" y="-66" width="80" height="3"/><rect x="14" y="-46" width="80" height="3"/><rect x="14" y="-26" width="80" height="3"/></g>
+            <rect x="116" y="-88" width="30" height="88" fill="#3B2A2C"/>
+            <rect x="156" y="-80" width="12" height="40" fill="url(#aglass)"/>
+            <rect x="190" y="-120" width="30" height="36" transform="skewY(-18)" fill="#F2D59C" opacity=".8"/>
+          </g>
+          <g id="apalm">
+            <path d="M0 0 Q-6 -70 4 -130" stroke="#6B4E36" stroke-width="9" fill="none" stroke-linecap="round"/>
+            <g fill="#3F7A3A">
+              <path d="M4 -130 Q-40 -150 -70 -120 Q-30 -132 4 -122Z"/><path d="M4 -130 Q50 -152 76 -118 Q40 -134 4 -122Z"/>
+              <path d="M4 -130 Q-26 -176 -8 -192 Q-6 -156 8 -130Z"/><path d="M4 -130 Q30 -176 50 -166 Q22 -150 8 -128Z"/>
+              <path d="M4 -126 Q-44 -106 -56 -80 Q-24 -110 8 -120Z"/><path d="M4 -126 Q52 -104 66 -76 Q34 -108 8 -120Z"/>
+            </g>
+          </g>
+        </defs>
+        <rect width="900" height="620" fill="url(#asky)"/>
+        <circle cx="300" cy="330" r="200" fill="url(#asun)"/>
+        <circle cx="300" cy="330" r="42" fill="#FFF3CC"/>
+        <ellipse cx="640" cy="120" rx="90" ry="12" fill="#fff" opacity=".2"/><ellipse cx="700" cy="150" rx="60" ry="9" fill="#fff" opacity=".16"/>
+        <!-- horizonte com telhados -->
+        <path d="M0 360 C 120 340, 260 372, 420 352 S 720 330, 900 350 L900 420 L0 420Z" fill="#9A6A7A" opacity=".55"/>
+        <!-- sobrados ao fundo -->
+        <use href="#asob" transform="translate(560,420) scale(.62)"/>
+        <use href="#asob" transform="translate(700,418) scale(.62)"/>
+        <use href="#asob" transform="translate(100,426) scale(.56)"/>
+        <use href="#asob" transform="translate(240,424) scale(.56)"/>
+        <rect y="415" width="900" height="205" fill="#6E8A52"/>
+        <!-- muro do condomínio -->
+        <rect x="0" y="372" width="330" height="96" fill="url(#awall)"/>
+        <rect x="570" y="372" width="330" height="96" fill="url(#awall)"/>
+        <rect x="0" y="364" width="330" height="10" fill="#8A6A3E"/><rect x="570" y="364" width="330" height="10" fill="#8A6A3E"/>
+        <g fill="#D6C4A6" opacity=".6"><rect x="40" y="400" width="60" height="40"/><rect x="130" y="400" width="60" height="40"/><rect x="220" y="400" width="60" height="40"/><rect x="610" y="400" width="60" height="40"/><rect x="700" y="400" width="60" height="40"/><rect x="790" y="400" width="60" height="40"/></g>
+        <!-- pilares da portaria -->
+        <rect x="316" y="300" width="42" height="178" fill="#E6D7BE"/><rect x="310" y="292" width="54" height="14" fill="#8A6A3E"/>
+        <rect x="542" y="300" width="42" height="178" fill="#E6D7BE"/><rect x="536" y="292" width="54" height="14" fill="#8A6A3E"/>
+        <rect x="320" y="340" width="34" height="2" fill="#B9A58E"/><rect x="546" y="340" width="34" height="2" fill="#B9A58E"/>
+        <!-- pórtico -->
+        <rect x="310" y="262" width="280" height="34" fill="#4E2A2E"/>
+        <rect x="310" y="258" width="280" height="6" fill="url(#aouro)"/>
+        <text x="450" y="286" text-anchor="middle" font-family="Palatino,'Palatino Linotype','TeX Gyre Pagella',Georgia,serif" font-weight="700" font-size="17" letter-spacing="3" fill="#E2C575">RESIDENCIAL</text>
+        <!-- guarita -->
+        <rect x="586" y="330" width="90" height="140" fill="#F0E3CC"/>
+        <polygon points="580,330 682,330 682,318 580,318" fill="#4E2A2E"/>
+        <rect x="600" y="346" width="60" height="44" fill="url(#aglass)" stroke="#5A3A3E" stroke-width="3"/>
+        <rect x="620" y="408" width="26" height="62" fill="#3B2A2C"/>
+        <!-- portão de ferro -->
+        <g stroke="#2E1E22" stroke-width="4" fill="none">
+          <rect x="360" y="330" width="180" height="140"/>
+          <line x1="450" y1="330" x2="450" y2="470"/>
+          <line x1="380" y1="330" x2="380" y2="470"/><line x1="400" y1="330" x2="400" y2="470"/><line x1="420" y1="330" x2="420" y2="470"/>
+          <line x1="480" y1="330" x2="480" y2="470"/><line x1="500" y1="330" x2="500" y2="470"/><line x1="520" y1="330" x2="520" y2="470"/>
+          <path d="M360 356 Q405 336 450 356 Q495 336 540 356"/>
+        </g>
+        <g fill="#C2A14D"><circle cx="380" cy="330" r="4"/><circle cx="400" cy="330" r="4"/><circle cx="420" cy="330" r="4"/><circle cx="480" cy="330" r="4"/><circle cx="500" cy="330" r="4"/><circle cx="520" cy="330" r="4"/></g>
+        <!-- calçada e rua -->
+        <polygon points="0,470 900,470 900,500 0,500" fill="#D7CDB8"/>
+        <rect y="500" width="900" height="120" fill="url(#aroad)"/>
+        <rect y="498" width="900" height="6" fill="#E8DFCB"/>
+        <polygon points="330,620 360,620 500,500 480,500" fill="#E8D9A6" opacity=".25"/>
+        <!-- luz do portão no chão -->
+        <polygon points="360,470 540,470 620,620 280,620" fill="#FFD48A" opacity=".18"/>
+        <!-- palmeiras -->
+        <use href="#apalm" transform="translate(286,470) scale(1.05)"/>
+        <use href="#apalm" transform="translate(720,470) scale(.9)"/>
+        <!-- arbustos -->
+        <circle cx="200" cy="470" r="22" fill="url(#atree)"/><circle cx="236" cy="474" r="16" fill="url(#atree)"/><circle cx="90" cy="472" r="18" fill="url(#atree)"/>
+        <circle cx="800" cy="472" r="20" fill="url(#atree)"/><circle cx="840" cy="474" r="14" fill="url(#atree)"/>
+        <!-- luminárias -->
+        <rect x="333" y="300" width="8" height="10" fill="#FFE39A"/><rect x="559" y="300" width="8" height="10" fill="#FFE39A"/>
+        <circle cx="337" cy="305" r="14" fill="#FFE39A" opacity=".25"/><circle cx="563" cy="305" r="14" fill="#FFE39A" opacity=".25"/>
+        <!-- carro saindo -->
+        <g transform="translate(90,520)">
+          <ellipse cx="90" cy="48" rx="104" ry="10" fill="#1B1F1C" opacity=".35"/>
+          <path d="M0 42 L6 20 Q10 12 20 12 L44 12 L64 -8 Q68 -12 76 -12 L136 -12 Q144 -12 148 -6 L166 12 L184 16 Q192 18 192 26 L192 42 Z" fill="#2B2F3A"/>
+          <path d="M48 12 L66 -6 L100 -6 L100 12Z" fill="#E6C98F" opacity=".85"/>
+          <path d="M108 -6 L138 -6 L154 12 L108 12Z" fill="#E6C98F" opacity=".65"/>
+          <circle cx="44" cy="42" r="14" fill="#2A2A2A"/><circle cx="44" cy="42" r="6" fill="#B9B9B9"/>
+          <circle cx="150" cy="42" r="14" fill="#2A2A2A"/><circle cx="150" cy="42" r="6" fill="#B9B9B9"/>
+          <rect x="186" y="24" width="8" height="8" fill="#FFE39A"/>
+        </g>
+      </svg>
+      </div>
+      <figcaption>Ilustração de exemplo — no site real entra a foto da fachada ou de um imóvel.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="faixa" id="busca">
+  <div class="wrap">
+    <form class="busca" onsubmit="return false" aria-label="Buscar imóveis">
+      <label>Finalidade <select><option>Comprar</option><option>Alugar</option></select></label>
+      <label>Tipo <select><option>Casa</option><option>Sobrado</option><option>Apartamento</option><option>Terreno</option><option>Sala comercial</option></select></label>
+      <label>Bairro <input list="bairros" placeholder="Jardim Independência, Centro…"><datalist id="bairros"><option>Centro</option><option>Jardim Independência</option><option>Parque Alvorada</option><option>Jardim Verão</option><option>Vale Azul</option><option>Jardim Universal</option></datalist></label>
+      <button class="btn" type="button">Buscar imóveis</button>
+    </form>
+  </div>
+</section>
+
+<section class="vitrine">
+  <div class="wrap">
+    <div class="top">
+      <h2 class="serif">Imóveis em destaque</h2>
+      <p>Fichas e valores ilustrativos. No site real, a vitrine mostra os anúncios ativos da ABC Império.</p>
+    </div>
+    <div class="grid">
+
+      <a class="ficha" href="#">
+        <div class="img">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração de sobrado em condomínio fechado">
+            <defs>
+              <linearGradient id="b1sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7A4C6A"/><stop offset=".6" stop-color="#E29A72"/><stop offset="1" stop-color="#FBD79A"/></linearGradient>
+              <linearGradient id="b1wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F3E7D2"/><stop offset="1" stop-color="#D6C4A6"/></linearGradient>
+              <linearGradient id="b1glass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFEBB0"/><stop offset="1" stop-color="#F2B35C"/></linearGradient>
+              <radialGradient id="b1tree" cx=".65" cy=".3" r=".75"><stop offset="0" stop-color="#8DB85C"/><stop offset="1" stop-color="#2F5A2E"/></radialGradient>
+            </defs>
+            <rect width="400" height="300" fill="url(#b1sky)"/>
+            <circle cx="70" cy="140" r="90" fill="#FFF3CC" opacity=".35"/><circle cx="70" cy="140" r="20" fill="#FFF3CC"/>
+            <rect y="210" width="400" height="90" fill="#6E8A52"/>
+            <polygon points="110,236 150,236 80,290 30,290" fill="#2B4A28" opacity=".35"/>
+            <!-- sobrado moderno: dois volumes -->
+            <polygon points="270,60 330,44 330,224 270,240" fill="#B9A58E"/>
+            <rect x="110" y="60" width="160" height="180" fill="url(#b1wall)"/>
+            <polygon points="100,60 282,60 282,46 100,46" fill="#4E2A2E"/>
+            <polygon points="282,46 342,30 342,44 282,60" fill="#3E2024"/>
+            <rect x="110" y="150" width="160" height="6" fill="#C2A14D" opacity=".85"/>
+            <rect x="130" y="80" width="50" height="56" fill="url(#b1glass)" stroke="#5A3A3E" stroke-width="3"/>
+            <rect x="200" y="80" width="50" height="56" fill="#D9E3EA" stroke="#5A3A3E" stroke-width="3"/>
+            <rect x="124" y="166" width="80" height="74" fill="#C9C2B5"/>
+            <g fill="#B0A898"><rect x="124" y="184" width="80" height="3"/><rect x="124" y="202" width="80" height="3"/><rect x="124" y="220" width="80" height="3"/></g>
+            <rect x="222" y="170" width="30" height="70" fill="#3B2A2C"/>
+            <circle cx="246" cy="206" r="2" fill="#D9B15A"/>
+            <rect x="288" y="118" width="26" height="40" transform="skewY(-15)" fill="#F2D59C" opacity=".8"/>
+            <polygon points="120,240 208,240 230,300 90,300" fill="#C9C2B2"/>
+            <polygon points="0,290 400,278 400,300 0,300" fill="#B5B0A4"/>
+            <rect x="0" y="236" width="104" height="14" fill="#E6D7BE"/><rect x="0" y="232" width="104" height="4" fill="#C2A14D"/>
+            <rect x="330" y="236" width="70" height="14" fill="#E6D7BE"/><rect x="330" y="232" width="70" height="4" fill="#C2A14D"/>
+            <rect x="358" y="170" width="10" height="70" fill="#5A3E2A"/>
+            <circle cx="362" cy="146" r="32" fill="url(#b1tree)"/><circle cx="340" cy="166" r="22" fill="url(#b1tree)"/><circle cx="386" cy="166" r="24" fill="url(#b1tree)"/>
+            <circle cx="40" cy="236" r="16" fill="url(#b1tree)"/><circle cx="64" cy="240" r="12" fill="url(#b1tree)"/>
+          </svg>
+        </div>
+        <span class="ex">exemplo</span>
+        <div class="in">
+          <b class="serif preco">R$ 780.000</b>
+          <p class="tipo">Sobrado em condomínio fechado <span>· Jardim Independência, Sarandi</span></p>
+          <div class="dados">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 18v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6M3 18h18M5 10V7a2 2 0 0 1 2-2h4v5"/></svg>3 suítes</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16v16H4zM4 12h16M12 4v16"/></svg>210 m²</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 17h14M6 17l1.5-6h9L18 17M7 20h2M15 20h2"/></svg>2 vagas</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="ficha" href="#">
+        <div class="img">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração de edifício de apartamentos no Centro">
+            <defs>
+              <linearGradient id="b2sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5E3A62"/><stop offset=".55" stop-color="#D08A72"/><stop offset="1" stop-color="#F8CC92"/></linearGradient>
+              <linearGradient id="b2wall" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#D9CDB3"/><stop offset="1" stop-color="#F3E7CF"/></linearGradient>
+              <linearGradient id="b2glass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE9A8"/><stop offset="1" stop-color="#F3B35A"/></linearGradient>
+              <linearGradient id="b2cold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9FB6CC"/><stop offset="1" stop-color="#6E88A4"/></linearGradient>
+              <radialGradient id="b2tree" cx=".7" cy=".3" r=".75"><stop offset="0" stop-color="#9CC364"/><stop offset="1" stop-color="#2F5A2E"/></radialGradient>
+            </defs>
+            <rect width="400" height="300" fill="url(#b2sky)"/>
+            <circle cx="330" cy="180" r="100" fill="#FFF3CC" opacity=".3"/><circle cx="330" cy="180" r="18" fill="#FFF3CC"/>
+            <rect y="236" width="400" height="64" fill="#7F9B5B"/>
+            <polygon points="0,266 400,258 400,300 0,300" fill="#4A484D"/>
+            <rect y="260" width="400" height="8" fill="#D2C9B8"/>
+            <polygon points="222,10 272,26 272,262 222,262" fill="#A89C84"/>
+            <rect x="100" y="10" width="122" height="252" fill="url(#b2wall)"/>
+            <rect x="94" y="4" width="134" height="8" fill="#4E2A2E"/>
+            <polygon points="228,4 278,20 278,28 228,12" fill="#3E2024"/>
+            <g id="b2andar">
+              <rect x="112" y="28" width="40" height="30" fill="url(#b2glass)"/>
+              <rect x="170" y="28" width="40" height="30" fill="url(#b2cold)"/>
+              <rect x="106" y="58" width="56" height="7" fill="#C9B995"/>
+              <rect x="106" y="40" width="56" height="18" fill="#B8D4E0" opacity=".55"/>
+              <g stroke="#5A3A3E" stroke-width="1.5"><line x1="106" y1="40" x2="106" y2="58"/><line x1="120" y1="40" x2="120" y2="58"/><line x1="134" y1="40" x2="134" y2="58"/><line x1="148" y1="40" x2="148" y2="58"/><line x1="162" y1="40" x2="162" y2="58"/><line x1="106" y1="40" x2="162" y2="40"/></g>
+              <rect x="232" y="-48" width="28" height="30" transform="skewY(18)" fill="#E9CF9A" opacity=".55"/>
+            </g>
+            <use href="#b2andar" transform="translate(0,44)"/>
+            <use href="#b2andar" transform="translate(0,88)"/>
+            <use href="#b2andar" transform="translate(0,132)"/>
+            <use href="#b2andar" transform="translate(0,176)"/>
+            <rect x="100" y="218" width="122" height="44" fill="#CDBF9F"/>
+            <rect x="146" y="226" width="30" height="36" fill="#3B2A2C"/>
+            <rect x="140" y="218" width="42" height="8" fill="#C2A14D"/>
+            <rect x="112" y="230" width="22" height="22" fill="url(#b2glass)"/><rect x="190" y="230" width="22" height="22" fill="url(#b2glass)"/>
+            <polygon points="272,262 222,262 330,292 380,292 380,272" fill="#2B4A28" opacity=".3"/>
+            <rect x="40" y="204" width="7" height="58" fill="#5A3E2A"/>
+            <circle cx="44" cy="190" r="28" fill="url(#b2tree)"/><circle cx="24" cy="204" r="18" fill="url(#b2tree)"/><circle cx="66" cy="206" r="18" fill="url(#b2tree)"/>
+            <rect x="320" y="190" width="4" height="72" fill="#4A4A4A"/><circle cx="322" cy="188" r="5" fill="#FFE39A"/>
+          </svg>
+        </div>
+        <span class="ex">exemplo</span>
+        <div class="in">
+          <b class="serif preco">R$ 1.600<small>/mês</small></b>
+          <p class="tipo">Apartamento com sacada <span>· Centro, Sarandi</span></p>
+          <div class="dados">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 18v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6M3 18h18M5 10V7a2 2 0 0 1 2-2h4v5"/></svg>2 quartos</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16v16H4zM4 12h16M12 4v16"/></svg>58 m²</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 17h14M6 17l1.5-6h9L18 17M7 20h2M15 20h2"/></svg>1 vaga</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="ficha" href="#">
+        <div class="img">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração de terreno com placa de vende-se">
+            <defs>
+              <linearGradient id="b3sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8A5A74"/><stop offset=".6" stop-color="#EBA67A"/><stop offset="1" stop-color="#FBD79A"/></linearGradient>
+              <linearGradient id="b3grass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9AB063"/><stop offset="1" stop-color="#5C7A3E"/></linearGradient>
+              <radialGradient id="b3tree" cx=".65" cy=".3" r=".75"><stop offset="0" stop-color="#8DB85C"/><stop offset="1" stop-color="#2F5A2E"/></radialGradient>
+            </defs>
+            <rect width="400" height="300" fill="url(#b3sky)"/>
+            <circle cx="300" cy="150" r="90" fill="#FFF3CC" opacity=".35"/><circle cx="300" cy="150" r="20" fill="#FFF3CC"/>
+            <path d="M0 176 C 80 160, 180 184, 260 170 S 360 160, 400 172 L400 210 L0 210Z" fill="#9A7A78" opacity=".6"/>
+            <!-- casas vizinhas ao fundo -->
+            <g opacity=".9">
+              <rect x="300" y="150" width="90" height="50" fill="#E6D7BE"/><polygon points="294,150 396,150 370,128 320,128" fill="#7B4A4A"/><rect x="326" y="168" width="20" height="18" fill="#F2B35C"/>
+              <rect x="10" y="156" width="80" height="44" fill="#DED2BA"/><polygon points="4,156 96,156 72,136 28,136" fill="#4E2A2E"/><rect x="30" y="172" width="18" height="16" fill="#F2B35C"/>
+            </g>
+            <rect y="196" width="400" height="104" fill="url(#b3grass)"/>
+            <!-- rua e calçada -->
+            <polygon points="0,268 400,256 400,300 0,300" fill="#4A484D"/>
+            <rect y="262" width="400" height="8" fill="#D2C9B8"/>
+            <!-- terreno: meio-fio e grama alta -->
+            <g fill="#6F8A44"><ellipse cx="60" cy="236" rx="30" ry="8"/><ellipse cx="150" cy="248" rx="40" ry="9"/><ellipse cx="300" cy="238" rx="34" ry="8"/><ellipse cx="360" cy="252" rx="28" ry="7"/></g>
+            <!-- cercas laterais -->
+            <g stroke="#8A6A3E" stroke-width="3"><line x1="0" y1="206" x2="0" y2="262"/><line x1="399" y1="206" x2="399" y2="262"/><line x1="0" y1="214" x2="400" y2="208" opacity=".5"/></g>
+            <g fill="#B9A58E"><rect x="16" y="200" width="4" height="60"/><rect x="380" y="200" width="4" height="60"/></g>
+            <!-- placa -->
+            <polygon points="200,262 212,262 206,300 194,300" fill="#2B4A28" opacity=".3"/>
+            <rect x="196" y="170" width="8" height="92" fill="#5A3E2A"/>
+            <g transform="rotate(-3 200 150)">
+              <rect x="120" y="110" width="160" height="78" rx="3" fill="#4A1424"/>
+              <rect x="126" y="116" width="148" height="66" rx="2" fill="none" stroke="#C2A14D" stroke-width="2"/>
+              <text x="200" y="146" text-anchor="middle" font-family="Palatino,'Palatino Linotype','TeX Gyre Pagella',Georgia,serif" font-weight="700" font-size="20" letter-spacing="2" fill="#F6F0E4">VENDE-SE</text>
+              <text x="200" y="168" text-anchor="middle" font-family="Helvetica Neue,Arial,sans-serif" font-size="11" letter-spacing="1" fill="#C2A14D">ABC IMPÉRIO · (44) 99927-7960</text>
+            </g>
+            <!-- árvore -->
+            <rect x="346" y="178" width="8" height="50" fill="#5A3E2A"/>
+            <circle cx="350" cy="160" r="26" fill="url(#b3tree)"/><circle cx="332" cy="176" r="16" fill="url(#b3tree)"/><circle cx="370" cy="176" r="18" fill="url(#b3tree)"/>
+            <!-- poste -->
+            <rect x="60" y="150" width="4" height="112" fill="#4A4A4A"/><circle cx="62" cy="148" r="5" fill="#FFE39A"/>
+          </svg>
+        </div>
+        <span class="ex">exemplo</span>
+        <div class="in">
+          <b class="serif preco">R$ 165.000</b>
+          <p class="tipo">Terreno 12 × 30 <span>· Parque Alvorada, Sarandi</span></p>
+          <div class="dados">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16v16H4zM4 12h16M12 4v16"/></svg>360 m²</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s7-6 7-12a7 7 0 1 0-14 0c0 6 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>Rua asfaltada</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Escriturado</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section class="inq" id="inquilino">
+  <div class="wrap">
+    <div>
+      <h2 class="serif">Área do inquilino e do proprietário</h2>
+      <p>O que hoje exige uma ligação ou uma ida ao escritório, resolvido no celular:</p>
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>2ª via do boleto do aluguel e pagamento por Pix</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Contrato e comprovantes para baixar</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Chamado de manutenção com foto</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Proprietário acompanha o repasse de cada mês</li>
+      </ul>
+    </div>
+    <form onsubmit="return false">
+      <h3 class="serif">2ª via do boleto do aluguel</h3>
+      <label for="cpf">CPF do inquilino</label>
+      <input id="cpf" inputmode="numeric" placeholder="000.000.000-00">
+      <label for="nasc">Data de nascimento</label>
+      <input id="nasc" type="date">
+      <button class="btn" type="button">Ver boleto do mês</button>
+      <small>O boleto abre na hora, com o código Pix para copiar.</small>
+    </form>
+  </div>
+</section>
+
+<section class="anuncie" id="anuncie">
+  <div class="wrap">
+    <div><h2 class="serif">Tem um imóvel para alugar ou vender em Sarandi?</h2><p>A ABC Império faz a avaliação, as fotos e a divulgação. Mande o endereço pelo WhatsApp e a equipe retorna com o próximo passo.</p></div>
+    <a class="btn" href="https://wa.me/5544999277960?text=Ol%C3%A1%2C%20quero%20anunciar%20um%20im%C3%B3vel%20com%20a%20ABC%20Imp%C3%A9rio" target="_blank" rel="noopener">Anunciar meu imóvel</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><b>ABC Império Imóveis</b><br>Av. Dep. Borsari Neto, 517, sala 2 — Jd. Independência<br>Sarandi/PR</div>
+    <div><b>WhatsApp</b><br><a href="https://wa.me/5544999277960">(44) 99927-7960</a></div>
+    <div><b>E-mail</b><br><a href="mailto:bonfim.mrv@hotmail.com">bonfim.mrv@hotmail.com</a></div>
+    <div class="selo">Prévia · proposta de site</div>
+  </div>
+</footer>
+<a class="btn fixo" href="https://wa.me/5544999277960" target="_blank" rel="noopener">WhatsApp da ABC Império</a>
+</body>
+</html>

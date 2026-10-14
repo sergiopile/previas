@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#16362B">
+<title>Kapital Imóveis — casas, apartamentos e terrenos em Marialva</title>
+<style>
+  :root{--mata:#16362B;--mata2:#1F4538;--latao:#B8893B;--latao2:#A27630;--marfim:#F7F2E8;--areia:#E6DCC8;--texto:#1B2420;--texto2:#5F6A63;--sobre-mata:#B7C9BE}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--marfim);color:var(--texto);font:16px/1.55 "Helvetica Neue",Helvetica,"TeX Gyre Heros",Arial,sans-serif;accent-color:var(--latao)}
+  ::selection{background:var(--latao);color:#fff} :focus-visible{outline:3px solid var(--latao);outline-offset:2px}
+  a{color:inherit}
+  .serif{font-family:"Bookman Old Style",Bookman,"URW Bookman","TeX Gyre Bonum","Iowan Old Style",Palatino,Georgia,serif;font-weight:700;margin:0;text-wrap:balance;letter-spacing:-.01em}
+  h2,h3{margin:0}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 16px}
+  svg.ilu{display:block;width:100%;height:auto}
+  /* header */
+  header{background:var(--mata);color:#fff}
+  header .wrap{display:flex;align-items:center;gap:24px;min-height:80px}
+  .logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff}
+  .logo .k{width:44px;height:44px;flex:none}
+  .logo b{font-size:26px;line-height:1;display:block}
+  .logo small{display:block;font:12px/1.2 "Helvetica Neue",Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--latao);margin-top:4px}
+  nav{margin-left:auto;display:flex;gap:2px;flex-wrap:wrap;align-items:center}
+  nav a{text-decoration:none;padding:10px 12px;border-radius:8px;font-size:15px;color:var(--sobre-mata)}
+  nav a:hover{color:#fff;background:var(--mata2)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--latao);color:#fff;text-decoration:none;font-weight:600;padding:12px 18px;border-radius:8px;min-height:48px;border:0;cursor:pointer;font-size:16px;transition:background .15s,transform .15s}
+  .btn:hover{background:var(--latao2)} .btn:active{transform:translateY(1px)} .btn svg{width:22px;height:22px;flex:none}
+  nav a.btn{color:#fff}
+  /* hero */
+  .hero{background:var(--mata);color:#fff;overflow:hidden}
+  .hero .wrap{display:grid;grid-template-columns:5fr 7fr;gap:40px;align-items:center;padding-top:40px;padding-bottom:56px}
+  .hero h1{font-size:clamp(32px,3.3vw,42px);line-height:1.1;margin-top:8px}
+  .hero .sub{color:var(--sobre-mata);font-size:18px;max-width:44ch;margin:16px 0 28px}
+  .busca{background:var(--marfim);color:var(--texto);border-radius:12px;padding:16px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .busca label{display:grid;gap:4px;font-size:13px;color:var(--texto2)}
+  .busca select,.busca input{font:inherit;font-size:16px;padding:10px 12px;border:1px solid #CFC6B2;border-radius:8px;min-height:48px;background:#fff;color:var(--texto);width:100%;caret-color:var(--latao)}
+  .busca .btn{grid-column:1/-1}
+  .hero figure{margin:0;position:relative}
+  .hero figure svg{border-radius:16px;box-shadow:0 24px 48px -24px rgba(0,0,0,.6)}
+  .hero figcaption{position:absolute;left:12px;bottom:12px;font-size:12px;color:#fff;background:rgba(22,54,43,.75);padding:4px 10px;border-radius:6px}
+  /* vitrine */
+  .vitrine{padding:64px 0 56px}
+  .vitrine .top{display:flex;align-items:end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:24px}
+  .vitrine h2{font-size:34px} .vitrine .top p{margin:0;color:var(--texto2);font-size:15px}
+  .grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:20px}
+  .ficha{background:#fff;border-radius:14px;overflow:hidden;text-decoration:none;display:flex;flex-direction:column;position:relative;box-shadow:0 8px 24px -12px rgba(27,36,32,.3)}
+  .ficha .img{aspect-ratio:4/3;overflow:hidden;background:var(--areia)}
+  .grid .ficha:first-child .img{aspect-ratio:16/10}
+  .ficha .img svg{width:100%;height:100%;display:block}
+  .ficha .ex{position:absolute;top:12px;left:12px;background:rgba(255,255,255,.88);color:var(--texto2);font-size:12px;padding:4px 8px;border-radius:6px}
+  .ficha .in{padding:16px 16px 20px}
+  .ficha .preco{font-size:26px;font-variant-numeric:tabular-nums;color:var(--mata);display:block;letter-spacing:0}
+  .ficha .preco small{font-size:14px;font-family:"Helvetica Neue",Arial,sans-serif;font-weight:400;color:var(--texto2);margin-left:6px}
+  .ficha .tipo{margin:4px 0 0;color:var(--texto)} .ficha .tipo span{color:var(--texto2)}
+  .ficha .dados{display:flex;gap:12px;margin-top:12px;font-size:14px;color:var(--texto2);font-variant-numeric:tabular-nums;flex-wrap:wrap}
+  .ficha .dados span{display:inline-flex;gap:6px;align-items:center} .ficha .dados svg{width:18px;height:18px;color:var(--latao)}
+  /* área inquilino */
+  .inq{background:var(--areia);padding:72px 0}
+  .inq .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .inq h2{font-size:34px;margin-bottom:12px} .inq p{color:var(--texto2);max-width:48ch;margin:0}
+  .inq ul{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:10px} .inq li{display:flex;gap:10px;align-items:flex-start} .inq li svg{width:20px;height:20px;color:var(--latao);flex:none;margin-top:3px}
+  .inq form{background:var(--mata);color:#fff;border-radius:16px;padding:32px;display:grid;gap:12px}
+  .inq form h3{font-size:24px;margin-bottom:4px} .inq form label{font-size:14px;color:var(--sobre-mata)}
+  .inq input{font:inherit;font-size:16px;padding:12px;border-radius:8px;border:1px solid var(--mata2);min-height:48px;background:#fff;color:var(--texto);caret-color:var(--latao)}
+  .inq form small{color:var(--sobre-mata);font-size:13px}
+  /* anuncie */
+  .anuncie{padding:64px 0}
+  .anuncie .wrap{display:flex;gap:32px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+  .anuncie h2{font-size:30px} .anuncie p{color:var(--texto2);margin:8px 0 0;max-width:52ch}
+  footer{background:var(--mata);color:var(--sobre-mata);padding:40px 0;font-size:15px}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:24px 48px;align-items:flex-start} footer b{color:#fff}
+  .selo{margin-left:auto;font-size:12px;border:1px solid var(--mata2);padding:6px 10px;border-radius:6px;color:var(--sobre-mata);align-self:center}
+  .fixo{display:none} .wpp-top{display:none}
+  @media (max-width:960px){
+    .hero .wrap{grid-template-columns:1fr;gap:28px;padding-top:24px;padding-bottom:40px} .hero figure{order:-1;margin:0 -16px} .hero figure svg{border-radius:0;height:300px} .hero figcaption{left:28px}
+    .grid{grid-template-columns:1fr 1fr} .grid .ficha:first-child{grid-column:1/-1}
+    .inq .wrap,.anuncie .wrap{grid-template-columns:1fr}
+    header .wrap{flex-wrap:wrap;padding:12px 16px;gap:8px 16px} nav{margin-left:0;width:100%;flex-wrap:nowrap;overflow-x:auto;order:3;-webkit-overflow-scrolling:touch} nav a{padding:10px 8px;font-size:14px;white-space:nowrap} nav .btn{display:none} .wpp-top{display:inline-flex;margin-left:auto;padding:8px 10px;min-height:44px;font-size:13px;gap:5px} .wpp-top svg{width:18px;height:18px} .logo .k{width:36px;height:36px} .logo b{font-size:22px} .logo small{font-size:11px}
+  }
+  @media (max-width:600px){
+    .grid{grid-template-columns:1fr} .ficha .img,.grid .ficha:first-child .img{aspect-ratio:3/2}
+    .vitrine h2,.inq h2{font-size:30px} .hero h1{font-size:30px} .inq form{padding:24px}
+    .fixo{display:flex;position:fixed;left:16px;right:16px;bottom:16px;z-index:9;box-shadow:0 8px 24px -8px rgba(0,0,0,.5)} body{padding-bottom:88px}
+    .busca{grid-template-columns:1fr}
+  }
+  @media (prefers-reduced-motion:no-preference){
+    .hero figure{animation:f .8s cubic-bezier(.2,.7,.2,1) both .1s} @keyframes f{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="logo" href="#" aria-label="Kapital Imóveis">
+      <svg class="k" viewBox="0 0 44 44" aria-hidden="true"><rect width="44" height="44" rx="8" fill="#B8893B"/><text x="22" y="33" text-anchor="middle" font-family="'Bookman Old Style',Bookman,'URW Bookman','TeX Gyre Bonum',Palatino,Georgia,serif" font-weight="700" font-size="30" fill="#16362B">K</text></svg>
+      <span><b class="serif">Kapital</b><small>Imóveis · Marialva</small></span>
+    </a>
+    <a class="btn wpp-top" href="https://wa.me/5544998166294" target="_blank" rel="noopener" aria-label="WhatsApp (44) 99816-6294"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>(44) 99816-6294</a>
+    <nav aria-label="Principal">
+      <a href="#busca">Comprar</a>
+      <a href="#busca">Alugar</a>
+      <a href="#anuncie">Anunciar</a>
+      <a href="#inquilino">Área do inquilino</a>
+      <a class="btn" href="https://wa.me/5544998166294?text=Ol%C3%A1%2C%20vi%20um%20im%C3%B3vel%20no%20site%20da%20Kapital" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>
+        (44) 99816-6294
+      </a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="busca">
+  <div class="wrap">
+    <div>
+      <h1 class="serif">Casas, apartamentos e terrenos em Marialva, com visita marcada pelo WhatsApp</h1>
+      <p class="sub">Imóveis para comprar e alugar no Centro e nos bairros de Marialva. Escritório na Rua Formosa, 432, sala 02.</p>
+      <form class="busca" onsubmit="return false" aria-label="Buscar imóveis">
+        <label>Finalidade <select><option>Comprar</option><option>Alugar</option></select></label>
+        <label>Tipo <select><option>Casa</option><option>Apartamento</option><option>Sobrado</option><option>Terreno</option><option>Sala comercial</option></select></label>
+        <label style="grid-column:1/-1">Bairro <input list="bairros" placeholder="Centro, Jardim Panorama…"><datalist id="bairros"><option>Centro</option><option>Jardim Panorama</option><option>Jardim Vitória</option><option>Nova Marialva</option></datalist></label>
+        <button class="btn" type="button">Buscar imóveis</button>
+      </form>
+    </div>
+    <figure>
+      <svg class="ilu" viewBox="0 0 1200 760" width="1200" height="760" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Ilustração de uma rua residencial em Marialva no fim da tarde">
+        <defs>
+          <linearGradient id="hsky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4F77A8"/><stop offset=".45" stop-color="#B9A4AE"/><stop offset=".78" stop-color="#F0AE78"/><stop offset="1" stop-color="#FAD9A5"/></linearGradient>
+          <radialGradient id="hsun" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFF1C2" stop-opacity=".95"/><stop offset=".4" stop-color="#FFD58A" stop-opacity=".45"/><stop offset="1" stop-color="#FFC77A" stop-opacity="0"/></radialGradient>
+          <linearGradient id="hgrass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7C9B55"/><stop offset="1" stop-color="#4E6E38"/></linearGradient>
+          <linearGradient id="hroad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6E6B6F"/><stop offset="1" stop-color="#4A484D"/></linearGradient>
+          <linearGradient id="hroof" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A8502F"/><stop offset="1" stop-color="#D9825A"/></linearGradient>
+          <linearGradient id="hwall" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#E4D5BA"/><stop offset="1" stop-color="#F6E9CE"/></linearGradient>
+          <linearGradient id="hwall2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#C8D1C7"/><stop offset="1" stop-color="#E6EBE2"/></linearGradient>
+          <linearGradient id="hglass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE9A8"/><stop offset="1" stop-color="#F4B860"/></linearGradient>
+          <radialGradient id="htree" cx=".65" cy=".3" r=".75"><stop offset="0" stop-color="#8DB85C"/><stop offset="1" stop-color="#2F5A2E"/></radialGradient>
+          <!-- casa térrea: base em y=0, frente 260 de largura -->
+          <g id="casa">
+            <polygon points="268,-150 350,-178 350,-28 268,0" fill="#B9A98B"/>
+            <polygon points="0,-150 268,-150 268,0 0,0" fill="url(#hwall)"/>
+            <polygon points="-16,-150 282,-150 240,-222 26,-222" fill="url(#hroof)"/>
+            <polygon points="282,-150 364,-178 318,-246 240,-222" fill="#8E4426"/>
+            <rect x="-16" y="-154" width="298" height="7" fill="#7A3B22"/>
+            <rect x="20" y="-100" width="88" height="100" fill="#D1C3A7"/>
+            <g fill="#BEAE90"><rect x="20" y="-82" width="88" height="3"/><rect x="20" y="-62" width="88" height="3"/><rect x="20" y="-42" width="88" height="3"/><rect x="20" y="-22" width="88" height="3"/></g>
+            <rect x="148" y="-112" width="54" height="48" fill="url(#hglass)" stroke="#8A6A3E" stroke-width="4"/>
+            <line x1="175" y1="-112" x2="175" y2="-64" stroke="#8A6A3E" stroke-width="3"/>
+            <rect x="222" y="-98" width="30" height="98" fill="#5E3A26"/>
+            <circle cx="246" cy="-50" r="2.5" fill="#D9B15A"/>
+            <rect x="290" y="-26" width="34" height="40" transform="skewY(-18)" fill="#E8C98E" opacity=".9"/>
+            <rect x="140" y="-124" width="112" height="6" fill="#B8893B" opacity=".7"/>
+          </g>
+          <!-- sobrado: base em y=0 -->
+          <g id="sobrado">
+            <polygon points="240,-250 310,-274 310,-24 240,0" fill="#9FB2A9"/>
+            <polygon points="0,-250 240,-250 240,0 0,0" fill="url(#hwall2)"/>
+            <polygon points="-12,-250 252,-250 252,-268 -12,-268" fill="#4C5E55"/>
+            <polygon points="252,-268 322,-292 322,-274 252,-250" fill="#36473F"/>
+            <rect x="0" y="-132" width="240" height="8" fill="#B5BEB3"/>
+            <rect x="26" y="-224" width="60" height="64" fill="url(#hglass)" stroke="#3F4A44" stroke-width="4"/>
+            <rect x="112" y="-224" width="60" height="64" fill="#D8E6EE" stroke="#3F4A44" stroke-width="4"/>
+            <rect x="196" y="-224" width="30" height="64" fill="#D8E6EE" stroke="#3F4A44" stroke-width="4"/>
+            <rect x="18" y="-104" width="104" height="104" fill="#C5C2B8"/>
+            <g fill="#AEABA1"><rect x="18" y="-86" width="104" height="3"/><rect x="18" y="-62" width="104" height="3"/><rect x="18" y="-38" width="104" height="3"/><rect x="18" y="-14" width="104" height="3"/></g>
+            <rect x="150" y="-110" width="40" height="110" fill="#3F3A36"/>
+            <rect x="200" y="-104" width="26" height="60" fill="url(#hglass)" stroke="#3F4A44" stroke-width="3"/>
+            <rect x="248" y="-151" width="40" height="46" transform="skewY(-19)" fill="#F1D7A0" opacity=".85"/>
+          </g>
+          <g id="arvore">
+            <rect x="-7" y="-70" width="14" height="80" fill="#5A3E2A"/>
+            <circle cx="0" cy="-120" r="56" fill="url(#htree)"/>
+            <circle cx="-38" cy="-92" r="38" fill="url(#htree)"/>
+            <circle cx="40" cy="-96" r="40" fill="url(#htree)"/>
+          </g>
+        </defs>
+        <rect width="1200" height="760" fill="url(#hsky)"/>
+        <circle cx="880" cy="372" r="190" fill="url(#hsun)"/>
+        <circle cx="880" cy="372" r="46" fill="#FFF0C4"/>
+        <path d="M0 400 C 160 350, 330 390, 520 372 S 860 330, 1200 380 L1200 440 L0 440Z" fill="#B48B8E" opacity=".55"/>
+        <path d="M0 420 C 240 395, 480 425, 700 400 S 1050 380, 1200 410 L1200 460 L0 460Z" fill="#7E8F7C" opacity=".75"/>
+        <rect y="430" width="1200" height="330" fill="url(#hgrass)"/>
+        <!-- calçada e rua -->
+        <polygon points="0,560 1200,478 1200,500 0,600" fill="#D2C9B8"/>
+        <polygon points="0,600 1200,500 1200,760 0,760" fill="url(#hroad)"/>
+        <polygon points="0,603 1200,502 1200,508 0,612" fill="#E9E1CF"/>
+        <polygon points="420,760 440,760 1200,560 1200,552" fill="#E8D9A6" opacity=".35"/>
+        <!-- sombras longas -->
+        <polygon points="300,560 150,560 -40,640 60,650" fill="#2E4A2A" opacity=".35"/>
+        <polygon points="760,512 660,512 480,585 560,590" fill="#2E4A2A" opacity=".35"/>
+        <!-- casas (fundo → frente) -->
+        <use href="#sobrado" transform="translate(980,490) scale(.46)"/>
+        <use href="#arvore" transform="translate(940,494) scale(.5)"/>
+        <use href="#casa" transform="translate(660,512) scale(.72)"/>
+        <use href="#arvore" transform="translate(600,517) scale(.78)"/>
+        <use href="#sobrado" transform="translate(290,540) scale(1)"/>
+        <use href="#arvore" transform="translate(150,585) scale(1.15)"/>
+        <!-- muro baixo e portão da casa da frente -->
+        <polygon points="150,536 600,505 600,521 150,552" fill="#D9CDB3"/>
+        <polygon points="150,532 600,501 600,506 150,537" fill="#B8893B" opacity=".8"/>
+        <!-- carro estacionado -->
+        <g transform="translate(700,628)">
+          <ellipse cx="80" cy="46" rx="98" ry="10" fill="#1B1F1C" opacity=".35"/>
+          <path d="M0 40 L6 18 Q10 10 20 10 L40 10 L58 -10 Q62 -14 70 -14 L130 -14 Q138 -14 142 -8 L160 10 L176 14 Q184 16 184 24 L184 40 Z" fill="#9B2F2A"/>
+          <path d="M44 10 L60 -8 L96 -8 L96 10Z" fill="#E6C98F" opacity=".9"/>
+          <path d="M104 -8 L134 -8 L150 10 L104 10Z" fill="#E6C98F" opacity=".7"/>
+          <circle cx="40" cy="40" r="14" fill="#2A2A2A"/><circle cx="40" cy="40" r="6" fill="#B9B9B9"/>
+          <circle cx="146" cy="40" r="14" fill="#2A2A2A"/><circle cx="146" cy="40" r="6" fill="#B9B9B9"/>
+        </g>
+        <!-- poste -->
+        <rect x="856" y="400" width="6" height="120" fill="#4A4A4A"/>
+        <path d="M859 402 Q890 396 894 420" stroke="#4A4A4A" stroke-width="5" fill="none"/>
+        <circle cx="896" cy="424" r="6" fill="#FFE39A"/>
+      </svg>
+      <figcaption>Ilustração de exemplo — no site real entra a foto da fachada ou de um imóvel.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="vitrine">
+  <div class="wrap">
+    <div class="top">
+      <h2 class="serif">Imóveis em destaque</h2>
+      <p>Fichas e valores ilustrativos. No site real, a vitrine mostra os anúncios ativos da Kapital.</p>
+    </div>
+    <div class="grid">
+
+      <a class="ficha" href="#">
+        <div class="img">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração de casa térrea com garagem">
+            <defs>
+              <linearGradient id="c1sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6D93C2"/><stop offset=".6" stop-color="#D9B8A8"/><stop offset="1" stop-color="#F6C98F"/></linearGradient>
+              <radialGradient id="c1sun" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFF3CF" stop-opacity=".9"/><stop offset="1" stop-color="#FFD28A" stop-opacity="0"/></radialGradient>
+              <linearGradient id="c1grass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#86A75C"/><stop offset="1" stop-color="#52743A"/></linearGradient>
+              <linearGradient id="c1roof" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A24D2C"/><stop offset="1" stop-color="#DC865C"/></linearGradient>
+              <linearGradient id="c1wall" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#E9DCC2"/><stop offset="1" stop-color="#F8ECD3"/></linearGradient>
+              <linearGradient id="c1glass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE9A8"/><stop offset="1" stop-color="#F3B35A"/></linearGradient>
+              <radialGradient id="c1tree" cx=".7" cy=".3" r=".75"><stop offset="0" stop-color="#9CC364"/><stop offset="1" stop-color="#2F5A2E"/></radialGradient>
+            </defs>
+            <rect width="400" height="300" fill="url(#c1sky)"/>
+            <circle cx="330" cy="150" r="110" fill="url(#c1sun)"/>
+            <circle cx="330" cy="150" r="24" fill="#FFF2C8"/>
+            <path d="M0 170 C 80 150, 180 175, 260 160 S 360 150, 400 162 L400 200 L0 200Z" fill="#8B9A7F" opacity=".7"/>
+            <rect y="190" width="400" height="110" fill="url(#c1grass)"/>
+            <!-- sombra da casa -->
+            <polygon points="60,232 90,232 20,286 -20,286" fill="#2B4A28" opacity=".35"/>
+            <!-- casa -->
+            <polygon points="262,122 332,100 332,212 262,232" fill="#BFAE8E"/>
+            <polygon points="78,122 262,122 262,232 78,232" fill="url(#c1wall)"/>
+            <polygon points="62,122 278,122 246,70 100,70" fill="url(#c1roof)"/>
+            <polygon points="278,122 348,100 312,54 246,70" fill="#8C4327"/>
+            <rect x="62" y="119" width="216" height="6" fill="#7A3B22"/>
+            <!-- garagem -->
+            <rect x="92" y="156" width="72" height="76" fill="#D4C6AA"/>
+            <g fill="#BFAE8F"><rect x="92" y="170" width="72" height="3"/><rect x="92" y="186" width="72" height="3"/><rect x="92" y="202" width="72" height="3"/><rect x="92" y="218" width="72" height="3"/></g>
+            <rect x="86" y="148" width="84" height="8" fill="#B8893B" opacity=".8"/>
+            <!-- janela e porta -->
+            <rect x="182" y="150" width="40" height="36" fill="url(#c1glass)" stroke="#8A6A3E" stroke-width="3"/>
+            <line x1="202" y1="150" x2="202" y2="186" stroke="#8A6A3E" stroke-width="2"/>
+            <rect x="232" y="160" width="22" height="72" fill="#5E3A26"/>
+            <circle cx="250" cy="198" r="2" fill="#D9B15A"/>
+            <rect x="282" y="220" width="26" height="30" transform="skewY(-17)" fill="#F1D7A0" opacity=".9"/>
+            <!-- calçada e entrada de carro -->
+            <polygon points="88,232 168,232 190,300 50,300" fill="#C9C2B2"/>
+            <polygon points="0,290 400,276 400,300 0,300" fill="#B5B0A4"/>
+            <!-- muro baixo -->
+            <rect x="180" y="238" width="190" height="14" fill="#DCCFB3"/>
+            <rect x="180" y="234" width="190" height="4" fill="#B8893B" opacity=".8"/>
+            <!-- árvore -->
+            <polygon points="370,232 340,232 280,272 320,276" fill="#2B4A28" opacity=".35"/>
+            <rect x="358" y="170" width="10" height="66" fill="#5A3E2A"/>
+            <circle cx="362" cy="140" r="34" fill="url(#c1tree)"/>
+            <circle cx="340" cy="160" r="24" fill="url(#c1tree)"/>
+            <circle cx="386" cy="162" r="26" fill="url(#c1tree)"/>
+            <!-- arbustos -->
+            <circle cx="40" cy="236" r="16" fill="url(#c1tree)"/><circle cx="62" cy="240" r="12" fill="url(#c1tree)"/>
+          </svg>
+        </div>
+        <span class="ex">exemplo</span>
+        <div class="in">
+          <b class="serif preco">R$ 420.000</b>
+          <p class="tipo">Casa térrea com garagem <span>· Jardim Panorama, Marialva</span></p>
+          <div class="dados">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 18v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6M3 18h18M5 10V7a2 2 0 0 1 2-2h4v5"/></svg>3 quartos</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16v16H4zM4 12h16M12 4v16"/></svg>128 m²</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 17h14M6 17l1.5-6h9L18 17M7 20h2M15 20h2"/></svg>2 vagas</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="ficha" href="#">
+        <div class="img">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração de prédio de apartamentos com sacadas">
+            <defs>
+              <linearGradient id="c2sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4E76AA"/><stop offset=".55" stop-color="#B9A2B0"/><stop offset="1" stop-color="#F3B87E"/></linearGradient>
+              <radialGradient id="c2sun" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFF3CF" stop-opacity=".9"/><stop offset="1" stop-color="#FFD28A" stop-opacity="0"/></radialGradient>
+              <linearGradient id="c2wall" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#D9CDB3"/><stop offset="1" stop-color="#F3E7CF"/></linearGradient>
+              <linearGradient id="c2glass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE9A8"/><stop offset="1" stop-color="#F3B35A"/></linearGradient>
+              <linearGradient id="c2cold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9FB6CC"/><stop offset="1" stop-color="#6E88A4"/></linearGradient>
+              <linearGradient id="c2road" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6E6B6F"/><stop offset="1" stop-color="#48464B"/></linearGradient>
+              <radialGradient id="c2tree" cx=".7" cy=".3" r=".75"><stop offset="0" stop-color="#9CC364"/><stop offset="1" stop-color="#2F5A2E"/></radialGradient>
+            </defs>
+            <rect width="400" height="300" fill="url(#c2sky)"/>
+            <circle cx="60" cy="190" r="120" fill="url(#c2sun)"/>
+            <circle cx="60" cy="190" r="22" fill="#FFF2C8"/>
+            <ellipse cx="300" cy="60" rx="46" ry="10" fill="#fff" opacity=".35"/><ellipse cx="330" cy="54" rx="30" ry="8" fill="#fff" opacity=".3"/>
+            <path d="M0 212 C 60 200, 120 214, 180 206 S 320 198, 400 210 L400 240 L0 240Z" fill="#8B9A7F" opacity=".7"/>
+            <rect y="230" width="400" height="70" fill="#7F9B5B"/>
+            <polygon points="0,262 400,254 400,300 0,300" fill="url(#c2road)"/>
+            <rect y="256" width="400" height="8" fill="#D2C9B8"/>
+            <!-- prédio -->
+            <polygon points="246,30 300,46 300,258 246,258" fill="#A89C84"/>
+            <polygon points="124,30 246,30 246,258 124,258" fill="url(#c2wall)"/>
+            <rect x="118" y="24" width="134" height="8" fill="#4C5E55"/>
+            <polygon points="252,24 306,40 306,48 252,32" fill="#36473F"/>
+            <!-- andares com sacada -->
+            <g id="andar">
+              <rect x="138" y="48" width="44" height="30" fill="url(#c2glass)"/>
+              <rect x="196" y="48" width="38" height="30" fill="url(#c2cold)"/>
+              <rect x="132" y="78" width="56" height="7" fill="#C9B995"/>
+              <rect x="132" y="60" width="56" height="18" fill="#B8D4E0" opacity=".55"/>
+              <g stroke="#8C7B5A" stroke-width="1.5"><line x1="132" y1="60" x2="132" y2="78"/><line x1="146" y1="60" x2="146" y2="78"/><line x1="160" y1="60" x2="160" y2="78"/><line x1="174" y1="60" x2="174" y2="78"/><line x1="188" y1="60" x2="188" y2="78"/><line x1="132" y1="60" x2="188" y2="60"/></g>
+              <rect x="258" y="-31" width="28" height="30" transform="skewY(17)" fill="#E9CF9A" opacity=".6"/>
+            </g>
+            <use href="#andar" transform="translate(0,42)"/>
+            <use href="#andar" transform="translate(0,84)"/>
+            <use href="#andar" transform="translate(0,126)"/>
+            <!-- térreo -->
+            <rect x="124" y="214" width="122" height="44" fill="#CDBF9F"/>
+            <rect x="172" y="222" width="30" height="36" fill="#3F3A36"/>
+            <rect x="166" y="214" width="42" height="8" fill="#B8893B"/>
+            <rect x="136" y="226" width="22" height="22" fill="url(#c2glass)"/>
+            <rect x="216" y="226" width="22" height="22" fill="url(#c2glass)"/>
+            <!-- sombra do prédio -->
+            <polygon points="300,258 246,258 360,290 400,290 400,268" fill="#2B4A28" opacity=".3"/>
+            <!-- árvores e poste -->
+            <rect x="52" y="200" width="7" height="56" fill="#5A3E2A"/>
+            <circle cx="56" cy="186" r="28" fill="url(#c2tree)"/><circle cx="36" cy="200" r="18" fill="url(#c2tree)"/><circle cx="78" cy="202" r="18" fill="url(#c2tree)"/>
+            <rect x="352" y="196" width="7" height="60" fill="#5A3E2A"/>
+            <circle cx="356" cy="182" r="26" fill="url(#c2tree)"/><circle cx="376" cy="200" r="16" fill="url(#c2tree)"/>
+            <rect x="328" y="186" width="4" height="72" fill="#4A4A4A"/>
+            <circle cx="330" cy="184" r="5" fill="#FFE39A"/>
+          </svg>
+        </div>
+        <span class="ex">exemplo</span>
+        <div class="in">
+          <b class="serif preco">R$ 1.450<small>/mês</small></b>
+          <p class="tipo">Apartamento com sacada <span>· Centro, Marialva</span></p>
+          <div class="dados">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 18v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6M3 18h18M5 10V7a2 2 0 0 1 2-2h4v5"/></svg>2 quartos</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16v16H4zM4 12h16M12 4v16"/></svg>64 m²</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 17h14M6 17l1.5-6h9L18 17M7 20h2M15 20h2"/></svg>1 vaga</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="ficha" href="#">
+        <div class="img">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração de sobrado de dois andares">
+            <defs>
+              <linearGradient id="c3sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5E86B6"/><stop offset=".6" stop-color="#CDB2AB"/><stop offset="1" stop-color="#F5C28A"/></linearGradient>
+              <radialGradient id="c3sun" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFF3CF" stop-opacity=".9"/><stop offset="1" stop-color="#FFD28A" stop-opacity="0"/></radialGradient>
+              <linearGradient id="c3grass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#86A75C"/><stop offset="1" stop-color="#52743A"/></linearGradient>
+              <linearGradient id="c3roof" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5C4A3E"/><stop offset="1" stop-color="#8C7260"/></linearGradient>
+              <linearGradient id="c3wall" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#DCD5C6"/><stop offset="1" stop-color="#F4EFE3"/></linearGradient>
+              <linearGradient id="c3glass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE9A8"/><stop offset="1" stop-color="#F3B35A"/></linearGradient>
+              <linearGradient id="c3cold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#B5C8D8"/><stop offset="1" stop-color="#7E96AE"/></linearGradient>
+              <radialGradient id="c3tree" cx=".7" cy=".3" r=".75"><stop offset="0" stop-color="#9CC364"/><stop offset="1" stop-color="#2F5A2E"/></radialGradient>
+            </defs>
+            <rect width="400" height="300" fill="url(#c3sky)"/>
+            <circle cx="340" cy="130" r="110" fill="url(#c3sun)"/>
+            <circle cx="340" cy="130" r="22" fill="#FFF2C8"/>
+            <path d="M0 176 C 70 160, 160 182, 240 170 S 350 160, 400 172 L400 210 L0 210Z" fill="#8B9A7F" opacity=".7"/>
+            <rect y="200" width="400" height="100" fill="url(#c3grass)"/>
+            <polygon points="70,236 100,236 30,290 -10,290" fill="#2B4A28" opacity=".35"/>
+            <!-- sobrado: bloco principal 2 pisos + garagem baixa à esquerda -->
+            <polygon points="250,70 320,52 320,218 250,236" fill="#B5B0A3"/>
+            <polygon points="130,70 250,70 250,236 130,236" fill="url(#c3wall)"/>
+            <polygon points="120,70 262,70 262,52 120,52" fill="url(#c3roof)"/>
+            <polygon points="262,52 332,34 332,52 262,70" fill="#4A3B31"/>
+            <!-- garagem com terraço -->
+            <polygon points="60,150 130,150 130,236 60,236" fill="#E7E1D2"/>
+            <polygon points="52,150 138,150 138,140 52,140" fill="#4A3B31"/>
+            <rect x="66" y="166" width="56" height="70" fill="#C9C4B7"/>
+            <g fill="#B0ABA0"><rect x="66" y="182" width="56" height="3"/><rect x="66" y="200" width="56" height="3"/><rect x="66" y="218" width="56" height="3"/></g>
+            <!-- guarda-corpo do terraço -->
+            <g stroke="#5E5248" stroke-width="2"><line x1="56" y1="126" x2="130" y2="126"/><line x1="60" y1="126" x2="60" y2="140"/><line x1="76" y1="126" x2="76" y2="140"/><line x1="92" y1="126" x2="92" y2="140"/><line x1="108" y1="126" x2="108" y2="140"/><line x1="124" y1="126" x2="124" y2="140"/></g>
+            <!-- faixa entre pisos -->
+            <rect x="130" y="152" width="120" height="6" fill="#B8893B" opacity=".8"/>
+            <!-- janelas superiores -->
+            <rect x="146" y="90" width="38" height="44" fill="url(#c3glass)" stroke="#4A3B31" stroke-width="3"/>
+            <rect x="202" y="90" width="34" height="44" fill="url(#c3cold)" stroke="#4A3B31" stroke-width="3"/>
+            <line x1="165" y1="90" x2="165" y2="134" stroke="#4A3B31" stroke-width="2"/>
+            <!-- porta e janela térreo -->
+            <rect x="150" y="170" width="28" height="66" fill="#3F3A36"/>
+            <circle cx="172" cy="204" r="2" fill="#D9B15A"/>
+            <rect x="196" y="172" width="40" height="40" fill="url(#c3glass)" stroke="#4A3B31" stroke-width="3"/>
+            <rect x="264" y="154" width="32" height="40" transform="skewY(-14)" fill="#F1D7A0" opacity=".85"/>
+            <rect x="264" y="238" width="32" height="40" transform="skewY(-14)" fill="#F1D7A0" opacity=".7"/>
+            <!-- entrada -->
+            <polygon points="64,236 124,236 140,300 30,300" fill="#C9C2B2"/>
+            <polygon points="0,292 400,280 400,300 0,300" fill="#B5B0A4"/>
+            <rect x="140" y="244" width="200" height="12" fill="#DCCFB3"/>
+            <rect x="140" y="240" width="200" height="4" fill="#B8893B" opacity=".8"/>
+            <!-- palmeira -->
+            <path d="M356 236 Q352 190 362 150" stroke="#6B4E36" stroke-width="7" fill="none" stroke-linecap="round"/>
+            <g fill="#3F7A3A">
+              <path d="M362 150 Q330 140 310 160 Q340 152 362 158Z"/><path d="M362 150 Q395 138 400 164 Q380 150 362 158Z"/>
+              <path d="M362 150 Q338 118 352 104 Q352 134 364 150Z"/><path d="M362 150 Q386 118 396 128 Q374 136 364 152Z"/>
+              <path d="M362 152 Q330 168 324 186 Q344 164 364 158Z"/><path d="M362 152 Q392 170 400 190 Q384 166 364 158Z"/>
+            </g>
+            <circle cx="30" cy="240" r="14" fill="url(#c3tree)"/><circle cx="48" cy="246" r="10" fill="url(#c3tree)"/>
+          </svg>
+        </div>
+        <span class="ex">exemplo</span>
+        <div class="in">
+          <b class="serif preco">R$ 690.000</b>
+          <p class="tipo">Sobrado com terraço <span>· Jardim Vitória, Marialva</span></p>
+          <div class="dados">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 18v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6M3 18h18M5 10V7a2 2 0 0 1 2-2h4v5"/></svg>4 quartos</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16v16H4zM4 12h16M12 4v16"/></svg>196 m²</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 17h14M6 17l1.5-6h9L18 17M7 20h2M15 20h2"/></svg>2 vagas</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section class="inq" id="inquilino">
+  <div class="wrap">
+    <div>
+      <h2 class="serif">Área do inquilino e do proprietário</h2>
+      <p>O que hoje precisa de uma ligação para a imobiliária, resolvido no celular:</p>
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>2ª via do boleto do aluguel e pagamento por Pix</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Contrato e comprovantes para baixar</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Chamado de manutenção com foto</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Proprietário acompanha o repasse de cada mês</li>
+      </ul>
+    </div>
+    <form onsubmit="return false">
+      <h3 class="serif">2ª via do boleto do aluguel</h3>
+      <label for="cpf">CPF do inquilino</label>
+      <input id="cpf" inputmode="numeric" placeholder="000.000.000-00">
+      <label for="nasc">Data de nascimento</label>
+      <input id="nasc" type="date">
+      <button class="btn" type="button">Ver boleto do mês</button>
+      <small>O boleto abre na hora, com o código Pix para copiar.</small>
+    </form>
+  </div>
+</section>
+
+<section class="anuncie" id="anuncie">
+  <div class="wrap">
+    <div><h2 class="serif">Tem um imóvel para alugar ou vender em Marialva?</h2><p>A Kapital faz a avaliação, as fotos e a divulgação. Mande o endereço pelo WhatsApp e a equipe retorna com o próximo passo.</p></div>
+    <a class="btn" href="https://wa.me/5544998166294?text=Ol%C3%A1%2C%20quero%20anunciar%20um%20im%C3%B3vel%20com%20a%20Kapital" target="_blank" rel="noopener">Anunciar meu imóvel</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><b>Kapital Imóveis</b><br>Rua Formosa, 432, sala 02 — Centro<br>Marialva/PR</div>
+    <div><b>WhatsApp</b><br><a href="https://wa.me/5544998166294">(44) 99816-6294</a></div>
+    <div><b>E-mail</b><br><a href="mailto:kapitalimoveismva@gmail.com">kapitalimoveismva@gmail.com</a></div>
+    <div class="selo">Prévia · proposta de site</div>
+  </div>
+</footer>
+<a class="btn fixo" href="https://wa.me/5544998166294" target="_blank" rel="noopener">WhatsApp da Kapital</a>
+</body>
+</html>

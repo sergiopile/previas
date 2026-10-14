@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#B5553A">
+<title>Brevelar Imóveis — casas e apartamentos em Sarandi</title>
+<style>
+  :root{--terra:#B5553A;--terra2:#99452D;--areia:#EAD9C0;--areia2:#F6EDE0;--oliva:#5F6B3A;--oliva2:#4A5430;--texto:#2E261F;--texto2:#6F6354;--sobre-terra:#F3D9CC}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--areia2);color:var(--texto);font:16px/1.55 Verdana,"DejaVu Sans",Geneva,sans-serif;accent-color:var(--terra)}
+  ::selection{background:var(--terra);color:#fff} :focus-visible{outline:3px solid var(--terra);outline-offset:2px}
+  a{color:inherit}
+  .serif{font-family:Georgia,"Iowan Old Style",Utopia,"DejaVu Serif","Liberation Serif",serif;font-weight:700;margin:0;text-wrap:balance;letter-spacing:-.01em}
+  h2,h3{margin:0}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 16px}
+  /* header */
+  header{background:var(--areia2);color:var(--texto);border-bottom:1px solid #DCCBB0}
+  header .wrap{display:flex;align-items:center;gap:24px;min-height:80px}
+  .logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--texto)}
+  .logo svg{width:46px;height:46px;flex:none}
+  .logo b{font-size:26px;line-height:1;display:block;color:var(--terra2)}
+  .logo small{display:block;font:11px/1.2 Verdana,"DejaVu Sans",sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--oliva);margin-top:4px}
+  nav{margin-left:auto;display:flex;gap:2px;flex-wrap:wrap;align-items:center}
+  nav a{text-decoration:none;padding:10px 12px;border-radius:10px;font-size:15px;color:var(--texto2)}
+  nav a:hover{color:var(--texto);background:var(--areia)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--terra);color:#fff;text-decoration:none;font-weight:700;padding:12px 18px;border-radius:10px;min-height:48px;border:0;cursor:pointer;font-size:16px;transition:background .15s,transform .15s}
+  .btn:hover{background:var(--terra2)} .btn:active{transform:translateY(1px)} .btn svg{width:22px;height:22px;flex:none}
+  nav a.btn{color:#fff;margin-left:8px}
+  .wpp-top{display:none}
+  /* hero split */
+  .hero{display:grid;grid-template-columns:1fr 1fr;background:var(--areia);overflow:hidden}
+  .hero .txt{padding:56px 48px 56px max(16px,calc((100vw - 1200px)/2 + 16px));display:flex;flex-direction:column;justify-content:center}
+  .hero h1{font-size:clamp(32px,3.4vw,44px);line-height:1.12;color:var(--texto)}
+  .hero .sub{color:var(--texto2);font-size:18px;max-width:44ch;margin:16px 0 28px}
+  .busca{background:#fff;border-radius:14px;padding:16px;display:grid;grid-template-columns:1fr 1fr;gap:12px;box-shadow:0 12px 32px -20px rgba(46,38,31,.45)}
+  .busca label{display:grid;gap:4px;font-size:13px;color:var(--texto2)}
+  .busca select,.busca input{font:inherit;font-size:16px;padding:10px 12px;border:1px solid #D5C6AC;border-radius:10px;min-height:48px;background:#fff;color:var(--texto);width:100%;caret-color:var(--terra)}
+  .busca .btn{grid-column:1/-1}
+  .hero figure{margin:0;position:relative;min-height:560px}
+  .hero figure svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+  .hero figcaption{position:absolute;left:16px;bottom:16px;font-size:12px;color:#fff;background:rgba(46,38,31,.72);padding:4px 10px;border-radius:6px}
+  /* vitrine */
+  .vitrine{padding:64px 0 56px}
+  .vitrine .top{display:flex;align-items:end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:24px}
+  .vitrine h2{font-size:34px} .vitrine .top p{margin:0;color:var(--texto2);font-size:15px}
+  .grid{display:grid;grid-template-columns:1fr 1fr 1.3fr;gap:20px}
+  .ficha{background:#fff;border-radius:14px;overflow:hidden;text-decoration:none;display:flex;flex-direction:column;position:relative;box-shadow:0 8px 24px -12px rgba(46,38,31,.3)}
+  .ficha .img{aspect-ratio:4/3;overflow:hidden;background:var(--areia)}
+  .grid .ficha:last-child .img{aspect-ratio:16/10}
+  .ficha .img svg{width:100%;height:100%;display:block}
+  .ficha .ex{position:absolute;top:12px;left:12px;background:rgba(255,255,255,.9);color:var(--texto2);font-size:12px;padding:4px 8px;border-radius:6px}
+  .ficha .in{padding:16px 16px 20px}
+  .ficha .preco{font-size:26px;font-variant-numeric:tabular-nums;color:var(--terra2);display:block}
+  .ficha .preco small{font-size:14px;font-family:Verdana,"DejaVu Sans",sans-serif;font-weight:400;color:var(--texto2);margin-left:6px}
+  .ficha .tipo{margin:4px 0 0} .ficha .tipo span{color:var(--texto2)}
+  .ficha .dados{display:flex;gap:12px;margin-top:12px;font-size:14px;color:var(--texto2);font-variant-numeric:tabular-nums;flex-wrap:wrap}
+  .ficha .dados span{display:inline-flex;gap:6px;align-items:center} .ficha .dados svg{width:18px;height:18px;color:var(--oliva)}
+  /* área inquilino */
+  .inq{background:var(--oliva);color:#fff;padding:72px 0}
+  .inq .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .inq h2{font-size:34px;margin-bottom:12px} .inq p{color:#DCE2C6;max-width:48ch;margin:0}
+  .inq ul{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:10px} .inq li{display:flex;gap:10px;align-items:flex-start} .inq li svg{width:20px;height:20px;color:var(--areia);flex:none;margin-top:3px}
+  .inq form{background:var(--areia2);color:var(--texto);border-radius:16px;padding:32px;display:grid;gap:12px}
+  .inq form h3{font-size:24px;margin-bottom:4px} .inq form label{font-size:14px;color:var(--texto2)}
+  .inq input{font:inherit;font-size:16px;padding:12px;border-radius:10px;border:1px solid #D5C6AC;min-height:48px;background:#fff;color:var(--texto);caret-color:var(--terra)}
+  .inq form small{color:var(--texto2);font-size:13px}
+  /* anuncie */
+  .anuncie{padding:64px 0}
+  .anuncie .wrap{display:flex;gap:32px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+  .anuncie h2{font-size:30px} .anuncie p{color:var(--texto2);margin:8px 0 0;max-width:52ch}
+  footer{background:var(--texto);color:#CFC3B2;padding:40px 0;font-size:15px}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:24px 48px;align-items:flex-start} footer b{color:#fff}
+  .selo{margin-left:auto;font-size:12px;border:1px solid #574B3F;padding:6px 10px;border-radius:6px;align-self:center}
+  .fixo{display:none}
+  @media (max-width:960px){
+    .hero{grid-template-columns:1fr} .hero .txt{padding:32px 16px 40px} .hero figure{order:-1;min-height:0;height:320px}
+    .grid{grid-template-columns:1fr 1fr} .grid .ficha:last-child{grid-column:1/-1}
+    .inq .wrap,.anuncie .wrap{grid-template-columns:1fr}
+    header .wrap{flex-wrap:wrap;padding:12px 16px;gap:8px 16px} nav{margin-left:0;width:100%;flex-wrap:nowrap;overflow-x:auto;order:3} nav a{padding:10px 8px;font-size:14px;white-space:nowrap} nav .btn{display:none} .wpp-top{display:inline-flex;margin-left:auto;padding:8px 10px;min-height:44px;font-size:13px;gap:5px} .wpp-top svg{width:18px;height:18px} .logo svg{width:38px;height:38px} .logo b{font-size:22px} .logo small{font-size:10px}
+  }
+  @media (max-width:600px){
+    .grid{grid-template-columns:1fr} .ficha .img,.grid .ficha:last-child .img{aspect-ratio:3/2}
+    .vitrine h2,.inq h2{font-size:30px} .hero h1{font-size:31px} .inq form{padding:24px}
+    .busca{grid-template-columns:1fr} .hero figure{height:280px}
+    .fixo{display:flex;position:fixed;left:16px;right:16px;bottom:16px;z-index:9;box-shadow:0 8px 24px -8px rgba(0,0,0,.5)} body{padding-bottom:88px}
+  }
+  @media (prefers-reduced-motion:no-preference){
+    .hero figure svg{animation:f .9s cubic-bezier(.2,.7,.2,1) both .1s} @keyframes f{from{opacity:0;transform:scale(1.03)}to{opacity:1;transform:none}}
+  }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="wpp" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></symbol></svg>
+<header>
+  <div class="wrap">
+    <a class="logo" href="#" aria-label="Brevelar Imóveis">
+      <svg viewBox="0 0 46 46" aria-hidden="true">
+        <path d="M4 22 L23 6 L42 22" fill="none" stroke="#B5553A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="23" y="42" text-anchor="middle" font-family="Georgia,'Iowan Old Style',Utopia,'DejaVu Serif',serif" font-weight="700" font-size="30" fill="#5F6B3A">B</text>
+      </svg>
+      <span><b class="serif">Brevelar</b><small>Imóveis · Sarandi</small></span>
+    </a>
+    <a class="btn wpp-top" href="https://wa.me/5544999096334" target="_blank" rel="noopener" aria-label="WhatsApp (44) 99909-6334"><svg><use href="#wpp"/></svg>(44) 99909-6334</a>
+    <nav aria-label="Principal">
+      <a href="#busca">Comprar</a>
+      <a href="#busca">Alugar</a>
+      <a href="#anuncie">Anunciar</a>
+      <a href="#inquilino">Área do inquilino</a>
+      <a class="btn" href="https://wa.me/5544999096334?text=Ol%C3%A1%2C%20vi%20um%20im%C3%B3vel%20no%20site%20da%20Brevelar" target="_blank" rel="noopener"><svg><use href="#wpp"/></svg>(44) 99909-6334</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="busca">
+  <div class="txt">
+    <h1 class="serif">O imóvel certo em Sarandi, com visita marcada no mesmo dia</h1>
+    <p class="sub">Casas, apartamentos e chácaras para comprar e alugar. Atendimento pelo WhatsApp e escritório na Rua Jaçanã, 511.</p>
+    <form class="busca" onsubmit="return false" aria-label="Buscar imóveis">
+      <label>Finalidade <select><option>Comprar</option><option>Alugar</option></select></label>
+      <label>Tipo <select><option>Casa</option><option>Apartamento</option><option>Kitnet</option><option>Chácara</option><option>Terreno</option></select></label>
+      <label style="grid-column:1/-1">Bairro <input list="bairros" placeholder="Centro, Jardim Verão…"><datalist id="bairros"><option>Centro</option><option>Jardim Verão</option><option>Jardim Independência</option><option>Parque Alvorada</option><option>Vale Azul</option><option>Jardim Esperança</option></datalist></label>
+      <button class="btn" type="button">Buscar imóveis</button>
+    </form>
+  </div>
+  <figure>
+    <svg viewBox="0 0 800 760" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração de uma rua de bairro em Sarandi numa manhã de sol">
+      <defs>
+        <linearGradient id="vsky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7FB3D8"/><stop offset=".55" stop-color="#C9DFEA"/><stop offset="1" stop-color="#F4E6CF"/></linearGradient>
+        <radialGradient id="vsun" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFF8DC" stop-opacity=".95"/><stop offset=".5" stop-color="#FFE9A8" stop-opacity=".35"/><stop offset="1" stop-color="#FFE9A8" stop-opacity="0"/></radialGradient>
+        <linearGradient id="vgrass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9DB86A"/><stop offset="1" stop-color="#6A8A47"/></linearGradient>
+        <linearGradient id="vroad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8A8582"/><stop offset="1" stop-color="#5E5955"/></linearGradient>
+        <linearGradient id="vroof" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9E4A30"/><stop offset="1" stop-color="#D0765A"/></linearGradient>
+        <linearGradient id="vwall" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#F0E5CF"/><stop offset="1" stop-color="#FBF4E6"/></linearGradient>
+        <linearGradient id="vwall2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#D9C6B2"/><stop offset="1" stop-color="#F0E3D4"/></linearGradient>
+        <linearGradient id="vglass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#DCEAF2"/><stop offset="1" stop-color="#9DBBD0"/></linearGradient>
+        <radialGradient id="vtree" cx=".65" cy=".3" r=".75"><stop offset="0" stop-color="#A9CC6B"/><stop offset="1" stop-color="#3F6B36"/></radialGradient>
+        <g id="vcasa">
+          <polygon points="220,-130 290,-154 290,-24 220,0" fill="#C8B79E"/>
+          <polygon points="0,-130 220,-130 220,0 0,0" fill="url(#vwall)"/>
+          <polygon points="-14,-130 234,-130 198,-190 22,-190" fill="url(#vroof)"/>
+          <polygon points="234,-130 304,-154 266,-210 198,-190" fill="#86412A"/>
+          <rect x="-14" y="-134" width="248" height="6" fill="#6E3420"/>
+          <rect x="16" y="-86" width="72" height="86" fill="#D9CDB3"/>
+          <g fill="#C4B597"><rect x="16" y="-70" width="72" height="3"/><rect x="16" y="-52" width="72" height="3"/><rect x="16" y="-34" width="72" height="3"/><rect x="16" y="-16" width="72" height="3"/></g>
+          <rect x="120" y="-98" width="48" height="44" fill="url(#vglass)" stroke="#8C5A3E" stroke-width="4"/>
+          <line x1="144" y1="-98" x2="144" y2="-54" stroke="#8C5A3E" stroke-width="3"/>
+          <rect x="182" y="-88" width="28" height="88" fill="#5A3A2A"/>
+          <circle cx="204" cy="-44" r="2.5" fill="#D9B15A"/>
+          <rect x="236" y="-110" width="30" height="36" transform="skewY(-19)" fill="#CFE0EA" opacity=".9"/>
+          <rect x="110" y="-108" width="100" height="5" fill="#B5553A" opacity=".8"/>
+        </g>
+        <g id="vsobrado">
+          <polygon points="200,-230 260,-252 260,-22 200,0" fill="#B8AFA0"/>
+          <polygon points="0,-230 200,-230 200,0 0,0" fill="url(#vwall2)"/>
+          <polygon points="-10,-230 210,-230 210,-246 -10,-246" fill="#5F6B3A"/>
+          <polygon points="210,-246 270,-268 270,-252 210,-230" fill="#4A5430"/>
+          <rect x="0" y="-120" width="200" height="7" fill="#B5553A" opacity=".75"/>
+          <rect x="22" y="-206" width="52" height="60" fill="url(#vglass)" stroke="#4A4A42" stroke-width="4"/>
+          <rect x="96" y="-206" width="52" height="60" fill="url(#vglass)" stroke="#4A4A42" stroke-width="4"/>
+          <rect x="166" y="-206" width="22" height="60" fill="url(#vglass)" stroke="#4A4A42" stroke-width="4"/>
+          <rect x="16" y="-96" width="92" height="96" fill="#CAC4B6"/>
+          <g fill="#B2AC9E"><rect x="16" y="-78" width="92" height="3"/><rect x="16" y="-56" width="92" height="3"/><rect x="16" y="-34" width="92" height="3"/><rect x="16" y="-12" width="92" height="3"/></g>
+          <rect x="128" y="-100" width="36" height="100" fill="#3F3A36"/>
+          <rect x="172" y="-94" width="20" height="54" fill="url(#vglass)" stroke="#4A4A42" stroke-width="3"/>
+          <rect x="208" y="-146" width="36" height="44" transform="skewY(-20)" fill="#CFE0EA" opacity=".85"/>
+        </g>
+        <g id="varvore">
+          <rect x="-7" y="-70" width="14" height="80" fill="#6B4A32"/>
+          <circle cx="0" cy="-120" r="56" fill="url(#vtree)"/>
+          <circle cx="-38" cy="-92" r="38" fill="url(#vtree)"/>
+          <circle cx="40" cy="-96" r="40" fill="url(#vtree)"/>
+        </g>
+      </defs>
+      <rect width="800" height="760" fill="url(#vsky)"/>
+      <circle cx="140" cy="150" r="200" fill="url(#vsun)"/>
+      <circle cx="140" cy="150" r="44" fill="#FFF8DC"/>
+      <g fill="#fff" opacity=".8"><ellipse cx="520" cy="130" rx="80" ry="22"/><ellipse cx="570" cy="118" rx="56" ry="26"/><ellipse cx="470" cy="136" rx="44" ry="18"/><ellipse cx="700" cy="200" rx="60" ry="16"/><ellipse cx="730" cy="190" rx="34" ry="18"/></g>
+      <!-- morros distantes -->
+      <path d="M0 400 C 150 350, 300 395, 460 370 S 700 340, 800 380 L800 440 L0 440Z" fill="#9FB88A" opacity=".6"/>
+      <path d="M0 425 C 200 400, 420 430, 620 405 S 760 395, 800 415 L800 470 L0 470Z" fill="#7E9B6B" opacity=".8"/>
+      <rect y="440" width="800" height="320" fill="url(#vgrass)"/>
+      <!-- rua em perspectiva saindo pela direita -->
+      <polygon points="0,600 800,520 800,540 0,640" fill="#DDD3C0"/>
+      <polygon points="0,640 800,540 800,760 0,760" fill="url(#vroad)"/>
+      <polygon points="0,643 800,543 800,549 0,652" fill="#EEE6D5"/>
+      <polygon points="300,760 320,760 800,600 800,592" fill="#FFF2B8" opacity=".4"/>
+      <!-- sombras da manhã (sol à esquerda → sombras para a direita) -->
+      <polygon points="470,520 560,520 720,580 640,590" fill="#3B5A30" opacity=".3"/>
+      <polygon points="120,560 330,560 520,640 380,650" fill="#3B5A30" opacity=".3"/>
+      <!-- casas -->
+      <use href="#vsobrado" transform="translate(600,500) scale(.5)"/>
+      <use href="#varvore" transform="translate(760,505) scale(.5)"/>
+      <use href="#vcasa" transform="translate(410,525) scale(.72)"/>
+      <use href="#varvore" transform="translate(395,528) scale(.72)"/>
+      <use href="#vsobrado" transform="translate(110,560) scale(1)"/>
+      <use href="#varvore" transform="translate(60,600) scale(1.1)"/>
+      <!-- cerca de madeira -->
+      <g fill="#C9A978">
+        <rect x="330" y="536" width="6" height="34"/><rect x="350" y="534" width="6" height="34"/><rect x="370" y="532" width="6" height="34"/><rect x="390" y="530" width="6" height="34"/>
+        <polygon points="330,544 396,538 396,544 330,550"/><polygon points="330,558 396,552 396,558 330,564"/>
+      </g>
+      <!-- bicicleta encostada -->
+      <g transform="translate(360,600)" fill="none" stroke="#3F3A36" stroke-width="3">
+        <circle cx="0" cy="0" r="16"/><circle cx="46" cy="-4" r="16"/>
+        <path d="M0 0 L16 -26 L40 -28 M16 -26 L26 -6 L46 -4 M26 -6 L0 0 M40 -28 L44 -36 M10 -30 L22 -30"/>
+      </g>
+      <!-- caixa de correio -->
+      <rect x="560" y="548" width="4" height="40" fill="#5A3A2A"/><rect x="552" y="538" width="20" height="12" rx="3" fill="#B5553A"/>
+      <!-- pássaros -->
+      <g fill="none" stroke="#4A4A42" stroke-width="2" stroke-linecap="round"><path d="M330 200 q6 -6 12 0 q6 -6 12 0"/><path d="M362 186 q5 -5 10 0 q5 -5 10 0"/><path d="M300 220 q4 -4 8 0 q4 -4 8 0"/></g>
+    </svg>
+    <figcaption>Ilustração de exemplo — no site real entra a foto da fachada ou de um imóvel.</figcaption>
+  </figure>
+</section>
+
+<section class="vitrine">
+  <div class="wrap">
+    <div class="top">
+      <h2 class="serif">Imóveis em destaque</h2>
+      <p>Fichas e valores ilustrativos. No site real, a vitrine mostra os anúncios ativos da Brevelar.</p>
+    </div>
+    <div class="grid">
+
+      <a class="ficha" href="#">
+        <div class="img">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração de casa térrea com quintal">
+            <defs>
+              <linearGradient id="k1sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7FB3D8"/><stop offset="1" stop-color="#E6EEE4"/></linearGradient>
+              <linearGradient id="k1roof" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9E4A30"/><stop offset="1" stop-color="#D0765A"/></linearGradient>
+              <linearGradient id="k1wall" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#F0E5CF"/><stop offset="1" stop-color="#FBF4E6"/></linearGradient>
+              <linearGradient id="k1glass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#DCEAF2"/><stop offset="1" stop-color="#9DBBD0"/></linearGradient>
+              <radialGradient id="k1tree" cx=".65" cy=".3" r=".75"><stop offset="0" stop-color="#A9CC6B"/><stop offset="1" stop-color="#3F6B36"/></radialGradient>
+            </defs>
+            <rect width="400" height="300" fill="url(#k1sky)"/>
+            <circle cx="60" cy="60" r="70" fill="#FFF8DC" opacity=".45"/><circle cx="60" cy="60" r="20" fill="#FFF8DC"/>
+            <ellipse cx="300" cy="70" rx="50" ry="14" fill="#fff" opacity=".8"/>
+            <rect y="196" width="400" height="104" fill="#8AA85C"/>
+            <polygon points="80,232 120,232 300,280 230,290" fill="#3B5A30" opacity=".3"/>
+            <polygon points="262,122 332,100 332,212 262,232" fill="#C8B79E"/>
+            <polygon points="78,122 262,122 262,232 78,232" fill="url(#k1wall)"/>
+            <polygon points="62,122 278,122 246,70 100,70" fill="url(#k1roof)"/>
+            <polygon points="278,122 348,100 312,54 246,70" fill="#86412A"/>
+            <rect x="62" y="119" width="216" height="6" fill="#6E3420"/>
+            <rect x="92" y="156" width="72" height="76" fill="#D9CDB3"/>
+            <g fill="#C4B597"><rect x="92" y="170" width="72" height="3"/><rect x="92" y="186" width="72" height="3"/><rect x="92" y="202" width="72" height="3"/><rect x="92" y="218" width="72" height="3"/></g>
+            <rect x="86" y="148" width="84" height="8" fill="#B5553A" opacity=".8"/>
+            <rect x="182" y="150" width="40" height="36" fill="url(#k1glass)" stroke="#8C5A3E" stroke-width="3"/>
+            <line x1="202" y1="150" x2="202" y2="186" stroke="#8C5A3E" stroke-width="2"/>
+            <rect x="232" y="160" width="22" height="72" fill="#5A3A2A"/>
+            <polygon points="88,232 168,232 190,300 50,300" fill="#C9C2B2"/>
+            <polygon points="0,290 400,276 400,300 0,300" fill="#B5B0A4"/>
+            <!-- cerca e horta -->
+            <g fill="#C9A978"><rect x="300" y="226" width="5" height="26"/><rect x="320" y="226" width="5" height="26"/><rect x="340" y="226" width="5" height="26"/><rect x="360" y="226" width="5" height="26"/><rect x="380" y="226" width="5" height="26"/><rect x="296" y="232" width="100" height="4"/><rect x="296" y="244" width="100" height="4"/></g>
+            <rect x="350" y="170" width="10" height="60" fill="#6B4A32"/>
+            <circle cx="354" cy="140" r="34" fill="url(#k1tree)"/><circle cx="330" cy="160" r="24" fill="url(#k1tree)"/><circle cx="378" cy="162" r="26" fill="url(#k1tree)"/>
+            <circle cx="40" cy="236" r="16" fill="url(#k1tree)"/><circle cx="62" cy="240" r="12" fill="url(#k1tree)"/>
+          </svg>
+        </div>
+        <span class="ex">exemplo</span>
+        <div class="in">
+          <b class="serif preco">R$ 390.000</b>
+          <p class="tipo">Casa térrea com quintal <span>· Jardim Verão, Sarandi</span></p>
+          <div class="dados">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 18v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6M3 18h18M5 10V7a2 2 0 0 1 2-2h4v5"/></svg>3 quartos</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16v16H4zM4 12h16M12 4v16"/></svg>110 m²</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 17h14M6 17l1.5-6h9L18 17M7 20h2M15 20h2"/></svg>2 vagas</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="ficha" href="#">
+        <div class="img">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração de kitnet em prédio baixo">
+            <defs>
+              <linearGradient id="k2sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7FB3D8"/><stop offset="1" stop-color="#E6EEE4"/></linearGradient>
+              <linearGradient id="k2wall" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#D9C6B2"/><stop offset="1" stop-color="#F0E3D4"/></linearGradient>
+              <linearGradient id="k2glass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#DCEAF2"/><stop offset="1" stop-color="#9DBBD0"/></linearGradient>
+              <radialGradient id="k2tree" cx=".65" cy=".3" r=".75"><stop offset="0" stop-color="#A9CC6B"/><stop offset="1" stop-color="#3F6B36"/></radialGradient>
+            </defs>
+            <rect width="400" height="300" fill="url(#k2sky)"/>
+            <ellipse cx="80" cy="60" rx="50" ry="14" fill="#fff" opacity=".8"/><ellipse cx="340" cy="40" rx="40" ry="12" fill="#fff" opacity=".7"/>
+            <rect y="220" width="400" height="80" fill="#8AA85C"/>
+            <polygon points="0,266 400,258 400,300 0,300" fill="#6A6460"/>
+            <rect y="260" width="400" height="8" fill="#DDD3C0"/>
+            <!-- prédio de 3 andares com kitnets -->
+            <polygon points="290,70 340,86 340,262 290,262" fill="#B8AFA0"/>
+            <rect x="90" y="70" width="200" height="192" fill="url(#k2wall)"/>
+            <rect x="84" y="62" width="212" height="10" fill="#5F6B3A"/>
+            <polygon points="296,62 346,78 346,88 296,72" fill="#4A5430"/>
+            <g id="k2andar">
+              <rect x="106" y="90" width="34" height="38" fill="url(#k2glass)" stroke="#4A4A42" stroke-width="2.5"/>
+              <rect x="154" y="90" width="34" height="38" fill="url(#k2glass)" stroke="#4A4A42" stroke-width="2.5"/>
+              <rect x="202" y="90" width="34" height="38" fill="url(#k2glass)" stroke="#4A4A42" stroke-width="2.5"/>
+              <rect x="250" y="90" width="26" height="38" fill="url(#k2glass)" stroke="#4A4A42" stroke-width="2.5"/>
+              <rect x="90" y="130" width="200" height="5" fill="#B5553A" opacity=".7"/>
+              <rect x="300" y="-24" width="24" height="36" transform="skewY(18)" fill="#CFE0EA" opacity=".6"/>
+            </g>
+            <use href="#k2andar" transform="translate(0,56)"/>
+            <rect x="90" y="206" width="200" height="56" fill="#CDBFA0"/>
+            <rect x="170" y="216" width="36" height="46" fill="#3F3A36"/>
+            <rect x="164" y="206" width="48" height="10" fill="#5F6B3A"/>
+            <rect x="106" y="218" width="34" height="30" fill="url(#k2glass)"/><rect x="236" y="218" width="34" height="30" fill="url(#k2glass)"/>
+            <!-- varal e vaso na janela -->
+            <rect x="158" y="124" width="26" height="5" fill="#B5553A"/><circle cx="165" cy="120" r="5" fill="#3F6B36"/><circle cx="176" cy="119" r="5" fill="#3F6B36"/>
+            <polygon points="340,262 290,262 380,290 400,290 400,272" fill="#3B5A30" opacity=".3"/>
+            <rect x="40" y="200" width="7" height="62" fill="#6B4A32"/>
+            <circle cx="44" cy="186" r="28" fill="url(#k2tree)"/><circle cx="24" cy="200" r="18" fill="url(#k2tree)"/><circle cx="66" cy="202" r="18" fill="url(#k2tree)"/>
+            <rect x="364" y="196" width="4" height="66" fill="#4A4A4A"/><circle cx="366" cy="194" r="5" fill="#3F3A36"/>
+          </svg>
+        </div>
+        <span class="ex">exemplo</span>
+        <div class="in">
+          <b class="serif preco">R$ 850<small>/mês</small></b>
+          <p class="tipo">Kitnet mobiliada <span>· Centro, Sarandi</span></p>
+          <div class="dados">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 18v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6M3 18h18M5 10V7a2 2 0 0 1 2-2h4v5"/></svg>1 quarto</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16v16H4zM4 12h16M12 4v16"/></svg>32 m²</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Água inclusa</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="ficha" href="#">
+        <div class="img">
+          <svg viewBox="0 0 480 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração de chácara com casa, pomar e lago">
+            <defs>
+              <linearGradient id="k3sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7FB3D8"/><stop offset="1" stop-color="#EAEFE2"/></linearGradient>
+              <linearGradient id="k3grass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A3BE6C"/><stop offset="1" stop-color="#6A8A47"/></linearGradient>
+              <linearGradient id="k3roof" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9E4A30"/><stop offset="1" stop-color="#D0765A"/></linearGradient>
+              <linearGradient id="k3water" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9DC3D8"/><stop offset="1" stop-color="#5E8FAE"/></linearGradient>
+              <radialGradient id="k3tree" cx=".65" cy=".3" r=".75"><stop offset="0" stop-color="#A9CC6B"/><stop offset="1" stop-color="#3F6B36"/></radialGradient>
+              <g id="k3arv"><rect x="-4" y="-30" width="8" height="34" fill="#6B4A32"/><circle cx="0" cy="-44" r="24" fill="url(#k3tree)"/><circle cx="-16" cy="-32" r="16" fill="url(#k3tree)"/><circle cx="16" cy="-34" r="16" fill="url(#k3tree)"/><circle cx="-6" cy="-50" r="3" fill="#E0703A"/><circle cx="8" cy="-40" r="3" fill="#E0703A"/><circle cx="-14" cy="-30" r="3" fill="#E0703A"/></g>
+            </defs>
+            <rect width="480" height="300" fill="url(#k3sky)"/>
+            <circle cx="400" cy="60" r="70" fill="#FFF8DC" opacity=".45"/><circle cx="400" cy="60" r="20" fill="#FFF8DC"/>
+            <g fill="#fff" opacity=".8"><ellipse cx="120" cy="60" rx="60" ry="16"/><ellipse cx="160" cy="50" rx="40" ry="18"/></g>
+            <path d="M0 150 C 100 120, 220 150, 320 130 S 440 120, 480 140 L480 180 L0 180Z" fill="#8CAB74" opacity=".7"/>
+            <rect y="170" width="480" height="130" fill="url(#k3grass)"/>
+            <!-- lago -->
+            <ellipse cx="360" cy="252" rx="100" ry="26" fill="url(#k3water)"/>
+            <ellipse cx="340" cy="248" rx="30" ry="6" fill="#fff" opacity=".3"/>
+            <!-- estrada de terra -->
+            <path d="M0 300 C 80 260, 120 240, 200 226 L230 226 C 160 250, 110 270, 70 300Z" fill="#C9A978" opacity=".9"/>
+            <!-- casa sede -->
+            <polygon points="236,120 296,104 296,214 236,230" fill="#C8B79E"/>
+            <rect x="96" y="120" width="140" height="110" fill="#F6EDE0"/>
+            <polygon points="84,120 248,120 220,80 112,80" fill="url(#k3roof)"/>
+            <polygon points="248,120 308,104 280,66 220,80" fill="#86412A"/>
+            <rect x="84" y="117" width="164" height="6" fill="#6E3420"/>
+            <!-- varanda -->
+            <rect x="84" y="176" width="152" height="6" fill="#86412A"/>
+            <g fill="#F6EDE0" stroke="#86412A" stroke-width="2"><rect x="92" y="182" width="6" height="48"/><rect x="140" y="182" width="6" height="48"/><rect x="188" y="182" width="6" height="48"/><rect x="226" y="182" width="6" height="48"/></g>
+            <rect x="96" y="208" width="140" height="22" fill="#D9CDB3"/>
+            <rect x="150" y="186" width="26" height="44" fill="#5A3A2A"/>
+            <rect x="108" y="134" width="30" height="30" fill="#DCEAF2" stroke="#8C5A3E" stroke-width="3"/><rect x="190" y="134" width="30" height="30" fill="#DCEAF2" stroke="#8C5A3E" stroke-width="3"/>
+            <!-- pomar -->
+            <use href="#k3arv" transform="translate(40,240) scale(1.1)"/><use href="#k3arv" transform="translate(300,200) scale(.8)"/><use href="#k3arv" transform="translate(350,190) scale(.7)"/><use href="#k3arv" transform="translate(420,200) scale(.85)"/><use href="#k3arv" transform="translate(460,236) scale(1)"/>
+            <!-- cerca -->
+            <g fill="#C9A978"><rect x="250" y="222" width="4" height="20"/><rect x="270" y="222" width="4" height="20"/><rect x="290" y="222" width="4" height="20"/><rect x="246" y="228" width="52" height="3"/><rect x="246" y="236" width="52" height="3"/></g>
+          </svg>
+        </div>
+        <span class="ex">exemplo</span>
+        <div class="in">
+          <b class="serif preco">R$ 620.000</b>
+          <p class="tipo">Chácara com casa sede e lago <span>· Saída para Marialva, Sarandi</span></p>
+          <div class="dados">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 18v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6M3 18h18M5 10V7a2 2 0 0 1 2-2h4v5"/></svg>3 quartos</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16v16H4zM4 12h16M12 4v16"/></svg>5.000 m² de área</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Pomar formado</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section class="inq" id="inquilino">
+  <div class="wrap">
+    <div>
+      <h2 class="serif">Área do inquilino e do proprietário</h2>
+      <p>O que hoje precisa de uma mensagem para a imobiliária, resolvido no celular:</p>
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>2ª via do boleto do aluguel e pagamento por Pix</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Contrato e comprovantes para baixar</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Chamado de manutenção com foto</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Proprietário acompanha o repasse de cada mês</li>
+      </ul>
+    </div>
+    <form onsubmit="return false">
+      <h3 class="serif">2ª via do boleto do aluguel</h3>
+      <label for="cpf">CPF do inquilino</label>
+      <input id="cpf" inputmode="numeric" placeholder="000.000.000-00">
+      <label for="nasc">Data de nascimento</label>
+      <input id="nasc" type="date">
+      <button class="btn" type="button">Ver boleto do mês</button>
+      <small>O boleto abre na hora, com o código Pix para copiar.</small>
+    </form>
+  </div>
+</section>
+
+<section class="anuncie" id="anuncie">
+  <div class="wrap">
+    <div><h2 class="serif">Tem um imóvel para alugar ou vender em Sarandi?</h2><p>A Brevelar faz a avaliação, as fotos e a divulgação. Mande o endereço pelo WhatsApp e a equipe retorna com o próximo passo.</p></div>
+    <a class="btn" href="https://wa.me/5544999096334?text=Ol%C3%A1%2C%20quero%20anunciar%20um%20im%C3%B3vel%20com%20a%20Brevelar" target="_blank" rel="noopener">Anunciar meu imóvel</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><b>Brevelar Imóveis</b><br>Rua Jaçanã, 511<br>Sarandi/PR</div>
+    <div><b>WhatsApp</b><br><a href="https://wa.me/5544999096334">(44) 99909-6334</a></div>
+    <div><b>E-mail</b><br><a href="mailto:brevelarimoveis@gmail.com">brevelarimoveis@gmail.com</a></div>
+    <div class="selo">Prévia · proposta de site</div>
+  </div>
+</footer>
+<a class="btn fixo" href="https://wa.me/5544999096334" target="_blank" rel="noopener">WhatsApp da Brevelar</a>
+</body>
+</html>

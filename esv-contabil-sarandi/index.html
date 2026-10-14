@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#114B52">
+<title>ESV Contábil — escritório de contabilidade em Sarandi/PR</title>
+<style>
+  :root{--petroleo:#114B52;--petroleo2:#0C383D;--petroleo3:#1A5F67;--areia:#E9DEC9;--areia2:#F5EFE3;--laranja:#C9622B;--laranja2:#A94F20;--texto:#17292C;--texto2:#5C6C6E;--sobre-petroleo:#B9D3D4}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--areia2);color:var(--texto);font:16px/1.6 "Trebuchet MS","Lucida Grande","DejaVu Sans",Verdana,sans-serif;accent-color:var(--laranja)}
+  ::selection{background:var(--laranja);color:#fff} :focus-visible{outline:3px solid var(--laranja);outline-offset:2px}
+  a{color:inherit}
+  h1,h2,h3,.display{font-family:Verdana,"DejaVu Sans",Geneva,Tahoma,sans-serif;font-weight:700;margin:0;text-wrap:balance;letter-spacing:-.03em}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 16px}
+  /* header */
+  header{background:var(--petroleo);color:#fff}
+  header .wrap{display:flex;align-items:center;gap:24px;min-height:80px}
+  .logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff}
+  .logo svg{width:52px;height:40px;flex:none}
+  .logo b{font-size:22px;line-height:1;display:block;letter-spacing:-.02em}
+  .logo small{display:block;font:11px/1.2 "Trebuchet MS","DejaVu Sans",sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--sobre-petroleo);margin-top:4px}
+  nav{margin-left:auto;display:flex;gap:2px;flex-wrap:wrap;align-items:center}
+  nav a{text-decoration:none;padding:10px 12px;border-radius:6px;font-size:15px;color:var(--sobre-petroleo)}
+  nav a:hover{color:#fff;background:var(--petroleo3)}
+  nav a.cli{color:#fff;border:1px solid var(--sobre-petroleo);margin:0 6px} nav a.cli:hover{background:#fff;color:var(--petroleo)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--laranja);color:#fff;text-decoration:none;font-weight:700;padding:12px 18px;border-radius:6px;min-height:48px;border:0;cursor:pointer;font-size:16px;transition:background .15s,transform .15s}
+  .btn:hover{background:var(--laranja2)} .btn:active{transform:translateY(1px)} .btn svg{width:22px;height:22px;flex:none}
+  .btn.sec{background:transparent;color:#fff;border:1px solid var(--petroleo3)} .btn.sec:hover{background:var(--petroleo3)}
+  .wpp-top{display:none} .short{display:none}
+  /* hero: faixa petróleo com texto à esquerda e arquivo alto à direita */
+  .hero{background:var(--petroleo);color:#fff;overflow:hidden}
+  .hero .wrap{display:grid;grid-template-columns:7fr 5fr;gap:48px;align-items:stretch}
+  .hero .txt{padding:64px 0 64px}
+  .hero h1{font-size:clamp(30px,3.4vw,44px);line-height:1.15}
+  .hero p{color:var(--sobre-petroleo);font-size:18px;max-width:46ch;margin:20px 0 28px}
+  .hero .acoes{display:flex;gap:12px;flex-wrap:wrap}
+  .hero figure{margin:0;position:relative;min-height:520px}
+  .hero figure svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+  .hero figcaption{position:absolute;left:12px;bottom:12px;font-size:12px;color:#fff;background:rgba(12,56,61,.8);padding:4px 10px;border-radius:6px}
+  /* linhas (blocos empilhados) */
+  .linhas{padding:64px 0 56px}
+  .linhas h2{font-size:32px;margin-bottom:8px} .linhas .intro{color:var(--texto2);max-width:60ch;margin:0 0 28px}
+  .linha{display:grid;grid-template-columns:320px 1fr;gap:32px;align-items:center;padding:24px 0;border-top:1px solid var(--areia);text-decoration:none}
+  .linha:last-child{border-bottom:1px solid var(--areia)}
+  .linha .img{aspect-ratio:3/2;border-radius:10px;overflow:hidden;background:var(--areia)} .linha .img svg{width:100%;height:100%;display:block}
+  .linha h3{font-size:24px} .linha p{margin:8px 0 0;color:var(--texto2);max-width:56ch}
+  .linha .tag{display:inline-block;margin-top:12px;font-size:14px;color:var(--laranja);font-weight:700}
+  /* serviços */
+  .serv{background:#fff;padding:72px 0}
+  .serv .wrap{display:grid;grid-template-columns:1fr 2fr;gap:48px}
+  .serv h2{font-size:32px} .serv .reg{margin:16px 0 0;color:var(--texto2);font-size:15px}
+  .serv ul{list-style:none;padding:0;margin:0;columns:2;column-gap:48px}
+  .serv li{break-inside:avoid;padding:12px 0;border-bottom:1px solid var(--areia)} .serv li b{display:block} .serv li span{color:var(--texto2);font-size:15px}
+  /* docs + 2ª via */
+  .docs{padding:72px 0;background:var(--areia)}
+  .docs .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+  .docs h2{font-size:30px;margin-bottom:12px} .docs p{color:var(--texto2);max-width:50ch;margin:0 0 16px}
+  .docs form{background:#fff;border-radius:12px;padding:24px;display:grid;gap:12px}
+  .docs label{font-size:14px;color:var(--texto2)}
+  .docs select,.docs input{font:inherit;font-size:16px;padding:12px;border-radius:6px;border:1px solid #CFC5AE;min-height:48px;width:100%;caret-color:var(--laranja);background:#fff;color:var(--texto)}
+  .drop{border:2px dashed #CFC5AE;border-radius:6px;padding:24px;text-align:center;color:var(--texto2)}
+  .docs .pet{background:var(--petroleo);color:#fff} .docs .pet label{color:var(--sobre-petroleo)} .docs .pet h3{font-size:22px;margin-bottom:4px} .docs .pet small{color:var(--sobre-petroleo);font-size:13px}
+  footer{background:var(--petroleo2);color:var(--sobre-petroleo);padding:40px 0;font-size:15px}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:24px 48px;align-items:flex-start} footer b{color:#fff}
+  .selo{margin-left:auto;font-size:12px;border:1px solid var(--petroleo3);padding:6px 10px;border-radius:6px;align-self:center}
+  .fixo{display:none}
+  @media (max-width:960px){
+    .hero .wrap{grid-template-columns:1fr;gap:0} .hero .txt{padding:32px 0 40px} .hero figure{order:-1;min-height:0;height:300px;margin:0 -16px}
+    .linha{grid-template-columns:1fr;gap:16px} .linha .img{aspect-ratio:16/9}
+    .serv .wrap,.docs .wrap{grid-template-columns:1fr;gap:32px}
+    header .wrap{flex-wrap:wrap;padding:12px 16px;gap:8px 10px} nav{margin-left:0;width:100%;flex-wrap:nowrap;overflow-x:auto;order:3} nav a{padding:10px 6px;font-size:13.5px;white-space:nowrap} nav .btn{display:none} nav a.cli{margin:0 0 0 4px} .short{display:inline} .long{display:none}
+    .wpp-top{display:inline-flex;margin-left:auto;padding:8px 9px;min-height:44px;font-size:12.5px;gap:4px} .wpp-top svg{width:18px;height:18px}
+    .logo svg{width:44px;height:34px} .logo b{font-size:19px} .logo small{font-size:9px}
+  }
+  @media (max-width:600px){
+    .hero h1{font-size:28px} .linhas h2,.serv h2,.docs h2{font-size:26px} .serv ul{columns:1}
+    .hero figure{height:260px}
+    .fixo{display:flex;position:fixed;left:16px;right:16px;bottom:16px;z-index:9;box-shadow:0 8px 24px -8px rgba(0,0,0,.5)} body{padding-bottom:88px}
+  }
+  @media (prefers-reduced-motion:no-preference){
+    .hero figure svg{animation:f .9s cubic-bezier(.2,.7,.2,1) both .1s} @keyframes f{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+  }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="wpp" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></symbol></svg>
+<header>
+  <div class="wrap">
+    <a class="logo" href="#" aria-label="ESV Contábil">
+      <svg viewBox="0 0 52 40" aria-hidden="true">
+        <rect width="52" height="40" rx="4" fill="#C9622B"/>
+        <text x="26" y="28" text-anchor="middle" font-family="Verdana,'DejaVu Sans',sans-serif" font-weight="700" font-size="19" letter-spacing="-1" fill="#fff">ESV</text>
+      </svg>
+      <span><b class="display">Contábil</b><small>Sarandi · PR</small></span>
+    </a>
+    <a class="btn wpp-top" href="https://wa.me/5544998886833" target="_blank" rel="noopener" aria-label="WhatsApp (44) 99888-6833"><svg><use href="#wpp"/></svg>(44) 99888-6833</a>
+    <nav aria-label="Principal">
+      <a href="#servicos">Serviços</a>
+      <a href="#documentos"><span class="long">Envie seus documentos</span><span class="short">Documentos</span></a>
+      <a href="#honorarios"><span class="long">2ª via de honorários</span><span class="short">2ª via</span></a>
+      <a class="cli" href="#honorarios">Área do cliente</a>
+      <a class="btn" href="https://wa.me/5544998886833?text=Ol%C3%A1%2C%20quero%20uma%20proposta%20da%20ESV" target="_blank" rel="noopener"><svg><use href="#wpp"/></svg>(44) 99888-6833</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="txt">
+      <h1>Contabilidade para quem está abrindo ou tocando um negócio em Sarandi</h1>
+      <p>MEI, Simples Nacional e folha de pagamento, com as guias e os honorários no celular do cliente. Escritório na Rua dos Lírios, 833, no Jardim Verão.</p>
+      <div class="acoes">
+        <a class="btn" href="https://wa.me/5544998886833?text=Ol%C3%A1%2C%20quero%20uma%20proposta%20da%20ESV" target="_blank" rel="noopener"><svg><use href="#wpp"/></svg>Pedir proposta pelo WhatsApp</a>
+        <a class="btn sec" href="#documentos">Enviar documentos</a>
+      </div>
+    </div>
+    <figure>
+      <svg viewBox="0 0 520 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração de uma gaveta de arquivo aberta com pastas suspensas etiquetadas por empresa">
+        <defs>
+          <linearGradient id="egab" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1A5F67"/><stop offset="1" stop-color="#0C383D"/></linearGradient>
+          <linearGradient id="egav" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2B6F76"/><stop offset="1" stop-color="#174F56"/></linearGradient>
+          <linearGradient id="emetal" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#9FB5B6"/><stop offset=".5" stop-color="#D5E2E2"/><stop offset="1" stop-color="#8FA6A7"/></linearGradient>
+          <linearGradient id="epasta" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EAD9BF"/><stop offset="1" stop-color="#CDB996"/></linearGradient>
+          <linearGradient id="epasta2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#DCCBAE"/><stop offset="1" stop-color="#BFAA85"/></linearGradient>
+          <linearGradient id="epapel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#EFEBE2"/></linearGradient>
+          <filter id="esh" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#04181B" flood-opacity=".45"/></filter>
+          <filter id="esh2" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#04181B" flood-opacity=".35"/></filter>
+          <!-- pasta suspensa: largura 300, aba com etiqueta -->
+          <g id="epastaS">
+            <rect x="-150" y="0" width="300" height="120" fill="url(#epasta)"/>
+            <rect x="-150" y="-2" width="300" height="4" fill="#9FB5B6"/>
+            <rect x="-156" y="-3" width="6" height="6" fill="#7E9495"/><rect x="150" y="-3" width="6" height="6" fill="#7E9495"/>
+          </g>
+          <g id="eaba">
+            <rect x="-48" y="-22" width="96" height="22" rx="3" fill="#F5F0E6" stroke="#9FB5B6" stroke-width="1.5"/>
+          </g>
+        </defs>
+        <rect width="520" height="600" fill="url(#egab)"/>
+        <!-- corpo do arquivo de aço -->
+        <rect x="40" y="20" width="440" height="580" rx="6" fill="url(#egav)" filter="url(#esh)"/>
+        <!-- gaveta de cima (fechada) -->
+        <rect x="56" y="36" width="408" height="90" rx="3" fill="#20656C"/>
+        <rect x="200" y="72" width="120" height="18" rx="3" fill="url(#emetal)"/>
+        <rect x="120" y="54" width="60" height="30" rx="2" fill="#F5F0E6"/><rect x="128" y="64" width="44" height="3" fill="#9FB5B6"/><rect x="128" y="72" width="30" height="3" fill="#9FB5B6"/>
+        <!-- gaveta de baixo (aberta): frente puxada e trilhos -->
+        <rect x="56" y="140" width="408" height="440" rx="3" fill="#0C383D"/>
+        <g stroke="url(#emetal)" stroke-width="6"><line x1="70" y1="160" x2="70" y2="560"/><line x1="450" y1="160" x2="450" y2="560"/></g>
+        <!-- pastas suspensas (do fundo para a frente) -->
+        <g transform="translate(260,180)" filter="url(#esh2)">
+          <use href="#epastaS"/>
+          <g transform="translate(-90,0)"><use href="#eaba"/><text x="0" y="-7" text-anchor="middle" font-family="Trebuchet MS, DejaVu Sans, sans-serif" font-size="10" font-weight="700" fill="#17292C">FOLHA</text></g>
+        </g>
+        <g transform="translate(260,232)" filter="url(#esh2)">
+          <use href="#epastaS"/>
+          <g transform="translate(0,0)"><use href="#eaba"/><text x="0" y="-7" text-anchor="middle" font-family="Trebuchet MS, DejaVu Sans, sans-serif" font-size="10" font-weight="700" fill="#17292C">IMPOSTOS</text></g>
+        </g>
+        <g transform="translate(260,284)" filter="url(#esh2)">
+          <rect x="-150" y="0" width="300" height="120" fill="url(#epasta2)"/><rect x="-150" y="-2" width="300" height="4" fill="#9FB5B6"/><rect x="-156" y="-3" width="6" height="6" fill="#7E9495"/><rect x="150" y="-3" width="6" height="6" fill="#7E9495"/>
+          <g transform="translate(90,0)"><use href="#eaba"/><text x="0" y="-7" text-anchor="middle" font-family="Trebuchet MS, DejaVu Sans, sans-serif" font-size="10" font-weight="700" fill="#17292C">NOTAS</text></g>
+        </g>
+        <!-- pasta puxada para frente, com papéis -->
+        <g transform="translate(260,350)" filter="url(#esh)">
+          <rect x="-150" y="0" width="300" height="150" fill="url(#epasta2)"/>
+          <g transform="translate(-4,-10) rotate(-3)"><rect x="-120" y="-60" width="200" height="170" fill="url(#epapel)"/><rect x="-120" y="-60" width="200" height="22" fill="#114B52"/><text x="-110" y="-45" font-family="Trebuchet MS, DejaVu Sans, sans-serif" font-size="10" font-weight="700" fill="#fff" letter-spacing="1">DAS · SIMPLES NACIONAL</text>
+            <g fill="#B7BEC8"><rect x="-108" y="-24" width="100" height="5" rx="2"/><rect x="-108" y="-12" width="140" height="5" rx="2"/><rect x="-108" y="0" width="80" height="5" rx="2"/></g>
+            <text x="-108" y="28" font-family="Trebuchet MS, DejaVu Sans, sans-serif" font-size="10" fill="#5C6C6E">Vencimento</text><text x="-20" y="28" font-family="Trebuchet MS, DejaVu Sans, sans-serif" font-size="10" font-weight="700" fill="#17292C">20/10/2026</text>
+            <text x="-108" y="48" font-family="Trebuchet MS, DejaVu Sans, sans-serif" font-size="10" fill="#5C6C6E">Total a pagar</text><text x="-20" y="48" font-family="Trebuchet MS, DejaVu Sans, sans-serif" font-size="10" font-weight="700" fill="#17292C">R$ ···,··</text>
+            <g transform="translate(20,80) rotate(-10)"><rect x="-44" y="-13" width="88" height="26" fill="none" stroke="#C9622B" stroke-width="2.5" opacity=".9"/><text x="0" y="5" text-anchor="middle" font-family="Verdana, DejaVu Sans, sans-serif" font-weight="700" font-size="12" fill="#C9622B" opacity=".9" letter-spacing="2">EM DIA</text></g>
+          </g>
+          <rect x="-150" y="0" width="300" height="4" fill="#9FB5B6"/><rect x="-156" y="-1" width="6" height="6" fill="#7E9495"/><rect x="150" y="-1" width="6" height="6" fill="#7E9495"/>
+          <!-- frente da pasta (cobre a base dos papéis) -->
+          <rect x="-150" y="60" width="300" height="90" fill="url(#epasta)"/>
+          <g transform="translate(-60,60)"><rect x="-56" y="-24" width="112" height="24" rx="3" fill="#C9622B"/><text x="0" y="-8" text-anchor="middle" font-family="Verdana, DejaVu Sans, sans-serif" font-size="10" font-weight="700" fill="#fff" letter-spacing="1">SUA EMPRESA</text></g>
+        </g>
+        <!-- frente da gaveta puxada -->
+        <rect x="56" y="520" width="408" height="70" rx="3" fill="#20656C" filter="url(#esh)"/>
+        <rect x="200" y="548" width="120" height="18" rx="3" fill="url(#emetal)"/>
+        <rect x="120" y="534" width="60" height="26" rx="2" fill="#F5F0E6"/><text x="150" y="551" text-anchor="middle" font-family="Trebuchet MS, DejaVu Sans, sans-serif" font-size="9" font-weight="700" fill="#17292C">2026</text>
+      </svg>
+      <figcaption>Ilustração de exemplo — no site real entra a foto do escritório ou da equipe.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="linhas" id="area">
+  <div class="wrap">
+    <h2>O dia a dia com o escritório, no seu celular</h2>
+    <p class="intro">Em vez de pedir no WhatsApp e esperar a resposta, o cliente da ESV encontra aqui, a qualquer hora:</p>
+
+    <a class="linha" href="#documentos">
+      <div class="img">
+        <svg viewBox="0 0 400 267" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração de celular fotografando uma nota fiscal">
+          <defs>
+            <linearGradient id="l1papel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#EFEBE2"/></linearGradient>
+            <filter id="l1sh" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="2" dy="5" stdDeviation="5" flood-color="#17292C" flood-opacity=".3"/></filter>
+            <pattern id="l1bar" x="0" y="0" width="12" height="30" patternUnits="userSpaceOnUse"><rect width="2" height="30" fill="#222"/><rect x="4" width="3" height="30" fill="#222"/><rect x="9" width="1.5" height="30" fill="#222"/></pattern>
+          </defs>
+          <rect width="400" height="267" fill="#E9DEC9"/>
+          <!-- nota na mesa -->
+          <g transform="rotate(-6 150 150)" filter="url(#l1sh)"><rect x="60" y="60" width="170" height="190" fill="url(#l1papel)"/><rect x="60" y="60" width="170" height="20" fill="#114B52"/><text x="70" y="74" font-family="Trebuchet MS, DejaVu Sans, sans-serif" font-size="9" font-weight="700" fill="#fff" letter-spacing="1">DANFE · NF-e 000.287</text><g fill="#B7BEC8"><rect x="72" y="92" width="90" height="5" rx="2"/><rect x="72" y="104" width="130" height="4" rx="2"/><rect x="72" y="114" width="130" height="4" rx="2"/><rect x="72" y="124" width="100" height="4" rx="2"/><rect x="72" y="134" width="130" height="4" rx="2"/><rect x="72" y="144" width="80" height="4" rx="2"/></g><rect x="72" y="200" width="140" height="30" fill="url(#l1bar)"/></g>
+          <!-- celular por cima, tela mostra a nota -->
+          <g transform="translate(270,130) rotate(8)" filter="url(#l1sh)">
+            <rect x="-56" y="-100" width="112" height="200" rx="16" fill="#17292C"/>
+            <rect x="-48" y="-88" width="96" height="176" rx="8" fill="#E9DEC9"/>
+            <rect x="-38" y="-70" width="76" height="110" fill="url(#l1papel)"/><rect x="-38" y="-70" width="76" height="10" fill="#114B52"/>
+            <g fill="#B7BEC8"><rect x="-32" y="-54" width="40" height="3"/><rect x="-32" y="-46" width="60" height="3"/><rect x="-32" y="-38" width="60" height="3"/><rect x="-32" y="-30" width="48" height="3"/></g>
+            <rect x="-48" y="52" width="96" height="36" fill="#17292C" opacity=".06"/>
+            <rect x="-30" y="58" width="60" height="22" rx="4" fill="#C9622B"/><text x="0" y="73" text-anchor="middle" font-family="Trebuchet MS, DejaVu Sans, sans-serif" font-size="9" font-weight="700" fill="#fff">Enviar</text>
+            <path d="M-20 -10 l8 8 l16 -18" fill="none" stroke="#C9622B" stroke-width="3" opacity="0"/>
+          </g>
+        </svg>
+      </div>
+      <div>
+        <h3>Envie seus documentos</h3>
+        <p>Foto da nota, extrato em PDF ou XML: o arquivo cai na pasta da sua empresa, separado por mês, e você recebe a confirmação na hora.</p>
+        <span class="tag">Ver como funciona</span>
+      </div>
+    </a>
+
+    <a class="linha" href="#honorarios">
+      <div class="img">
+        <svg viewBox="0 0 400 267" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração de guias do mês presas num clipe">
+          <defs>
+            <linearGradient id="l2papel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#EFEBE2"/></linearGradient>
+            <filter id="l2sh" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="2" dy="5" stdDeviation="5" flood-color="#17292C" flood-opacity=".3"/></filter>
+            <pattern id="l2bar" x="0" y="0" width="12" height="30" patternUnits="userSpaceOnUse"><rect width="2" height="30" fill="#222"/><rect x="4" width="3" height="30" fill="#222"/><rect x="9" width="1.5" height="30" fill="#222"/></pattern>
+          </defs>
+          <rect width="400" height="267" fill="#E9DEC9"/>
+          <g filter="url(#l2sh)">
+            <g transform="rotate(-10 200 150)"><rect x="110" y="50" width="170" height="200" fill="url(#l2papel)"/><rect x="110" y="50" width="170" height="20" fill="#5C6C6E"/><text x="120" y="64" font-family="Trebuchet MS, DejaVu Sans, sans-serif" font-size="9" font-weight="700" fill="#fff" letter-spacing="1">FGTS · 07/10</text></g>
+            <g transform="rotate(-4 200 150)"><rect x="118" y="44" width="170" height="200" fill="url(#l2papel)"/><rect x="118" y="44" width="170" height="20" fill="#5C6C6E"/><text x="128" y="58" font-family="Trebuchet MS, DejaVu Sans, sans-serif" font-size="9" font-weight="700" fill="#fff" letter-spacing="1">ISS · 25/10</text></g>
+            <g transform="rotate(3 200 150)"><rect x="126" y="40" width="170" height="200" fill="url(#l2papel)"/><rect x="126" y="40" width="170" height="22" fill="#114B52"/><text x="136" y="55" font-family="Trebuchet MS, DejaVu Sans, sans-serif" font-size="9" font-weight="700" fill="#fff" letter-spacing="1">DAS · SIMPLES NACIONAL</text>
+              <g fill="#B7BEC8"><rect x="138" y="76" width="100" height="5" rx="2"/><rect x="138" y="88" width="70" height="5" rx="2"/><rect x="138" y="100" width="120" height="5" rx="2"/></g>
+              <text x="138" y="132" font-family="Trebuchet MS, DejaVu Sans, sans-serif" font-size="10" fill="#5C6C6E">Vencimento</text><text x="220" y="132" font-family="Trebuchet MS, DejaVu Sans, sans-serif" font-size="10" font-weight="700" fill="#17292C">20/10</text>
+              <text x="138" y="152" font-family="Trebuchet MS, DejaVu Sans, sans-serif" font-size="10" fill="#5C6C6E">Total</text><text x="220" y="152" font-family="Trebuchet MS, DejaVu Sans, sans-serif" font-size="10" font-weight="700" fill="#17292C">R$ ···,··</text>
+              <rect x="138" y="176" width="146" height="36" fill="url(#l2bar)"/></g>
+          </g>
+          <!-- clipe grande -->
+          <path d="M214 30 v70 a14 14 0 0 1 -28 0 v-84 a22 22 0 0 1 44 0 v92" fill="none" stroke="#7E9495" stroke-width="4" stroke-linecap="round" transform="rotate(3 200 150)"/>
+          <g transform="translate(320,210) rotate(12)" filter="url(#l2sh)"><rect x="-44" y="-20" width="88" height="40" rx="4" fill="#C9622B"/><text x="0" y="-1" text-anchor="middle" font-family="Verdana, DejaVu Sans, sans-serif" font-weight="700" font-size="18" fill="#fff">20</text><text x="0" y="14" text-anchor="middle" font-family="Trebuchet MS, DejaVu Sans, sans-serif" font-size="9" fill="#fff" letter-spacing="1.5">OUTUBRO</text></g>
+        </svg>
+      </div>
+      <div>
+        <h3>Guias do mês</h3>
+        <p>DAS, ISS, FGTS e INSS emitidos pelo escritório e avisados no WhatsApp alguns dias antes de vencer, com o PDF para pagar no banco.</p>
+        <span class="tag">Ver guias de exemplo</span>
+      </div>
+    </a>
+
+    <a class="linha" href="#honorarios">
+      <div class="img">
+        <svg viewBox="0 0 400 267" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração de boleto de honorários com código Pix e etiqueta de 2ª via">
+          <defs>
+            <linearGradient id="l3papel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#EFEBE2"/></linearGradient>
+            <filter id="l3sh" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="2" dy="5" stdDeviation="5" flood-color="#17292C" flood-opacity=".3"/></filter>
+            <pattern id="l3bar" x="0" y="0" width="11" height="26" patternUnits="userSpaceOnUse"><rect width="1.5" height="26" fill="#222"/><rect x="3.5" width="3" height="26" fill="#222"/><rect x="8.5" width="1.5" height="26" fill="#222"/></pattern>
+          </defs>
+          <rect width="400" height="267" fill="#E9DEC9"/>
+          <g transform="rotate(2 200 140)" filter="url(#l3sh)">
+            <rect x="50" y="70" width="300" height="140" fill="url(#l3papel)"/>
+            <rect x="50" y="70" width="300" height="24" fill="#C9622B"/>
+            <text x="62" y="87" font-family="Verdana, DejaVu Sans, sans-serif" font-weight="700" font-size="12" fill="#fff">ESV · honorários de outubro</text>
+            <g fill="#B7BEC8"><rect x="62" y="108" width="120" height="6" rx="2"/><rect x="62" y="122" width="90" height="6" rx="2"/></g>
+            <g font-family="Trebuchet MS, DejaVu Sans, sans-serif" font-size="11" fill="#5C6C6E"><text x="62" y="150">Vencimento</text><text x="140" y="150" font-weight="700" fill="#17292C">10/10</text></g>
+            <rect x="62" y="166" width="190" height="30" fill="url(#l3bar)"/>
+            <g transform="translate(272,104)" fill="#17292C"><rect width="66" height="66" fill="#fff"/><rect x="4" y="4" width="18" height="18"/><rect x="8" y="8" width="10" height="10" fill="#fff"/><rect x="44" y="4" width="18" height="18"/><rect x="48" y="8" width="10" height="10" fill="#fff"/><rect x="4" y="44" width="18" height="18"/><rect x="8" y="48" width="10" height="10" fill="#fff"/><rect x="28" y="4" width="4" height="4"/><rect x="36" y="8" width="4" height="4"/><rect x="28" y="14" width="8" height="4"/><rect x="4" y="28" width="4" height="4"/><rect x="12" y="28" width="8" height="4"/><rect x="8" y="36" width="4" height="4"/><rect x="16" y="36" width="4" height="4"/><rect x="28" y="28" width="8" height="8"/><rect x="40" y="28" width="4" height="4"/><rect x="48" y="32" width="8" height="4"/><rect x="56" y="28" width="4" height="8"/><rect x="28" y="40" width="4" height="8"/><rect x="36" y="44" width="8" height="4"/><rect x="48" y="40" width="4" height="4"/><rect x="56" y="44" width="4" height="4"/><rect x="28" y="52" width="8" height="4"/><rect x="40" y="52" width="4" height="8"/><rect x="48" y="52" width="12" height="4"/><rect x="52" y="58" width="4" height="4"/></g>
+          </g>
+          <g transform="rotate(-12 300 220)"><rect x="246" y="200" width="110" height="40" rx="4" fill="none" stroke="#114B52" stroke-width="3" opacity=".9"/><text x="301" y="227" text-anchor="middle" font-family="Verdana, DejaVu Sans, sans-serif" font-weight="700" font-size="18" fill="#114B52" opacity=".9" letter-spacing="1">2ª VIA</text></g>
+        </svg>
+      </div>
+      <div>
+        <h3>2ª via de honorários</h3>
+        <p>Boleto do mês e código Pix para copiar, sem precisar pedir no escritório. O histórico de pagamentos fica na área do cliente.</p>
+        <span class="tag">Entrar na área do cliente</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section class="serv" id="servicos">
+  <div class="wrap">
+    <div>
+      <h2>O que entra no atendimento mensal</h2>
+      <p class="reg">MEI, Simples Nacional e Lucro Presumido. Comércio, prestadores de serviço, salões, clínicas e transportadores de Sarandi e região.</p>
+    </div>
+    <ul>
+      <li><b>Abertura de empresa e MEI</b><span>CNPJ, alvará, enquadramento e primeiro mês acompanhado de perto.</span></li>
+      <li><b>Escrituração e impostos</b><span>Apuração de DAS, ISS, ICMS, PIS e COFINS e envio das guias.</span></li>
+      <li><b>Folha de pagamento</b><span>Admissão, férias, 13º, rescisão, eSocial e FGTS.</span></li>
+      <li><b>Alterações e baixa</b><span>Mudança de sócios, endereço ou atividade; encerramento sem pendência.</span></li>
+      <li><b>Declarações anuais</b><span>IRPF dos sócios, DEFIS, DASN-SIMEI, ECD e ECF.</span></li>
+      <li><b>Planejamento tributário</b><span>Comparação de regimes todo fim de ano e revisão do pró-labore.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="docs" id="documentos">
+  <div class="wrap">
+    <div>
+      <h2>Envie seus documentos</h2>
+      <p>Em vez de mandar foto no WhatsApp, solte os arquivos do mês aqui. Eles caem na pasta da sua empresa e você recebe a confirmação.</p>
+      <form onsubmit="return false">
+        <label for="tipo">Tipo de documento</label>
+        <select id="tipo"><option>Notas fiscais</option><option>Extratos bancários</option><option>Documentos de funcionário</option><option>Outro</option></select>
+        <label for="mes">Mês de referência</label>
+        <input id="mes" type="month" value="2026-10">
+        <div class="drop">Arraste os arquivos ou toque para escolher<br><small>PDF, XML ou foto do celular</small></div>
+        <button class="btn" type="button">Enviar para a ESV</button>
+      </form>
+    </div>
+    <div id="honorarios">
+      <h2>2ª via de honorários e área do cliente</h2>
+      <p>Informe o CNPJ e baixe o boleto do mês ou copie o código Pix. As guias já emitidas, holerites e documentos enviados ficam na área do cliente.</p>
+      <form class="pet" onsubmit="return false">
+        <h3>Entrar na área do cliente</h3>
+        <label for="cnpj">CNPJ da empresa</label>
+        <input id="cnpj" inputmode="numeric" placeholder="00.000.000/0001-00">
+        <label for="mail">E-mail cadastrado</label>
+        <input id="mail" type="email" placeholder="voce@suaempresa.com.br">
+        <button class="btn" type="button">Ver boleto e guias</button>
+        <small>Primeiro acesso? Peça o cadastro pelo WhatsApp.</small>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><b>ESV Contábil</b><br>Rua dos Lírios, 833 — Jd. Verão<br>Sarandi/PR</div>
+    <div><b>WhatsApp</b><br><a href="https://wa.me/5544998886833">(44) 99888-6833</a><br>Fixo: <a href="tel:+554430480631">(44) 3048-0631</a></div>
+    
+    <div class="selo">Prévia · proposta de site</div>
+  </div>
+</footer>
+<a class="btn fixo" href="https://wa.me/5544998886833" target="_blank" rel="noopener">Falar no WhatsApp</a>
+</body>
+</html>

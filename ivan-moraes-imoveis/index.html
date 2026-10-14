@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#4A2E22">
+<title>Ivan Moraes Imóveis — imóveis em Mandaguari</title>
+<style>
+  :root{--castanho:#4A2E22;--castanho2:#5E3D2E;--castanho3:#3A2319;--creme:#F4EBDD;--creme2:#E8DCC8;--cobre:#B5683C;--cobre2:#96532E;--texto:#2A1E18;--texto2:#6E5F55;--sobre-castanho:#D9C7B8}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--creme);color:var(--texto);font:16px/1.6 "Helvetica Neue",Helvetica,"TeX Gyre Heros","Liberation Sans",Arial,sans-serif;accent-color:var(--cobre)}
+  ::selection{background:var(--cobre);color:#fff} :focus-visible{outline:3px solid var(--cobre);outline-offset:2px}
+  a{color:inherit}
+  .serif{font-family:"Times New Roman","TeX Gyre Termes","Liberation Serif",Times,"Nimbus Roman",serif;font-weight:700;margin:0;text-wrap:balance;letter-spacing:-.01em}
+  h2,h3{margin:0}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 16px}
+  /* header */
+  header{background:var(--creme);border-bottom:2px solid var(--castanho)}
+  header .wrap{display:flex;align-items:center;gap:24px;min-height:84px}
+  .logo{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--castanho)}
+  .logo svg{width:48px;height:48px;flex:none}
+  .logo b{font-size:26px;line-height:1;display:block}
+  .logo small{display:block;font:11px/1.2 "Helvetica Neue",Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--cobre);margin-top:4px}
+  nav{margin-left:auto;display:flex;gap:2px;flex-wrap:wrap;align-items:center}
+  nav a{text-decoration:none;padding:10px 12px;border-radius:4px;font-size:15px;color:var(--texto2)}
+  nav a:hover{color:var(--castanho);background:var(--creme2)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--cobre);color:#fff;text-decoration:none;font-weight:700;padding:12px 18px;border-radius:4px;min-height:48px;border:0;cursor:pointer;font-size:16px;transition:background .15s,transform .15s}
+  .btn:hover{background:var(--cobre2)} .btn:active{transform:translateY(1px)} .btn svg{width:22px;height:22px;flex:none}
+  nav a.btn{color:#fff;margin-left:8px}
+  .wpp-top{display:none}
+  /* hero: cena à esquerda, texto + busca à direita */
+  .hero{background:var(--castanho);color:#fff;display:grid;grid-template-columns:1.1fr 1fr;overflow:hidden}
+  .hero figure{margin:0;position:relative;min-height:600px}
+  .hero figure svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+  .hero figcaption{position:absolute;left:16px;bottom:16px;font-size:12px;color:#fff;background:rgba(58,35,25,.78);padding:4px 10px;border-radius:4px}
+  .hero .txt{padding:56px max(16px,calc((100vw - 1200px)/2 + 16px)) 56px 48px;display:flex;flex-direction:column;justify-content:center}
+  .hero .fio{width:48px;height:2px;background:var(--cobre);margin-bottom:20px}
+  .hero h1{font-size:clamp(32px,3.3vw,44px);line-height:1.12}
+  .hero .sub{color:var(--sobre-castanho);font-size:18px;max-width:44ch;margin:16px 0 28px}
+  .busca{background:var(--creme);color:var(--texto);border-radius:6px;padding:16px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .busca label{display:grid;gap:4px;font-size:13px;color:var(--texto2)}
+  .busca select,.busca input{font:inherit;font-size:16px;padding:10px 12px;border:1px solid #D2C3AE;border-radius:4px;min-height:48px;background:#fff;color:var(--texto);width:100%;caret-color:var(--cobre)}
+  .busca .btn{grid-column:1/-1}
+  /* vitrine */
+  .vitrine{padding:64px 0 56px}
+  .vitrine .top{display:flex;align-items:end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:24px;border-bottom:1px solid var(--creme2);padding-bottom:16px}
+  .vitrine h2{font-size:36px} .vitrine .top p{margin:0;color:var(--texto2);font-size:15px}
+  .grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px}
+  .ficha{background:#fff;overflow:hidden;text-decoration:none;display:flex;flex-direction:column;position:relative;border:1px solid var(--creme2)}
+  .ficha .img{aspect-ratio:4/3;overflow:hidden;background:var(--creme2)}
+  .ficha .img svg{width:100%;height:100%;display:block}
+  .ficha .ex{position:absolute;top:12px;left:12px;background:rgba(244,235,221,.92);color:var(--texto2);font-size:12px;padding:4px 8px;border-radius:3px}
+  .ficha .in{padding:16px 18px 20px}
+  .ficha .preco{font-size:28px;font-variant-numeric:tabular-nums;color:var(--castanho);display:block}
+  .ficha .preco small{font-size:14px;font-family:"Helvetica Neue",Arial,sans-serif;font-weight:400;color:var(--texto2);margin-left:6px}
+  .ficha .tipo{margin:4px 0 0} .ficha .tipo span{color:var(--texto2)}
+  .ficha .dados{display:flex;gap:12px;margin-top:12px;font-size:14px;color:var(--texto2);font-variant-numeric:tabular-nums;flex-wrap:wrap}
+  .ficha .dados span{display:inline-flex;gap:6px;align-items:center} .ficha .dados svg{width:18px;height:18px;color:var(--cobre)}
+  /* área inquilino */
+  .inq{background:#fff;padding:72px 0;border-top:1px solid var(--creme2);border-bottom:1px solid var(--creme2)}
+  .inq .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .inq h2{font-size:36px;margin-bottom:12px} .inq p{color:var(--texto2);max-width:48ch;margin:0}
+  .inq ul{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:10px} .inq li{display:flex;gap:10px;align-items:flex-start} .inq li svg{width:20px;height:20px;color:var(--cobre);flex:none;margin-top:3px}
+  .inq form{background:var(--castanho);color:#fff;border-radius:6px;padding:32px;display:grid;gap:12px}
+  .inq form h3{font-size:26px;margin-bottom:4px} .inq form label{font-size:14px;color:var(--sobre-castanho)}
+  .inq input{font:inherit;font-size:16px;padding:12px;border-radius:4px;border:1px solid var(--castanho2);min-height:48px;background:#fff;color:var(--texto);caret-color:var(--cobre)}
+  .inq form small{color:var(--sobre-castanho);font-size:13px}
+  /* anuncie */
+  .anuncie{padding:64px 0}
+  .anuncie .wrap{display:flex;gap:32px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+  .anuncie h2{font-size:32px} .anuncie p{color:var(--texto2);margin:8px 0 0;max-width:52ch}
+  footer{background:var(--castanho3);color:var(--sobre-castanho);padding:40px 0;font-size:15px}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:24px 48px;align-items:flex-start} footer b{color:#fff}
+  .selo{margin-left:auto;font-size:12px;border:1px solid var(--castanho2);padding:6px 10px;border-radius:4px;align-self:center}
+  .fixo{display:none}
+  @media (max-width:960px){
+    .hero{grid-template-columns:1fr} .hero figure{min-height:0;height:320px} .hero .txt{padding:32px 16px 40px}
+    .grid{grid-template-columns:1fr 1fr} .grid .ficha:first-child{grid-column:1/-1} .grid .ficha:first-child .img{aspect-ratio:16/9}
+    .inq .wrap,.anuncie .wrap{grid-template-columns:1fr}
+    header .wrap{flex-wrap:wrap;padding:12px 16px;gap:8px 16px} nav{margin-left:0;width:100%;flex-wrap:nowrap;overflow-x:auto;order:3} nav a{padding:10px 8px;font-size:14px;white-space:nowrap} nav .btn{display:none} .wpp-top{display:inline-flex;margin-left:auto;padding:8px 10px;min-height:44px;font-size:13px;gap:5px} .wpp-top svg{width:18px;height:18px} .logo svg{width:40px;height:40px} .logo b{font-size:22px} .logo small{font-size:10px}
+  }
+  @media (max-width:600px){
+    .grid{grid-template-columns:1fr} .ficha .img,.grid .ficha:first-child .img{aspect-ratio:3/2}
+    .vitrine h2,.inq h2{font-size:30px} .hero h1{font-size:31px} .inq form{padding:24px}
+    .busca{grid-template-columns:1fr} .hero figure{height:280px}
+    .logo{flex:1;min-width:0} .logo b{font-size:18px} .logo small{font-size:9px;letter-spacing:.08em} .logo svg{width:34px;height:34px}
+    .fixo{display:flex;position:fixed;left:16px;right:16px;bottom:16px;z-index:9;box-shadow:0 8px 24px -8px rgba(0,0,0,.5)} body{padding-bottom:88px}
+  }
+  @media (prefers-reduced-motion:no-preference){
+    .hero figure svg{animation:f 1s cubic-bezier(.2,.7,.2,1) both} @keyframes f{from{opacity:0;transform:scale(1.03)}to{opacity:1;transform:none}}
+  }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="wpp" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></symbol></svg>
+<header>
+  <div class="wrap">
+    <a class="logo" href="#" aria-label="Ivan Moraes Imóveis">
+      <svg viewBox="0 0 48 48" aria-hidden="true">
+        <rect x="1.5" y="1.5" width="45" height="45" fill="none" stroke="#4A2E22" stroke-width="1.5"/>
+        <line x1="6" y1="6" x2="42" y2="6" stroke="#B5683C" stroke-width="1"/><line x1="6" y1="42" x2="42" y2="42" stroke="#B5683C" stroke-width="1"/>
+        <text x="24" y="33" text-anchor="middle" font-family="'Times New Roman','TeX Gyre Termes','Liberation Serif',Times,serif" font-weight="700" font-size="24" fill="#4A2E22">IM</text>
+      </svg>
+      <span><b class="serif">Ivan Moraes</b><small>Imóveis · Mandaguari</small></span>
+    </a>
+    <a class="btn wpp-top" href="https://wa.me/5544997707878" target="_blank" rel="noopener" aria-label="WhatsApp (44) 99770-7878"><svg><use href="#wpp"/></svg>(44) 99770-7878</a>
+    <nav aria-label="Principal">
+      <a href="#busca">Comprar</a>
+      <a href="#busca">Alugar</a>
+      <a href="#anuncie">Anunciar</a>
+      <a href="#inquilino">Área do inquilino</a>
+      <a class="btn" href="https://wa.me/5544997707878?text=Ol%C3%A1%2C%20vi%20um%20im%C3%B3vel%20no%20site%20da%20Ivan%20Moraes" target="_blank" rel="noopener"><svg><use href="#wpp"/></svg>(44) 99770-7878</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="busca">
+  <figure>
+    <svg viewBox="0 0 900 760" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração do centro de Mandaguari numa manhã de neblina, com a avenida, um edifício e casas antigas">
+      <defs>
+        <linearGradient id="isky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9DB4C4"/><stop offset=".5" stop-color="#D8DDD8"/><stop offset="1" stop-color="#F1E9DA"/></linearGradient>
+        <linearGradient id="ifog" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F1E9DA" stop-opacity="0"/><stop offset="1" stop-color="#F1E9DA" stop-opacity=".85"/></linearGradient>
+        <linearGradient id="ifog2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F1E9DA" stop-opacity=".7"/><stop offset="1" stop-color="#F1E9DA" stop-opacity="0"/></linearGradient>
+        <linearGradient id="iwall" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#E3D6C2"/><stop offset="1" stop-color="#F4EBDD"/></linearGradient>
+        <linearGradient id="iwall2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#D0C3B0"/><stop offset="1" stop-color="#E8DCC8"/></linearGradient>
+        <linearGradient id="iglass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#DCE4E8"/><stop offset="1" stop-color="#A9B9C4"/></linearGradient>
+        <linearGradient id="ilit" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE7B0"/><stop offset="1" stop-color="#EDB868"/></linearGradient>
+        <linearGradient id="iroad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8E8A86"/><stop offset="1" stop-color="#5E5A57"/></linearGradient>
+        <radialGradient id="itree" cx=".65" cy=".3" r=".75"><stop offset="0" stop-color="#9DBB6E"/><stop offset="1" stop-color="#3C5E39"/></radialGradient>
+        <g id="icasa-antiga">
+          <polygon points="180,-120 230,-136 230,-16 180,0" fill="#C4B5A0"/>
+          <rect x="0" y="-120" width="180" height="120" fill="url(#iwall)"/>
+          <rect x="-8" y="-134" width="196" height="14" fill="#8E4A32"/><polygon points="188,-134 238,-150 238,-136 188,-120" fill="#6E3826"/>
+          <rect x="-8" y="-122" width="196" height="4" fill="#4A2E22"/>
+          <rect x="0" y="-72" width="180" height="5" fill="#B5683C" opacity=".7"/>
+          <rect x="16" y="-104" width="34" height="56" rx="17" fill="url(#iglass)" stroke="#4A2E22" stroke-width="3"/>
+          <rect x="72" y="-104" width="34" height="56" rx="17" fill="url(#iglass)" stroke="#4A2E22" stroke-width="3"/>
+          <rect x="130" y="-100" width="34" height="100" rx="17" fill="#3A2319"/>
+          <rect x="130" y="-50" width="34" height="50" fill="#3A2319"/>
+          <rect x="0" y="-30" width="120" height="30" fill="#D9CBB5"/>
+        </g>
+        <g id="iarv"><rect x="-7" y="-70" width="14" height="80" fill="#5A3E2A"/><circle cx="0" cy="-120" r="56" fill="url(#itree)"/><circle cx="-38" cy="-92" r="38" fill="url(#itree)"/><circle cx="40" cy="-96" r="40" fill="url(#itree)"/></g>
+      </defs>
+      <rect width="900" height="760" fill="url(#isky)"/>
+      <circle cx="700" cy="150" r="120" fill="#FFF6E0" opacity=".5"/><circle cx="700" cy="150" r="38" fill="#FFF6E0" opacity=".9"/>
+      <!-- morros ao fundo em neblina -->
+      <path d="M0 380 C 150 330, 300 370, 450 345 S 750 320, 900 350 L900 460 L0 460Z" fill="#9FAE9A" opacity=".55"/>
+      <rect y="300" width="900" height="200" fill="url(#ifog)"/>
+      <!-- edifício (Ed. Maria Izabel, estilizado) -->
+      <g transform="translate(470,500)">
+        <polygon points="200,-330 250,-316 250,-16 200,0" fill="#B8AB97"/>
+        <rect x="0" y="-330" width="200" height="330" fill="url(#iwall2)"/>
+        <rect x="-8" y="-340" width="216" height="12" fill="#4A2E22"/><polygon points="208,-340 258,-326 258,-316 208,-330" fill="#3A2319"/>
+        <g id="iandar">
+          <rect x="16" y="-310" width="36" height="34" fill="url(#iglass)"/><rect x="66" y="-310" width="36" height="34" fill="url(#iglass)"/><rect x="116" y="-310" width="36" height="34" fill="url(#iglass)"/><rect x="166" y="-310" width="22" height="34" fill="url(#iglass)"/>
+          <rect x="10" y="-276" width="48" height="5" fill="#C8B9A2"/><rect x="110" y="-276" width="48" height="5" fill="#C8B9A2"/>
+          <rect x="212" y="-390" width="26" height="30" transform="skewY(16)" fill="#DCE4E8" opacity=".6"/>
+        </g>
+        <use href="#iandar" transform="translate(0,54)"/><use href="#iandar" transform="translate(0,108)"/><use href="#iandar" transform="translate(0,162)"/><use href="#iandar" transform="translate(0,216)"/>
+        <rect x="66" y="-202" width="36" height="34" fill="url(#ilit)"/><rect x="116" y="-94" width="36" height="34" fill="url(#ilit)"/>
+        <rect x="0" y="-50" width="200" height="50" fill="#C9B8A0"/>
+        <rect x="70" y="-44" width="60" height="44" fill="#3A2319"/><rect x="62" y="-50" width="76" height="8" fill="#B5683C"/>
+        <rect x="14" y="-40" width="40" height="30" fill="url(#iglass)"/><rect x="146" y="-40" width="40" height="30" fill="url(#iglass)"/>
+        <text x="100" y="-56" text-anchor="middle" font-family="'Times New Roman','TeX Gyre Termes',serif" font-size="11" letter-spacing="2" fill="#4A2E22">EDIFÍCIO</text>
+      </g>
+      <!-- casas antigas à esquerda -->
+      <use href="#icasa-antiga" transform="translate(40,500) scale(1)"/>
+      <use href="#icasa-antiga" transform="translate(270,500) scale(.9)"/>
+      <!-- calçada com canteiro central da avenida -->
+      <rect y="500" width="900" height="30" fill="#DDD3C2"/>
+      <rect y="530" width="900" height="230" fill="url(#iroad)"/>
+      <rect y="528" width="900" height="6" fill="#ECE3D2"/>
+      <!-- canteiro central da avenida -->
+      <rect y="630" width="900" height="34" fill="#7F9A62"/>
+      <rect y="626" width="900" height="6" fill="#D9CBB5"/><rect y="662" width="900" height="6" fill="#D9CBB5"/>
+      <use href="#iarv" transform="translate(150,640) scale(.9)"/><use href="#iarv" transform="translate(470,640) scale(.9)"/><use href="#iarv" transform="translate(790,640) scale(.9)"/>
+      <g fill="#ECE3D2" opacity=".8"><rect x="40" y="712" width="60" height="4"/><rect x="180" y="712" width="60" height="4"/><rect x="320" y="712" width="60" height="4"/><rect x="460" y="712" width="60" height="4"/><rect x="600" y="712" width="60" height="4"/><rect x="740" y="712" width="60" height="4"/></g>
+      <g fill="#ECE3D2" opacity=".8"><rect x="100" y="580" width="60" height="4"/><rect x="240" y="580" width="60" height="4"/><rect x="380" y="580" width="60" height="4"/><rect x="520" y="580" width="60" height="4"/><rect x="660" y="580" width="60" height="4"/><rect x="800" y="580" width="60" height="4"/></g>
+      <!-- neblina rasteira -->
+      <rect y="480" width="900" height="120" fill="url(#ifog2)"/>
+      <!-- poste e carro -->
+      <rect x="700" y="400" width="5" height="100" fill="#4A4A4A"/><path d="M702 402 Q730 396 734 420" stroke="#4A4A4A" stroke-width="5" fill="none"/><circle cx="736" cy="424" r="6" fill="#FFF6E0"/>
+      <g transform="translate(560,680)">
+        <ellipse cx="90" cy="50" rx="104" ry="10" fill="#1B1F1C" opacity=".3"/>
+        <path d="M0 42 L6 20 Q10 12 20 12 L44 12 L64 -8 Q68 -12 76 -12 L136 -12 Q144 -12 148 -6 L166 12 L184 16 Q192 18 192 26 L192 42 Z" fill="#7A3B2A"/>
+        <path d="M48 12 L66 -6 L100 -6 L100 12Z" fill="#DCE4E8" opacity=".85"/><path d="M108 -6 L138 -6 L154 12 L108 12Z" fill="#DCE4E8" opacity=".65"/>
+        <circle cx="44" cy="42" r="14" fill="#2A2A2A"/><circle cx="44" cy="42" r="6" fill="#B9B9B9"/><circle cx="150" cy="42" r="14" fill="#2A2A2A"/><circle cx="150" cy="42" r="6" fill="#B9B9B9"/>
+      </g>
+    </svg>
+    <figcaption>Ilustração de exemplo — no site real entra a foto da fachada ou de um imóvel.</figcaption>
+  </figure>
+  <div class="txt">
+    <div class="fio"></div>
+    <h1 class="serif">Casas, chácaras e terrenos em Mandaguari, com o aluguel administrado pelo site</h1>
+    <p class="sub">Compra, venda e administração de aluguéis no Centro e nos bairros de Mandaguari. Escritório na Av. Amazonas, 742, sala 1, Ed. Maria Izabel.</p>
+    <form class="busca" onsubmit="return false" aria-label="Buscar imóveis">
+      <label>Finalidade <select><option>Comprar</option><option>Alugar</option></select></label>
+      <label>Tipo <select><option>Casa</option><option>Sobrado</option><option>Chácara</option><option>Terreno</option><option>Apartamento</option></select></label>
+      <label style="grid-column:1/-1">Bairro <input list="bairros" placeholder="Centro, Jardim Progresso…"><datalist id="bairros"><option>Centro</option><option>Jardim Progresso</option><option>Vila Nova</option><option>Jardim Esperança</option><option>Jardim Vitória</option></datalist></label>
+      <button class="btn" type="button">Buscar imóveis</button>
+    </form>
+  </div>
+</section>
+
+<section class="vitrine">
+  <div class="wrap">
+    <div class="top">
+      <h2 class="serif">Imóveis em destaque</h2>
+      <p>Fichas e valores ilustrativos. No site real, a vitrine mostra os anúncios ativos da Ivan Moraes.</p>
+    </div>
+    <div class="grid">
+
+      <a class="ficha" href="#">
+        <div class="img">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração de chácara com casa de varanda e cafezal">
+            <defs>
+              <linearGradient id="m1sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8FB0C8"/><stop offset="1" stop-color="#F1E9DA"/></linearGradient>
+              <linearGradient id="m1grass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A3BE6C"/><stop offset="1" stop-color="#6A8A47"/></linearGradient>
+              <linearGradient id="m1roof" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8E4A32"/><stop offset="1" stop-color="#C27A5A"/></linearGradient>
+              <radialGradient id="m1tree" cx=".65" cy=".3" r=".75"><stop offset="0" stop-color="#9DBB6E"/><stop offset="1" stop-color="#3C5E39"/></radialGradient>
+              <g id="m1cafe"><ellipse cx="0" cy="0" rx="14" ry="10" fill="#4E7A3E"/><ellipse cx="0" cy="-4" rx="10" ry="8" fill="#6A9A50"/><circle cx="-4" cy="-2" r="2" fill="#B5683C"/><circle cx="5" cy="1" r="2" fill="#B5683C"/></g>
+            </defs>
+            <rect width="400" height="300" fill="url(#m1sky)"/>
+            <circle cx="330" cy="60" r="60" fill="#FFF6E0" opacity=".5"/><circle cx="330" cy="60" r="18" fill="#FFF6E0"/>
+            <path d="M0 150 C 100 120, 220 150, 320 130 S 400 120, 400 140 L400 180 L0 180Z" fill="#8CAB74" opacity=".7"/>
+            <rect y="170" width="400" height="130" fill="url(#m1grass)"/>
+            <!-- cafezal em fileiras -->
+            <g><use href="#m1cafe" transform="translate(250,230)"/><use href="#m1cafe" transform="translate(280,232)"/><use href="#m1cafe" transform="translate(310,230)"/><use href="#m1cafe" transform="translate(340,232)"/><use href="#m1cafe" transform="translate(370,230)"/>
+            <use href="#m1cafe" transform="translate(240,256) scale(1.15)"/><use href="#m1cafe" transform="translate(276,258) scale(1.15)"/><use href="#m1cafe" transform="translate(312,256) scale(1.15)"/><use href="#m1cafe" transform="translate(348,258) scale(1.15)"/><use href="#m1cafe" transform="translate(384,256) scale(1.15)"/>
+            <use href="#m1cafe" transform="translate(230,286) scale(1.3)"/><use href="#m1cafe" transform="translate(272,288) scale(1.3)"/><use href="#m1cafe" transform="translate(314,286) scale(1.3)"/><use href="#m1cafe" transform="translate(356,288) scale(1.3)"/><use href="#m1cafe" transform="translate(398,286) scale(1.3)"/></g>
+            <path d="M0 300 C 60 270, 100 250, 160 236 L190 236 C 130 256, 90 276, 60 300Z" fill="#C9A978" opacity=".9"/>
+            <!-- casa com varanda -->
+            <polygon points="196,120 246,106 246,214 196,230" fill="#C4B5A0"/>
+            <rect x="60" y="120" width="136" height="110" fill="#F4EBDD"/>
+            <polygon points="48,120 208,120 180,80 76,80" fill="url(#m1roof)"/>
+            <polygon points="208,120 258,106 230,66 180,80" fill="#6E3826"/>
+            <rect x="48" y="117" width="160" height="6" fill="#4A2E22"/>
+            <rect x="48" y="176" width="148" height="6" fill="#8E4A32"/>
+            <g fill="#F4EBDD" stroke="#8E4A32" stroke-width="2"><rect x="56" y="182" width="6" height="48"/><rect x="100" y="182" width="6" height="48"/><rect x="144" y="182" width="6" height="48"/><rect x="186" y="182" width="6" height="48"/></g>
+            <rect x="60" y="208" width="136" height="22" fill="#D9CBB5"/>
+            <rect x="112" y="186" width="26" height="44" fill="#3A2319"/>
+            <rect x="72" y="134" width="30" height="30" fill="#DCE4E8" stroke="#4A2E22" stroke-width="3"/><rect x="152" y="134" width="30" height="30" fill="#DCE4E8" stroke="#4A2E22" stroke-width="3"/>
+            <rect x="20" y="180" width="8" height="60" fill="#5A3E2A"/><circle cx="24" cy="160" r="30" fill="url(#m1tree)"/><circle cx="6" cy="178" r="18" fill="url(#m1tree)"/><circle cx="44" cy="180" r="18" fill="url(#m1tree)"/>
+          </svg>
+        </div>
+        <span class="ex">exemplo</span>
+        <div class="in">
+          <b class="serif preco">R$ 580.000</b>
+          <p class="tipo">Chácara com casa de varanda <span>· Saída para Marialva, Mandaguari</span></p>
+          <div class="dados">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 18v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6M3 18h18M5 10V7a2 2 0 0 1 2-2h4v5"/></svg>3 quartos</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16v16H4zM4 12h16M12 4v16"/></svg>6.000 m² de área</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Cafezal formado</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="ficha" href="#">
+        <div class="img">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração de sobrado com varanda no andar de cima">
+            <defs>
+              <linearGradient id="m2sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8FB0C8"/><stop offset="1" stop-color="#F1E9DA"/></linearGradient>
+              <linearGradient id="m2wall" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#E3D6C2"/><stop offset="1" stop-color="#F4EBDD"/></linearGradient>
+              <linearGradient id="m2glass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#DCE4E8"/><stop offset="1" stop-color="#A9B9C4"/></linearGradient>
+              <radialGradient id="m2tree" cx=".65" cy=".3" r=".75"><stop offset="0" stop-color="#9DBB6E"/><stop offset="1" stop-color="#3C5E39"/></radialGradient>
+            </defs>
+            <rect width="400" height="300" fill="url(#m2sky)"/>
+            <ellipse cx="90" cy="50" rx="60" ry="14" fill="#fff" opacity=".8"/>
+            <rect y="200" width="400" height="100" fill="#8AA85C"/>
+            <polygon points="60,236 100,236 30,290 -10,290" fill="#2B4A28" opacity=".3"/>
+            <polygon points="250,70 320,52 320,218 250,236" fill="#C4B5A0"/>
+            <rect x="110" y="70" width="140" height="166" fill="url(#m2wall)"/>
+            <polygon points="100,70 262,70 262,52 100,52" fill="#4A2E22"/><polygon points="262,52 332,34 332,52 262,70" fill="#3A2319"/>
+            <rect x="110" y="150" width="140" height="6" fill="#B5683C" opacity=".8"/>
+            <!-- varanda superior -->
+            <rect x="104" y="128" width="100" height="6" fill="#8E4A32"/>
+            <g stroke="#8E4A32" stroke-width="2"><line x1="108" y1="128" x2="108" y2="110"/><line x1="124" y1="128" x2="124" y2="110"/><line x1="140" y1="128" x2="140" y2="110"/><line x1="156" y1="128" x2="156" y2="110"/><line x1="172" y1="128" x2="172" y2="110"/><line x1="188" y1="128" x2="188" y2="110"/><line x1="200" y1="128" x2="200" y2="110"/><line x1="104" y1="110" x2="204" y2="110"/></g>
+            <rect x="120" y="84" width="30" height="44" fill="#3A2319"/><rect x="160" y="88" width="36" height="36" fill="url(#m2glass)" stroke="#4A2E22" stroke-width="3"/>
+            <rect x="212" y="88" width="26" height="36" fill="url(#m2glass)" stroke="#4A2E22" stroke-width="3"/>
+            <!-- térreo -->
+            <rect x="122" y="166" width="60" height="70" fill="#C9C4B6"/><g fill="#B0ABA0"><rect x="122" y="182" width="60" height="3"/><rect x="122" y="200" width="60" height="3"/><rect x="122" y="218" width="60" height="3"/></g>
+            <rect x="196" y="170" width="26" height="66" fill="#3A2319"/><rect x="230" y="172" width="14" height="36" fill="url(#m2glass)"/>
+            <rect x="266" y="100" width="28" height="40" transform="skewY(-15)" fill="#DCE4E8" opacity=".85"/>
+            <polygon points="120,236 184,236 200,300 90,300" fill="#C9C2B2"/><polygon points="0,292 400,280 400,300 0,300" fill="#B5B0A4"/>
+            <rect x="0" y="240" width="100" height="14" fill="#E8DCC8"/><rect x="0" y="236" width="100" height="4" fill="#B5683C"/>
+            <rect x="350" y="176" width="10" height="64" fill="#5A3E2A"/><circle cx="354" cy="146" r="34" fill="url(#m2tree)"/><circle cx="330" cy="166" r="22" fill="url(#m2tree)"/><circle cx="380" cy="168" r="24" fill="url(#m2tree)"/>
+            <circle cx="40" cy="238" r="14" fill="url(#m2tree)"/>
+          </svg>
+        </div>
+        <span class="ex">exemplo</span>
+        <div class="in">
+          <b class="serif preco">R$ 1.900<small>/mês</small></b>
+          <p class="tipo">Sobrado com varanda <span>· Jardim Progresso, Mandaguari</span></p>
+          <div class="dados">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 18v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6M3 18h18M5 10V7a2 2 0 0 1 2-2h4v5"/></svg>3 quartos</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16v16H4zM4 12h16M12 4v16"/></svg>160 m²</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 17h14M6 17l1.5-6h9L18 17M7 20h2M15 20h2"/></svg>2 vagas</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="ficha" href="#">
+        <div class="img">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração de terreno de esquina com placa de vende-se">
+            <defs>
+              <linearGradient id="m3sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8FB0C8"/><stop offset="1" stop-color="#F1E9DA"/></linearGradient>
+              <linearGradient id="m3grass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9AB063"/><stop offset="1" stop-color="#5C7A3E"/></linearGradient>
+              <radialGradient id="m3tree" cx=".65" cy=".3" r=".75"><stop offset="0" stop-color="#9DBB6E"/><stop offset="1" stop-color="#3C5E39"/></radialGradient>
+            </defs>
+            <rect width="400" height="300" fill="url(#m3sky)"/>
+            <circle cx="70" cy="70" r="60" fill="#FFF6E0" opacity=".5"/><circle cx="70" cy="70" r="18" fill="#FFF6E0"/>
+            <path d="M0 176 C 80 160, 180 184, 260 170 S 360 160, 400 172 L400 210 L0 210Z" fill="#9FAE9A" opacity=".6"/>
+            <g opacity=".95"><rect x="300" y="150" width="90" height="50" fill="#F4EBDD"/><polygon points="294,150 396,150 370,128 320,128" fill="#8E4A32"/><rect x="326" y="168" width="20" height="18" fill="#A9B9C4"/></g>
+            <rect y="196" width="400" height="104" fill="url(#m3grass)"/>
+            <!-- esquina: duas ruas -->
+            <polygon points="0,268 400,256 400,300 0,300" fill="#5E5A57"/><rect y="262" width="400" height="8" fill="#DDD3C2"/>
+            <polygon points="0,200 40,200 110,262 0,268" fill="#5E5A57"/><polygon points="40,200 48,200 118,262 110,262" fill="#DDD3C2"/>
+            <g fill="#7C9052"><ellipse cx="200" cy="236" rx="40" ry="8"/><ellipse cx="300" cy="246" rx="34" ry="8"/><ellipse cx="140" cy="250" rx="30" ry="7"/></g>
+            <g fill="#C4B5A0"><rect x="380" y="200" width="4" height="60"/><rect x="130" y="206" width="4" height="56"/></g>
+            <rect x="226" y="166" width="8" height="96" fill="#5A3E2A"/>
+            <g transform="rotate(-2 230 140)">
+              <rect x="150" y="108" width="160" height="76" fill="#F4EBDD" stroke="#4A2E22" stroke-width="3"/>
+              <rect x="156" y="114" width="148" height="64" fill="none" stroke="#B5683C" stroke-width="1"/>
+              <text x="230" y="146" text-anchor="middle" font-family="'Times New Roman','TeX Gyre Termes','Liberation Serif',serif" font-weight="700" font-size="22" letter-spacing="2" fill="#4A2E22">VENDE-SE</text>
+              <text x="230" y="166" text-anchor="middle" font-family="Helvetica Neue,Arial,sans-serif" font-size="10" letter-spacing="1" fill="#B5683C">IVAN MORAES IMÓVEIS · (44) 99770-7878</text>
+            </g>
+            <rect x="346" y="178" width="8" height="50" fill="#5A3E2A"/><circle cx="350" cy="160" r="26" fill="url(#m3tree)"/><circle cx="332" cy="176" r="16" fill="url(#m3tree)"/><circle cx="370" cy="176" r="18" fill="url(#m3tree)"/>
+            <rect x="70" y="150" width="4" height="50" fill="#4A4A4A"/><circle cx="72" cy="148" r="5" fill="#FFF6E0"/>
+          </svg>
+        </div>
+        <span class="ex">exemplo</span>
+        <div class="in">
+          <b class="serif preco">R$ 190.000</b>
+          <p class="tipo">Terreno de esquina 15 × 30 <span>· Vila Nova, Mandaguari</span></p>
+          <div class="dados">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16v16H4zM4 12h16M12 4v16"/></svg>450 m²</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s7-6 7-12a7 7 0 1 0-14 0c0 6 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>Esquina asfaltada</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Escriturado</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section class="inq" id="inquilino">
+  <div class="wrap">
+    <div>
+      <h2 class="serif">Área do inquilino e do proprietário</h2>
+      <p>O que hoje precisa de uma ligação ou de uma ida ao escritório, resolvido no celular:</p>
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>2ª via do boleto do aluguel e pagamento por Pix</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Contrato e comprovantes para baixar</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Chamado de manutenção com foto</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Proprietário acompanha o repasse de cada mês</li>
+      </ul>
+    </div>
+    <form onsubmit="return false">
+      <h3 class="serif">2ª via do boleto do aluguel</h3>
+      <label for="cpf">CPF do inquilino</label>
+      <input id="cpf" inputmode="numeric" placeholder="000.000.000-00">
+      <label for="nasc">Data de nascimento</label>
+      <input id="nasc" type="date">
+      <button class="btn" type="button">Ver boleto do mês</button>
+      <small>O boleto abre na hora, com o código Pix para copiar.</small>
+    </form>
+  </div>
+</section>
+
+<section class="anuncie" id="anuncie">
+  <div class="wrap">
+    <div><h2 class="serif">Tem um imóvel para alugar ou vender em Mandaguari?</h2><p>A Ivan Moraes faz a avaliação, as fotos e a divulgação. Mande o endereço pelo WhatsApp e a equipe retorna com o próximo passo.</p></div>
+    <a class="btn" href="https://wa.me/5544997707878?text=Ol%C3%A1%2C%20quero%20anunciar%20um%20im%C3%B3vel%20com%20a%20Ivan%20Moraes" target="_blank" rel="noopener">Anunciar meu imóvel</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><b>Ivan Moraes Imóveis</b><br>Av. Amazonas, 742, sala 1, Ed. Maria Izabel — Centro<br>Mandaguari/PR</div>
+    <div><b>WhatsApp</b><br><a href="https://wa.me/5544997707878">(44) 99770-7878</a><br>Fixo: <a href="tel:+554432331186">(44) 3233-1186</a></div>
+    <div><b>E-mail</b><br><a href="mailto:icmoraes1@hotmail.com">icmoraes1@hotmail.com</a></div>
+    <div class="selo">Prévia · proposta de site</div>
+  </div>
+</footer>
+<a class="btn fixo" href="https://wa.me/5544997707878" target="_blank" rel="noopener">WhatsApp da Ivan Moraes</a>
+</body>
+</html>
