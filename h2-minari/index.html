@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#F7F4EC">
+<title>H2 Minari Contabilidade — Maringá, Zona 04</title>
+<style>
+  :root{--papel:#F7F4EC;--papel2:#ECE6D8;--oliva:#3B4A2F;--oliva2:#2E3A24;--ocre:#D9A441;--ocre2:#C48F2C;--texto:#1F2419;--texto2:#5E6454;--sobre-oliva:#C9D1BC}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--papel);color:var(--texto);font:17px/1.6 Charter,"Bitstream Charter","Iowan Old Style",Georgia,serif}
+  ::selection{background:var(--ocre);color:var(--texto)} :focus-visible{outline:3px solid var(--ocre);outline-offset:2px}
+  a{color:inherit}
+  h1,h2,h3{font-weight:700;margin:0;text-wrap:balance;letter-spacing:-.01em}
+  .ui{font-family:"Helvetica Neue",Helvetica,"TeX Gyre Heros",Arial,sans-serif}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 16px}
+  header .wrap{display:flex;align-items:center;gap:24px;min-height:80px}
+  .marca{text-decoration:none;line-height:1.1}
+  .marca b{font-size:26px;display:block} .marca span{font-size:14px;color:var(--texto2)}
+  nav{margin-left:auto;display:flex;gap:4px;flex-wrap:wrap}
+  nav a{text-decoration:none;padding:10px 12px;font-size:15px;border-bottom:2px solid transparent}
+  nav a:hover{border-color:var(--ocre)}
+  nav a.cli{background:var(--oliva);color:#fff;border-radius:8px;border:0} nav a.cli:hover{background:var(--oliva2)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--ocre);color:var(--texto);text-decoration:none;font-weight:600;padding:14px 22px;border-radius:8px;min-height:48px;border:0;cursor:pointer;font-size:16px;transition:background .15s,transform .15s}
+  .btn:hover{background:var(--ocre2)} .btn:active{transform:translateY(1px)} .btn svg{width:22px;height:22px}
+  /* hero: foto grande esquerda, texto direita */
+  .hero{padding:16px 0 64px}
+  .hero .wrap{display:grid;grid-template-columns:6fr 5fr;gap:48px;align-items:center}
+  .foto{aspect-ratio:4/3;background:var(--oliva);border-radius:16px;position:relative;color:var(--sobre-oliva);display:grid;place-items:center;text-align:center;padding:24px;font-size:15px}
+  .foto::before{content:"";position:absolute;inset:16px;border:1px dashed rgba(255,255,255,.35);border-radius:10px}
+  .hero h1{font-size:clamp(34px,4.6vw,54px);line-height:1.08;margin-top:16px}
+  .hero p{font-size:19px;color:var(--texto2);max-width:46ch;margin:24px 0 32px}
+  .tempo{font-size:15px;color:var(--oliva);letter-spacing:.02em}
+  .tempo b{font-size:40px;line-height:1;display:block;color:var(--texto)}
+  /* serviços em 2 colunas texto corrido */
+  .serv{background:var(--oliva);color:#fff;padding:72px 0}
+  .serv h2{font-size:38px;max-width:20ch;margin-bottom:32px}
+  .serv .cols{columns:2;column-gap:64px}
+  .serv .cols div{break-inside:avoid;margin-bottom:24px;padding-left:16px;border-left:2px solid var(--ocre)}
+  .serv h3{font-size:21px;margin-bottom:4px} .serv p{margin:0;color:var(--sobre-oliva);font-size:16px}
+  /* docs + boleto lado a lado em papel */
+  .cliente{padding:72px 0}
+  .cliente h2{font-size:38px;margin-bottom:12px} .cliente .lead{color:var(--texto2);max-width:60ch;margin:0 0 40px}
+  .duas{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+  .caixa{background:#fff;border-radius:16px;padding:32px;box-shadow:0 12px 32px -16px rgba(31,36,25,.25)}
+  .caixa h3{font-size:24px;margin-bottom:8px} .caixa p{color:var(--texto2);margin:0 0 20px;font-size:16px}
+  .caixa label{display:block;font-size:14px;color:var(--texto2);margin-bottom:6px}
+  .caixa input,.caixa select{width:100%;font-size:16px;padding:12px;border:1px solid #CFC9B9;border-radius:8px;min-height:48px;margin-bottom:12px;background:var(--papel);caret-color:var(--oliva)}
+  .drop{border:2px dashed #B9B39F;border-radius:12px;padding:24px;text-align:center;margin-bottom:12px;background:var(--papel)}
+  .drop b{display:block} .drop small{color:var(--texto2)}
+  .lista-docs{margin:0 0 20px;padding-left:20px;color:var(--texto2);font-size:16px}
+  footer{background:var(--papel2);padding:40px 0;font-size:15px}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:24px 48px}
+  .fixo{display:none}
+  @media (max-width:880px){
+    .hero .wrap,.duas{grid-template-columns:1fr} .serv .cols{columns:1}
+    header .wrap{flex-wrap:wrap;padding:12px 16px} nav{margin-left:0;width:100%} nav a{padding:10px 8px;font-size:14px}
+    .foto{aspect-ratio:16/10} .hero p{font-size:17px} .serv h2,.cliente h2{font-size:30px}
+    .fixo{display:flex;position:fixed;left:16px;right:16px;bottom:16px;z-index:9;box-shadow:0 8px 24px -8px rgba(31,36,25,.45)} body{padding-bottom:88px}
+  }
+  @media (prefers-reduced-motion:no-preference){
+    .foto{animation:ent .8s ease-out both} @keyframes ent{from{opacity:0;transform:translateX(-16px)}to{opacity:1;transform:none}}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="marca" href="#"><b>H2 Minari</b><span class="ui">Contabilidade · Maringá</span></a>
+    <nav class="ui" aria-label="Principal">
+      <a href="#servicos">Serviços</a>
+      <a href="#documentos">Envie seus documentos</a>
+      <a href="#boleto">2ª via de boleto / honorários</a>
+      <a class="cli" href="#area">Área do cliente</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="foto" role="img" aria-label="Espaço para a foto da equipe ou da sala do escritório">
+      <div class="ui">Foto da equipe ou da sala do escritório aqui<br><small>Av. Humaitá, 411 — sala 101</small></div>
+    </div>
+    <div>
+      <p class="tempo ui"><b>52+</b>anos de escritório de família</p>
+      <h1>A contabilidade da sua empresa, com um Minari do outro lado da mesa.</h1>
+      <p>Há mais de cinco décadas o mesmo escritório atende comerciantes, clínicas e prestadores de serviço de Maringá. Quem assina o seu balanço é quem atende você.</p>
+      <a class="btn ui" href="https://wa.me/5544998846796?text=Ol%C3%A1%2C%20quero%20uma%20proposta%20de%20contabilidade" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>
+        Conversar no WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="serv" id="servicos">
+  <div class="wrap">
+    <h2>O que o escritório cuida para você todo mês</h2>
+    <div class="cols">
+      <div><h3>Abertura e legalização</h3><p>Registro na Junta Comercial, CNPJ, alvará da Prefeitura de Maringá e escolha do regime tributário.</p></div>
+      <div><h3>Escrituração e impostos</h3><p>Apuração do Simples, ISS, ICMS, PIS e COFINS, com as guias enviadas antes do vencimento.</p></div>
+      <div><h3>Folha de pagamento</h3><p>Registro de funcionários, férias, 13º, rescisões e envio ao eSocial.</p></div>
+      <div><h3>Declarações anuais</h3><p>Imposto de renda dos sócios, DEFIS, ECD e ECF entregues no prazo.</p></div>
+      <div><h3>Orientação ao empresário</h3><p>Conversa franca sobre pró-labore, distribuição de lucros e o que fazer antes de crescer.</p></div>
+      <div><h3>Certidões e regularização</h3><p>Negativas federais, estaduais e municipais; parcelamento de débitos antigos.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cliente" id="documentos">
+  <div class="wrap">
+    <h2>Mande os documentos e pegue seus boletos sem ligar para o escritório</h2>
+    <p class="lead">Duas coisas que hoje tomam tempo do cliente e da equipe passam a ser feitas aqui, a qualquer hora.</p>
+    <div class="duas">
+      <form class="caixa" onsubmit="return false">
+        <h3>Envie seus documentos</h3>
+        <p>O que precisamos receber até o dia 5 de cada mês:</p>
+        <ul class="lista-docs"><li>Notas fiscais emitidas e recebidas</li><li>Extratos bancários do mês</li><li>Admissões, férias e rescisões</li></ul>
+        <div class="drop"><b class="ui">Arraste os arquivos ou toque para escolher</b><small class="ui">PDF, XML ou foto do celular</small></div>
+        <button class="btn ui" type="button" style="width:100%">Enviar para o escritório</button>
+      </form>
+      <form class="caixa" id="boleto" onsubmit="return false">
+        <h3>2ª via de boleto e honorários</h3>
+        <p>Veja o boleto do mês, copie o código Pix ou baixe guias já emitidas.</p>
+        <label class="ui" for="cnpj">CNPJ da empresa</label>
+        <input class="ui" id="cnpj" inputmode="numeric" placeholder="00.000.000/0001-00">
+        <label class="ui" for="mail">E-mail cadastrado</label>
+        <input class="ui" id="mail" type="email" placeholder="voce@suaempresa.com.br">
+        <button class="btn ui" type="button" style="width:100%;background:var(--oliva);color:#fff">Entrar na área do cliente</button>
+        <p id="area" style="margin:12px 0 0;font-size:14px">Na área do cliente ficam todas as guias, holerites e documentos entregues.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><b>H2 Minari Contabilidade</b><br>Av. Humaitá, 411 — sala 101<br>Zona 04, Maringá/PR</div>
+    <div><b>Telefone</b><br><a href="tel:+554431220401">(44) 3122-0401</a><br>WhatsApp <a href="https://wa.me/5544998846796">(44) 99884-6796</a></div>
+    <div><b>E-mail</b><br><a href="mailto:contato@minaricontabilidade.com.br">contato@minaricontabilidade.com.br</a><br>Instagram @h2minaricontabilidade</div>
+    <div class="ui" style="margin-left:auto;font-size:13px;color:var(--texto2)">© 2026 H2 Minari · Mockup de proposta</div>
+  </div>
+</footer>
+<a class="btn fixo ui" href="https://wa.me/5544998846796" target="_blank" rel="noopener">Falar no WhatsApp</a>
+</body>
+</html>
