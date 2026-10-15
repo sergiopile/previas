@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#163B2F">
+<title>Ingalar Imóveis — casas e apartamentos em Maringá</title>
+<style>
+  :root{--verde:#163B2F;--verde2:#1F4D3E;--amarelo:#F2C230;--amarelo2:#E0B01E;--branco:#FFFFFF;--areia:#E9E4DA;--texto:#14201B;--texto2:#5C665F;--sobre-verde:#B9CFC4}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--branco);color:var(--texto);font:16px/1.55 "Helvetica Neue",Helvetica,"TeX Gyre Heros",Arial,sans-serif}
+  ::selection{background:var(--amarelo);color:var(--texto)} :focus-visible{outline:3px solid var(--amarelo);outline-offset:2px}
+  a{color:inherit}
+  .disp{font-family:"Palatino Linotype",Palatino,"TeX Gyre Pagella","Book Antiqua",Georgia,serif;font-weight:400;text-transform:uppercase;letter-spacing:.04em;margin:0;text-wrap:balance}
+  h2,h3{margin:0}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 16px}
+  header{background:var(--verde);color:#fff}
+  header .wrap{display:flex;align-items:center;gap:24px;min-height:76px}
+  .logo{font-size:26px;text-decoration:none;color:#fff}
+  .logo small{display:block;font:12px "Helvetica Neue",Arial,sans-serif;letter-spacing:.1em;color:var(--sobre-verde)}
+  nav{margin-left:auto;display:flex;gap:2px;flex-wrap:wrap;align-items:center}
+  nav a{text-decoration:none;padding:10px 12px;border-radius:8px;font-size:15px;color:var(--sobre-verde)}
+  nav a:hover{color:#fff;background:var(--verde2)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--amarelo);color:var(--texto);text-decoration:none;font-weight:600;padding:12px 18px;border-radius:8px;min-height:48px;border:0;cursor:pointer;font-size:16px;transition:background .15s,transform .15s}
+  .btn:hover{background:var(--amarelo2)} .btn:active{transform:translateY(1px)} .btn svg{width:22px;height:22px;flex:none}
+  /* hero */
+  .hero{background:var(--verde);color:#fff;padding:48px 0 0;overflow:hidden}
+  .hero .wrap{display:grid;grid-template-columns:7fr 5fr;gap:48px;align-items:end}
+  .hero h1{font-size:clamp(30px,3.6vw,44px);line-height:1.08;margin-top:16px}
+  .hero .sub{color:var(--sobre-verde);font-size:18px;max-width:46ch;margin:16px 0 32px}
+  .busca{background:#fff;color:var(--texto);border-radius:12px;padding:16px;display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:12px;margin-bottom:48px}
+  .busca label{display:grid;gap:4px;font-size:13px;color:var(--texto2)}
+  .busca select,.busca input{font:inherit;font-size:16px;padding:10px 12px;border:1px solid #CFCBC0;border-radius:8px;min-height:48px;background:#fff}
+  .busca .btn{align-self:end;white-space:nowrap}
+  .ficha{background:var(--areia);color:var(--texto);border-radius:16px 16px 0 0;padding:16px 16px 24px;transform:translateX(24px)}
+  .ficha .img{aspect-ratio:4/3;background:#CFC8B8;border-radius:10px;display:grid;place-items:center;color:var(--texto2);font-size:14px;text-align:center;padding:16px}
+  .ficha .preco{font-size:34px;margin:16px 0 4px;font-variant-numeric:tabular-nums;letter-spacing:0;text-transform:none}
+  .ficha .preco small{font-size:14px;font-family:"Helvetica Neue",Arial,sans-serif;color:var(--texto2);margin-left:8px}
+  .ficha p{margin:0;color:var(--texto2)} .ficha .dados{display:flex;gap:16px;margin-top:12px;font-size:15px;font-variant-numeric:tabular-nums}
+  .ficha .dados span{padding-right:16px;border-right:1px solid #CFC8B8} .ficha .dados span:last-child{border:0}
+  .tag{position:absolute;top:28px;left:28px;background:var(--amarelo);padding:6px 10px;border-radius:6px;font-weight:600;font-size:13px}
+  .ficha{position:relative}
+  /* faixa areia com fichas */
+  .vitrine{background:var(--areia);padding:56px 0 64px}
+  .vitrine h2{font-size:30px;margin-bottom:24px}
+  .grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:16px}
+  .card{background:#fff;border-radius:12px;overflow:hidden;text-decoration:none;display:flex;flex-direction:column}
+  .card .img{aspect-ratio:3/2;background:#D9D3C5;display:grid;place-items:center;color:var(--texto2);font-size:13px}
+  .card .in{padding:16px} .card b{font-size:20px;font-variant-numeric:tabular-nums;display:block} .card span{color:var(--texto2);font-size:14px}
+  .vitrine .nota{font-size:13px;color:var(--texto2);margin:16px 0 0}
+  /* inquilino */
+  .inq{padding:72px 0}
+  .inq .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .inq h2{font-size:34px;margin-bottom:12px} .inq p{color:var(--texto2);max-width:48ch}
+  .inq ul{list-style:none;padding:0;margin:16px 0 0;display:grid;gap:8px} .inq li{display:flex;gap:10px;align-items:flex-start} .inq li svg{width:20px;height:20px;color:var(--verde);flex:none;margin-top:2px}
+  .inq form{background:var(--verde);color:#fff;border-radius:16px;padding:32px;display:grid;gap:12px}
+  .inq form h3{font-size:22px;margin-bottom:4px} .inq form label{font-size:14px;color:var(--sobre-verde)}
+  .inq input{font:inherit;font-size:16px;padding:12px;border-radius:8px;border:1px solid var(--verde2);min-height:48px;background:#fff;caret-color:var(--verde)}
+  /* anuncie */
+  .anuncie{background:var(--areia);padding:56px 0}
+  .anuncie .wrap{display:flex;gap:32px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+  .anuncie h2{font-size:28px} .anuncie p{color:var(--texto2);margin:4px 0 0}
+  footer{background:var(--verde);color:var(--sobre-verde);padding:40px 0;font-size:15px}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:24px 48px} footer b{color:#fff}
+  .fixo{display:none}
+  @media (max-width:900px){
+    .hero .wrap,.inq .wrap{grid-template-columns:1fr} .grid{grid-template-columns:1fr} .busca{grid-template-columns:1fr}
+    header .wrap{flex-wrap:wrap;padding:12px 16px} nav{margin-left:0;width:100%} nav a{padding:10px 8px;font-size:14px} nav .btn{margin-left:auto}
+    .hero{padding-top:24px} .ficha{transform:none;border-radius:16px 16px 0 0} .busca{margin-bottom:32px}
+    .fixo{display:flex;position:fixed;left:16px;right:16px;bottom:16px;z-index:9;box-shadow:0 8px 24px -8px rgba(0,0,0,.5)} body{padding-bottom:88px}
+  }
+  @media (prefers-reduced-motion:no-preference){
+    .ficha{animation:f .7s cubic-bezier(.2,.7,.2,1) both .1s} @keyframes f{from{opacity:0;transform:translate(24px,24px)}to{opacity:1;transform:translateX(24px)}}
+    @media (max-width:900px){@keyframes f{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="logo disp" href="#">Ingalar<small>Imóveis · Maringá · CRECI J7161</small></a>
+    <nav aria-label="Principal">
+      <a href="#busca">Comprar</a>
+      <a href="#busca">Alugar</a>
+      <a href="#anuncie">Anunciar imóvel</a>
+      <a href="#inquilino">Área do inquilino / 2ª via</a>
+      <a class="btn" href="https://wa.me/5544991750405?text=Ol%C3%A1%2C%20vi%20um%20im%C3%B3vel%20no%20site%20da%20Ingalar" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>
+        (44) 99175-0405
+      </a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="busca">
+  <div class="wrap">
+    <div>
+      <h1 class="disp">Casas e apartamentos em Maringá, com visita marcada pelo WhatsApp</h1>
+      <p class="sub">Imóveis para comprar e alugar na Zona 07, no Jardim Alvorada e em toda a cidade. Corretores da Ingalar, na Av. Morangueira.</p>
+      <form class="busca" onsubmit="return false" aria-label="Buscar imóveis">
+        <label>Finalidade <select><option>Alugar</option><option>Comprar</option></select></label>
+        <label>Tipo <select><option>Apartamento</option><option>Casa</option><option>Sala comercial</option><option>Terreno</option></select></label>
+        <label>Bairro <input list="bairros" placeholder="Zona 07, Jd. Alvorada…"><datalist id="bairros"><option>Zona 07</option><option>Jardim Alvorada</option><option>Zona 01</option><option>Jardim das Estações</option></datalist></label>
+        <button class="btn" type="button">Buscar imóveis</button>
+      </form>
+    </div>
+    <article class="ficha" aria-label="Exemplo de ficha de imóvel">
+      <span class="tag">Exemplo de ficha</span>
+      <div class="img" style="padding:0;overflow:hidden"><svg style="display:block;width:100%;height:100%" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração de casa térrea com garagem coberta">
+            <defs>
+              <linearGradient id="u1sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6FA0D0"/><stop offset="1" stop-color="#E7EEF2"/></linearGradient>
+              <linearGradient id="u1roof" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3B4463"/><stop offset="1" stop-color="#5E6888"/></linearGradient>
+              <linearGradient id="u1wall" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#E6E3DC"/><stop offset="1" stop-color="#F8F6F1"/></linearGradient>
+              <linearGradient id="u1glass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#DCE8F2"/><stop offset="1" stop-color="#9DB8D0"/></linearGradient>
+              <radialGradient id="u1tree" cx=".65" cy=".3" r=".75"><stop offset="0" stop-color="#9CC364"/><stop offset="1" stop-color="#2F5A2E"/></radialGradient>
+            </defs>
+            <rect width="400" height="300" fill="url(#u1sky)"/>
+            <ellipse cx="90" cy="60" rx="60" ry="14" fill="#fff" opacity=".9"/><ellipse cx="320" cy="44" rx="46" ry="12" fill="#fff" opacity=".8"/>
+            <rect y="196" width="400" height="104" fill="#86A75C"/>
+            <polygon points="70,232 110,232 30,286 -10,286" fill="#2B4A28" opacity=".3"/>
+            <polygon points="262,122 332,100 332,212 262,232" fill="#C9C4B8"/>
+            <polygon points="78,122 262,122 262,232 78,232" fill="url(#u1wall)"/>
+            <polygon points="62,122 278,122 246,70 100,70" fill="url(#u1roof)"/>
+            <polygon points="278,122 348,100 312,54 246,70" fill="#2E354F"/>
+            <rect x="62" y="119" width="216" height="6" fill="#262C42"/>
+            <!-- garagem coberta aberta -->
+            <rect x="88" y="150" width="80" height="82" fill="#3A3E58"/>
+            <g stroke="#E6E3DC" stroke-width="5"><line x1="92" y1="150" x2="92" y2="232"/><line x1="164" y1="150" x2="164" y2="232"/></g>
+            <rect x="82" y="144" width="92" height="8" fill="#E8A33D" opacity=".9"/>
+            <rect x="182" y="150" width="40" height="36" fill="url(#u1glass)" stroke="#3B4463" stroke-width="3"/>
+            <line x1="202" y1="150" x2="202" y2="186" stroke="#3B4463" stroke-width="2"/>
+            <rect x="232" y="160" width="22" height="72" fill="#262C42"/>
+            <rect x="282" y="220" width="26" height="30" transform="skewY(-17)" fill="#DCE8F2" opacity=".9"/>
+            <polygon points="88,232 168,232 190,300 50,300" fill="#C9C2B2"/>
+            <polygon points="0,290 400,276 400,300 0,300" fill="#B5B0A4"/>
+            <rect x="180" y="238" width="190" height="14" fill="#E6E3DC"/><rect x="180" y="234" width="190" height="4" fill="#E8A33D"/>
+            <rect x="358" y="170" width="10" height="66" fill="#5A3E2A"/>
+            <circle cx="362" cy="140" r="34" fill="url(#u1tree)"/><circle cx="340" cy="160" r="24" fill="url(#u1tree)"/><circle cx="386" cy="162" r="26" fill="url(#u1tree)"/>
+            <circle cx="40" cy="236" r="16" fill="url(#u1tree)"/><circle cx="62" cy="240" r="12" fill="url(#u1tree)"/>
+          </svg></div>
+      <p class="disp preco">R$ 1.850<small>/mês</small></p>
+      <p>Apartamento · Zona 07, Maringá</p>
+      <div class="dados"><span>2 quartos</span><span>62 m²</span><span>1 vaga</span></div>
+    </article>
+  </div>
+</section>
+<section aria-label="Ilustração" style="padding:0 16px"><figure style="max-width:1168px;margin:40px auto;position:relative;border-radius:16px;overflow:hidden;height:clamp(220px,32vw,440px)"><svg style="display:block;width:100%;height:100%" viewBox="0 0 1600 760" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Ilustração de um bairro de Maringá à noite, com casas iluminadas e céu estrelado">
+      <defs>
+        <linearGradient id="usky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#070C1C"/><stop offset=".55" stop-color="#101A3A"/><stop offset="1" stop-color="#2A3660"/></linearGradient>
+        <radialGradient id="umoon" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFF6DC" stop-opacity=".5"/><stop offset=".5" stop-color="#FFF6DC" stop-opacity=".12"/><stop offset="1" stop-color="#FFF6DC" stop-opacity="0"/></radialGradient>
+        <linearGradient id="uground" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A3650"/><stop offset="1" stop-color="#151D33"/></linearGradient>
+        <linearGradient id="uroad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2B3042"/><stop offset="1" stop-color="#171B28"/></linearGradient>
+        <linearGradient id="uwall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5B6382"/><stop offset="1" stop-color="#3C4461"/></linearGradient>
+        <linearGradient id="uwall2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6E6A80"/><stop offset="1" stop-color="#4A4860"/></linearGradient>
+        <linearGradient id="ulit" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE9B0"/><stop offset="1" stop-color="#F0B457"/></linearGradient>
+        <radialGradient id="uglow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFD98A" stop-opacity=".55"/><stop offset="1" stop-color="#FFD98A" stop-opacity="0"/></radialGradient>
+        <radialGradient id="utree" cx=".6" cy=".3" r=".75"><stop offset="0" stop-color="#3E5A48"/><stop offset="1" stop-color="#17251F"/></radialGradient>
+        <g id="ucasa">
+          <polygon points="220,-130 290,-154 290,-24 220,0" fill="#2F3652"/>
+          <rect x="0" y="-130" width="220" height="130" fill="url(#uwall)"/>
+          <polygon points="-14,-130 234,-130 198,-188 22,-188" fill="#3B2E3A"/>
+          <polygon points="234,-130 304,-154 266,-208 198,-188" fill="#2B2130"/>
+          <rect x="18" y="-86" width="70" height="86" fill="#3A4260"/>
+          <rect x="120" y="-98" width="48" height="44" fill="url(#ulit)"/>
+          <line x1="144" y1="-98" x2="144" y2="-54" stroke="#4A3A2A" stroke-width="3"/>
+          <rect x="182" y="-88" width="28" height="88" fill="#1E2438"/>
+          <circle cx="196" cy="-96" r="4" fill="#FFE9B0"/>
+          <polygon points="168,-96 212,-96 230,0 150,0" fill="#FFD98A" opacity=".12"/>
+          <rect x="236" y="-110" width="30" height="36" transform="skewY(-19)" fill="#F0B457" opacity=".6"/>
+        </g>
+        <g id="usob">
+          <polygon points="200,-230 260,-252 260,-22 200,0" fill="#3A3C58"/>
+          <rect x="0" y="-230" width="200" height="230" fill="url(#uwall2)"/>
+          <rect x="-10" y="-242" width="220" height="14" fill="#2B2436"/><polygon points="210,-242 270,-264 270,-252 210,-230" fill="#201A2A"/>
+          <rect x="22" y="-206" width="52" height="60" fill="url(#ulit)"/>
+          <rect x="96" y="-206" width="52" height="60" fill="#2A3350"/>
+          <rect x="166" y="-206" width="22" height="60" fill="url(#ulit)"/>
+          <rect x="0" y="-120" width="200" height="6" fill="#E8A33D" opacity=".55"/>
+          <rect x="16" y="-96" width="92" height="96" fill="#3A3E58"/>
+          <rect x="128" y="-100" width="36" height="100" fill="#1E2438"/>
+          <rect x="172" y="-94" width="20" height="54" fill="url(#ulit)"/>
+          <rect x="208" y="-146" width="36" height="44" transform="skewY(-20)" fill="#F0B457" opacity=".5"/>
+        </g>
+        <g id="uarv"><rect x="-7" y="-70" width="14" height="80" fill="#1B1914"/><circle cx="0" cy="-120" r="56" fill="url(#utree)"/><circle cx="-38" cy="-92" r="38" fill="url(#utree)"/><circle cx="40" cy="-96" r="40" fill="url(#utree)"/></g>
+        <g id="uposte"><rect x="-3" y="-150" width="6" height="150" fill="#1E2438"/><path d="M0 -148 Q30 -154 34 -130" stroke="#1E2438" stroke-width="5" fill="none"/><circle cx="36" cy="-126" r="7" fill="#FFE9B0"/><circle cx="36" cy="-126" r="60" fill="url(#uglow)"/><polygon points="6,-124 66,-124 120,0 -50,0" fill="#FFD98A" opacity=".08"/></g>
+      </defs>
+      <rect width="1600" height="760" fill="url(#usky)"/>
+      <!-- estrelas -->
+      <g fill="#fff">
+        <circle cx="120" cy="80" r="1.6"/><circle cx="260" cy="140" r="1.2"/><circle cx="380" cy="60" r="2"/><circle cx="520" cy="190" r="1.3"/><circle cx="640" cy="90" r="1.6"/><circle cx="760" cy="150" r="1.1"/><circle cx="880" cy="40" r="1.8"/><circle cx="1010" cy="120" r="1.4"/><circle cx="1140" cy="70" r="1.2"/><circle cx="1300" cy="160" r="1.7"/><circle cx="1420" cy="50" r="1.3"/><circle cx="1540" cy="130" r="1.9"/>
+        <circle cx="60" cy="220" r="1"/><circle cx="200" cy="260" r="1.3"/><circle cx="440" cy="250" r="1"/><circle cx="700" cy="230" r="1.5"/><circle cx="960" cy="260" r="1"/><circle cx="1200" cy="220" r="1.4"/><circle cx="1480" cy="250" r="1.1"/><circle cx="330" cy="330" r="1"/><circle cx="820" cy="320" r="1.2"/><circle cx="1360" cy="330" r="1"/>
+        <circle cx="580" cy="30" r="1"/><circle cx="1240" cy="30" r="1.2"/><circle cx="160" cy="360" r=".9"/><circle cx="1060" cy="380" r="1"/>
+      </g>
+      <g fill="#fff" opacity=".9"><circle cx="1180" cy="170" r="2.6"/><circle cx="420" cy="120" r="2.4"/></g>
+      <!-- lua -->
+      <circle cx="1280" cy="160" r="150" fill="url(#umoon)"/>
+      <circle cx="1280" cy="160" r="44" fill="#FFF6DC"/>
+      <circle cx="1266" cy="150" r="8" fill="#F0E6C8" opacity=".7"/><circle cx="1292" cy="176" r="6" fill="#F0E6C8" opacity=".7"/><circle cx="1290" cy="146" r="4" fill="#F0E6C8" opacity=".6"/>
+      <!-- silhueta de morro e caixa d'água da cidade -->
+      <path d="M0 470 C 200 430, 420 480, 640 450 S 1060 420, 1300 460 S 1500 440, 1600 455 L1600 520 L0 520Z" fill="#1A2340"/>
+      <g fill="#111829"><rect x="1100" y="380" width="10" height="90"/><rect x="1080" y="356" width="50" height="40" rx="6"/></g>
+      <circle cx="1105" cy="352" r="3" fill="#FF6B5A"/>
+      <!-- chão -->
+      <rect y="500" width="1600" height="260" fill="url(#uground)"/>
+      <!-- casas ao fundo -->
+      <use href="#usob" transform="translate(1180,560) scale(.55)"/>
+      <use href="#ucasa" transform="translate(960,562) scale(.6)"/>
+      <use href="#uarv" transform="translate(1140,566) scale(.55)"/>
+      <use href="#ucasa" transform="translate(180,566) scale(.6)"/>
+      <use href="#usob" transform="translate(380,564) scale(.55)"/>
+      <!-- casas da frente -->
+      <use href="#usob" transform="translate(560,600) scale(.9)"/>
+      <use href="#ucasa" transform="translate(880,600) scale(.95)"/>
+      <use href="#uarv" transform="translate(840,606) scale(.95)"/>
+      <use href="#uarv" transform="translate(500,606) scale(1.1)"/>
+      <use href="#ucasa" transform="translate(1260,604) scale(.95)"/>
+      <use href="#uarv" transform="translate(1560,606) scale(.9)"/>
+      <use href="#usob" transform="translate(40,604) scale(.9)"/>
+      <!-- muros baixos -->
+      <rect x="0" y="588" width="520" height="14" fill="#3C4461"/><rect x="1180" y="588" width="420" height="14" fill="#3C4461"/>
+      <!-- calçada e rua -->
+      <rect y="606" width="1600" height="26" fill="#3A4160"/>
+      <rect y="632" width="1600" height="128" fill="url(#uroad)"/>
+      <g fill="#8C8F9C" opacity=".6"><rect x="60" y="690" width="70" height="4"/><rect x="220" y="690" width="70" height="4"/><rect x="380" y="690" width="70" height="4"/><rect x="540" y="690" width="70" height="4"/><rect x="700" y="690" width="70" height="4"/><rect x="860" y="690" width="70" height="4"/><rect x="1020" y="690" width="70" height="4"/><rect x="1180" y="690" width="70" height="4"/><rect x="1340" y="690" width="70" height="4"/><rect x="1500" y="690" width="70" height="4"/></g>
+      <!-- postes -->
+      <use href="#uposte" transform="translate(760,606)"/>
+      <use href="#uposte" transform="translate(1440,606) scale(.9)"/>
+      <use href="#uposte" transform="translate(300,606) scale(.9)"/>
+      <!-- carro parado com farol -->
+      <g transform="translate(1040,660)">
+        <ellipse cx="90" cy="50" rx="104" ry="10" fill="#000" opacity=".4"/>
+        <path d="M0 42 L6 20 Q10 12 20 12 L44 12 L64 -8 Q68 -12 76 -12 L136 -12 Q144 -12 148 -6 L166 12 L184 16 Q192 18 192 26 L192 42 Z" fill="#3E4A6E"/>
+        <path d="M48 12 L66 -6 L100 -6 L100 12Z" fill="#6C7AA0" opacity=".7"/><path d="M108 -6 L138 -6 L154 12 L108 12Z" fill="#6C7AA0" opacity=".6"/>
+        <circle cx="44" cy="42" r="14" fill="#15171E"/><circle cx="44" cy="42" r="6" fill="#8A8F9C"/><circle cx="150" cy="42" r="14" fill="#15171E"/><circle cx="150" cy="42" r="6" fill="#8A8F9C"/>
+        <rect x="186" y="24" width="8" height="8" fill="#FFF6DC"/><polygon points="194,24 280,10 280,46 194,32" fill="#FFF6DC" opacity=".18"/>
+        <rect x="0" y="24" width="6" height="8" fill="#FF6B5A"/>
+      </g>
+    </svg><figcaption style="position:absolute;left:12px;bottom:12px;font:12px/1.3 system-ui,sans-serif;color:#fff;background:rgba(0,0,0,.6);padding:4px 10px;border-radius:6px">Ilustração de exemplo — no site real entra a foto da fachada ou de um imóvel.</figcaption></figure></section>
+
+
+<section class="vitrine">
+  <div class="wrap">
+    <h2 class="disp">Imóveis em destaque</h2>
+    <div class="grid">
+      <a class="card" href="#"><div class="img" style="padding:0;overflow:hidden;position:relative"><svg style="display:block;width:100%;height:100%" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração de casa térrea com garagem coberta">
+            <defs>
+              <linearGradient id="u1sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6FA0D0"/><stop offset="1" stop-color="#E7EEF2"/></linearGradient>
+              <linearGradient id="u1roof" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3B4463"/><stop offset="1" stop-color="#5E6888"/></linearGradient>
+              <linearGradient id="u1wall" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#E6E3DC"/><stop offset="1" stop-color="#F8F6F1"/></linearGradient>
+              <linearGradient id="u1glass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#DCE8F2"/><stop offset="1" stop-color="#9DB8D0"/></linearGradient>
+              <radialGradient id="u1tree" cx=".65" cy=".3" r=".75"><stop offset="0" stop-color="#9CC364"/><stop offset="1" stop-color="#2F5A2E"/></radialGradient>
+            </defs>
+            <rect width="400" height="300" fill="url(#u1sky)"/>
+            <ellipse cx="90" cy="60" rx="60" ry="14" fill="#fff" opacity=".9"/><ellipse cx="320" cy="44" rx="46" ry="12" fill="#fff" opacity=".8"/>
+            <rect y="196" width="400" height="104" fill="#86A75C"/>
+            <polygon points="70,232 110,232 30,286 -10,286" fill="#2B4A28" opacity=".3"/>
+            <polygon points="262,122 332,100 332,212 262,232" fill="#C9C4B8"/>
+            <polygon points="78,122 262,122 262,232 78,232" fill="url(#u1wall)"/>
+            <polygon points="62,122 278,122 246,70 100,70" fill="url(#u1roof)"/>
+            <polygon points="278,122 348,100 312,54 246,70" fill="#2E354F"/>
+            <rect x="62" y="119" width="216" height="6" fill="#262C42"/>
+            <!-- garagem coberta aberta -->
+            <rect x="88" y="150" width="80" height="82" fill="#3A3E58"/>
+            <g stroke="#E6E3DC" stroke-width="5"><line x1="92" y1="150" x2="92" y2="232"/><line x1="164" y1="150" x2="164" y2="232"/></g>
+            <rect x="82" y="144" width="92" height="8" fill="#E8A33D" opacity=".9"/>
+            <rect x="182" y="150" width="40" height="36" fill="url(#u1glass)" stroke="#3B4463" stroke-width="3"/>
+            <line x1="202" y1="150" x2="202" y2="186" stroke="#3B4463" stroke-width="2"/>
+            <rect x="232" y="160" width="22" height="72" fill="#262C42"/>
+            <rect x="282" y="220" width="26" height="30" transform="skewY(-17)" fill="#DCE8F2" opacity=".9"/>
+            <polygon points="88,232 168,232 190,300 50,300" fill="#C9C2B2"/>
+            <polygon points="0,290 400,276 400,300 0,300" fill="#B5B0A4"/>
+            <rect x="180" y="238" width="190" height="14" fill="#E6E3DC"/><rect x="180" y="234" width="190" height="4" fill="#E8A33D"/>
+            <rect x="358" y="170" width="10" height="66" fill="#5A3E2A"/>
+            <circle cx="362" cy="140" r="34" fill="url(#u1tree)"/><circle cx="340" cy="160" r="24" fill="url(#u1tree)"/><circle cx="386" cy="162" r="26" fill="url(#u1tree)"/>
+            <circle cx="40" cy="236" r="16" fill="url(#u1tree)"/><circle cx="62" cy="240" r="12" fill="url(#u1tree)"/>
+          </svg><span style="position:absolute;left:8px;top:8px;font-size:11px;background:rgba(0,0,0,.6);color:#fff;padding:2px 8px;border-radius:4px">exemplo</span></div><div class="in"><b>R$ 2.400/mês</b><span>Casa · 3 quartos · Jardim Alvorada</span></div></a>
+      <a class="card" href="#"><div class="img" style="padding:0;overflow:hidden;position:relative"><svg style="display:block;width:100%;height:100%" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração de chácara com casa e pomar">
+            <defs>
+              <linearGradient id="u2sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6FA0D0"/><stop offset="1" stop-color="#EAF0E6"/></linearGradient>
+              <linearGradient id="u2grass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A3BE6C"/><stop offset="1" stop-color="#6A8A47"/></linearGradient>
+              <linearGradient id="u2roof" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9E4A30"/><stop offset="1" stop-color="#D0765A"/></linearGradient>
+              <radialGradient id="u2tree" cx=".65" cy=".3" r=".75"><stop offset="0" stop-color="#A9CC6B"/><stop offset="1" stop-color="#3F6B36"/></radialGradient>
+              <g id="u2arv"><rect x="-4" y="-30" width="8" height="34" fill="#6B4A32"/><circle cx="0" cy="-44" r="24" fill="url(#u2tree)"/><circle cx="-16" cy="-32" r="16" fill="url(#u2tree)"/><circle cx="16" cy="-34" r="16" fill="url(#u2tree)"/><circle cx="-6" cy="-50" r="3" fill="#E8A33D"/><circle cx="8" cy="-40" r="3" fill="#E8A33D"/><circle cx="-14" cy="-30" r="3" fill="#E8A33D"/></g>
+            </defs>
+            <rect width="400" height="300" fill="url(#u2sky)"/>
+            <circle cx="340" cy="60" r="60" fill="#FFF8DC" opacity=".5"/><circle cx="340" cy="60" r="18" fill="#FFF8DC"/>
+            <g fill="#fff" opacity=".85"><ellipse cx="100" cy="60" rx="56" ry="14"/><ellipse cx="136" cy="50" rx="36" ry="16"/></g>
+            <path d="M0 150 C 100 120, 220 150, 320 130 S 400 120, 400 140 L400 180 L0 180Z" fill="#8CAB74" opacity=".7"/>
+            <rect y="170" width="400" height="130" fill="url(#u2grass)"/>
+            <path d="M0 300 C 80 260, 120 240, 200 226 L230 226 C 160 250, 110 270, 70 300Z" fill="#C9A978" opacity=".9"/>
+            <polygon points="236,120 296,104 296,214 236,230" fill="#C8B79E"/>
+            <rect x="96" y="120" width="140" height="110" fill="#F6EDE0"/>
+            <polygon points="84,120 248,120 220,80 112,80" fill="url(#u2roof)"/>
+            <polygon points="248,120 308,104 280,66 220,80" fill="#86412A"/>
+            <rect x="84" y="117" width="164" height="6" fill="#6E3420"/>
+            <rect x="84" y="176" width="152" height="6" fill="#86412A"/>
+            <g fill="#F6EDE0" stroke="#86412A" stroke-width="2"><rect x="92" y="182" width="6" height="48"/><rect x="140" y="182" width="6" height="48"/><rect x="188" y="182" width="6" height="48"/><rect x="226" y="182" width="6" height="48"/></g>
+            <rect x="96" y="208" width="140" height="22" fill="#D9CDB3"/>
+            <rect x="150" y="186" width="26" height="44" fill="#5A3A2A"/>
+            <rect x="108" y="134" width="30" height="30" fill="#DCE8F2" stroke="#8C5A3E" stroke-width="3"/><rect x="190" y="134" width="30" height="30" fill="#DCE8F2" stroke="#8C5A3E" stroke-width="3"/>
+            <use href="#u2arv" transform="translate(40,240) scale(1.1)"/><use href="#u2arv" transform="translate(300,200) scale(.8)"/><use href="#u2arv" transform="translate(350,190) scale(.7)"/><use href="#u2arv" transform="translate(380,236) scale(1)"/>
+            <g fill="#C9A978"><rect x="250" y="222" width="4" height="20"/><rect x="270" y="222" width="4" height="20"/><rect x="290" y="222" width="4" height="20"/><rect x="246" y="228" width="52" height="3"/><rect x="246" y="236" width="52" height="3"/></g>
+          </svg><span style="position:absolute;left:8px;top:8px;font-size:11px;background:rgba(0,0,0,.6);color:#fff;padding:2px 8px;border-radius:4px">exemplo</span></div><div class="in"><b>R$ 1.300/mês</b><span>Kitnet · Zona 07</span></div></a>
+      <a class="card" href="#"><div class="img" style="padding:0;overflow:hidden;position:relative"><svg style="display:block;width:100%;height:100%" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração de apartamento em prédio com sacadas">
+            <defs>
+              <linearGradient id="u3sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4C6FA3"/><stop offset=".6" stop-color="#B9A5B5"/><stop offset="1" stop-color="#F3C08A"/></linearGradient>
+              <linearGradient id="u3wall" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#D9CDB3"/><stop offset="1" stop-color="#F3E7CF"/></linearGradient>
+              <linearGradient id="u3glass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE9A8"/><stop offset="1" stop-color="#F3B35A"/></linearGradient>
+              <linearGradient id="u3cold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9FB6CC"/><stop offset="1" stop-color="#6E88A4"/></linearGradient>
+              <radialGradient id="u3tree" cx=".7" cy=".3" r=".75"><stop offset="0" stop-color="#9CC364"/><stop offset="1" stop-color="#2F5A2E"/></radialGradient>
+            </defs>
+            <rect width="400" height="300" fill="url(#u3sky)"/>
+            <circle cx="60" cy="190" r="110" fill="#FFF3CC" opacity=".3"/><circle cx="60" cy="190" r="20" fill="#FFF2C8"/>
+            <rect y="236" width="400" height="64" fill="#7F9B5B"/>
+            <polygon points="0,266 400,258 400,300 0,300" fill="#48464B"/><rect y="260" width="400" height="8" fill="#D2C9B8"/>
+            <polygon points="246,30 300,46 300,262 246,262" fill="#A89C84"/>
+            <rect x="124" y="30" width="122" height="232" fill="url(#u3wall)"/>
+            <rect x="118" y="24" width="134" height="8" fill="#3B4463"/><polygon points="252,24 306,40 306,48 252,32" fill="#262C42"/>
+            <g id="u3andar">
+              <rect x="138" y="48" width="44" height="30" fill="url(#u3glass)"/><rect x="196" y="48" width="38" height="30" fill="url(#u3cold)"/>
+              <rect x="132" y="78" width="56" height="7" fill="#C9B995"/><rect x="132" y="60" width="56" height="18" fill="#B8D4E0" opacity=".55"/>
+              <g stroke="#3B4463" stroke-width="1.5"><line x1="132" y1="60" x2="132" y2="78"/><line x1="146" y1="60" x2="146" y2="78"/><line x1="160" y1="60" x2="160" y2="78"/><line x1="174" y1="60" x2="174" y2="78"/><line x1="188" y1="60" x2="188" y2="78"/><line x1="132" y1="60" x2="188" y2="60"/></g>
+              <rect x="258" y="-31" width="28" height="30" transform="skewY(17)" fill="#E9CF9A" opacity=".6"/>
+            </g>
+            <use href="#u3andar" transform="translate(0,42)"/><use href="#u3andar" transform="translate(0,84)"/><use href="#u3andar" transform="translate(0,126)"/>
+            <rect x="124" y="214" width="122" height="48" fill="#CDBF9F"/><rect x="172" y="222" width="30" height="40" fill="#262C42"/><rect x="166" y="214" width="42" height="8" fill="#E8A33D"/>
+            <rect x="136" y="226" width="22" height="22" fill="url(#u3glass)"/><rect x="216" y="226" width="22" height="22" fill="url(#u3glass)"/>
+            <polygon points="300,262 246,262 360,290 400,290 400,268" fill="#2B4A28" opacity=".3"/>
+            <rect x="52" y="200" width="7" height="60" fill="#5A3E2A"/><circle cx="56" cy="186" r="28" fill="url(#u3tree)"/><circle cx="36" cy="200" r="18" fill="url(#u3tree)"/><circle cx="78" cy="202" r="18" fill="url(#u3tree)"/>
+            <rect x="352" y="196" width="7" height="64" fill="#5A3E2A"/><circle cx="356" cy="182" r="26" fill="url(#u3tree)"/><circle cx="376" cy="200" r="16" fill="url(#u3tree)"/>
+            <rect x="328" y="186" width="4" height="74" fill="#4A4A4A"/><circle cx="330" cy="184" r="5" fill="#FFE39A"/>
+          </svg><span style="position:absolute;left:8px;top:8px;font-size:11px;background:rgba(0,0,0,.6);color:#fff;padding:2px 8px;border-radius:4px">exemplo</span></div><div class="in"><b>R$ 420.000</b><span>Apartamento · 2 quartos · Zona 07</span></div></a>
+    </div>
+    <p class="nota">Valores e imóveis ilustrativos para o mockup. No site real, a vitrine puxa os anúncios ativos da Ingalar.</p>
+  </div>
+</section>
+
+<section class="inq" id="inquilino">
+  <div class="wrap">
+    <div>
+      <h2 class="disp">Área do inquilino e do proprietário</h2>
+      <p>Tudo o que hoje precisa de uma ligação para a imobiliária, resolvido no celular:</p>
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>2ª via do boleto do aluguel e pagamento por Pix</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Contrato e comprovantes para baixar</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Chamado de manutenção com foto</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Proprietário vê o repasse de cada mês</li>
+      </ul>
+    </div>
+    <form onsubmit="return false">
+      <h3 class="disp">2ª via do boleto</h3>
+      <label for="cpf">CPF do inquilino</label>
+      <input id="cpf" inputmode="numeric" placeholder="000.000.000-00">
+      <label for="nasc">Data de nascimento</label>
+      <input id="nasc" type="date">
+      <button class="btn" type="button">Ver boleto do aluguel</button>
+    </form>
+  </div>
+</section>
+
+<section class="anuncie" id="anuncie">
+  <div class="wrap">
+    <div><h2 class="disp">Tem um imóvel para alugar ou vender?</h2><p>A Ingalar faz a avaliação, as fotos e a divulgação. Mande o endereço pelo WhatsApp.</p></div>
+    <a class="btn" href="https://wa.me/5544991750405?text=Ol%C3%A1%2C%20quero%20anunciar%20um%20im%C3%B3vel" target="_blank" rel="noopener">Anunciar meu imóvel</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><b>Ingalar Imóveis</b> · CRECI J7161<br>Av. Morangueira, 385 — Jd. Alvorada<br>Maringá/PR</div>
+    <div><b>WhatsApp</b><br><a href="https://wa.me/5544991750405">(44) 99175-0405</a></div>
+    <div><b>Instagram</b><br>@ingalarimoveis</div>
+    <div style="margin-left:auto;font-size:13px">© 2026 Ingalar Imóveis · Mockup de proposta</div>
+  </div>
+</footer>
+<a class="btn fixo" href="https://wa.me/5544991750405" target="_blank" rel="noopener">WhatsApp do corretor</a>
+</body>
+</html>

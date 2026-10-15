@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#4A1F2B">
+<title>SALA Contabilidade — Maringá desde 1996</title>
+<style>
+  :root{
+    --vinho:#4A1F2B; --vinho-2:#5E2838; --papel:#F4EEE3; --papel-2:#EAE1D1;
+    --texto:#241419; --texto-2:#6B5A5F; --sobre-vinho:#E6CFD4; --acao:#E0A526; --acao-2:#C68F14;
+  }
+  *{box-sizing:border-box} html{scroll-behavior:smooth}
+  body{margin:0;background:var(--papel);color:var(--texto);font:16px/1.55 "Helvetica Neue",Helvetica,"TeX Gyre Heros",Arial,sans-serif}
+  ::selection{background:var(--acao);color:var(--texto)} :focus-visible{outline:3px solid var(--acao);outline-offset:2px}
+  a{color:inherit} h1,h2,h3{font-family:"Palatino Linotype",Palatino,"TeX Gyre Pagella","Book Antiqua",Georgia,serif;font-weight:700;letter-spacing:-.01em;text-wrap:balance;margin:0}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+  /* nav */
+  header{background:var(--vinho);color:#fff}
+  .nav{display:flex;align-items:center;gap:24px;min-height:72px}
+  .marca{display:flex;align-items:baseline;gap:12px;text-decoration:none}
+  .marca b{font-family:"Palatino Linotype",Palatino,"TeX Gyre Pagella",Georgia,serif;font-size:28px;letter-spacing:.08em}
+  .marca span{color:var(--sobre-vinho);font-size:14px}
+  nav{margin-left:auto;display:flex;gap:4px;flex-wrap:wrap}
+  nav a{text-decoration:none;padding:10px 12px;border-radius:8px;font-size:15px;color:#fff}
+  nav a:hover{background:var(--vinho-2)}
+  nav a.cli{background:rgba(255,255,255,.12)}
+  .btn{display:inline-flex;align-items:center;gap:10px;background:var(--acao);color:var(--texto);text-decoration:none;font-weight:600;padding:14px 20px;border-radius:8px;min-height:48px;border:0;cursor:pointer;font-size:16px;transition:background .15s,transform .15s}
+  .btn:hover{background:var(--acao-2)} .btn:active{transform:translateY(1px)}
+  .btn svg{width:22px;height:22px}
+  /* hero */
+  .hero{background:var(--vinho);color:#fff;padding:48px 0 64px}
+  .hero .wrap{display:grid;grid-template-columns:7fr 5fr;gap:48px;align-items:end}
+  .hero h1{font-size:clamp(34px,5vw,58px);line-height:1.05;margin-top:24px}
+  .hero p{font-size:19px;max-width:56ch;color:var(--sobre-vinho);margin:24px 0 32px}
+  .desde{font-size:15px;color:var(--sobre-vinho);border-left:3px solid var(--acao);padding-left:12px}
+  .linha{border-top:1px solid rgba(255,255,255,.18);padding-top:24px}
+  .linha dl{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;margin:0;font-size:16px}
+  .linha dt{color:var(--acao);font-variant-numeric:tabular-nums;font-weight:600}
+  .linha dd{margin:0;color:var(--sobre-vinho)}
+  /* serviços */
+  .serv{padding:64px 0}
+  .serv h2{font-size:36px;margin-bottom:8px}
+  .serv .sub{color:var(--texto-2);max-width:60ch;margin:0 0 32px}
+  .lista{display:grid;grid-template-columns:1fr 1fr;gap:0 48px;border-top:1px solid var(--papel-2)}
+  .lista div{padding:20px 0;border-bottom:1px solid var(--papel-2)}
+  .lista h3{font-size:20px;margin-bottom:4px}
+  .lista p{margin:0;color:var(--texto-2);font-size:15px}
+  /* documentos */
+  .docs{background:#fff;padding:64px 0}
+  .docs .wrap{display:grid;grid-template-columns:5fr 7fr;gap:48px;align-items:start}
+  .docs h2{font-size:34px;margin-bottom:12px}
+  .docs p{color:var(--texto-2)}
+  .drop{border:2px dashed #C9B6A4;border-radius:12px;padding:32px;text-align:center;background:var(--papel)}
+  .drop strong{display:block;font-size:18px;margin-bottom:8px}
+  .drop small{color:var(--texto-2)}
+  .drop .btn{margin-top:16px;background:var(--vinho);color:#fff}
+  .drop .btn:hover{background:var(--vinho-2)}
+  .checks{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:8px}
+  .checks li{display:flex;gap:10px;align-items:flex-start}
+  .checks svg{width:20px;height:20px;flex:none;color:var(--vinho);margin-top:2px}
+  /* boleto */
+  .boleto{padding:64px 0}
+  .boleto .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .boleto h2{font-size:32px}
+  .form{background:#fff;border-radius:12px;padding:24px;display:grid;gap:12px}
+  .form label{font-size:14px;color:var(--texto-2);display:grid;gap:6px}
+  .form input{font:inherit;font-size:16px;padding:12px;border:1px solid #CFC3B3;border-radius:8px;min-height:48px;caret-color:var(--vinho)}
+  /* rodapé */
+  footer{background:var(--vinho);color:var(--sobre-vinho);padding:40px 0;font-size:15px}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:24px 48px;align-items:flex-start}
+  footer b{color:#fff} footer a{color:#fff}
+  .fixo{display:none}
+  @media (max-width:860px){
+    .hero .wrap,.docs .wrap,.boleto .wrap,.lista{grid-template-columns:1fr}
+    .nav{flex-wrap:wrap;padding:12px 0} nav{margin-left:0;width:100%} nav a{padding:10px 8px;font-size:14px}
+    .hero{padding:32px 0 48px} .hero p{font-size:17px}
+    .fixo{display:flex;position:fixed;left:16px;right:16px;bottom:16px;justify-content:center;box-shadow:0 8px 24px -8px rgba(36,20,25,.45);z-index:9}
+    body{padding-bottom:88px}
+  }
+  @media (prefers-reduced-motion:no-preference){
+    .hero h1,.hero p,.hero .btn{animation:in .6s ease-out both} .hero p{animation-delay:.08s} .hero .btn{animation-delay:.16s}
+    @keyframes in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="marca" href="#"><b>SALA</b><span>Contabilidade · Maringá</span></a>
+    <nav aria-label="Principal">
+      <a href="#servicos">Serviços</a>
+      <a href="#documentos">Envie seus documentos</a>
+      <a href="#boleto">2ª via de boleto / honorários</a>
+      <a class="cli" href="#area">Área do cliente</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="desde">Escritório de contabilidade em Maringá desde 1996</p>
+      <h1>Trinta anos cuidando da contabilidade de empresas de Maringá.</h1>
+      <p>Abertura, folha, impostos e obrigações mensais com um contador que conhece a sua empresa pelo nome — e responde no WhatsApp.</p>
+      <a class="btn" href="https://wa.me/5544999496813?text=Ol%C3%A1%2C%20quero%20uma%20proposta%20de%20contabilidade" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>
+        Pedir proposta pelo WhatsApp
+      </a>
+    </div>
+    <div class="linha">
+      <dl>
+        <dt>1996</dt><dd>Fundação do escritório, na Rua Santos Dumont</dd>
+        <dt>Hoje</dt><dd>Atendimento a empresas de Maringá e região, de todos os portes</dd>
+        <dt>(44) 3227-5454</dt><dd>Telefone fixo do escritório</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+<section aria-label="Ilustração" style="padding:0 16px"><figure style="max-width:1168px;margin:40px auto;position:relative;border-radius:16px;overflow:hidden;height:clamp(220px,32vw,440px)"><svg style="display:block;width:100%;height:100%" viewBox="0 0 900 620" width="900" height="620" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração de uma mesa de escritório vista de cima, com guia, calendário, calculadora e carimbo">
+        <defs>
+          <linearGradient id="mesa" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9A6A46"/><stop offset="1" stop-color="#5E3C27"/></linearGradient>
+          <radialGradient id="luz" cx=".2" cy=".1" r=".9"><stop offset="0" stop-color="#FFE7B8" stop-opacity=".35"/><stop offset="1" stop-color="#FFE7B8" stop-opacity="0"/></radialGradient>
+          <linearGradient id="papel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#EFEBE2"/></linearGradient>
+          <linearGradient id="calc" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3A4452"/><stop offset="1" stop-color="#1F2730"/></linearGradient>
+          <linearGradient id="cafe" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5A3A22"/><stop offset="1" stop-color="#2A170C"/></linearGradient>
+          <linearGradient id="pasta" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#D9B98A"/><stop offset="1" stop-color="#C19A66"/></linearGradient>
+          <linearGradient id="latao" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D8B46E"/><stop offset=".5" stop-color="#C9A24A"/><stop offset="1" stop-color="#8C6A2F"/></linearGradient>
+          <filter id="sh" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="6" dy="12" stdDeviation="9" flood-color="#1A0D05" flood-opacity=".45"/></filter>
+          <filter id="sh2" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="3" dy="6" stdDeviation="5" flood-color="#1A0D05" flood-opacity=".4"/></filter>
+          <pattern id="barras" x="0" y="0" width="14" height="40" patternUnits="userSpaceOnUse"><rect width="2" height="40" fill="#222"/><rect x="4" width="4" height="40" fill="#222"/><rect x="10" width="1.5" height="40" fill="#222"/></pattern>
+        </defs>
+        <rect width="900" height="620" fill="url(#mesa)"/>
+        <g stroke="#4F3220" stroke-opacity=".45" stroke-width="2"><line x1="230" y1="0" x2="230" y2="620"/><line x1="560" y1="0" x2="560" y2="620"/></g>
+        <g stroke="#B58A62" stroke-opacity=".18" stroke-width="1"><line x1="232" y1="0" x2="232" y2="620"/><line x1="562" y1="0" x2="562" y2="620"/></g>
+        <rect width="900" height="620" fill="url(#luz)"/>
+
+        <!-- pasta de arquivo (canto inferior esquerdo) -->
+        <g transform="rotate(-9 120 520)" filter="url(#sh)">
+          <rect x="-40" y="420" width="300" height="230" rx="6" fill="url(#pasta)"/>
+          <path d="M-40 420 h110 l14 -16 h80 l10 16 h86" fill="none" stroke="#B08A58" stroke-width="2"/>
+          <rect x="-26" y="436" width="268" height="200" fill="#F7F3EA"/>
+          <rect x="-40" y="452" width="300" height="200" rx="6" fill="url(#pasta)"/>
+          <rect x="-10" y="470" width="150" height="14" rx="3" fill="#8C6A2F" opacity=".5"/>
+        </g>
+
+        <!-- guia DAS -->
+        <g transform="rotate(-5 300 300)" filter="url(#sh)">
+          <rect x="150" y="90" width="320" height="430" fill="url(#papel)"/>
+          <rect x="150" y="90" width="320" height="40" fill="#4A1F2B"/>
+          <text x="170" y="116" font-family="Trebuchet MS, Verdana, DejaVu Sans, sans-serif" font-size="14" font-weight="700" fill="#fff" letter-spacing="1">DAS · SIMPLES NACIONAL</text>
+          <g fill="#A8B0BA"><rect x="170" y="150" width="200" height="8" rx="2"/><rect x="170" y="168" width="150" height="8" rx="2"/><rect x="170" y="186" width="230" height="8" rx="2"/></g>
+          <g fill="#D8DCE2"><rect x="170" y="216" width="280" height="1.5"/><rect x="170" y="246" width="280" height="1.5"/><rect x="170" y="276" width="280" height="1.5"/><rect x="170" y="306" width="280" height="1.5"/><rect x="170" y="336" width="280" height="1.5"/></g>
+          <g fill="#6B7480" font-family="Trebuchet MS, Verdana, DejaVu Sans, sans-serif" font-size="12">
+            <text x="172" y="236">Período de apuração</text><text x="380" y="236">09/2026</text>
+            <text x="172" y="266">Vencimento</text><text x="380" y="266" font-weight="700" fill="#15202E">20/10/2026</text>
+            <text x="172" y="296">Valor principal</text><text x="380" y="296">R$ ···,··</text>
+            <text x="172" y="326">Total a pagar</text><text x="380" y="326" font-weight="700" fill="#15202E">R$ ···,··</text>
+          </g>
+          <rect x="170" y="370" width="280" height="56" fill="url(#barras)"/>
+          <rect x="170" y="436" width="200" height="6" rx="2" fill="#C5CBD3"/>
+          <!-- clipe -->
+          <path d="M440 100 v40 a9 9 0 0 1 -18 0 v-48 a14 14 0 0 1 28 0 v52" fill="none" stroke="#9AA3AE" stroke-width="3" stroke-linecap="round"/>
+        </g>
+
+        <!-- carimbo "EM DIA" sobre a guia -->
+        <g transform="rotate(-14 330 470)">
+          <circle cx="330" cy="470" r="58" fill="none" stroke="#C0392B" stroke-width="5" opacity=".85"/>
+          <circle cx="330" cy="470" r="48" fill="none" stroke="#C0392B" stroke-width="1.5" opacity=".85"/>
+          <text x="330" y="480" text-anchor="middle" font-family="Charter, Bitstream Charter, Georgia, serif" font-weight="700" font-size="26" fill="#C0392B" opacity=".88" letter-spacing="2">EM DIA</text>
+          <text x="330" y="500" text-anchor="middle" font-family="Trebuchet MS, Verdana, DejaVu Sans, sans-serif" font-size="11" fill="#C0392B" opacity=".88" letter-spacing="2">SALA</text>
+        </g>
+
+        <!-- carimbo (objeto) -->
+        <g transform="translate(520,470) rotate(20)" filter="url(#sh2)">
+          <rect x="-34" y="-20" width="68" height="40" rx="8" fill="#2E2A28"/>
+          <rect x="-26" y="-14" width="52" height="24" rx="5" fill="#C0392B"/>
+          <rect x="-12" y="-60" width="24" height="44" rx="8" fill="url(#latao)"/>
+          <ellipse cx="0" cy="-60" rx="14" ry="6" fill="#D8B46E"/>
+        </g>
+
+        <!-- calendário de mesa -->
+        <g transform="rotate(4 690 170)" filter="url(#sh)">
+          <rect x="560" y="60" width="250" height="230" rx="6" fill="url(#papel)"/>
+          <rect x="560" y="60" width="250" height="44" rx="6" fill="#C0392B"/>
+          <rect x="560" y="90" width="250" height="14" fill="#C0392B"/>
+          <text x="685" y="90" text-anchor="middle" font-family="Charter, Bitstream Charter, Georgia, serif" font-weight="700" font-size="22" fill="#fff">Outubro</text>
+          <g fill="#3A4452"><circle cx="590" cy="60" r="5"/><circle cx="620" cy="60" r="5"/><circle cx="650" cy="60" r="5"/><circle cx="680" cy="60" r="5"/><circle cx="710" cy="60" r="5"/><circle cx="740" cy="60" r="5"/><circle cx="770" cy="60" r="5"/></g>
+          <g font-family="Trebuchet MS, Verdana, DejaVu Sans, sans-serif" font-size="11" fill="#8A93A0" text-anchor="middle">
+            <text x="582" y="124">D</text><text x="616" y="124">S</text><text x="650" y="124">T</text><text x="684" y="124">Q</text><text x="718" y="124">Q</text><text x="752" y="124">S</text><text x="786" y="124">S</text>
+          </g>
+          <g font-family="Trebuchet MS, Verdana, DejaVu Sans, sans-serif" font-size="13" fill="#15202E" text-anchor="middle">
+            <text x="718" y="150">1</text><text x="752" y="150">2</text><text x="786" y="150">3</text>
+            <text x="582" y="178">4</text><text x="616" y="178">5</text><text x="650" y="178">6</text><text x="684" y="178">7</text><text x="718" y="178">8</text><text x="752" y="178">9</text><text x="786" y="178">10</text>
+            <text x="582" y="206">11</text><text x="616" y="206">12</text><text x="650" y="206">13</text><text x="684" y="206">14</text><text x="718" y="206">15</text><text x="752" y="206">16</text><text x="786" y="206">17</text>
+            <text x="582" y="234">18</text><text x="616" y="234">19</text><text x="650" y="234" font-weight="700" fill="#C0392B">20</text><text x="684" y="234">21</text><text x="718" y="234">22</text><text x="752" y="234">23</text><text x="786" y="234">24</text>
+            <text x="582" y="262">25</text><text x="616" y="262">26</text><text x="650" y="262">27</text><text x="684" y="262">28</text><text x="718" y="262">29</text><text x="752" y="262">30</text><text x="786" y="262">31</text>
+          </g>
+          <circle cx="650" cy="229" r="13" fill="none" stroke="#C0392B" stroke-width="2.5"/>
+          <circle cx="684" cy="173" r="11" fill="none" stroke="#C9A24A" stroke-width="2"/>
+        </g>
+
+        <!-- calculadora -->
+        <g transform="translate(-28,-12) rotate(-8 700 450)" filter="url(#sh)">
+          <rect x="620" y="330" width="170" height="250" rx="12" fill="url(#calc)"/>
+          <rect x="634" y="346" width="142" height="44" rx="4" fill="#C9D6C2"/>
+          <text x="768" y="378" text-anchor="end" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="22" fill="#1F2730">1.248,90</text>
+          <g fill="#4C5663">
+            <rect x="634" y="406" width="30" height="26" rx="4"/><rect x="672" y="406" width="30" height="26" rx="4"/><rect x="710" y="406" width="30" height="26" rx="4"/>
+            <rect x="634" y="442" width="30" height="26" rx="4"/><rect x="672" y="442" width="30" height="26" rx="4"/><rect x="710" y="442" width="30" height="26" rx="4"/>
+            <rect x="634" y="478" width="30" height="26" rx="4"/><rect x="672" y="478" width="30" height="26" rx="4"/><rect x="710" y="478" width="30" height="26" rx="4"/>
+            <rect x="634" y="514" width="68" height="26" rx="4"/><rect x="710" y="514" width="30" height="26" rx="4"/>
+          </g>
+          <g fill="#C9A24A"><rect x="748" y="406" width="28" height="26" rx="4"/><rect x="748" y="442" width="28" height="26" rx="4"/><rect x="748" y="478" width="28" height="26" rx="4"/></g>
+          <rect x="748" y="514" width="28" height="26" rx="4" fill="#C0392B"/>
+        </g>
+
+        <!-- xícara de café (vista de cima) -->
+        <g transform="translate(492,562)" filter="url(#sh2)">
+          <circle cx="0" cy="0" r="46" fill="#F1ECE2"/>
+          <circle cx="0" cy="0" r="34" fill="#FFFFFF"/>
+          <circle cx="0" cy="0" r="28" fill="url(#cafe)"/>
+          <ellipse cx="-10" cy="-10" rx="10" ry="5" fill="#fff" opacity=".18"/>
+          <path d="M34 -4 q22 0 22 14 q0 14 -22 14" fill="none" stroke="#FFFFFF" stroke-width="7"/>
+        </g>
+
+        <!-- caneta -->
+        <g transform="rotate(-32 300 580)" filter="url(#sh2)">
+          <rect x="200" y="572" width="210" height="14" rx="7" fill="#4A1F2B"/>
+          <rect x="200" y="572" width="60" height="14" rx="7" fill="url(#latao)"/>
+          <path d="M410 572 l22 7 l-22 7 z" fill="url(#latao)"/>
+          <rect x="300" y="574" width="4" height="10" fill="#C9A24A"/>
+        </g>
+      </svg><figcaption style="position:absolute;left:12px;bottom:12px;font:12px/1.3 system-ui,sans-serif;color:#fff;background:rgba(0,0,0,.6);padding:4px 10px;border-radius:6px">Ilustração de exemplo — no site real entra a foto do escritório ou da equipe.</figcaption></figure></section>
+
+
+<section class="serv" id="servicos">
+  <div class="wrap">
+    <h2>O que fazemos pela sua empresa</h2>
+    <p class="sub">Tudo o que a Receita, a Prefeitura e o INSS pedem de você, feito por quem faz isso há três décadas.</p>
+    <div class="lista">
+      <div><h3>Abertura de empresa</h3><p>MEI, Simples Nacional, Lucro Presumido. Escolhemos o regime que paga menos imposto no seu caso.</p></div>
+      <div><h3>Contabilidade mensal</h3><p>Escrituração, balancetes e guias (DAS, ISS, ICMS) emitidas antes do vencimento.</p></div>
+      <div><h3>Folha de pagamento</h3><p>Admissões, rescisões, férias, eSocial e FGTS sem atraso.</p></div>
+      <div><h3>Imposto de renda</h3><p>Declaração de pessoa física para sócios e de pessoa jurídica para a empresa.</p></div>
+      <div><h3>Planejamento tributário</h3><p>Revisão anual do enquadramento e do que pode ser recuperado.</p></div>
+      <div><h3>Certidões e regularização</h3><p>Certidões negativas, parcelamentos e pendências na Receita e na Prefeitura de Maringá.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="docs" id="documentos">
+  <div class="wrap">
+    <div>
+      <h2>Envie seus documentos sem sair da empresa</h2>
+      <p>Notas, extratos e comprovantes do mês entram aqui, direto para a sua pasta no escritório. Nada de foto perdida no WhatsApp.</p>
+      <ul class="checks">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Notas fiscais de entrada e saída</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Extratos bancários e comprovantes de pagamento</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Documentos de admissão e rescisão</li>
+      </ul>
+    </div>
+    <form class="drop" onsubmit="return false">
+      <strong>Arraste os arquivos aqui ou escolha no celular</strong>
+      <small>PDF, XML, JPG ou foto. Você recebe a confirmação de que chegou.</small><br>
+      <button class="btn" type="button">Escolher arquivos</button>
+    </form>
+  </div>
+</section>
+
+<section class="boleto" id="boleto">
+  <div class="wrap">
+    <div>
+      <h2>2ª via de boleto e honorários</h2>
+      <p style="color:var(--texto-2)">Digite o CNPJ da sua empresa e baixe o boleto do mês ou pague com Pix na hora. Também vale para guias já enviadas.</p>
+      <p id="area" style="color:var(--texto-2)">Na <b>área do cliente</b> ficam todas as guias, holerites e documentos entregues, com data e hora.</p>
+    </div>
+    <form class="form" onsubmit="return false">
+      <label>CNPJ da empresa <input inputmode="numeric" placeholder="00.000.000/0001-00"></label>
+      <label>E-mail cadastrado <input type="email" placeholder="voce@suaempresa.com.br"></label>
+      <button class="btn" type="button" style="justify-content:center">Ver boletos e guias</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><b>SALA Contabilidade</b><br>Rua Santos Dumont, 864 — Maringá/PR</div>
+    <div><b>Telefone</b><br><a href="tel:+554432275454">(44) 3227-5454</a><br>WhatsApp <a href="https://wa.me/5544999496813">(44) 99949-6813</a></div>
+    <div><b>E-mail</b><br><a href="mailto:contato@salacontabilidade.com.br">contato@salacontabilidade.com.br</a><br>Instagram @sala.contabilidade</div>
+    <div style="margin-left:auto;font-size:13px">© 2026 SALA Contabilidade · Mockup de proposta</div>
+  </div>
+</footer>
+<a class="btn fixo" href="https://wa.me/5544999496813" target="_blank" rel="noopener">Falar no WhatsApp</a>
+</body>
+</html>

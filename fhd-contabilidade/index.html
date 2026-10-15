@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#2448E0">
+<title>FHD Contabilidade — Marialva</title>
+<style>
+  :root{--azul:#2448E0;--azul2:#1B38B8;--branco:#FFFFFF;--texto:#17181A;--texto2:#5F6368;--linha:#E6E7EA;--sobre-azul:#C5CFFA;--claro:#F6F7FB}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--branco);color:var(--texto);font:16px/1.55 "Helvetica Neue",Helvetica,"TeX Gyre Heros",Arial,sans-serif}
+  ::selection{background:var(--azul);color:#fff} :focus-visible{outline:3px solid var(--azul);outline-offset:2px}
+  a{color:inherit}
+  h1,h2,h3{font-weight:700;margin:0;letter-spacing:-.03em;text-wrap:balance;line-height:1.02}
+  .page{display:grid;grid-template-columns:minmax(360px,42%) 1fr;min-height:100vh}
+  /* painel azul */
+  .painel{background:var(--azul);color:#fff;padding:32px;position:sticky;top:0;height:100vh;display:flex;flex-direction:column}
+  .logo{font-size:40px;font-weight:700;letter-spacing:-.04em;text-decoration:none;line-height:1}
+  .logo small{display:block;font-size:14px;letter-spacing:0;font-weight:400;color:var(--sobre-azul);margin-top:8px}
+  .painel h1{font-size:clamp(36px,3.6vw,56px);margin-top:auto}
+  .painel p{color:var(--sobre-azul);font-size:18px;max-width:40ch;margin:24px 0 32px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:#fff;color:var(--azul);text-decoration:none;font-weight:700;padding:14px 22px;border-radius:999px;min-height:52px;border:0;cursor:pointer;font-size:17px;transition:background .15s,transform .15s}
+  .btn:hover{background:var(--sobre-azul)} .btn:active{transform:scale(.98)} .btn svg{width:22px;height:22px;flex:none}
+  .painel .end{margin-top:32px;font-size:14px;color:var(--sobre-azul);border-top:1px solid rgba(255,255,255,.25);padding-top:16px}
+  .painel .end b{color:#fff}
+  /* coluna conteúdo */
+  .conteudo{padding:0 48px 64px}
+  nav{display:flex;gap:4px;flex-wrap:wrap;min-height:72px;align-items:center;border-bottom:1px solid var(--linha);margin-bottom:48px}
+  nav a{text-decoration:none;padding:10px 10px;border-radius:8px;font-size:14px;color:var(--texto2)}
+  nav a:hover{color:var(--texto);background:var(--claro)}
+  nav a.cli{color:var(--azul);font-weight:700;margin-left:auto;border:2px solid var(--azul)} nav a.cli:hover{background:var(--azul);color:#fff}
+  section{padding:0 0 64px;max-width:720px}
+  section h2{font-size:36px;margin-bottom:12px} section .lead{color:var(--texto2);font-size:17px;margin:0 0 32px;max-width:56ch}
+  .serv dl{margin:0;columns:2;column-gap:32px}
+  .serv dt{font-weight:700;font-size:18px;letter-spacing:-.01em;padding-top:12px;border-top:3px solid var(--texto);break-inside:avoid;break-after:avoid}
+  .serv dd{margin:4px 0 24px;color:var(--texto2);font-size:15px;break-inside:avoid}
+  .docs form{border:2px solid var(--texto);border-radius:16px;padding:24px;display:grid;gap:12px}
+  .docs label{font-size:14px;color:var(--texto2)}
+  .docs select,.docs input{font:inherit;font-size:16px;padding:12px;border-radius:10px;border:1px solid #C9CBD1;min-height:48px;width:100%;caret-color:var(--azul)}
+  .drop{border:2px dashed #C9CBD1;border-radius:12px;padding:28px;text-align:center;color:var(--texto2);background:var(--claro)}
+  .docs .btn,.bol .btn{background:var(--azul);color:#fff} .docs .btn:hover,.bol .btn:hover{background:var(--azul2)}
+  .bol form{display:grid;gap:12px;background:var(--claro);padding:24px;border-radius:16px}
+  .bol input{font:inherit;font-size:16px;padding:12px;border-radius:10px;border:1px solid #C9CBD1;min-height:48px;background:#fff;caret-color:var(--azul)}
+  .passos{list-style:none;padding:0;margin:0;display:grid;gap:16px}
+  .passos li{display:grid;grid-template-columns:40px 1fr;gap:16px;align-items:start}
+  .passos li i{font-style:normal;width:40px;height:40px;border-radius:50%;background:var(--azul);color:#fff;display:grid;place-items:center;font-weight:700}
+  .passos b{display:block} .passos span{color:var(--texto2);font-size:15px}
+  footer{font-size:14px;color:var(--texto2);border-top:1px solid var(--linha);padding-top:24px}
+  .fixo{display:none}
+  @media (max-width:900px){
+    .page{grid-template-columns:1fr}
+    .painel{position:static;height:auto;padding:24px 16px 32px;min-height:0}
+    .painel h1{margin-top:32px;font-size:36px} .painel p{font-size:17px}
+    .conteudo{padding:0 16px 48px} nav{margin-bottom:32px} nav a{padding:10px 8px;font-size:14px} nav a.cli{margin-left:0}
+    section h2{font-size:30px} .serv dl{columns:1}
+    .fixo{display:flex;position:fixed;left:16px;right:16px;bottom:16px;z-index:9;background:var(--azul);color:#fff;box-shadow:0 8px 24px -8px rgba(0,0,0,.5)} body{padding-bottom:88px}
+  }
+  @media (prefers-reduced-motion:no-preference){
+    .painel h1,.painel p,.painel .btn{animation:in .6s ease-out both} .painel p{animation-delay:.08s} .painel .btn{animation-delay:.16s}
+    @keyframes in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <aside class="painel">
+    <a class="logo" href="#">FHD<small>Contabilidade · Marialva/PR</small></a>
+    <h1>Contabilidade para quem está abrindo ou tocando um negócio em Marialva.</h1>
+    <p>Abertura, impostos, folha e um contador que responde no WhatsApp em horário comercial. Escritório no Centro, na Rua Washington Luiz.</p>
+    <a class="btn" href="https://wa.me/5544999763736?text=Ol%C3%A1%20F%C3%A1bio%2C%20quero%20uma%20proposta%20da%20FHD" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>
+      Falar com o Fábio no WhatsApp
+    </a>
+    <div class="end"><b>FHD Contabilidade</b> · R. Washington Luiz, 1002, sala 01 — Centro, Marialva/PR · Fixo (44) 3232-3677</div>
+  </aside>
+
+  <main class="conteudo">
+    <nav aria-label="Principal">
+      <a href="#servicos">Serviços</a>
+      <a href="#documentos">Envie seus documentos</a>
+      <a href="#boleto">2ª via de boleto / honorários</a>
+      <a class="cli" href="#area">Área do cliente</a>
+    </nav>
+
+    
+<section aria-label="Ilustração" style="padding:0 16px"><figure style="max-width:1168px;margin:40px auto;position:relative;border-radius:16px;overflow:hidden;height:clamp(220px,32vw,440px)"><svg style="display:block;width:100%;height:100%" viewBox="0 0 900 620" width="900" height="620" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração de uma mesa de escritório vista de cima, com guia, calendário, calculadora e carimbo">
+        <defs>
+          <linearGradient id="mesa" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9A6A46"/><stop offset="1" stop-color="#5E3C27"/></linearGradient>
+          <radialGradient id="luz" cx=".2" cy=".1" r=".9"><stop offset="0" stop-color="#FFE7B8" stop-opacity=".35"/><stop offset="1" stop-color="#FFE7B8" stop-opacity="0"/></radialGradient>
+          <linearGradient id="papel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#EFEBE2"/></linearGradient>
+          <linearGradient id="calc" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3A4452"/><stop offset="1" stop-color="#1F2730"/></linearGradient>
+          <linearGradient id="cafe" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5A3A22"/><stop offset="1" stop-color="#2A170C"/></linearGradient>
+          <linearGradient id="pasta" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#D9B98A"/><stop offset="1" stop-color="#C19A66"/></linearGradient>
+          <linearGradient id="latao" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D8B46E"/><stop offset=".5" stop-color="#2448E0"/><stop offset="1" stop-color="#8C6A2F"/></linearGradient>
+          <filter id="sh" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="6" dy="12" stdDeviation="9" flood-color="#1A0D05" flood-opacity=".45"/></filter>
+          <filter id="sh2" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="3" dy="6" stdDeviation="5" flood-color="#1A0D05" flood-opacity=".4"/></filter>
+          <pattern id="barras" x="0" y="0" width="14" height="40" patternUnits="userSpaceOnUse"><rect width="2" height="40" fill="#222"/><rect x="4" width="4" height="40" fill="#222"/><rect x="10" width="1.5" height="40" fill="#222"/></pattern>
+        </defs>
+        <rect width="900" height="620" fill="url(#mesa)"/>
+        <g stroke="#4F3220" stroke-opacity=".45" stroke-width="2"><line x1="230" y1="0" x2="230" y2="620"/><line x1="560" y1="0" x2="560" y2="620"/></g>
+        <g stroke="#B58A62" stroke-opacity=".18" stroke-width="1"><line x1="232" y1="0" x2="232" y2="620"/><line x1="562" y1="0" x2="562" y2="620"/></g>
+        <rect width="900" height="620" fill="url(#luz)"/>
+
+        <!-- pasta de arquivo (canto inferior esquerdo) -->
+        <g transform="rotate(-9 120 520)" filter="url(#sh)">
+          <rect x="-40" y="420" width="300" height="230" rx="6" fill="url(#pasta)"/>
+          <path d="M-40 420 h110 l14 -16 h80 l10 16 h86" fill="none" stroke="#B08A58" stroke-width="2"/>
+          <rect x="-26" y="436" width="268" height="200" fill="#F7F3EA"/>
+          <rect x="-40" y="452" width="300" height="200" rx="6" fill="url(#pasta)"/>
+          <rect x="-10" y="470" width="150" height="14" rx="3" fill="#8C6A2F" opacity=".5"/>
+        </g>
+
+        <!-- guia DAS -->
+        <g transform="rotate(-5 300 300)" filter="url(#sh)">
+          <rect x="150" y="90" width="320" height="430" fill="url(#papel)"/>
+          <rect x="150" y="90" width="320" height="40" fill="#17181A"/>
+          <text x="170" y="116" font-family="Trebuchet MS, Verdana, DejaVu Sans, sans-serif" font-size="14" font-weight="700" fill="#fff" letter-spacing="1">DAS · SIMPLES NACIONAL</text>
+          <g fill="#A8B0BA"><rect x="170" y="150" width="200" height="8" rx="2"/><rect x="170" y="168" width="150" height="8" rx="2"/><rect x="170" y="186" width="230" height="8" rx="2"/></g>
+          <g fill="#D8DCE2"><rect x="170" y="216" width="280" height="1.5"/><rect x="170" y="246" width="280" height="1.5"/><rect x="170" y="276" width="280" height="1.5"/><rect x="170" y="306" width="280" height="1.5"/><rect x="170" y="336" width="280" height="1.5"/></g>
+          <g fill="#6B7480" font-family="Trebuchet MS, Verdana, DejaVu Sans, sans-serif" font-size="12">
+            <text x="172" y="236">Período de apuração</text><text x="380" y="236">09/2026</text>
+            <text x="172" y="266">Vencimento</text><text x="380" y="266" font-weight="700" fill="#15202E">20/10/2026</text>
+            <text x="172" y="296">Valor principal</text><text x="380" y="296">R$ ···,··</text>
+            <text x="172" y="326">Total a pagar</text><text x="380" y="326" font-weight="700" fill="#15202E">R$ ···,··</text>
+          </g>
+          <rect x="170" y="370" width="280" height="56" fill="url(#barras)"/>
+          <rect x="170" y="436" width="200" height="6" rx="2" fill="#C5CBD3"/>
+          <!-- clipe -->
+          <path d="M440 100 v40 a9 9 0 0 1 -18 0 v-48 a14 14 0 0 1 28 0 v52" fill="none" stroke="#9AA3AE" stroke-width="3" stroke-linecap="round"/>
+        </g>
+
+        <!-- carimbo "EM DIA" sobre a guia -->
+        <g transform="rotate(-14 330 470)">
+          <circle cx="330" cy="470" r="58" fill="none" stroke="#C0392B" stroke-width="5" opacity=".85"/>
+          <circle cx="330" cy="470" r="48" fill="none" stroke="#C0392B" stroke-width="1.5" opacity=".85"/>
+          <text x="330" y="480" text-anchor="middle" font-family="Charter, Bitstream Charter, Georgia, serif" font-weight="700" font-size="26" fill="#C0392B" opacity=".88" letter-spacing="2">EM DIA</text>
+          <text x="330" y="500" text-anchor="middle" font-family="Trebuchet MS, Verdana, DejaVu Sans, sans-serif" font-size="11" fill="#C0392B" opacity=".88" letter-spacing="2">FHD</text>
+        </g>
+
+        <!-- carimbo (objeto) -->
+        <g transform="translate(520,470) rotate(20)" filter="url(#sh2)">
+          <rect x="-34" y="-20" width="68" height="40" rx="8" fill="#2E2A28"/>
+          <rect x="-26" y="-14" width="52" height="24" rx="5" fill="#C0392B"/>
+          <rect x="-12" y="-60" width="24" height="44" rx="8" fill="url(#latao)"/>
+          <ellipse cx="0" cy="-60" rx="14" ry="6" fill="#D8B46E"/>
+        </g>
+
+        <!-- calendário de mesa -->
+        <g transform="rotate(4 690 170)" filter="url(#sh)">
+          <rect x="560" y="60" width="250" height="230" rx="6" fill="url(#papel)"/>
+          <rect x="560" y="60" width="250" height="44" rx="6" fill="#C0392B"/>
+          <rect x="560" y="90" width="250" height="14" fill="#C0392B"/>
+          <text x="685" y="90" text-anchor="middle" font-family="Charter, Bitstream Charter, Georgia, serif" font-weight="700" font-size="22" fill="#fff">Outubro</text>
+          <g fill="#3A4452"><circle cx="590" cy="60" r="5"/><circle cx="620" cy="60" r="5"/><circle cx="650" cy="60" r="5"/><circle cx="680" cy="60" r="5"/><circle cx="710" cy="60" r="5"/><circle cx="740" cy="60" r="5"/><circle cx="770" cy="60" r="5"/></g>
+          <g font-family="Trebuchet MS, Verdana, DejaVu Sans, sans-serif" font-size="11" fill="#8A93A0" text-anchor="middle">
+            <text x="582" y="124">D</text><text x="616" y="124">S</text><text x="650" y="124">T</text><text x="684" y="124">Q</text><text x="718" y="124">Q</text><text x="752" y="124">S</text><text x="786" y="124">S</text>
+          </g>
+          <g font-family="Trebuchet MS, Verdana, DejaVu Sans, sans-serif" font-size="13" fill="#15202E" text-anchor="middle">
+            <text x="718" y="150">1</text><text x="752" y="150">2</text><text x="786" y="150">3</text>
+            <text x="582" y="178">4</text><text x="616" y="178">5</text><text x="650" y="178">6</text><text x="684" y="178">7</text><text x="718" y="178">8</text><text x="752" y="178">9</text><text x="786" y="178">10</text>
+            <text x="582" y="206">11</text><text x="616" y="206">12</text><text x="650" y="206">13</text><text x="684" y="206">14</text><text x="718" y="206">15</text><text x="752" y="206">16</text><text x="786" y="206">17</text>
+            <text x="582" y="234">18</text><text x="616" y="234">19</text><text x="650" y="234" font-weight="700" fill="#C0392B">20</text><text x="684" y="234">21</text><text x="718" y="234">22</text><text x="752" y="234">23</text><text x="786" y="234">24</text>
+            <text x="582" y="262">25</text><text x="616" y="262">26</text><text x="650" y="262">27</text><text x="684" y="262">28</text><text x="718" y="262">29</text><text x="752" y="262">30</text><text x="786" y="262">31</text>
+          </g>
+          <circle cx="650" cy="229" r="13" fill="none" stroke="#C0392B" stroke-width="2.5"/>
+          <circle cx="684" cy="173" r="11" fill="none" stroke="#2448E0" stroke-width="2"/>
+        </g>
+
+        <!-- calculadora -->
+        <g transform="translate(-28,-12) rotate(-8 700 450)" filter="url(#sh)">
+          <rect x="620" y="330" width="170" height="250" rx="12" fill="url(#calc)"/>
+          <rect x="634" y="346" width="142" height="44" rx="4" fill="#C9D6C2"/>
+          <text x="768" y="378" text-anchor="end" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="22" fill="#1F2730">1.248,90</text>
+          <g fill="#4C5663">
+            <rect x="634" y="406" width="30" height="26" rx="4"/><rect x="672" y="406" width="30" height="26" rx="4"/><rect x="710" y="406" width="30" height="26" rx="4"/>
+            <rect x="634" y="442" width="30" height="26" rx="4"/><rect x="672" y="442" width="30" height="26" rx="4"/><rect x="710" y="442" width="30" height="26" rx="4"/>
+            <rect x="634" y="478" width="30" height="26" rx="4"/><rect x="672" y="478" width="30" height="26" rx="4"/><rect x="710" y="478" width="30" height="26" rx="4"/>
+            <rect x="634" y="514" width="68" height="26" rx="4"/><rect x="710" y="514" width="30" height="26" rx="4"/>
+          </g>
+          <g fill="#2448E0"><rect x="748" y="406" width="28" height="26" rx="4"/><rect x="748" y="442" width="28" height="26" rx="4"/><rect x="748" y="478" width="28" height="26" rx="4"/></g>
+          <rect x="748" y="514" width="28" height="26" rx="4" fill="#C0392B"/>
+        </g>
+
+        <!-- xícara de café (vista de cima) -->
+        <g transform="translate(492,562)" filter="url(#sh2)">
+          <circle cx="0" cy="0" r="46" fill="#F1ECE2"/>
+          <circle cx="0" cy="0" r="34" fill="#FFFFFF"/>
+          <circle cx="0" cy="0" r="28" fill="url(#cafe)"/>
+          <ellipse cx="-10" cy="-10" rx="10" ry="5" fill="#fff" opacity=".18"/>
+          <path d="M34 -4 q22 0 22 14 q0 14 -22 14" fill="none" stroke="#FFFFFF" stroke-width="7"/>
+        </g>
+
+        <!-- caneta -->
+        <g transform="rotate(-32 300 580)" filter="url(#sh2)">
+          <rect x="200" y="572" width="210" height="14" rx="7" fill="#17181A"/>
+          <rect x="200" y="572" width="60" height="14" rx="7" fill="url(#latao)"/>
+          <path d="M410 572 l22 7 l-22 7 z" fill="url(#latao)"/>
+          <rect x="300" y="574" width="4" height="10" fill="#2448E0"/>
+        </g>
+      </svg><figcaption style="position:absolute;left:12px;bottom:12px;font:12px/1.3 system-ui,sans-serif;color:#fff;background:rgba(0,0,0,.6);padding:4px 10px;border-radius:6px">Ilustração de exemplo — no site real entra a foto do escritório ou da equipe.</figcaption></figure></section>
+    <section class="serv" id="servicos">
+      <h2>O que a FHD faz pela sua empresa</h2>
+      <p class="lead">Atendimento para MEI, Simples Nacional e Lucro Presumido, em Marialva e cidades vizinhas.</p>
+      <dl>
+        <dt>Contabilidade mensal</dt><dd>Escrituração, apuração de impostos e guias prontas antes do vencimento.</dd>
+        <dt>Folha de pagamento</dt><dd>Admissão, férias, 13º, rescisão, eSocial e FGTS.</dd>
+        <dt>Imposto de renda</dt><dd>Declaração dos sócios e da empresa com a documentação organizada.</dd>
+        <dt>Planejamento tributário</dt><dd>Revisão do regime e do pró-labore para pagar o imposto certo.</dd>
+        <dt>MEI</dt><dd>DAS mensal, declaração anual e orientação quando for hora de crescer.</dd>
+        <dt>Regularização</dt><dd>Certidões negativas, parcelamentos e pendências na Receita e na Prefeitura.</dd>
+      </dl>
+    </section>
+
+    <section id="abrir">
+      <h2>Abrir empresa em Marialva, em três passos</h2>
+      <p class="lead">A FHD cuida da parte burocrática; você cuida do negócio.</p>
+      <ol class="passos">
+        <li><i>1</i><div><b>Conversa pelo WhatsApp</b><span>Entendemos a atividade e simulamos o imposto em cada regime.</span></div></li>
+        <li><i>2</i><div><b>Registro e alvará</b><span>Junta Comercial, CNPJ, inscrição municipal e alvará na Prefeitura de Marialva.</span></div></li>
+        <li><i>3</i><div><b>Empresa rodando</b><span>Acesso à área do cliente, emissão de notas liberada e primeira guia no painel.</span></div></li>
+      </ol>
+    </section>
+
+    <section class="docs" id="documentos">
+      <h2>Envie seus documentos</h2>
+      <p class="lead">Notas, extratos e documentos de funcionários caem direto na pasta da sua empresa. Você recebe a confirmação de que chegou.</p>
+      <form onsubmit="return false">
+        <label for="tipo">Tipo de documento</label>
+        <select id="tipo"><option>Notas fiscais</option><option>Extratos bancários</option><option>Documentos de funcionário</option><option>Outro</option></select>
+        <div class="drop">Arraste os arquivos ou toque para escolher<br><small>PDF, XML ou foto do celular</small></div>
+        <button class="btn" type="button">Enviar para a FHD</button>
+      </form>
+    </section>
+
+    <section class="bol" id="boleto">
+      <h2>2ª via de boleto e honorários</h2>
+      <p class="lead" id="area">Informe o CNPJ e baixe o boleto do mês ou pague por Pix. Na área do cliente ficam as guias, holerites e documentos já enviados.</p>
+      <form onsubmit="return false">
+        <input inputmode="numeric" placeholder="CNPJ da empresa" aria-label="CNPJ da empresa">
+        <input type="email" placeholder="E-mail cadastrado" aria-label="E-mail cadastrado">
+        <button class="btn" type="button">Entrar na área do cliente</button>
+      </form>
+    </section>
+
+    <footer>© 2026 FHD Contabilidade · R. Washington Luiz, 1002, sala 01 — Centro, Marialva/PR · WhatsApp <a href="https://wa.me/5544999763736">(44) 99976-3736</a> · Mockup de proposta</footer>
+  </main>
+</div>
+<a class="btn fixo" href="https://wa.me/5544999763736" target="_blank" rel="noopener">Falar no WhatsApp</a>
+</body>
+</html>
