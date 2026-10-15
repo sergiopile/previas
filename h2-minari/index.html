@@ -3,122 +3,81 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#1D2B24">
-<title>H2 Minari Contabilidade — Maringá/PR</title>
+<meta name="theme-color" content="#F7F4EC">
+<title>H2 Minari Contabilidade — Maringá, Zona 04</title>
 <style>
-  :root{--marinho:#1D2B24;--marinho2:#2C3F35;--latao:#C9A24A;--latao2:#A8842F;--areia:#EEF0E6;--areia2:#DCE2D0;--branco:#FFFFFF;--texto:#1B1F24;--texto2:#5B6168;--sobre-marinho:#B9C6BC}
+  :root{--papel:#F7F4EC;--papel2:#ECE6D8;--oliva:#3B4A2F;--oliva2:#2E3A24;--ocre:#D9A441;--ocre2:#C48F2C;--texto:#1F2419;--texto2:#5E6454;--sobre-oliva:#C9D1BC}
   *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{margin:0;background:var(--areia);color:var(--texto);font:16px/1.55 "Trebuchet MS","Lucida Grande",Verdana,"DejaVu Sans",sans-serif;accent-color:var(--latao)}
-  ::selection{background:var(--latao);color:#fff} :focus-visible{outline:3px solid var(--latao);outline-offset:2px}
+  body{margin:0;background:var(--papel);color:var(--texto);font:17px/1.6 Charter,"Bitstream Charter","Iowan Old Style",Georgia,serif}
+  ::selection{background:var(--ocre);color:var(--texto)} :focus-visible{outline:3px solid var(--ocre);outline-offset:2px}
   a{color:inherit}
-  h1,h2,h3,.serif{font-family:Charter,"Bitstream Charter","Iowan Old Style",Cambria,Caladea,Georgia,serif;font-weight:700;margin:0;text-wrap:balance;letter-spacing:-.01em}
-  .wrap{max-width:1200px;margin:0 auto;padding:0 16px}
-  svg.ilu{display:block;width:100%;height:auto}
-  /* header */
-  header{background:var(--marinho);color:#fff}
+  h1,h2,h3{font-weight:700;margin:0;text-wrap:balance;letter-spacing:-.01em}
+  .ui{font-family:"Helvetica Neue",Helvetica,"TeX Gyre Heros",Arial,sans-serif}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 16px}
   header .wrap{display:flex;align-items:center;gap:24px;min-height:80px}
-  .logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff}
-  .logo svg{width:40px;height:40px;flex:none}
-  .logo b{font-size:27px;line-height:1;display:block;letter-spacing:.01em}
-  .logo small{display:block;font:12px/1.2 "Trebuchet MS",Verdana,"DejaVu Sans",sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--latao);margin-top:4px}
-  nav{margin-left:auto;display:flex;gap:2px;flex-wrap:wrap;align-items:center}
-  nav a{text-decoration:none;padding:10px 12px;border-radius:8px;font-size:15px;color:var(--sobre-marinho)}
-  nav a:hover{color:#fff;background:var(--marinho2)}
-  nav a.cli{color:#fff;border:1px solid var(--latao);margin-left:6px;margin-right:6px} nav a.cli:hover{background:var(--latao);color:var(--marinho)}
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--latao);color:var(--marinho);text-decoration:none;font-weight:700;padding:12px 18px;border-radius:8px;min-height:48px;border:0;cursor:pointer;font-size:16px;transition:background .15s,transform .15s}
-  .btn:hover{background:var(--latao2);color:#fff} .btn:active{transform:translateY(1px)} .btn svg{width:22px;height:22px;flex:none}
-  .btn.sec{background:transparent;color:#fff;border:1px solid var(--marinho2)} .btn.sec:hover{background:var(--marinho2)}
-  .wpp-top{display:none} .short{display:none}
-  /* hero */
-  .hero{background:var(--marinho);color:#fff;overflow:hidden}
-  .hero .wrap{display:grid;grid-template-columns:6fr 6fr;gap:48px;align-items:center;padding-top:48px;padding-bottom:56px}
-  .hero h1{font-size:clamp(32px,3.6vw,46px);line-height:1.1}
-  .hero p{color:var(--sobre-marinho);font-size:18px;max-width:46ch;margin:20px 0 28px}
-  .hero .acoes{display:flex;gap:12px;flex-wrap:wrap}
-  .hero figure{margin:0;position:relative}
-  .hero figure svg{border-radius:16px;box-shadow:0 24px 48px -24px rgba(0,0,0,.6)}
-  .hero figcaption{position:absolute;left:12px;bottom:12px;font-size:12px;color:#fff;background:rgba(20,40,63,.8);padding:4px 10px;border-radius:6px}
-  /* celular */
-  .cel{padding:64px 0 56px}
-  .cel h2{font-size:34px;margin-bottom:8px} .cel .intro{color:var(--texto2);max-width:60ch;margin:0 0 28px}
-  .tiles{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:20px}
-  .tile{background:var(--branco);border-radius:14px;overflow:hidden;text-decoration:none;display:flex;flex-direction:column;box-shadow:0 8px 24px -12px rgba(21,32,46,.3)}
-  .tile .img{background:var(--areia2);aspect-ratio:3/2;overflow:hidden} .tile .img svg{width:100%;height:100%;display:block}
-  .tiles .tile:first-child .img{aspect-ratio:16/9}
-  .tile .in{padding:16px 18px 20px} .tile h3{font-size:22px} .tile p{margin:6px 0 0;color:var(--texto2);font-size:15px}
-  /* serviços */
-  .serv{background:var(--branco);padding:72px 0}
-  .serv .wrap{display:grid;grid-template-columns:1fr 2fr;gap:48px}
-  .serv h2{font-size:36px} .serv .reg{margin:16px 0 0;color:var(--texto2);font-size:15px}
-  .serv ul{list-style:none;padding:0;margin:0;columns:2;column-gap:48px}
-  .serv li{break-inside:avoid;padding:12px 0;border-bottom:1px solid var(--areia2)} .serv li b{display:block} .serv li span{color:var(--texto2);font-size:15px}
-  /* docs + 2ª via */
-  .docs{padding:72px 0}
-  .docs .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
-  .docs h2{font-size:32px;margin-bottom:12px} .docs p{color:var(--texto2);max-width:50ch;margin:0 0 16px}
-  .docs form{background:var(--branco);border-radius:14px;padding:24px;display:grid;gap:12px;box-shadow:0 8px 24px -12px rgba(21,32,46,.3)}
-  .docs label{font-size:14px;color:var(--texto2)}
-  .docs select,.docs input{font:inherit;font-size:16px;padding:12px;border-radius:8px;border:1px solid #CFC5AE;min-height:48px;width:100%;caret-color:var(--latao);background:#fff;color:var(--texto)}
-  .drop{border:2px dashed #CFC5AE;border-radius:8px;padding:24px;text-align:center;color:var(--texto2)}
-  .docs .marinho{background:var(--marinho);color:#fff;box-shadow:none} .docs .marinho label{color:var(--sobre-marinho)} .docs .marinho h3{font-size:24px;margin-bottom:4px} .docs .marinho small{color:var(--sobre-marinho);font-size:13px}
-  footer{background:var(--marinho);color:var(--sobre-marinho);padding:40px 0;font-size:15px}
-  footer .wrap{display:flex;flex-wrap:wrap;gap:24px 48px;align-items:flex-start} footer b{color:#fff}
-  .selo{margin-left:auto;font-size:12px;border:1px solid var(--marinho2);padding:6px 10px;border-radius:6px;align-self:center}
+  .marca{text-decoration:none;line-height:1.1}
+  .marca b{font-size:26px;display:block} .marca span{font-size:14px;color:var(--texto2)}
+  nav{margin-left:auto;display:flex;gap:4px;flex-wrap:wrap}
+  nav a{text-decoration:none;padding:10px 12px;font-size:15px;border-bottom:2px solid transparent}
+  nav a:hover{border-color:var(--ocre)}
+  nav a.cli{background:var(--oliva);color:#fff;border-radius:8px;border:0} nav a.cli:hover{background:var(--oliva2)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--ocre);color:var(--texto);text-decoration:none;font-weight:600;padding:14px 22px;border-radius:8px;min-height:48px;border:0;cursor:pointer;font-size:16px;transition:background .15s,transform .15s}
+  .btn:hover{background:var(--ocre2)} .btn:active{transform:translateY(1px)} .btn svg{width:22px;height:22px}
+  /* hero: foto grande esquerda, texto direita */
+  .hero{padding:16px 0 64px}
+  .hero .wrap{display:grid;grid-template-columns:6fr 5fr;gap:48px;align-items:center}
+  .foto{aspect-ratio:4/3;background:var(--oliva);border-radius:16px;position:relative;overflow:hidden;margin:0}.foto svg{display:block;width:100%;height:100%}.foto figcaption{position:absolute;left:12px;bottom:12px;font-size:12px;color:#fff;background:rgba(46,58,36,.85);padding:4px 10px;border-radius:6px}
+  .hero h1{font-size:clamp(34px,4.6vw,54px);line-height:1.08;margin-top:16px}
+  .hero p{font-size:19px;color:var(--texto2);max-width:46ch;margin:24px 0 32px}
+  .tempo{font-size:15px;color:var(--oliva);letter-spacing:.02em}
+  .tempo b{font-size:40px;line-height:1;display:block;color:var(--texto)}
+  /* serviços em 2 colunas texto corrido */
+  .serv{background:var(--oliva);color:#fff;padding:72px 0}
+  .serv h2{font-size:38px;max-width:20ch;margin-bottom:32px}
+  .serv .cols{columns:2;column-gap:64px}
+  .serv .cols div{break-inside:avoid;margin-bottom:24px;padding-left:16px;border-left:2px solid var(--ocre)}
+  .serv h3{font-size:21px;margin-bottom:4px} .serv p{margin:0;color:var(--sobre-oliva);font-size:16px}
+  /* docs + boleto lado a lado em papel */
+  .cliente{padding:72px 0}
+  .cliente h2{font-size:38px;margin-bottom:12px} .cliente .lead{color:var(--texto2);max-width:60ch;margin:0 0 40px}
+  .duas{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+  .caixa{background:#fff;border-radius:16px;padding:32px;box-shadow:0 12px 32px -16px rgba(31,36,25,.25)}
+  .caixa h3{font-size:24px;margin-bottom:8px} .caixa p{color:var(--texto2);margin:0 0 20px;font-size:16px}
+  .caixa label{display:block;font-size:14px;color:var(--texto2);margin-bottom:6px}
+  .caixa input,.caixa select{width:100%;font-size:16px;padding:12px;border:1px solid #CFC9B9;border-radius:8px;min-height:48px;margin-bottom:12px;background:var(--papel);caret-color:var(--oliva)}
+  .drop{border:2px dashed #B9B39F;border-radius:12px;padding:24px;text-align:center;margin-bottom:12px;background:var(--papel)}
+  .drop b{display:block} .drop small{color:var(--texto2)}
+  .lista-docs{margin:0 0 20px;padding-left:20px;color:var(--texto2);font-size:16px}
+  footer{background:var(--papel2);padding:40px 0;font-size:15px}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:24px 48px}
   .fixo{display:none}
-  @media (max-width:960px){
-    .hero .wrap{grid-template-columns:1fr;gap:28px;padding-top:24px;padding-bottom:40px} .hero figure{order:-1;margin:0 -16px} .hero figure svg{border-radius:0;height:300px} .hero figcaption{left:28px}
-    .tiles{grid-template-columns:1fr 1fr} .tiles .tile:first-child{grid-column:1/-1}
-    .serv .wrap,.docs .wrap{grid-template-columns:1fr;gap:32px}
-    header .wrap{flex-wrap:wrap;padding:12px 16px;gap:8px 10px} nav{margin-left:0;width:100%;flex-wrap:nowrap;overflow-x:auto;order:3} nav a{padding:10px 6px;font-size:13.5px;white-space:nowrap} nav .btn{display:none} nav a.cli{margin:0 0 0 4px} .short{display:inline} .long{display:none}
-    .wpp-top{display:inline-flex;margin-left:auto;padding:8px 9px;min-height:44px;font-size:12.5px;gap:4px} .wpp-top svg{width:18px;height:18px}
-    .logo svg{width:34px;height:34px} .logo b{font-size:22px} .logo small{font-size:9px;letter-spacing:.02em} .logo{gap:10px}
-  }
-  @media (max-width:600px){
-    .tiles{grid-template-columns:1fr} .tile .img,.tiles .tile:first-child .img{aspect-ratio:16/9}
-    .hero h1{font-size:30px} .cel h2,.serv h2,.docs h2{font-size:28px} .serv ul{columns:1}
-    .fixo{display:flex;position:fixed;left:16px;right:16px;bottom:16px;z-index:9;box-shadow:0 8px 24px -8px rgba(0,0,0,.5)} body{padding-bottom:88px}
+  @media (max-width:880px){
+    .hero .wrap,.duas{grid-template-columns:1fr} .serv .cols{columns:1}
+    header .wrap{flex-wrap:wrap;padding:12px 16px} nav{margin-left:0;width:100%} nav a{padding:10px 8px;font-size:14px}
+    .foto{aspect-ratio:16/10} .hero p{font-size:17px} .serv h2,.cliente h2{font-size:30px}
+    .fixo{display:flex;position:fixed;left:16px;right:16px;bottom:16px;z-index:9;box-shadow:0 8px 24px -8px rgba(31,36,25,.45)} body{padding-bottom:88px}
   }
   @media (prefers-reduced-motion:no-preference){
-    .hero figure{animation:f .8s cubic-bezier(.2,.7,.2,1) both .1s} @keyframes f{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+    .foto{animation:ent .8s ease-out both} @keyframes ent{from{opacity:0;transform:translateX(-16px)}to{opacity:1;transform:none}}
   }
 </style>
 </head>
 <body>
 <header>
   <div class="wrap">
-    <a class="logo" href="#" aria-label="H2 Minari Contabilidade">
-      <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18.5" fill="none" stroke="#C9A24A" stroke-width="1.6"/><text x="20" y="27" text-anchor="middle" font-family="Charter, Georgia, serif" font-weight="700" font-size="20" fill="#C9A24A">M</text></svg>
-      <span><b class="serif">Minari</b><small>Contabilidade · Maringá</small></span>
-    </a>
-    <a class="btn wpp-top" href="https://wa.me/5544998846796" target="_blank" rel="noopener" aria-label="WhatsApp (44) 99884-6796"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>(44) 99884-6796</a>
-    <nav aria-label="Principal">
+    <a class="marca" href="#"><b>H2 Minari</b><span class="ui">Contabilidade · Maringá</span></a>
+    <nav class="ui" aria-label="Principal">
       <a href="#servicos">Serviços</a>
-      <a href="#documentos"><span class="long">Envie seus documentos</span><span class="short">Documentos</span></a>
-      <a href="#honorarios"><span class="long">2ª via de honorários</span><span class="short">2ª via</span></a>
-      <a class="cli" href="#honorarios">Área do cliente</a>
-      <a class="btn" href="https://wa.me/5544998846796?text=Ol%C3%A1%2C%20quero%20uma%20proposta%20da%20Minari" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>
-        (44) 99884-6796
-      </a>
+      <a href="#documentos">Envie seus documentos</a>
+      <a href="#boleto">2ª via de boleto / honorários</a>
+      <a class="cli" href="#area">Área do cliente</a>
     </nav>
   </div>
 </header>
 
 <section class="hero">
   <div class="wrap">
-    <div>
-      <h1>Contabilidade para o comércio e os prestadores de Maringá, com as guias chegando antes do vencimento</h1>
-      <p>Contadores há mais de 52 anos, na Av. Humaitá, Zona 04. Abertura de empresa, impostos, folha e honorários num lugar só.</p>
-      <div class="acoes">
-        <a class="btn" href="https://wa.me/5544998846796?text=Ol%C3%A1%2C%20quero%20uma%20proposta%20da%20Minari" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>
-          Pedir proposta pelo WhatsApp
-        </a>
-        <a class="btn sec" href="#documentos">Enviar documentos</a>
-      </div>
-    </div>
-    <figure>
+    <figure class="foto">
       <svg class="ilu" viewBox="0 0 900 620" width="900" height="620" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração de uma mesa de escritório vista de cima, com guia, calendário, calculadora e carimbo">
         <defs>
           <linearGradient id="mesa" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9A6A46"/><stop offset="1" stop-color="#5E3C27"/></linearGradient>
@@ -127,7 +86,7 @@
           <linearGradient id="calc" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3A4452"/><stop offset="1" stop-color="#1F2730"/></linearGradient>
           <linearGradient id="cafe" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5A3A22"/><stop offset="1" stop-color="#2A170C"/></linearGradient>
           <linearGradient id="pasta" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#D9B98A"/><stop offset="1" stop-color="#C19A66"/></linearGradient>
-          <linearGradient id="latao" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D8B46E"/><stop offset=".5" stop-color="#C9A24A"/><stop offset="1" stop-color="#8C6A2F"/></linearGradient>
+          <linearGradient id="latao" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D8B46E"/><stop offset=".5" stop-color="#D9A441"/><stop offset="1" stop-color="#8C6A2F"/></linearGradient>
           <filter id="sh" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="6" dy="12" stdDeviation="9" flood-color="#1A0D05" flood-opacity=".45"/></filter>
           <filter id="sh2" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="3" dy="6" stdDeviation="5" flood-color="#1A0D05" flood-opacity=".4"/></filter>
           <pattern id="barras" x="0" y="0" width="14" height="40" patternUnits="userSpaceOnUse"><rect width="2" height="40" fill="#222"/><rect x="4" width="4" height="40" fill="#222"/><rect x="10" width="1.5" height="40" fill="#222"/></pattern>
@@ -149,7 +108,7 @@
         <!-- guia DAS -->
         <g transform="rotate(-5 300 300)" filter="url(#sh)">
           <rect x="150" y="90" width="320" height="430" fill="url(#papel)"/>
-          <rect x="150" y="90" width="320" height="40" fill="#1D2B24"/>
+          <rect x="150" y="90" width="320" height="40" fill="#3B4A2F"/>
           <text x="170" y="116" font-family="Trebuchet MS, Verdana, DejaVu Sans, sans-serif" font-size="14" font-weight="700" fill="#fff" letter-spacing="1">DAS · SIMPLES NACIONAL</text>
           <g fill="#A8B0BA"><rect x="170" y="150" width="200" height="8" rx="2"/><rect x="170" y="168" width="150" height="8" rx="2"/><rect x="170" y="186" width="230" height="8" rx="2"/></g>
           <g fill="#D8DCE2"><rect x="170" y="216" width="280" height="1.5"/><rect x="170" y="246" width="280" height="1.5"/><rect x="170" y="276" width="280" height="1.5"/><rect x="170" y="306" width="280" height="1.5"/><rect x="170" y="336" width="280" height="1.5"/></g>
@@ -199,7 +158,7 @@
             <text x="582" y="262">25</text><text x="616" y="262">26</text><text x="650" y="262">27</text><text x="684" y="262">28</text><text x="718" y="262">29</text><text x="752" y="262">30</text><text x="786" y="262">31</text>
           </g>
           <circle cx="650" cy="229" r="13" fill="none" stroke="#C0392B" stroke-width="2.5"/>
-          <circle cx="684" cy="173" r="11" fill="none" stroke="#C9A24A" stroke-width="2"/>
+          <circle cx="684" cy="173" r="11" fill="none" stroke="#D9A441" stroke-width="2"/>
         </g>
 
         <!-- calculadora -->
@@ -213,7 +172,7 @@
             <rect x="634" y="478" width="30" height="26" rx="4"/><rect x="672" y="478" width="30" height="26" rx="4"/><rect x="710" y="478" width="30" height="26" rx="4"/>
             <rect x="634" y="514" width="68" height="26" rx="4"/><rect x="710" y="514" width="30" height="26" rx="4"/>
           </g>
-          <g fill="#C9A24A"><rect x="748" y="406" width="28" height="26" rx="4"/><rect x="748" y="442" width="28" height="26" rx="4"/><rect x="748" y="478" width="28" height="26" rx="4"/></g>
+          <g fill="#D9A441"><rect x="748" y="406" width="28" height="26" rx="4"/><rect x="748" y="442" width="28" height="26" rx="4"/><rect x="748" y="478" width="28" height="26" rx="4"/></g>
           <rect x="748" y="514" width="28" height="26" rx="4" fill="#C0392B"/>
         </g>
 
@@ -228,173 +187,61 @@
 
         <!-- caneta -->
         <g transform="rotate(-32 300 580)" filter="url(#sh2)">
-          <rect x="200" y="572" width="210" height="14" rx="7" fill="#1D2B24"/>
+          <rect x="200" y="572" width="210" height="14" rx="7" fill="#3B4A2F"/>
           <rect x="200" y="572" width="60" height="14" rx="7" fill="url(#latao)"/>
           <path d="M410 572 l22 7 l-22 7 z" fill="url(#latao)"/>
-          <rect x="300" y="574" width="4" height="10" fill="#C9A24A"/>
+          <rect x="300" y="574" width="4" height="10" fill="#D9A441"/>
         </g>
       </svg>
-      <figcaption>Ilustração de exemplo — no site real entra a foto do escritório ou da equipe.</figcaption>
+      <figcaption class="ui">Ilustração de exemplo — no site real entra a foto da equipe ou da sala, na Av. Humaitá, 411.</figcaption>
     </figure>
-  </div>
-</section>
-
-<section class="cel" id="area">
-  <div class="wrap">
-    <h2>O dia a dia com o escritório, no seu celular</h2>
-    <p class="intro">Em vez de pedir no WhatsApp e esperar a resposta, o cliente da Minari encontra aqui, a qualquer hora:</p>
-    <div class="tiles">
-
-      <a class="tile" href="#documentos">
-        <div class="img">
-          <svg viewBox="0 0 400 225" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração de pasta com notas fiscais e extratos">
-            <defs>
-              <linearGradient id="t1pasta" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#DCBE90"/><stop offset="1" stop-color="#BF9A66"/></linearGradient>
-              <linearGradient id="t1papel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#EFEBE2"/></linearGradient>
-              <filter id="t1sh" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="3" dy="6" stdDeviation="5" flood-color="#2B1E10" flood-opacity=".3"/></filter>
-            </defs>
-            <rect width="400" height="225" fill="#DCE2D0"/>
-            <g transform="translate(200,120)">
-              <path d="M-150 -40 h90 l14 -16 h70 l10 16 h116 a6 6 0 0 1 6 6 v120 a6 6 0 0 1 -6 6 h-294 a6 6 0 0 1 -6 -6 v-120 a6 6 0 0 1 6 -6z" fill="url(#t1pasta)" filter="url(#t1sh)"/>
-              <g filter="url(#t1sh)" transform="translate(0,-22)">
-                <rect x="-120" y="-92" width="130" height="170" rx="3" fill="url(#t1papel)" transform="rotate(-9)"/>
-                <g transform="rotate(-9)" fill="#B7BEC8"><rect x="-104" y="-70" width="70" height="8" rx="2"/><rect x="-104" y="-52" width="98" height="5" rx="2"/><rect x="-104" y="-40" width="80" height="5" rx="2"/><rect x="-104" y="-28" width="92" height="5" rx="2"/></g>
-                <g transform="rotate(-9)"><rect x="-104" y="-12" width="98" height="26" fill="#1D2B24" opacity=".12"/><text x="-98" y="6" font-family="Trebuchet MS, Verdana, DejaVu Sans, sans-serif" font-size="11" font-weight="700" fill="#1D2B24">NF-e 000.418</text></g>
-              </g>
-              <g filter="url(#t1sh)" transform="translate(0,-22)">
-                <rect x="-30" y="-100" width="130" height="170" rx="3" fill="url(#t1papel)" transform="rotate(5)"/>
-                <g transform="rotate(5)" fill="#B7BEC8"><rect x="-14" y="-80" width="60" height="8" rx="2"/><rect x="-14" y="-60" width="98" height="4" rx="2"/><rect x="-14" y="-48" width="98" height="4" rx="2"/><rect x="-14" y="-36" width="98" height="4" rx="2"/><rect x="-14" y="-24" width="98" height="4" rx="2"/><rect x="-14" y="-12" width="98" height="4" rx="2"/></g>
-                <g transform="rotate(5)" font-family="Trebuchet MS, Verdana, DejaVu Sans, sans-serif" font-size="10" fill="#5B6675"><text x="-12" y="12">Extrato · set/2026</text></g>
-              </g>
-              <path d="M-156 10 h312 a6 6 0 0 1 6 6 v70 a6 6 0 0 1 -6 6 h-312 a6 6 0 0 1 -6 -6 v-70 a6 6 0 0 1 6 -6z" fill="url(#t1pasta)" filter="url(#t1sh)"/>
-              <rect x="-130" y="30" width="110" height="16" rx="3" fill="#8C6A2F" opacity=".45"/>
-              <text x="-124" y="42" font-family="Trebuchet MS, Verdana, DejaVu Sans, sans-serif" font-size="11" font-weight="700" fill="#4A3414">OUTUBRO · 2026</text>
-            </g>
-          </svg>
-        </div>
-        <div class="in">
-          <h3>Envie seus documentos</h3>
-          <p>Notas, extratos e documentos de funcionário vão direto para a pasta da sua empresa, com confirmação.</p>
-        </div>
+    <div>
+      <p class="tempo ui"><b>52+</b>anos de escritório de família</p>
+      <h1>A contabilidade da sua empresa, com um Minari do outro lado da mesa.</h1>
+      <p>Há mais de cinco décadas o mesmo escritório atende comerciantes, clínicas e prestadores de serviço de Maringá. Quem assina o seu balanço é quem atende você.</p>
+      <a class="btn ui" href="https://wa.me/5544998846796?text=Ol%C3%A1%2C%20quero%20uma%20proposta%20de%20contabilidade" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>
+        Conversar no WhatsApp
       </a>
-
-      <a class="tile" href="#honorarios">
-        <div class="img">
-          <svg viewBox="0 0 400 267" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração de guia de imposto com etiqueta de vencimento">
-            <defs>
-              <linearGradient id="t2papel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#EFEBE2"/></linearGradient>
-              <filter id="t2sh" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="3" dy="6" stdDeviation="5" flood-color="#2B1E10" flood-opacity=".3"/></filter>
-              <pattern id="t2bar" x="0" y="0" width="12" height="30" patternUnits="userSpaceOnUse"><rect width="2" height="30" fill="#222"/><rect x="4" width="3" height="30" fill="#222"/><rect x="9" width="1.5" height="30" fill="#222"/></pattern>
-            </defs>
-            <rect width="400" height="267" fill="#DCE2D0"/>
-            <g transform="rotate(-6 200 140)" filter="url(#t2sh)">
-              <rect x="110" y="40" width="190" height="250" fill="url(#t2papel)"/>
-              <rect x="110" y="40" width="190" height="28" fill="#1D2B24"/>
-              <text x="122" y="59" font-family="Trebuchet MS, Verdana, DejaVu Sans, sans-serif" font-size="11" font-weight="700" fill="#fff" letter-spacing="1">DAS · SIMPLES</text>
-              <g fill="#B7BEC8"><rect x="124" y="84" width="110" height="6" rx="2"/><rect x="124" y="98" width="80" height="6" rx="2"/><rect x="124" y="112" width="130" height="6" rx="2"/></g>
-              <g font-family="Trebuchet MS, Verdana, DejaVu Sans, sans-serif" font-size="11" fill="#5B6675"><text x="124" y="146">Vencimento</text><text x="222" y="146" font-weight="700" fill="#15202E">20/10</text><text x="124" y="168">Total</text><text x="222" y="168" font-weight="700" fill="#15202E">R$ ···,··</text></g>
-              <rect x="124" y="190" width="162" height="38" fill="url(#t2bar)"/>
-            </g>
-            <g transform="translate(300,72) rotate(12)" filter="url(#t2sh)">
-              <rect x="-42" y="-24" width="84" height="48" rx="6" fill="#C0392B"/>
-              <text x="0" y="-2" text-anchor="middle" font-family="Charter, Bitstream Charter, Georgia, serif" font-weight="700" font-size="22" fill="#fff">20</text>
-              <text x="0" y="16" text-anchor="middle" font-family="Trebuchet MS, Verdana, DejaVu Sans, sans-serif" font-size="10" fill="#fff" letter-spacing="1.5">OUTUBRO</text>
-            </g>
-          </svg>
-        </div>
-        <div class="in">
-          <h3>Guias do mês</h3>
-          <p>DAS, ISS, FGTS e INSS emitidos e avisados no WhatsApp antes de vencer.</p>
-        </div>
-      </a>
-
-      <a class="tile" href="#honorarios">
-        <div class="img">
-          <svg viewBox="0 0 400 267" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração de boleto de honorários com código Pix">
-            <defs>
-              <linearGradient id="t3papel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#EFEBE2"/></linearGradient>
-              <filter id="t3sh" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="3" dy="6" stdDeviation="5" flood-color="#2B1E10" flood-opacity=".3"/></filter>
-              <pattern id="t3bar" x="0" y="0" width="11" height="26" patternUnits="userSpaceOnUse"><rect width="1.5" height="26" fill="#222"/><rect x="3.5" width="3" height="26" fill="#222"/><rect x="8.5" width="1.5" height="26" fill="#222"/></pattern>
-            </defs>
-            <rect width="400" height="267" fill="#DCE2D0"/>
-            <g transform="rotate(3 200 140)" filter="url(#t3sh)">
-              <rect x="50" y="70" width="300" height="140" fill="url(#t3papel)"/>
-              <rect x="50" y="70" width="300" height="24" fill="#C9A24A"/>
-              <text x="62" y="87" font-family="Charter, Bitstream Charter, Georgia, serif" font-weight="700" font-size="13" fill="#1D2B24">Minari · honorários de outubro</text>
-              <g fill="#B7BEC8"><rect x="62" y="108" width="120" height="6" rx="2"/><rect x="62" y="122" width="90" height="6" rx="2"/></g>
-              <g font-family="Trebuchet MS, Verdana, DejaVu Sans, sans-serif" font-size="11" fill="#5B6675"><text x="62" y="150">Vencimento</text><text x="140" y="150" font-weight="700" fill="#15202E">10/10</text></g>
-              <rect x="62" y="166" width="190" height="30" fill="url(#t3bar)"/>
-              <!-- QR do Pix -->
-              <g transform="translate(272,104)" fill="#15202E">
-                <rect width="66" height="66" fill="#fff"/>
-                <rect x="4" y="4" width="18" height="18"/><rect x="8" y="8" width="10" height="10" fill="#fff"/>
-                <rect x="44" y="4" width="18" height="18"/><rect x="48" y="8" width="10" height="10" fill="#fff"/>
-                <rect x="4" y="44" width="18" height="18"/><rect x="8" y="48" width="10" height="10" fill="#fff"/>
-                <rect x="28" y="4" width="4" height="4"/><rect x="36" y="8" width="4" height="4"/><rect x="28" y="14" width="8" height="4"/>
-                <rect x="4" y="28" width="4" height="4"/><rect x="12" y="28" width="8" height="4"/><rect x="8" y="36" width="4" height="4"/><rect x="16" y="36" width="4" height="4"/>
-                <rect x="28" y="28" width="8" height="8"/><rect x="40" y="28" width="4" height="4"/><rect x="48" y="32" width="8" height="4"/><rect x="56" y="28" width="4" height="8"/>
-                <rect x="28" y="40" width="4" height="8"/><rect x="36" y="44" width="8" height="4"/><rect x="48" y="40" width="4" height="4"/><rect x="56" y="44" width="4" height="4"/>
-                <rect x="28" y="52" width="8" height="4"/><rect x="40" y="52" width="4" height="8"/><rect x="48" y="52" width="12" height="4"/><rect x="52" y="58" width="4" height="4"/>
-              </g>
-            </g>
-            <g transform="rotate(-12 300 220)">
-              <rect x="246" y="200" width="110" height="40" rx="4" fill="none" stroke="#C0392B" stroke-width="3" opacity=".85"/>
-              <text x="301" y="227" text-anchor="middle" font-family="Charter, Bitstream Charter, Georgia, serif" font-weight="700" font-size="20" fill="#C0392B" opacity=".9" letter-spacing="1">2ª VIA</text>
-            </g>
-          </svg>
-        </div>
-        <div class="in">
-          <h3>2ª via de honorários</h3>
-          <p>Boleto do mês e código Pix para copiar, sem precisar pedir no escritório.</p>
-        </div>
-      </a>
-
     </div>
   </div>
 </section>
 
 <section class="serv" id="servicos">
   <div class="wrap">
-    <div>
-      <h2>O que entra no atendimento mensal</h2>
-      <p class="reg">MEI, Simples Nacional e Lucro Presumido. Comércio, prestadores de serviço e indústria de Maringá e região.</p>
+    <h2>O que o escritório cuida para você todo mês</h2>
+    <div class="cols">
+      <div><h3>Abertura e legalização</h3><p>Registro na Junta Comercial, CNPJ, alvará da Prefeitura de Maringá e escolha do regime tributário.</p></div>
+      <div><h3>Escrituração e impostos</h3><p>Apuração do Simples, ISS, ICMS, PIS e COFINS, com as guias enviadas antes do vencimento.</p></div>
+      <div><h3>Folha de pagamento</h3><p>Registro de funcionários, férias, 13º, rescisões e envio ao eSocial.</p></div>
+      <div><h3>Declarações anuais</h3><p>Imposto de renda dos sócios, DEFIS, ECD e ECF entregues no prazo.</p></div>
+      <div><h3>Orientação ao empresário</h3><p>Conversa franca sobre pró-labore, distribuição de lucros e o que fazer antes de crescer.</p></div>
+      <div><h3>Certidões e regularização</h3><p>Negativas federais, estaduais e municipais; parcelamento de débitos antigos.</p></div>
     </div>
-    <ul>
-      <li><b>Escrituração e impostos</b><span>Apuração de DAS, ISS, ICMS, PIS e COFINS e envio das guias.</span></li>
-      <li><b>Folha de pagamento</b><span>Admissão, férias, 13º, rescisão, eSocial e FGTS.</span></li>
-      <li><b>Abertura e alterações</b><span>CNPJ, Junta Comercial, alvará, mudança de sócios ou endereço.</span></li>
-      <li><b>Planejamento tributário</b><span>Comparação de regimes todo fim de ano e revisão do pró-labore.</span></li>
-      <li><b>Declarações anuais</b><span>IRPF dos sócios, DEFIS, ECD, ECF e DIRF.</span></li>
-      <li><b>Assessoria</b><span>Orientação para quem está começando e para quem quer trocar de escritório.</span></li>
-    </ul>
   </div>
 </section>
 
-<section class="docs" id="documentos">
+<section class="cliente" id="documentos">
   <div class="wrap">
-    <div>
-      <h2>Envie seus documentos</h2>
-      <p>Em vez de mandar foto no WhatsApp, solte os arquivos do mês aqui. Eles caem na pasta da sua empresa e você recebe a confirmação.</p>
-      <form onsubmit="return false">
-        <label for="tipo">Tipo de documento</label>
-        <select id="tipo"><option>Notas fiscais</option><option>Extratos bancários</option><option>Documentos de funcionário</option><option>Outro</option></select>
-        <label for="mes">Mês de referência</label>
-        <input id="mes" type="month" value="2026-10">
-        <div class="drop">Arraste os arquivos ou toque para escolher<br><small>PDF, XML ou foto do celular</small></div>
-        <button class="btn" type="button">Enviar para a Minari</button>
+    <h2>Mande os documentos e pegue seus boletos sem ligar para o escritório</h2>
+    <p class="lead">Duas coisas que hoje tomam tempo do cliente e da equipe passam a ser feitas aqui, a qualquer hora.</p>
+    <div class="duas">
+      <form class="caixa" onsubmit="return false">
+        <h3>Envie seus documentos</h3>
+        <p>O que precisamos receber até o dia 5 de cada mês:</p>
+        <ul class="lista-docs"><li>Notas fiscais emitidas e recebidas</li><li>Extratos bancários do mês</li><li>Admissões, férias e rescisões</li></ul>
+        <div class="drop"><b class="ui">Arraste os arquivos ou toque para escolher</b><small class="ui">PDF, XML ou foto do celular</small></div>
+        <button class="btn ui" type="button" style="width:100%">Enviar para o escritório</button>
       </form>
-    </div>
-    <div id="honorarios">
-      <h2>2ª via de honorários e área do cliente</h2>
-      <p>Informe o CNPJ e baixe o boleto do mês ou copie o código Pix. As guias já emitidas, holerites e documentos enviados ficam na área do cliente.</p>
-      <form class="marinho" onsubmit="return false">
-        <h3>Entrar na área do cliente</h3>
-        <label for="cnpj">CNPJ da empresa</label>
-        <input id="cnpj" inputmode="numeric" placeholder="00.000.000/0001-00">
-        <label for="mail">E-mail cadastrado</label>
-        <input id="mail" type="email" placeholder="voce@suaempresa.com.br">
-        <button class="btn" type="button">Ver boleto e guias</button>
-        <small>Primeiro acesso? Peça o cadastro pelo WhatsApp.</small>
+      <form class="caixa" id="boleto" onsubmit="return false">
+        <h3>2ª via de boleto e honorários</h3>
+        <p>Veja o boleto do mês, copie o código Pix ou baixe guias já emitidas.</p>
+        <label class="ui" for="cnpj">CNPJ da empresa</label>
+        <input class="ui" id="cnpj" inputmode="numeric" placeholder="00.000.000/0001-00">
+        <label class="ui" for="mail">E-mail cadastrado</label>
+        <input class="ui" id="mail" type="email" placeholder="voce@suaempresa.com.br">
+        <button class="btn ui" type="button" style="width:100%;background:var(--oliva);color:#fff">Entrar na área do cliente</button>
+        <p id="area" style="margin:12px 0 0;font-size:14px">Na área do cliente ficam todas as guias, holerites e documentos entregues.</p>
       </form>
     </div>
   </div>
@@ -402,12 +249,12 @@
 
 <footer>
   <div class="wrap">
-    <div><b>H2 Minari Contabilidade</b><br>Av. Humaitá, 411, sala 101 — Zona 04<br>Maringá/PR</div>
-    <div><b>WhatsApp</b><br><a href="https://wa.me/5544998846796">(44) 99884-6796</a></div>
-    <div><b>E-mail</b><br><a href="mailto:contato@minaricontabilidade.com.br">contato@minaricontabilidade.com.br</a></div>
-    <div class="selo">Prévia · proposta de site</div>
+    <div><b>H2 Minari Contabilidade</b><br>Av. Humaitá, 411 — sala 101<br>Zona 04, Maringá/PR</div>
+    <div><b>Telefone</b><br><a href="tel:+554431220401">(44) 3122-0401</a><br>WhatsApp <a href="https://wa.me/5544998846796">(44) 99884-6796</a></div>
+    <div><b>E-mail</b><br><a href="mailto:contato@minaricontabilidade.com.br">contato@minaricontabilidade.com.br</a><br>Instagram @h2minaricontabilidade</div>
+    <div class="ui" style="margin-left:auto;font-size:13px;color:var(--texto2)">© 2026 H2 Minari · Mockup de proposta</div>
   </div>
 </footer>
-<a class="btn fixo" href="https://wa.me/5544998846796" target="_blank" rel="noopener">Falar no WhatsApp</a>
+<a class="btn fixo ui" href="https://wa.me/5544998846796" target="_blank" rel="noopener">Falar no WhatsApp</a>
 </body>
 </html>
