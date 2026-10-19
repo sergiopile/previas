@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#1D2B24">
+<title>Telecont Informática Contábil — Mandaguari/PR</title>
+<style>
+  :root{--marinho:#1D2B24;--marinho2:#2C3F35;--latao:#C9A24A;--latao2:#A8842F;--areia:#EEF0E6;--areia2:#DCE2D0;--branco:#FFFFFF;--texto:#1B1F24;--texto2:#5B6168;--sobre-marinho:#B9C6BC}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--areia);color:var(--texto);font:16px/1.55 "Trebuchet MS","Lucida Grande",Verdana,"DejaVu Sans",sans-serif;accent-color:var(--latao)}
+  ::selection{background:var(--latao);color:#fff} :focus-visible{outline:3px solid var(--latao);outline-offset:2px}
+  a{color:inherit}
+  h1,h2,h3,.serif{font-family:Charter,"Bitstream Charter","Iowan Old Style",Cambria,Caladea,Georgia,serif;font-weight:700;margin:0;text-wrap:balance;letter-spacing:-.01em}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 16px}
+  svg.ilu{display:block;width:100%;height:auto}
+  /* header */
+  header{background:var(--marinho);color:#fff}
+  header .wrap{display:flex;align-items:center;gap:24px;min-height:80px}
+  .logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff}
+  .logo svg{width:40px;height:40px;flex:none}
+  .logo b{font-size:27px;line-height:1;display:block;letter-spacing:.01em}
+  .logo small{display:block;font:12px/1.2 "Trebuchet MS",Verdana,"DejaVu Sans",sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--latao);margin-top:4px}
+  nav{margin-left:auto;display:flex;gap:2px;flex-wrap:wrap;align-items:center}
+  nav a{text-decoration:none;padding:10px 12px;border-radius:8px;font-size:15px;color:var(--sobre-marinho)}
+  nav a:hover{color:#fff;background:var(--marinho2)}
+  nav a.cli{color:#fff;border:1px solid var(--latao);margin-left:6px;margin-right:6px} nav a.cli:hover{background:var(--latao);color:var(--marinho)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--latao);color:var(--marinho);text-decoration:none;font-weight:700;padding:12px 18px;border-radius:8px;min-height:48px;border:0;cursor:pointer;font-size:16px;transition:background .15s,transform .15s}
+  .btn:hover{background:var(--latao2);color:#fff} .btn:active{transform:translateY(1px)} .btn svg{width:22px;height:22px;flex:none}
+  .btn.sec{background:transparent;color:#fff;border:1px solid var(--marinho2)} .btn.sec:hover{background:var(--marinho2)}
+  .wpp-top{display:none} .short{display:none}
+  /* hero */
+  .hero{background:var(--marinho);color:#fff;overflow:hidden}
+  .hero .wrap{display:grid;grid-template-columns:6fr 6fr;gap:48px;align-items:center;padding-top:48px;padding-bottom:56px}
+  .hero h1{font-size:clamp(32px,3.6vw,46px);line-height:1.1}
+  .hero p{color:var(--sobre-marinho);font-size:18px;max-width:46ch;margin:20px 0 28px}
+  .hero .acoes{display:flex;gap:12px;flex-wrap:wrap}
+  .hero figure{margin:0;position:relative}
+  .hero figure svg{border-radius:16px;box-shadow:0 24px 48px -24px rgba(0,0,0,.6)}
+  .hero figcaption{position:absolute;left:12px;bottom:12px;font-size:12px;color:#fff;background:rgba(20,40,63,.8);padding:4px 10px;border-radius:6px}
+  /* celular */
+  .cel{padding:64px 0 56px}
+  .cel h2{font-size:34px;margin-bottom:8px} .cel .intro{color:var(--texto2);max-width:60ch;margin:0 0 28px}
+  .tiles{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:20px}
+  .tile{background:var(--branco);border-radius:14px;overflow:hidden;text-decoration:none;display:flex;flex-direction:column;box-shadow:0 8px 24px -12px rgba(21,32,46,.3)}
+  .tile .img{background:var(--areia2);aspect-ratio:3/2;overflow:hidden} .tile .img svg{width:100%;height:100%;display:block}
+  .tiles .tile:first-child .img{aspect-ratio:16/9}
+  .tile .in{padding:16px 18px 20px} .tile h3{font-size:22px} .tile p{margin:6px 0 0;color:var(--texto2);font-size:15px}
+  /* serviços */
+  .serv{background:var(--branco);padding:72px 0}
+  .serv .wrap{display:grid;grid-template-columns:1fr 2fr;gap:48px}
+  .serv h2{font-size:36px} .serv .reg{margin:16px 0 0;color:var(--texto2);font-size:15px}
+  .serv ul{list-style:none;padding:0;margin:0;columns:2;column-gap:48px}
+  .serv li{break-inside:avoid;padding:12px 0;border-bottom:1px solid var(--areia2)} .serv li b{display:block} .serv li span{color:var(--texto2);font-size:15px}
+  /* docs + 2ª via */
+  .docs{padding:72px 0}
+  .docs .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+  .docs h2{font-size:32px;margin-bottom:12px} .docs p{color:var(--texto2);max-width:50ch;margin:0 0 16px}
+  .docs form{background:var(--branco);border-radius:14px;padding:24px;display:grid;gap:12px;box-shadow:0 8px 24px -12px rgba(21,32,46,.3)}
+  .docs label{font-size:14px;color:var(--texto2)}
+  .docs select,.docs input{font:inherit;font-size:16px;padding:12px;border-radius:8px;border:1px solid #CFC5AE;min-height:48px;width:100%;caret-color:var(--latao);background:#fff;color:var(--texto)}
+  .drop{border:2px dashed #CFC5AE;border-radius:8px;padding:24px;text-align:center;color:var(--texto2)}
+  .docs .marinho{background:var(--marinho);color:#fff;box-shadow:none} .docs .marinho label{color:var(--sobre-marinho)} .docs .marinho h3{font-size:24px;margin-bottom:4px} .docs .marinho small{color:var(--sobre-marinho);font-size:13px}
+  footer{background:var(--marinho);color:var(--sobre-marinho);padding:40px 0;font-size:15px}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:24px 48px;align-items:flex-start} footer b{color:#fff}
+  .selo{margin-left:auto;font-size:12px;border:1px solid var(--marinho2);padding:6px 10px;border-radius:6px;align-self:center}
+  .fixo{display:none}
+  @media (max-width:960px){
+    .hero .wrap{grid-template-columns:1fr;gap:28px;padding-top:24px;padding-bottom:40px} .hero figure{order:-1;margin:0 -16px} .hero figure svg{border-radius:0;height:300px} .hero figcaption{left:28px}
+    .tiles{grid-template-columns:1fr 1fr} .tiles .tile:first-child{grid-column:1/-1}
+    .serv .wrap,.docs .wrap{grid-template-columns:1fr;gap:32px}
+    header .wrap{flex-wrap:wrap;padding:12px 16px;gap:8px 10px} nav{margin-left:0;width:100%;flex-wrap:nowrap;overflow-x:auto;order:3} nav a{padding:10px 6px;font-size:13.5px;white-space:nowrap} nav .btn{display:none} nav a.cli{margin:0 0 0 4px} .short{display:inline} .long{display:none}
+    .wpp-top{display:inline-flex;margin-left:auto;padding:8px 9px;min-height:44px;font-size:12.5px;gap:4px} .wpp-top svg{width:18px;height:18px}
+    .logo svg{width:34px;height:34px} .logo b{font-size:22px} .logo small{font-size:9px;letter-spacing:.02em} .logo{gap:10px}
+  }
+  @media (max-width:600px){
+    .tiles{grid-template-columns:1fr} .tile .img,.tiles .tile:first-child .img{aspect-ratio:16/9}
+    .hero h1{font-size:30px} .cel h2,.serv h2,.docs h2{font-size:28px} .serv ul{columns:1}
+    .fixo{display:flex;position:fixed;left:16px;right:16px;bottom:16px;z-index:9;box-shadow:0 8px 24px -8px rgba(0,0,0,.5)} body{padding-bottom:88px}
+  }
+  @media (prefers-reduced-motion:no-preference){
+    .hero figure{animation:f .8s cubic-bezier(.2,.7,.2,1) both .1s} @keyframes f{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="logo" href="#" aria-label="Telecont Informática Contábil">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18.5" fill="none" stroke="#C9A24A" stroke-width="1.6"/><text x="20" y="27" text-anchor="middle" font-family="Charter, Georgia, serif" font-weight="700" font-size="20" fill="#C9A24A">T</text></svg>
+      <span><b class="serif">Telecont</b><small>Contabilidade · Mandaguari</small></span>
+    </a>
+    <a class="btn wpp-top" href="https://wa.me/5544997326367" target="_blank" rel="noopener" aria-label="WhatsApp (44) 99732-6367"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>(44) 99732-6367</a>
+    <nav aria-label="Principal">
+      <a href="#servicos">Serviços</a>
+      <a href="#documentos"><span class="long">Envie seus documentos</span><span class="short">Documentos</span></a>
+      <a href="#honorarios"><span class="long">2ª via de honorários</span><span class="short">2ª via</span></a>
+      <a class="cli" href="#honorarios">Área do cliente</a>
+      <a class="btn" href="https://wa.me/5544997326367?text=Ol%C3%A1%2C%20quero%20uma%20proposta%20da%20Telecont" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>
+        (44) 99732-6367
+      </a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <h1>Contabilidade para o comércio e os prestadores de Mandaguari, com as guias chegando antes do vencimento</h1>
+      <p>Escritório em Mandaguari desde 1991. Abertura de empresa, impostos, folha e honorários num lugar só.</p>
+      <div class="acoes">
+        <a class="btn" href="https://wa.me/5544997326367?text=Ol%C3%A1%2C%20quero%20uma%20proposta%20da%20Telecont" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>
+          Pedir proposta pelo WhatsApp
+        </a>
+        <a class="btn sec" href="#documentos">Enviar documentos</a>
+      </div>
+    </div>
+    <figure>
+      <svg class="ilu" viewBox="0 0 900 620" width="900" height="620" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração de uma mesa de escritório vista de cima, com guia, calendário, calculadora e carimbo">
+        <defs>
+          <linearGradient id="mesa" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9A6A46"/><stop offset="1" stop-color="#5E3C27"/></linearGradient>
+          <radialGradient id="luz" cx=".2" cy=".1" r=".9"><stop offset="0" stop-color="#FFE7B8" stop-opacity=".35"/><stop offset="1" stop-color="#FFE7B8" stop-opacity="0"/></radialGradient>
+          <linearGradient id="papel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#EFEBE2"/></linearGradient>
+          <linearGradient id="calc" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3A4452"/><stop offset="1" stop-color="#1F2730"/></linearGradient>
+          <linearGradient id="cafe" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5A3A22"/><stop offset="1" stop-color="#2A170C"/></linearGradient>
+          <linearGradient id="pasta" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#D9B98A"/><stop offset="1" stop-color="#C19A66"/></linearGradient>
+          <linearGradient id="latao" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D8B46E"/><stop offset=".5" stop-color="#C9A24A"/><stop offset="1" stop-color="#8C6A2F"/></linearGradient>
+          <filter id="sh" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="6" dy="12" stdDeviation="9" flood-color="#1A0D05" flood-opacity=".45"/></filter>
+          <filter id="sh2" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="3" dy="6" stdDeviation="5" flood-color="#1A0D05" flood-opacity=".4"/></filter>
+          <pattern id="barras" x="0" y="0" width="14" height="40" patternUnits="userSpaceOnUse"><rect width="2" height="40" fill="#222"/><rect x="4" width="4" height="40" fill="#222"/><rect x="10" width="1.5" height="40" fill="#222"/></pattern>
+        </defs>
+        <rect width="900" height="620" fill="url(#mesa)"/>
+        <g stroke="#4F3220" stroke-opacity=".45" stroke-width="2"><line x1="230" y1="0" x2="230" y2="620"/><line x1="560" y1="0" x2="560" y2="620"/></g>
+        <g stroke="#B58A62" stroke-opacity=".18" stroke-width="1"><line x1="232" y1="0" x2="232" y2="620"/><line x1="562" y1="0" x2="562" y2="620"/></g>
+        <rect width="900" height="620" fill="url(#luz)"/>
+
+        <!-- pasta de arquivo (canto inferior esquerdo) -->
+        <g transform="rotate(-9 120 520)" filter="url(#sh)">
+          <rect x="-40" y="420" width="300" height="230" rx="6" fill="url(#pasta)"/>
+          <path d="M-40 420 h110 l14 -16 h80 l10 16 h86" fill="none" stroke="#B08A58" stroke-width="2"/>
+          <rect x="-26" y="436" width="268" height="200" fill="#F7F3EA"/>
+          <rect x="-40" y="452" width="300" height="200" rx="6" fill="url(#pasta)"/>
+          <rect x="-10" y="470" width="150" height="14" rx="3" fill="#8C6A2F" opacity=".5"/>
+        </g>
+
+        <!-- guia DAS -->
+        <g transform="rotate(-5 300 300)" filter="url(#sh)">
+          <rect x="150" y="90" width="320" height="430" fill="url(#papel)"/>
+          <rect x="150" y="90" width="320" height="40" fill="#1D2B24"/>
+          <text x="170" y="116" font-family="Trebuchet MS, Verdana, DejaVu Sans, sans-serif" font-size="14" font-weight="700" fill="#fff" letter-spacing="1">DAS · SIMPLES NACIONAL</text>
+          <g fill="#A8B0BA"><rect x="170" y="150" width="200" height="8" rx="2"/><rect x="170" y="168" width="150" height="8" rx="2"/><rect x="170" y="186" width="230" height="8" rx="2"/></g>
+          <g fill="#D8DCE2"><rect x="170" y="216" width="280" height="1.5"/><rect x="170" y="246" width="280" height="1.5"/><rect x="170" y="276" width="280" height="1.5"/><rect x="170" y="306" width="280" height="1.5"/><rect x="170" y="336" width="280" height="1.5"/></g>
+          <g fill="#6B7480" font-family="Trebuchet MS, Verdana, DejaVu Sans, sans-serif" font-size="12">
+            <text x="172" y="236">Período de apuração</text><text x="380" y="236">09/2026</text>
+            <text x="172" y="266">Vencimento</text><text x="380" y="266" font-weight="700" fill="#15202E">20/10/2026</text>
+            <text x="172" y="296">Valor principal</text><text x="380" y="296">R$ ···,··</text>
+            <text x="172" y="326">Total a pagar</text><text x="380" y="326" font-weight="700" fill="#15202E">R$ ···,··</text>
+          </g>
+          <rect x="170" y="370" width="280" height="56" fill="url(#barras)"/>
+          <rect x="170" y="436" width="200" height="6" rx="2" fill="#C5CBD3"/>
+          <!-- clipe -->
+          <path d="M440 100 v40 a9 9 0 0 1 -18 0 v-48 a14 14 0 0 1 28 0 v52" fill="none" stroke="#9AA3AE" stroke-width="3" stroke-linecap="round"/>
+        </g>
+
+        <!-- carimbo "EM DIA" sobre a guia -->
+        <g transform="rotate(-14 330 470)">
+          <circle cx="330" cy="470" r="58" fill="none" stroke="#C0392B" stroke-width="5" opacity=".85"/>
+          <circle cx="330" cy="470" r="48" fill="none" stroke="#C0392B" stroke-width="1.5" opacity=".85"/>
+          <text x="330" y="480" text-anchor="middle" font-family="Charter, Bitstream Charter, Georgia, serif" font-weight="700" font-size="26" fill="#C0392B" opacity=".88" letter-spacing="2">EM DIA</text>
+          <text x="330" y="500" text-anchor="middle" font-family="Trebuchet MS, Verdana, DejaVu Sans, sans-serif" font-size="11" fill="#C0392B" opacity=".88" letter-spacing="2">TELECONT · MANDAGUARI</text>
+        </g>
+
+        <!-- carimbo (objeto) -->
+        <g transform="translate(520,470) rotate(20)" filter="url(#sh2)">
+          <rect x="-34" y="-20" width="68" height="40" rx="8" fill="#2E2A28"/>
+          <rect x="-26" y="-14" width="52" height="24" rx="5" fill="#C0392B"/>
+          <rect x="-12" y="-60" width="24" height="44" rx="8" fill="url(#latao)"/>
+          <ellipse cx="0" cy="-60" rx="14" ry="6" fill="#D8B46E"/>
+        </g>
+
+        <!-- calendário de mesa -->
+        <g transform="rotate(4 690 170)" filter="url(#sh)">
+          <rect x="560" y="60" width="250" height="230" rx="6" fill="url(#papel)"/>
+          <rect x="560" y="60" width="250" height="44" rx="6" fill="#C0392B"/>
+          <rect x="560" y="90" width="250" height="14" fill="#C0392B"/>
+          <text x="685" y="90" text-anchor="middle" font-family="Charter, Bitstream Charter, Georgia, serif" font-weight="700" font-size="22" fill="#fff">Outubro</text>
+          <g fill="#3A4452"><circle cx="590" cy="60" r="5"/><circle cx="620" cy="60" r="5"/><circle cx="650" cy="60" r="5"/><circle cx="680" cy="60" r="5"/><circle cx="710" cy="60" r="5"/><circle cx="740" cy="60" r="5"/><circle cx="770" cy="60" r="5"/></g>
+          <g font-family="Trebuchet MS, Verdana, DejaVu Sans, sans-serif" font-size="11" fill="#8A93A0" text-anchor="middle">
+            <text x="582" y="124">D</text><text x="616" y="124">S</text><text x="650" y="124">T</text><text x="684" y="124">Q</text><text x="718" y="124">Q</text><text x="752" y="124">S</text><text x="786" y="124">S</text>
+          </g>
+          <g font-family="Trebuchet MS, Verdana, DejaVu Sans, sans-serif" font-size="13" fill="#15202E" text-anchor="middle">
+            <text x="718" y="150">1</text><text x="752" y="150">2</text><text x="786" y="150">3</text>
+            <text x="582" y="178">4</text><text x="616" y="178">5</text><text x="650" y="178">6</text><text x="684" y="178">7</text><text x="718" y="178">8</text><text x="752" y="178">9</text><text x="786" y="178">10</text>
+            <text x="582" y="206">11</text><text x="616" y="206">12</text><text x="650" y="206">13</text><text x="684" y="206">14</text><text x="718" y="206">15</text><text x="752" y="206">16</text><text x="786" y="206">17</text>
+            <text x="582" y="234">18</text><text x="616" y="234">19</text><text x="650" y="234" font-weight="700" fill="#C0392B">20</text><text x="684" y="234">21</text><text x="718" y="234">22</text><text x="752" y="234">23</text><text x="786" y="234">24</text>
+            <text x="582" y="262">25</text><text x="616" y="262">26</text><text x="650" y="262">27</text><text x="684" y="262">28</text><text x="718" y="262">29</text><text x="752" y="262">30</text><text x="786" y="262">31</text>
+          </g>
+          <circle cx="650" cy="229" r="13" fill="none" stroke="#C0392B" stroke-width="2.5"/>
+          <circle cx="684" cy="173" r="11" fill="none" stroke="#C9A24A" stroke-width="2"/>
+        </g>
+
+        <!-- calculadora -->
+        <g transform="translate(-28,-12) rotate(-8 700 450)" filter="url(#sh)">
+          <rect x="620" y="330" width="170" height="250" rx="12" fill="url(#calc)"/>
+          <rect x="634" y="346" width="142" height="44" rx="4" fill="#C9D6C2"/>
+          <text x="768" y="378" text-anchor="end" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="22" fill="#1F2730">1.248,90</text>
+          <g fill="#4C5663">
+            <rect x="634" y="406" width="30" height="26" rx="4"/><rect x="672" y="406" width="30" height="26" rx="4"/><rect x="710" y="406" width="30" height="26" rx="4"/>
+            <rect x="634" y="442" width="30" height="26" rx="4"/><rect x="672" y="442" width="30" height="26" rx="4"/><rect x="710" y="442" width="30" height="26" rx="4"/>
+            <rect x="634" y="478" width="30" height="26" rx="4"/><rect x="672" y="478" width="30" height="26" rx="4"/><rect x="710" y="478" width="30" height="26" rx="4"/>
+            <rect x="634" y="514" width="68" height="26" rx="4"/><rect x="710" y="514" width="30" height="26" rx="4"/>
+          </g>
+          <g fill="#C9A24A"><rect x="748" y="406" width="28" height="26" rx="4"/><rect x="748" y="442" width="28" height="26" rx="4"/><rect x="748" y="478" width="28" height="26" rx="4"/></g>
+          <rect x="748" y="514" width="28" height="26" rx="4" fill="#C0392B"/>
+        </g>
+
+        <!-- xícara de café (vista de cima) -->
+        <g transform="translate(492,562)" filter="url(#sh2)">
+          <circle cx="0" cy="0" r="46" fill="#F1ECE2"/>
+          <circle cx="0" cy="0" r="34" fill="#FFFFFF"/>
+          <circle cx="0" cy="0" r="28" fill="url(#cafe)"/>
+          <ellipse cx="-10" cy="-10" rx="10" ry="5" fill="#fff" opacity=".18"/>
+          <path d="M34 -4 q22 0 22 14 q0 14 -22 14" fill="none" stroke="#FFFFFF" stroke-width="7"/>
+        </g>
+
+        <!-- caneta -->
+        <g transform="rotate(-32 300 580)" filter="url(#sh2)">
+          <rect x="200" y="572" width="210" height="14" rx="7" fill="#1D2B24"/>
+          <rect x="200" y="572" width="60" height="14" rx="7" fill="url(#latao)"/>
+          <path d="M410 572 l22 7 l-22 7 z" fill="url(#latao)"/>
+          <rect x="300" y="574" width="4" height="10" fill="#C9A24A"/>
+        </g>
+      </svg>
+      <figcaption>Ilustração de exemplo — no site real entra a foto do escritório ou da equipe.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="cel" id="area">
+  <div class="wrap">
+    <h2>O dia a dia com o escritório, no seu celular</h2>
+    <p class="intro">Em vez de pedir no WhatsApp e esperar a resposta, o cliente da Telecont encontra aqui, a qualquer hora:</p>
+    <div class="tiles">
+
+      <a class="tile" href="#documentos">
+        <div class="img">
+          <svg viewBox="0 0 400 225" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração de pasta com notas fiscais e extratos">
+            <defs>
+              <linearGradient id="t1pasta" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#DCBE90"/><stop offset="1" stop-color="#BF9A66"/></linearGradient>
+              <linearGradient id="t1papel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#EFEBE2"/></linearGradient>
+              <filter id="t1sh" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="3" dy="6" stdDeviation="5" flood-color="#2B1E10" flood-opacity=".3"/></filter>
+            </defs>
+            <rect width="400" height="225" fill="#DCE2D0"/>
+            <g transform="translate(200,120)">
+              <path d="M-150 -40 h90 l14 -16 h70 l10 16 h116 a6 6 0 0 1 6 6 v120 a6 6 0 0 1 -6 6 h-294 a6 6 0 0 1 -6 -6 v-120 a6 6 0 0 1 6 -6z" fill="url(#t1pasta)" filter="url(#t1sh)"/>
+              <g filter="url(#t1sh)" transform="translate(0,-22)">
+                <rect x="-120" y="-92" width="130" height="170" rx="3" fill="url(#t1papel)" transform="rotate(-9)"/>
+                <g transform="rotate(-9)" fill="#B7BEC8"><rect x="-104" y="-70" width="70" height="8" rx="2"/><rect x="-104" y="-52" width="98" height="5" rx="2"/><rect x="-104" y="-40" width="80" height="5" rx="2"/><rect x="-104" y="-28" width="92" height="5" rx="2"/></g>
+                <g transform="rotate(-9)"><rect x="-104" y="-12" width="98" height="26" fill="#1D2B24" opacity=".12"/><text x="-98" y="6" font-family="Trebuchet MS, Verdana, DejaVu Sans, sans-serif" font-size="11" font-weight="700" fill="#1D2B24">NF-e 000.418</text></g>
+              </g>
+              <g filter="url(#t1sh)" transform="translate(0,-22)">
+                <rect x="-30" y="-100" width="130" height="170" rx="3" fill="url(#t1papel)" transform="rotate(5)"/>
+                <g transform="rotate(5)" fill="#B7BEC8"><rect x="-14" y="-80" width="60" height="8" rx="2"/><rect x="-14" y="-60" width="98" height="4" rx="2"/><rect x="-14" y="-48" width="98" height="4" rx="2"/><rect x="-14" y="-36" width="98" height="4" rx="2"/><rect x="-14" y="-24" width="98" height="4" rx="2"/><rect x="-14" y="-12" width="98" height="4" rx="2"/></g>
+                <g transform="rotate(5)" font-family="Trebuchet MS, Verdana, DejaVu Sans, sans-serif" font-size="10" fill="#5B6675"><text x="-12" y="12">Extrato · set/2026</text></g>
+              </g>
+              <path d="M-156 10 h312 a6 6 0 0 1 6 6 v70 a6 6 0 0 1 -6 6 h-312 a6 6 0 0 1 -6 -6 v-70 a6 6 0 0 1 6 -6z" fill="url(#t1pasta)" filter="url(#t1sh)"/>
+              <rect x="-130" y="30" width="110" height="16" rx="3" fill="#8C6A2F" opacity=".45"/>
+              <text x="-124" y="42" font-family="Trebuchet MS, Verdana, DejaVu Sans, sans-serif" font-size="11" font-weight="700" fill="#4A3414">OUTUBRO · 2026</text>
+            </g>
+          </svg>
+        </div>
+        <div class="in">
+          <h3>Envie seus documentos</h3>
+          <p>Notas, extratos e documentos de funcionário vão direto para a pasta da sua empresa, com confirmação.</p>
+        </div>
+      </a>
+
+      <a class="tile" href="#honorarios">
+        <div class="img">
+          <svg viewBox="0 0 400 267" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração de guia de imposto com etiqueta de vencimento">
+            <defs>
+              <linearGradient id="t2papel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#EFEBE2"/></linearGradient>
+              <filter id="t2sh" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="3" dy="6" stdDeviation="5" flood-color="#2B1E10" flood-opacity=".3"/></filter>
+              <pattern id="t2bar" x="0" y="0" width="12" height="30" patternUnits="userSpaceOnUse"><rect width="2" height="30" fill="#222"/><rect x="4" width="3" height="30" fill="#222"/><rect x="9" width="1.5" height="30" fill="#222"/></pattern>
+            </defs>
+            <rect width="400" height="267" fill="#DCE2D0"/>
+            <g transform="rotate(-6 200 140)" filter="url(#t2sh)">
+              <rect x="110" y="40" width="190" height="250" fill="url(#t2papel)"/>
+              <rect x="110" y="40" width="190" height="28" fill="#1D2B24"/>
+              <text x="122" y="59" font-family="Trebuchet MS, Verdana, DejaVu Sans, sans-serif" font-size="11" font-weight="700" fill="#fff" letter-spacing="1">DAS · SIMPLES</text>
+              <g fill="#B7BEC8"><rect x="124" y="84" width="110" height="6" rx="2"/><rect x="124" y="98" width="80" height="6" rx="2"/><rect x="124" y="112" width="130" height="6" rx="2"/></g>
+              <g font-family="Trebuchet MS, Verdana, DejaVu Sans, sans-serif" font-size="11" fill="#5B6675"><text x="124" y="146">Vencimento</text><text x="222" y="146" font-weight="700" fill="#15202E">20/10</text><text x="124" y="168">Total</text><text x="222" y="168" font-weight="700" fill="#15202E">R$ ···,··</text></g>
+              <rect x="124" y="190" width="162" height="38" fill="url(#t2bar)"/>
+            </g>
+            <g transform="translate(300,72) rotate(12)" filter="url(#t2sh)">
+              <rect x="-42" y="-24" width="84" height="48" rx="6" fill="#C0392B"/>
+              <text x="0" y="-2" text-anchor="middle" font-family="Charter, Bitstream Charter, Georgia, serif" font-weight="700" font-size="22" fill="#fff">20</text>
+              <text x="0" y="16" text-anchor="middle" font-family="Trebuchet MS, Verdana, DejaVu Sans, sans-serif" font-size="10" fill="#fff" letter-spacing="1.5">OUTUBRO</text>
+            </g>
+          </svg>
+        </div>
+        <div class="in">
+          <h3>Guias do mês</h3>
+          <p>DAS, ISS, FGTS e INSS emitidos e avisados no WhatsApp antes de vencer.</p>
+        </div>
+      </a>
+
+      <a class="tile" href="#honorarios">
+        <div class="img">
+          <svg viewBox="0 0 400 267" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração de boleto de honorários com código Pix">
+            <defs>
+              <linearGradient id="t3papel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#EFEBE2"/></linearGradient>
+              <filter id="t3sh" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="3" dy="6" stdDeviation="5" flood-color="#2B1E10" flood-opacity=".3"/></filter>
+              <pattern id="t3bar" x="0" y="0" width="11" height="26" patternUnits="userSpaceOnUse"><rect width="1.5" height="26" fill="#222"/><rect x="3.5" width="3" height="26" fill="#222"/><rect x="8.5" width="1.5" height="26" fill="#222"/></pattern>
+            </defs>
+            <rect width="400" height="267" fill="#DCE2D0"/>
+            <g transform="rotate(3 200 140)" filter="url(#t3sh)">
+              <rect x="50" y="70" width="300" height="140" fill="url(#t3papel)"/>
+              <rect x="50" y="70" width="300" height="24" fill="#C9A24A"/>
+              <text x="62" y="87" font-family="Charter, Bitstream Charter, Georgia, serif" font-weight="700" font-size="13" fill="#1D2B24">Telecont · honorários de outubro</text>
+              <g fill="#B7BEC8"><rect x="62" y="108" width="120" height="6" rx="2"/><rect x="62" y="122" width="90" height="6" rx="2"/></g>
+              <g font-family="Trebuchet MS, Verdana, DejaVu Sans, sans-serif" font-size="11" fill="#5B6675"><text x="62" y="150">Vencimento</text><text x="140" y="150" font-weight="700" fill="#15202E">10/10</text></g>
+              <rect x="62" y="166" width="190" height="30" fill="url(#t3bar)"/>
+              <!-- QR do Pix -->
+              <g transform="translate(272,104)" fill="#15202E">
+                <rect width="66" height="66" fill="#fff"/>
+                <rect x="4" y="4" width="18" height="18"/><rect x="8" y="8" width="10" height="10" fill="#fff"/>
+                <rect x="44" y="4" width="18" height="18"/><rect x="48" y="8" width="10" height="10" fill="#fff"/>
+                <rect x="4" y="44" width="18" height="18"/><rect x="8" y="48" width="10" height="10" fill="#fff"/>
+                <rect x="28" y="4" width="4" height="4"/><rect x="36" y="8" width="4" height="4"/><rect x="28" y="14" width="8" height="4"/>
+                <rect x="4" y="28" width="4" height="4"/><rect x="12" y="28" width="8" height="4"/><rect x="8" y="36" width="4" height="4"/><rect x="16" y="36" width="4" height="4"/>
+                <rect x="28" y="28" width="8" height="8"/><rect x="40" y="28" width="4" height="4"/><rect x="48" y="32" width="8" height="4"/><rect x="56" y="28" width="4" height="8"/>
+                <rect x="28" y="40" width="4" height="8"/><rect x="36" y="44" width="8" height="4"/><rect x="48" y="40" width="4" height="4"/><rect x="56" y="44" width="4" height="4"/>
+                <rect x="28" y="52" width="8" height="4"/><rect x="40" y="52" width="4" height="8"/><rect x="48" y="52" width="12" height="4"/><rect x="52" y="58" width="4" height="4"/>
+              </g>
+            </g>
+            <g transform="rotate(-12 300 220)">
+              <rect x="246" y="200" width="110" height="40" rx="4" fill="none" stroke="#C0392B" stroke-width="3" opacity=".85"/>
+              <text x="301" y="227" text-anchor="middle" font-family="Charter, Bitstream Charter, Georgia, serif" font-weight="700" font-size="20" fill="#C0392B" opacity=".9" letter-spacing="1">2ª VIA</text>
+            </g>
+          </svg>
+        </div>
+        <div class="in">
+          <h3>2ª via de honorários</h3>
+          <p>Boleto do mês e código Pix para copiar, sem precisar pedir no escritório.</p>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section class="serv" id="servicos">
+  <div class="wrap">
+    <div>
+      <h2>O que entra no atendimento mensal</h2>
+      <p class="reg">MEI, Simples Nacional e Lucro Presumido. Comércio, prestadores de serviço e indústria de Mandaguari e região.</p>
+    </div>
+    <ul>
+      <li><b>Escrituração e impostos</b><span>Apuração de DAS, ISS, ICMS, PIS e COFINS e envio das guias.</span></li>
+      <li><b>Folha de pagamento</b><span>Admissão, férias, 13º, rescisão, eSocial e FGTS.</span></li>
+      <li><b>Abertura e alterações</b><span>CNPJ, Junta Comercial, alvará, mudança de sócios ou endereço.</span></li>
+      <li><b>Planejamento tributário</b><span>Comparação de regimes todo fim de ano e revisão do pró-labore.</span></li>
+      <li><b>Declarações anuais</b><span>IRPF dos sócios, DEFIS, ECD, ECF e DIRF.</span></li>
+      <li><b>Assessoria</b><span>Orientação para quem está começando e para quem quer trocar de escritório.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="docs" id="documentos">
+  <div class="wrap">
+    <div>
+      <h2>Envie seus documentos</h2>
+      <p>Em vez de mandar foto no WhatsApp, solte os arquivos do mês aqui. Eles caem na pasta da sua empresa e você recebe a confirmação.</p>
+      <form onsubmit="return false">
+        <label for="tipo">Tipo de documento</label>
+        <select id="tipo"><option>Notas fiscais</option><option>Extratos bancários</option><option>Documentos de funcionário</option><option>Outro</option></select>
+        <label for="mes">Mês de referência</label>
+        <input id="mes" type="month" value="2026-10">
+        <div class="drop">Arraste os arquivos ou toque para escolher<br><small>PDF, XML ou foto do celular</small></div>
+        <button class="btn" type="button">Enviar para a Telecont</button>
+      </form>
+    </div>
+    <div id="honorarios">
+      <h2>2ª via de honorários e área do cliente</h2>
+      <p>Informe o CNPJ e baixe o boleto do mês ou copie o código Pix. As guias já emitidas, holerites e documentos enviados ficam na área do cliente.</p>
+      <form class="marinho" onsubmit="return false">
+        <h3>Entrar na área do cliente</h3>
+        <label for="cnpj">CNPJ da empresa</label>
+        <input id="cnpj" inputmode="numeric" placeholder="00.000.000/0001-00">
+        <label for="mail">E-mail cadastrado</label>
+        <input id="mail" type="email" placeholder="voce@suaempresa.com.br">
+        <button class="btn" type="button">Ver boleto e guias</button>
+        <small>Primeiro acesso? Peça o cadastro pelo WhatsApp.</small>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><b>Telecont Informática Contábil</b><br>R. José Ferreira Nhobelo, 171, Centro, Mandaguari/PRMandaguari/PR</div>
+    <div><b>WhatsApp</b><br><a href="https://wa.me/5544997326367">(44) 99732-6367</a></div>
+    <div><b>E-mail</b><br><a href="mailto:eugenio@telecontcontabil.com.br">eugenio@telecontcontabil.com.br</a></div>
+    <div class="selo">Prévia · proposta de site</div>
+  </div>
+</footer>
+<a class="btn fixo" href="https://wa.me/5544997326367" target="_blank" rel="noopener">Falar no WhatsApp</a>
+</body>
+</html>
